@@ -2,19 +2,27 @@
 // This file contains the 'main' function. 
 // Program execution begins and ends there.
 
-// Header files
-#include "Common.h"
-#include "Match.h"
+// Header file
+#include "ReplaysAnalyser.h"
+
+// Libraries
+#include <filesystem>
 
 // Namespace mods
 using namespace std;
 namespace fs = filesystem;
 
-// Global variables
-// Replay folder path
-// - AT TESTING VALUE
-// - Actual: 'C:/Users/David/SSF2Replays'
-const std::string replayPath = "../Sample_Data";
+
+
+// ### Global variables
+// ## Replay folder path
+// # TEST VALUE
+// const string replayPath = "../Sample_Data";
+// # TEST VALUE 2
+const string replayPath = "C:/Users/David/GitHubRepos/SSF2ReplaysCOPY";
+// # ACTUAL VALUE
+//'C:/Users/David/SSF2Replays'
+
 
 // Main func
 int main()
@@ -22,7 +30,7 @@ int main()
 	// Welcome message
 	print("####### WELCOME TO REPLAYS ANALYSER #######", true);
 
-	//// For every path in the directory
+	// For every path in the directory
 	for (const auto& curPath : fs::recursive_directory_iterator(replayPath)) {
 
 		// Convert current path to string
@@ -34,26 +42,11 @@ int main()
 			// Create Match from path line
 			Match m = Match(curPathS);
 
-			// Print 
-			print(curPathS);
-
-			// STOP, TESTING
+			// STOP FOR TESTING
 			break;
 		}
 	}
 
-
-
-
 	// END
 	print("\n");
-}
-
-// Helper function for printing
-void print(string s, bool useEndl)
-{
-	cout << "\n" << s;
-	if (useEndl) {
-		cout << endl;
-	}
 }
