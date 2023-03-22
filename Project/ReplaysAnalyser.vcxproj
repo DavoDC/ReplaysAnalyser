@@ -21,9 +21,13 @@
   <ItemGroup>
     <ClInclude Include="..\Code\Common.h" />
     <ClInclude Include="..\Code\Match.h" />
+    <ClInclude Include="..\Code\ReplayDate.h" />
+    <ClInclude Include="..\Code\ReplaysAnalyser.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Code\Common.cpp" />
     <ClCompile Include="..\Code\Match.cpp" />
+    <ClCompile Include="..\Code\ReplayDate.cpp" />
     <ClCompile Include="..\Code\ReplaysAnalyser.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
