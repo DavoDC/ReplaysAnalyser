@@ -1,16 +1,5 @@
 STATISTICAL ANALYSIS OF SSF2 REPLAY FILES
 
-Read: C:\Users\David\GitHubRepos\SSF2Replays
-
-#include<string>
-#include<iostream>#include<filesystem>namespacefs = std::filesystem;
-intmain(){
-    std::string path = "/path/to/directory";
-    for(constauto& entry : fs::directory_iterator(path))
-        std::cout << entry.path() << std::endl;
-}
-
-From <https://stackoverflow.com/questions/612097/how-can-i-get-the-list-of-files-in-a-directory-using-c-or-c> 
 
 
 CASES TO HANDLE:
@@ -21,8 +10,12 @@ Need list of Fighters (Player, Character)
 2023-02-16 1.56 PM - Versus - P1 (Mega Man) vs P2 (Goku).ssfrec
 
 
-make a class to represent files, DATE Field
 
+
+STATISTICS:
+
+SORT A LIST OF THE CLASS BY DATE
+	- Need to implement comparable like in Java
 
 Oldest date =
 Latest date = 
@@ -36,10 +29,6 @@ Common players
 
 Mentions of characters
 e.g. 50% of replays involve Wario
-
-
-SORT A LIST OF THE CLASS BY DATE
-	- Need to implement comparable like in Java
 
 
 Generate statistical report in markdown, PUT DATE ON IT
