@@ -1,7 +1,7 @@
 #pragma once
 
 // ReplayDate.h
-// Extends standard Date class
+// Acts as a wrapper for standard Date class
 
 // Include common
 #include "Common.h"
@@ -22,11 +22,14 @@ public:
 	ReplayDate(std::string);
 
 	// Retrieve internal date
-    std::chrono::year_month_day getDate();
+    std::chrono::year_month_day getYMD();
+
+	// Convert to string
+	std::string toString();
 private: 
 
 	// Internal standard date object
-	std::chrono::year_month_day internalDate;
+	std::chrono::year_month_day YMD;
 
 };
 

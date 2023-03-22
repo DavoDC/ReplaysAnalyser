@@ -9,6 +9,8 @@
 // Include helper class
 #include "ReplayDate.h"
 
+// Macro for type
+#define StringPairs std::vector<std::pair<std::string, std::string>>
 
 // Declare Match class
 class Match
@@ -19,6 +21,10 @@ public:
 	// Constructor
 	Match(std::string);
 
+	// ## Getters
+	std::string getVersion();
+	ReplayDate getDate();
+	StringPairs getPCPairs();
 
 private:
 
@@ -31,7 +37,7 @@ private:
 	// Date of match
 	ReplayDate date;
 
-	// Player-Character pairs (up to four)
-	// use map?
+	// Player-Character pairs (2, 3 or 4)
+	StringPairs pcPairs;
 };
 
