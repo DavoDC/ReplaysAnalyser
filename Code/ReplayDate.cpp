@@ -11,41 +11,38 @@ using namespace std;
 // Default Constructor
 ReplayDate::ReplayDate()
 {
-	// Nothing needed
+	YMD = chrono::year_month_day();
 }
 
 
 // Construct a date from a string
 ReplayDate::ReplayDate(string rawDateS)
 {
-	
-	print("ello!", true); 
-	
-	// 2021-01-11 1.29 PM	
+	// Split raw date into date, time and AM/PM
+	vector<string> rawParts = split(rawDateS, " ");
 
-	vector<string> dateParts1 = split(rawDateS, " ");
+	// Get date part only
+	string datePart = rawParts.front();
 
+	// Convert into date object
+    stringstream ss(datePart);
+	chrono::year_month_day newYMD;
+	chrono::from_stream(ss, "%F", newYMD);
 
-	// TEST PRINT
-	for (string s : dateParts1)
-	{
-		print(s);
-	}
-
-
-	chrono::year y = chrono::year(2021);
-	chrono::month m;
-	chrono::day d;
-
-
-	chrono::year_month_day ob = chrono::year_month_day(y, m, d);
-
-	internalDate = ob;
+    // Save into field
+	YMD = newYMD;
 }
 
 
 // Extract internal date
-std::chrono::year_month_day ReplayDate::getDate()
+chrono::year_month_day ReplayDate::getYMD()
 {
-	return internalDate;
+	return YMD;
+}
+
+
+// Get date string in preferred format
+string ReplayDate::toString()
+{
+	return format("{:%d %A, %m %B, %Y}", YMD);
 }

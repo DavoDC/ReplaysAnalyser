@@ -1,14 +1,18 @@
 STATISTICAL ANALYSIS OF SSF2 REPLAY FILES
 
 
+Match class add as proper helper function
 
-CASES TO HANDLE:
-Need list of Fighters (Player, Character)
-2021-01-11 1.29 PM - VersusOnline - B0liy0 (Bomberman) vs DavoDC (Wario)
-2021-01-11 6.15 PM - VersusOnline - Xrlylyl (Jigglypuff) vs DavoDC (Wario) vs JazBlue959 (Sonic)
-2021-01-11 6.47 PM - VersusOnline - Xrlylyl (Jigglypuff) vs DavoDC (Wario) vs JAM (Naruto) vs MrAgosFan (Pit)
-2023-02-16 1.56 PM - Versus - P1 (Mega Man) vs P2 (Goku).ssfrec
 
+ADD TO STRING TO MATCH CLASS
+- calls toString on each field!
+
+- convert StringPairs to wrapper class like ReplayDate 
+	- add ToString, 6chars of each
+	- date = StringPairs(rawPcPairs) -> does all processing!
+	- add internal function - add Pair(String, String) for direct, ez add, with removals
+
+PRINT OUT STRINGIFIED OF each Match
 
 
 
@@ -17,8 +21,8 @@ STATISTICS:
 SORT A LIST OF THE CLASS BY DATE
 	- Need to implement comparable like in Java
 
-Oldest date =
-Latest date = 
+Oldest date and MATCH =
+Newest date and MATCH = 
 
 Matches per year
 
