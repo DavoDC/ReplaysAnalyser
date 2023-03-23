@@ -19,6 +19,12 @@
     <Filter Include="Header Files\Modules">
       <UniqueIdentifier>{ee949c01-1e96-4b47-a9c6-a7bce0c14b68}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Modules\MatchModules">
+      <UniqueIdentifier>{662f8bca-574b-4e4c-9a8d-8e00021a1927}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Modules\MatchModules">
+      <UniqueIdentifier>{420e3ad4-f879-4018-acb4-27aa2943ad52}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Code\Common.h">
@@ -31,7 +37,10 @@
       <Filter>Header Files\Modules</Filter>
     </ClInclude>
     <ClInclude Include="..\Code\ReplayDate.h">
-      <Filter>Header Files\Modules</Filter>
+      <Filter>Header Files\Modules\MatchModules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\StringPairs.h">
+      <Filter>Header Files\Modules\MatchModules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -45,7 +54,10 @@
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
     <ClCompile Include="..\Code\ReplayDate.cpp">
-      <Filter>Source Files\Modules</Filter>
+      <Filter>Source Files\Modules\MatchModules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\StringPairs.cpp">
+      <Filter>Source Files\Modules\MatchModules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

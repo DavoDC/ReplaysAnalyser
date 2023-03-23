@@ -15,12 +15,12 @@ namespace fs = filesystem;
 
 
 // ### Global variables
-// 
+
 // ## Replay folder path
 // # TEST VALUE
-const string replayPath = "../Sample_Data";
+//const string replayPath = "../Sample_Data";
 // # TEST VALUE 2
-//const string replayPath = "C:/Users/David/GitHubRepos/SSF2ReplaysCOPY";
+const string replayPath = "C:/Users/David/GitHubRepos/SSF2ReplaysCOPY";
 // # ACTUAL VALUE
 //'C:/Users/David/SSF2Replays'
 
@@ -39,13 +39,13 @@ int main()
 
 	print("size: " + to_string(matches.size()));
 
-	// TEST
+	
 	for (Match curM : matches)
 	{
-		print(curM.getDate().toString());
+		curM.toString();
 	}
-	
-	
+
+
 
 	// END
 	print("\n");

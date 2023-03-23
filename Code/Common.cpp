@@ -28,6 +28,7 @@ void print(string s, bool useEndl)
 // split(): Helper function for splitting strings
 // fullS = The full string
 // sep = The string that separates the parts
+// Returns the parts as a vector
 vector<string> split(string fullS, string sep)
 {
 	// Holder vector
@@ -45,4 +46,24 @@ vector<string> split(string fullS, string sep)
 
 	// Return vector
 	return parts;
+}
+
+// replaceAll(): Helper function for removing substrings
+// source = The original string
+// from = The substring to replace
+// to = The string to be substituted in
+void replaceAll(std::string& source, const std::string& from, const std::string& to)
+{
+	std::string newString;
+	newString.reserve(source.length());  // Avoids a few memory allocations
+	std::string::size_type lastPos = 0;
+	std::string::size_type findPos;
+	while (std::string::npos != (findPos = source.find(from, lastPos)))
+	{
+		newString.append(source, lastPos, findPos - lastPos);
+		newString += to;
+		lastPos = findPos + from.length();
+	}
+	newString += source.substr(lastPos);
+	source.swap(newString);
 }
