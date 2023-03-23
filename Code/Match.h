@@ -6,20 +6,21 @@
 // Include common
 #include "Common.h"
 
-// Include helper class
+// Include helper classes
 #include "ReplayDate.h"
-
-// Macro for type
-#define StringPairs std::vector<std::pair<std::string, std::string>>
+#include "StringPairs.h"
 
 // Declare Match class
 class Match
 {
 public:
-	
+
 	// ### Public Methods
 	// Constructor
 	Match(std::string);
+
+	// Get string representation
+	std::string toString();
 
 	// ## Getters
 	std::string getVersion();

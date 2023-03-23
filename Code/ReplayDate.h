@@ -6,6 +6,9 @@
 // Include common
 #include "Common.h"
 
+// Macro for long type name
+#define DateM std::chrono::year_month_day
+
 // ### Libraries
 #include <chrono>
 
@@ -22,14 +25,14 @@ public:
 	ReplayDate(std::string);
 
 	// Retrieve internal date
-    std::chrono::year_month_day getYMD();
+	DateM getYMD();
 
 	// Convert to string
 	std::string toString();
-private: 
+private:
 
 	// Internal standard date object
-	std::chrono::year_month_day YMD;
+	DateM YMD;
 
 };
 

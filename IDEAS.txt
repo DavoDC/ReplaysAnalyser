@@ -1,18 +1,9 @@
 STATISTICAL ANALYSIS OF SSF2 REPLAY FILES
 
 
-Match class add as proper helper function
 
+FIX BAD DATES!!!
 
-ADD TO STRING TO MATCH CLASS
-- calls toString on each field!
-
-- convert StringPairs to wrapper class like ReplayDate 
-	- add ToString, 6chars of each
-	- date = StringPairs(rawPcPairs) -> does all processing!
-	- add internal function - add Pair(String, String) for direct, ez add, with removals
-
-PRINT OUT STRINGIFIED OF each Match
 
 
 
