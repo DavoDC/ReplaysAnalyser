@@ -18,14 +18,29 @@ StringPairs::StringPairs()
 }
 
 
-// Define StringPairs class
+// Construct object from raw pairs
+// e.g. "davo1776 (Wario) vs HexxaWyn (Naruto) 
+// vs FakeNews (Falco) vs x77starboy (Naruto).ssfrec"
 StringPairs::StringPairs(string rawPCpairs)
 {
 	// Remove extension
 	replaceAll(rawPCpairs, ".ssfrec", "");
 
 	// Split into individual pairs
+	// e.g.
+	// "davo1776 (Wario)"
+	// "HexxaWyn (Naruto)"
+	// "FakeNews (Falco)"
+	// "x77starboy (Naruto)"
 	vector<string> pairs = split(rawPCpairs, " vs ");
+
+	// If there are not 2, 3 or 4 fighters
+	int pLen = pairs.size();
+	if (!(pLen >= 2 && pLen <= 4))
+	{
+		print("WARNING: Unusual number of fighters detected");
+		print("Fighters: " + to_string(pLen));
+	}
 
 	// For every pair string
 	for (string curPairS : pairs) {
@@ -37,7 +52,8 @@ StringPairs::StringPairs(string rawPCpairs)
 
 
 
-// Helper function for adding pairs
+// Helper function that creates a pair from a given string
+// e.g. "davo1776 (Wario)"
 void StringPairs::addPair(string rawPairS)
 {
 	// Add different separator than white space
@@ -47,16 +63,9 @@ void StringPairs::addPair(string rawPairS)
 	// Remove extra bracket at end
 	replaceAll(rawPairS, ")", "");
 	
-	// Split into player and character
-	vector<string> curPairParts = split(rawPairS, pairSep);
-
-	// If split didn't work
-	if (curPairParts.size() == 1)
-	{
-		// If not, notify
-		print("WARNING: Major player-character split issue");
-		print("RPS was: " + rawPairS, true);
-	}
+	// Split into player and character (2 parts)
+	// e.g. 'davo1776' and 'Wario'
+	vector<string> curPairParts = split(rawPairS, pairSep, 2);
 	
 	// Extract 1st string, the player, and remove whitespace
 	string player = curPairParts[0];

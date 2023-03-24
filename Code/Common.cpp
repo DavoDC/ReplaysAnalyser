@@ -48,6 +48,31 @@ vector<string> split(string fullS, string sep)
 	return parts;
 }
 
+// split(): Helper function for splitting strings, with check!
+// exp = The expected number of parts
+vector<string> split(string fullS, string sep, int exp)
+{
+	// Holder vector
+	vector<string> parts = split(fullS, sep);
+
+	// Get parts length
+	int pLen = parts.size();
+
+	// If number of parts doesn't match expected
+	if (pLen != exp)
+	{
+		// Notify
+		print("WARNING: Split had unexpected results!");
+		string pLenS = to_string(pLen);
+		string expS = to_string(exp);
+		print(format("Expected [{}] parts but got [{}]", expS, pLenS));
+		print(format("Call: split({}, {}, {})", fullS, sep, exp), true);
+	}
+
+	// Return vector
+	return parts;
+}
+
 // replaceAll(): Helper function for removing substrings
 // source = The original string
 // from = The substring to replace

@@ -27,9 +27,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Code\Common.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\Code\ReplaysAnalyser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -42,12 +39,15 @@
     <ClInclude Include="..\Code\StringPairs.h">
       <Filter>Header Files\Modules\MatchModules</Filter>
     </ClInclude>
+    <ClInclude Include="..\Code\MatchList.h">
+      <Filter>Header Files\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Common.h">
+      <Filter>Header Files\Modules</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Code\ReplaysAnalyser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Code\Common.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\Code\Match.cpp">
@@ -58,6 +58,12 @@
     </ClCompile>
     <ClCompile Include="..\Code\StringPairs.cpp">
       <Filter>Source Files\Modules\MatchModules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Common.cpp">
+      <Filter>Source Files\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\MatchList.cpp">
+      <Filter>Source Files\Modules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
