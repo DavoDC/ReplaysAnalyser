@@ -11,30 +11,34 @@ using namespace std;
 // Default Constructor
 ReplayDate::ReplayDate()
 {
-	YMD = DateM();
+	intYMD = DateM();
 }
 
 
 // Construct a date from a string
+// e.g. "2021-08-24 11.44 AM"
 ReplayDate::ReplayDate(string rawDateS)
 {
-	// Split raw date into date, time and AM/PM
-	vector<string> rawParts = split(rawDateS, " ");
+	// Split raw date into 3 parts
+	// e.g. '2021-08-24',  '11.44', 'AM'
+	vector<string> rawParts = split(rawDateS, " ", 3);
 
-	// Get date part only
+	// Get date part only (first part)
 	string datePart = rawParts.front();
-
-	// Convert into date object
 	stringstream ss(datePart);
+
+	// Holder
 	DateM newYMD;
+
+	// Convert date string into date object
 	chrono::from_stream(ss, "%F", newYMD);
 
 	// If date is not valid
 	if (!newYMD.ok())
 	{
-		// TEMP
-		print("WARNING: Invalid date generated");
-		print("Bad date was: " + rawDateS);
+		// Notify
+		print("WARNING: Invalid date detected!");
+		print("Raw Date: " + rawDateS);
 
 		// Try to fix
 		auto sysTime = chrono::sys_time<chrono::days>{ newYMD };
@@ -43,34 +47,32 @@ ReplayDate::ReplayDate(string rawDateS)
 		// If valid and year is not negative
 		if (fixedYMD.ok() && int(fixedYMD.year()) > 0)
 		{
-			// It has been fixed, so save it
+			// Has been successfully fixed, so:
+			// Update field with fixed date
 			newYMD = fixedYMD;
 
-			// TEMP
-			print("Date should be: " + format("{:%Y-%m-%d}", newYMD), true);
+			// Notify
+			print("Date should be: " + format("{:%Y-%m-%d}", newYMD));
+			print("Please rename file accordingly", true);
 		}
 		else
 		{
 			// Else if it couldn't be fixed, notify
-			print("WARNING: Unfixable invalid date generated!");
-			print("RDS was: " + rawDateS);
-			print("Fix attempt: " + format("{:%d/%b/%Y}", fixedYMD));
+			print("ERROR: Couldn't fix date automatically");
+			print("Fix attempt: " + format("{:%Y-%m-%d}", fixedYMD));
+			print("Please fix manually", true);
 		}
-	
-		
 	}
 
-	
-
-	// Save into field
-	YMD = newYMD;
+	// Save holder into field
+	intYMD = newYMD;
 }
 
 
 // Extract internal date
 DateM ReplayDate::getYMD()
 {
-	return YMD;
+	return intYMD;
 }
 
 
@@ -79,5 +81,5 @@ DateM ReplayDate::getYMD()
 // https://en.cppreference.com/w/cpp/chrono/year_month_day/formatter
 string ReplayDate::toString()
 {
-	return format("{:%d/%b/%Y}", YMD);
+	return format("{:%d/%b/%Y}", intYMD);
 }

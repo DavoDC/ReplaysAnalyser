@@ -32,7 +32,7 @@ public:
 private:
 
 	// Internal standard date object
-	DateM YMD;
+	DateM intYMD;
 
 };
 

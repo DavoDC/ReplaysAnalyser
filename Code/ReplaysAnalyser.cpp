@@ -5,13 +5,8 @@
 // Header file
 #include "ReplaysAnalyser.h"
 
-// Libraries
-#include <filesystem>
-
 // Namespace mods
 using namespace std;
-namespace fs = filesystem;
-
 
 
 // ### Global variables
@@ -24,8 +19,6 @@ const string replayPath = "C:/Users/David/GitHubRepos/SSF2ReplaysCOPY";
 // # ACTUAL VALUE
 //'C:/Users/David/SSF2Replays'
 
-// ## Match list
-vector<Match> matches;
 
 
 // Main func
@@ -34,16 +27,10 @@ int main()
 	// Welcome message
 	print("####### WELCOME TO REPLAYS ANALYSER #######", true);
 
-	// Step 1 = Parse matches
-	parseMatches();
+	// Parse matches into list of matches
+	MatchList ml = MatchList(replayPath);
+	print("Parsed " + ml.getSizeS() + " matches!");
 
-	print("size: " + to_string(matches.size()));
-
-	
-	for (Match curM : matches)
-	{
-		curM.toString();
-	}
 
 
 
@@ -52,21 +39,3 @@ int main()
 }
 
 
-
-// Parse matches
-void parseMatches()
-{
-	// For every path in the directory
-	for (const auto& curPath : fs::recursive_directory_iterator(replayPath)) {
-
-		// Convert current path to string
-		string curPathS = curPath.path().generic_string();
-
-		// If it is a replay path/file
-		if (strstr(curPathS.c_str(), ".ssfrec")) {
-
-			// Convert to Match and add to list
-			matches.push_back(Match(curPathS));
-		}
-	}
-}

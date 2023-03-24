@@ -4,8 +4,4 @@
 
 // Include needed headers
 #include "Common.h"
-#include "Match.h"
-
-
-// Function declarations
-void parseMatches();
+#include "MatchList.h"
