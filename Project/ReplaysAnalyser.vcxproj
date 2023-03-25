@@ -20,19 +20,21 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Code\Common.h" />
+    <ClInclude Include="..\Code\Fighter.h" />
+    <ClInclude Include="..\Code\FighterList.h" />
     <ClInclude Include="..\Code\Match.h" />
     <ClInclude Include="..\Code\MatchList.h" />
-    <ClInclude Include="..\Code\ReplayDate.h" />
+    <ClInclude Include="..\Code\Date.h" />
     <ClInclude Include="..\Code\ReplaysAnalyser.h" />
-    <ClInclude Include="..\Code\StringPairs.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Code\Common.cpp" />
+    <ClCompile Include="..\Code\Fighter.cpp" />
+    <ClCompile Include="..\Code\FighterList.cpp" />
     <ClCompile Include="..\Code\Match.cpp" />
     <ClCompile Include="..\Code\MatchList.cpp" />
-    <ClCompile Include="..\Code\ReplayDate.cpp" />
+    <ClCompile Include="..\Code\Date.cpp" />
     <ClCompile Include="..\Code\ReplaysAnalyser.cpp" />
-    <ClCompile Include="..\Code\StringPairs.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

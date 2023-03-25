@@ -18,6 +18,9 @@ class MatchList
 public:
 
 	// ### Public Methods
+	// Default Constructor (needed as declaration=instantation for types)
+	MatchList();
+	
 	// Constructor
 	MatchList(std::string);
 

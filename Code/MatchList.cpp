@@ -10,6 +10,11 @@ using namespace std;
 // Macro for long iterator type
 #define FSIterator filesystem::recursive_directory_iterator
 
+// Default Constructor
+MatchList::MatchList()
+{
+	matches = vector<Match>();
+}
 
 // Construct a match list from a directory path
 MatchList::MatchList(string replayPath)
