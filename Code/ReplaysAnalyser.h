@@ -4,4 +4,3 @@
 
 // Include needed headers
 #include "Common.h"
-#include "MatchList.h"

@@ -33,10 +33,7 @@
     <ClInclude Include="..\Code\Match.h">
       <Filter>Header Files\Modules</Filter>
     </ClInclude>
-    <ClInclude Include="..\Code\ReplayDate.h">
-      <Filter>Header Files\Modules\MatchModules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Code\StringPairs.h">
+    <ClInclude Include="..\Code\Date.h">
       <Filter>Header Files\Modules\MatchModules</Filter>
     </ClInclude>
     <ClInclude Include="..\Code\MatchList.h">
@@ -44,6 +41,12 @@
     </ClInclude>
     <ClInclude Include="..\Code\Common.h">
       <Filter>Header Files\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Fighter.h">
+      <Filter>Header Files\Modules\MatchModules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\FighterList.h">
+      <Filter>Header Files\Modules\MatchModules</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -53,10 +56,7 @@
     <ClCompile Include="..\Code\Match.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="..\Code\ReplayDate.cpp">
-      <Filter>Source Files\Modules\MatchModules</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Code\StringPairs.cpp">
+    <ClCompile Include="..\Code\Date.cpp">
       <Filter>Source Files\Modules\MatchModules</Filter>
     </ClCompile>
     <ClCompile Include="..\Code\Common.cpp">
@@ -64,6 +64,12 @@
     </ClCompile>
     <ClCompile Include="..\Code\MatchList.cpp">
       <Filter>Source Files\Modules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Fighter.cpp">
+      <Filter>Source Files\Modules\MatchModules</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\FighterList.cpp">
+      <Filter>Source Files\Modules\MatchModules</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -7,8 +7,8 @@
 #include "Common.h"
 
 // Include helper classes
-#include "ReplayDate.h"
-#include "StringPairs.h"
+#include "Date.h"
+#include "FighterList.h"
 
 // Declare Match class
 class Match
@@ -16,6 +16,10 @@ class Match
 public:
 
 	// ### Public Methods
+	
+	// Default Constructor (needed as declaration=instantation for types)
+	Match();
+
 	// Constructor
 	Match(std::string);
 
@@ -24,8 +28,8 @@ public:
 
 	// ## Getters
 	std::string getVersion();
-	ReplayDate getDate();
-	StringPairs getPCPairs();
+	Date getDate();
+	FighterList getFighters();
 
 private:
 
@@ -36,9 +40,9 @@ private:
 
 	// # From file name:
 	// Date of match
-	ReplayDate date;
+	Date date;
 
-	// Player-Character pairs (2, 3 or 4)
-	StringPairs pcPairs;
+	// Fighters (2, 3 or 4)
+	FighterList fighters;
 };
 
