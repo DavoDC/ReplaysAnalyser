@@ -29,10 +29,10 @@ void print(string s, bool useEndl)
 // fullS = The full string
 // sep = The string that separates the parts
 // Returns the parts as a vector
-vector<string> split(string fullS, string sep)
+stringV split(string fullS, string sep)
 {
 	// Holder vector
-	vector<string> parts;
+	stringV parts;
 
 	// For every part
 	for (const auto curPart : views::split(fullS, sep)) {
@@ -50,13 +50,13 @@ vector<string> split(string fullS, string sep)
 
 // split(): Helper function for splitting strings, with check!
 // exp = The expected number of parts
-vector<string> split(string fullS, string sep, int exp)
+stringV split(string fullS, string sep, int exp)
 {
 	// Holder vector
-	vector<string> parts = split(fullS, sep);
+	stringV parts = split(fullS, sep);
 
 	// Get parts length
-	int pLen = parts.size();
+	int pLen = int(parts.size());
 
 	// If number of parts doesn't match expected
 	if (pLen != exp)
