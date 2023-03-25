@@ -1,6 +1,6 @@
 #pragma once
 
-// ReplayDate.h
+// Date.h
 // Acts as a wrapper for standard Date class
 
 // Include common
@@ -12,17 +12,17 @@
 // ### Libraries
 #include <chrono>
 
-// Declare ReplayDate class
-class ReplayDate
+// Declare Date class
+class Date
 {
 
 public:
 
-	// Default Constructor (needed as declaration = instantation in Match.h)
-	ReplayDate();
+	// Default Constructor (needed as declaration=instantation for types)
+	Date();
 
 	// Special Constructor
-	ReplayDate(std::string);
+	Date(std::string);
 
 	// Retrieve internal date
 	DateM getYMD();

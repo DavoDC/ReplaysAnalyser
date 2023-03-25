@@ -1,15 +1,15 @@
-// ReplayDate.cpp : 
-// Defines ReplayDate class
+// Date.cpp : 
+// Defines Date class
 
 // Header file
-#include "ReplayDate.h"
+#include "Date.h"
 
 // Namespace mods
 using namespace std;
 
 
 // Default Constructor
-ReplayDate::ReplayDate()
+Date::Date()
 {
 	intYMD = DateM();
 }
@@ -17,11 +17,11 @@ ReplayDate::ReplayDate()
 
 // Construct a date from a string
 // e.g. "2021-08-24 11.44 AM"
-ReplayDate::ReplayDate(string rawDateS)
+Date::Date(string rawDateS)
 {
 	// Split raw date into 3 parts
 	// e.g. '2021-08-24',  '11.44', 'AM'
-	vector<string> rawParts = split(rawDateS, " ", 3);
+	stringV rawParts = split(rawDateS, " ", 3);
 
 	// Get date part only (first part)
 	string datePart = rawParts.front();
@@ -70,7 +70,7 @@ ReplayDate::ReplayDate(string rawDateS)
 
 
 // Extract internal date
-DateM ReplayDate::getYMD()
+DateM Date::getYMD()
 {
 	return intYMD;
 }
@@ -79,7 +79,7 @@ DateM ReplayDate::getYMD()
 // Get date string in preferred format
 // Format codes: 
 // https://en.cppreference.com/w/cpp/chrono/year_month_day/formatter
-string ReplayDate::toString()
+string Date::toString()
 {
 	return format("{:%d/%b/%Y}", intYMD);
 }
