@@ -6,23 +6,13 @@ STATISTICS:
 
 Code statistics within ReplaysAnalyser
 
-SORT A LIST OF THE CLASS BY DATE
-	- Need to implement comparable like in Java
 
-Oldest date and MATCH =
-Newest date and MATCH = 
-
-Matches per year
-
-% matches in each year
+# DATE STATS
+Date range = oldest to newest
 Average matches per year
 
-Common players
 
-Mentions of characters
-e.g. 50% of replays involve Wario
+# CHARACTERS AND PLAYERS
+Frequency of each player
+Frequency of each character
 
-
-Generate statistical report in markdown, PUT DATE ON IT
-
-Just keep within this repo, do not touch SSF2 replays repo

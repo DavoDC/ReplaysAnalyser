@@ -7,6 +7,7 @@
 // Namespace mods
 using namespace std;
 
+
 // Default Constructor
 Match::Match()
 {
@@ -14,6 +15,7 @@ Match::Match()
 	date = Date();
 	fighters = FighterList();
 }
+
 
 // Construct a match from a raw replay path
 // e.g. ../Sample_Data/1.3.1.1/2021-08-24 11.44 AM - 2021-08-24 11.44 AM......." 
@@ -86,3 +88,9 @@ FighterList Match::getFighters()
 {
 	return fighters;
 }
+
+int Match::getYear()
+{
+	return int(date.getYMD().year());
+}
+

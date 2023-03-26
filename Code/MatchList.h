@@ -9,9 +9,6 @@
 // Include helper classes
 #include "Match.h"
 
-// Libraries
-#include <filesystem>
-
 // Declare MatchList class
 class MatchList
 {
@@ -24,12 +21,14 @@ public:
 	// Constructor
 	MatchList(std::string);
 
-	// Print out
+	// ### Methods
 	void printInfo();
+	void sortByDate();
 
-	// ## Getters
+	// # Getters
 	int getSize();
 	std::string getSizeS();
+	std::vector<Match> getMatches();
 
 private:
 

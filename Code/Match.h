@@ -27,9 +27,13 @@ public:
 	std::string toString();
 
 	// ## Getters
+	// # Main Fields
 	std::string getVersion();
 	Date getDate();
 	FighterList getFighters();
+
+	// # Components
+	int getYear();
 
 private:
 
