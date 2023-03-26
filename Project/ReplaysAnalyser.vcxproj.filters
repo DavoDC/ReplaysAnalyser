@@ -72,4 +72,9 @@
       <Filter>Source Files\Modules\MatchModules</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\IDEAS.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

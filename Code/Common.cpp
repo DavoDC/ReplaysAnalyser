@@ -14,6 +14,7 @@
 // Namespace mods
 using namespace std;
 
+
 // print(): Helper function for printing
 // - s = String to print
 // - useEndl = Give True if you want endl (False by default)
@@ -24,6 +25,7 @@ void print(string s, bool useEndl)
 		cout << endl;
 	}
 }
+
 
 // split(): Helper function for splitting strings
 // fullS = The full string
@@ -47,6 +49,7 @@ stringV split(string fullS, string sep)
 	// Return vector
 	return parts;
 }
+
 
 // split(): Helper function for splitting strings, with check!
 // exp = The expected number of parts
@@ -74,16 +77,16 @@ stringV split(string fullS, string sep, int exp)
 }
 
 // replaceAll(): Helper function for removing substrings
-// source = The original string
+// source = The original string, will be modified
 // from = The substring to replace
 // to = The string to be substituted in
-void replaceAll(std::string& source, const std::string& from, const std::string& to)
+void replaceAll(string& source, const string& from, const string& to)
 {
-	std::string newString;
+	string newString;
 	newString.reserve(source.length());  // Avoids a few memory allocations
-	std::string::size_type lastPos = 0;
-	std::string::size_type findPos;
-	while (std::string::npos != (findPos = source.find(from, lastPos)))
+	string::size_type lastPos = 0;
+	string::size_type findPos;
+	while (string::npos != (findPos = source.find(from, lastPos)))
 	{
 		newString.append(source, lastPos, findPos - lastPos);
 		newString += to;

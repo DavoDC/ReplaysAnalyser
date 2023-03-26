@@ -6,11 +6,12 @@
 // Include common
 #include "Common.h"
 
+// ### Libraries
+#include <chrono>
+
 // Macro for long type name
 #define DateM std::chrono::year_month_day
 
-// ### Libraries
-#include <chrono>
 
 // Declare Date class
 class Date

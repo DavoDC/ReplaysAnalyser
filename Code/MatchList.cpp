@@ -4,17 +4,27 @@
 // Header file
 #include "MatchList.h"
 
-// Namespace mods
-using namespace std;
+// ### Libraries
+// # For FS iterator
+#include <filesystem>
+// # For sort
+#include <algorithm>
+// # For set
+#include <set>
 
 // Macro for long iterator type
 #define FSIterator filesystem::recursive_directory_iterator
+
+// Namespace mods
+using namespace std;
+
 
 // Default Constructor
 MatchList::MatchList()
 {
 	matches = vector<Match>();
 }
+
 
 // Construct a match list from a directory path
 MatchList::MatchList(string replayPath)
@@ -35,6 +45,28 @@ MatchList::MatchList(string replayPath)
 }
 
 
+
+
+// ###### Sort by date
+// See : //https://cplusplus.com/reference/algorithm/sort/
+// 
+// # Helper function for sorting (Cannot be a member)
+bool getNewerMatch(Match m1, Match m2) {
+
+	// Return 'greater' internal date
+	return (m1.getDate().getYMD() < m2.getDate().getYMD()); 
+}
+
+// # Actual sort function
+void MatchList::sortByDate()
+{
+	// Sort vector of matches using comparison function
+	sort(matches.begin(), matches.end(), getNewerMatch);
+}
+
+
+
+
 // Print out all match info
 void MatchList::printInfo()
 {
@@ -43,6 +75,9 @@ void MatchList::printInfo()
 		print(curM.toString());
 	}
 }
+
+
+
 
 // ## Getters
 
@@ -58,4 +93,8 @@ std::string MatchList::getSizeS()
 	return to_string(getSize());
 }
 
-
+// Get matches
+vector<Match> MatchList::getMatches()
+{
+	return matches;
+}
