@@ -30,5 +30,8 @@ private:
 
 	// Underlying data structure
 	StringPair pair;
+
+	// Helper function
+	std::string handleAliases(std::string);
 };
 
