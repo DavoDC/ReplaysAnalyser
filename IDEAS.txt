@@ -1,32 +1,11 @@
 STATISTICAL ANALYSIS OF SSF2 REPLAY FILES
 
 
-Code statistics within ReplaysAnalyser
-
-# Fighter class (?)
-- add "HandleAliases" func 
-- standardize player names
-- use vector of StringPair - use macro
-- add to it, line by line
-- iterate at end
+Print oldest and newest match = use sorted date list
 
 
-# Generalizing printFreqStats
-- in loop, for players/chars, have to add vector of strings not one string
-- use auto and if based on type?
-- maybe push back can take vector?
+SORT LINES BY PERCENTAGE VALUE!!
 
 
-# Extra = Add time taken to parse matches! see how fast it is!
-
-
-# DATE STATS
-Date range = oldest to newest
-Average matches per year
-
-
-# CHARACTERS AND PLAYERS
-Frequency of each player
-Frequency of each character
 
 

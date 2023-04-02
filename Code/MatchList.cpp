@@ -36,7 +36,7 @@ MatchList::MatchList(string replayPath)
 		string curPathS = curPath.path().generic_string();
 
 		// If it is a replay path/file
-		if (strstr(curPathS.c_str(), ".ssfrec")) {
+		if (contains(curPathS, ".ssfrec")) {
 
 			// Convert to Match and add to list
 			matches.push_back(Match(curPathS));

@@ -27,9 +27,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Code\ReplaysAnalyser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\Code\Match.h">
       <Filter>Header Files\Modules</Filter>
     </ClInclude>

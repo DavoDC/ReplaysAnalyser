@@ -19,3 +19,5 @@ stringV split(std::string, std::string);
 stringV split(std::string fullS, std::string sep, int exp);
 
 void replaceAll(std::string& source, const std::string& from, const std::string& to);
+
+bool contains(std::string, std::string);

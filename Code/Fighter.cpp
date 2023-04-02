@@ -35,9 +35,8 @@ Fighter::Fighter(string rawPairS)
 	string player = curPairParts[0];
 	replaceAll(player, " ", "");
 
-	// Special: Replace my usernames with just 'davo'
-	replaceAll(player, "DavoDC", "davo");
-	replaceAll(player, "davo1776", "davo");
+	// Handle player aliases
+	player = handleAliases(player);
 
 	// Extract 2nd string, the character, and remove whitespace
 	string character = curPairParts[1];
@@ -47,6 +46,61 @@ Fighter::Fighter(string rawPairS)
 	StringPair newPair(player, character);
 	pair = newPair;
 }
+
+
+// Handle player aliases by standardizing to a single name
+string Fighter::handleAliases(string player)
+{
+	// Davo
+	replaceAll(player, "DavoDC", "davo");
+	replaceAll(player, "davo1776", "davo");
+	replaceAll(player, "P1", "davo");
+
+	// Jazz
+	replaceAll(player, "JAM", "Jazz");
+	replaceAll(player, "JazBlue959", "Jazz");
+	replaceAll(player, "RICE", "Jazz");
+	replaceAll(player, "P2", "Jazz");
+
+	// Pat
+	replaceAll(player, "funniswor", "Pat");
+	replaceAll(player, "stpatboi33", "Pat");
+
+	// Epi
+	replaceAll(player, "ACiDTRiP", "Epi");
+	replaceAll(player, "LV77", "Epi");
+	replaceAll(player, "power2", "Epi");
+
+	// Spi
+	replaceAll(player, "Spii_", "Spi");
+	replaceAll(player, "SPI", "Spi");
+	replaceAll(player, "SPY", "Spi");
+	replaceAll(player, "SPYRISE", "Spi");
+	replaceAll(player, "Spyrise", "Spi");
+	replaceAll(player, "Adriana", "Spi");
+	
+	// Lost
+	replaceAll(player, "KitKats", "Lost");
+	replaceAll(player, "Lost-Chan", "Lost");
+	replaceAll(player, "Lostie", "Lost");
+
+	// Neb
+	replaceAll(player, "NebulaAU", "Neb");
+	replaceAll(player, "NebulaSSBM", "Neb");
+	replaceAll(player, "StuartNeb", "Neb");
+	replaceAll(player, "i3ssf2", "Neb");
+
+	// Egg
+	replaceAll(player, "T-LegOfEgg", "Egg");
+	replaceAll(player, "TheLegend", "Egg");
+
+	// Starboy
+	replaceAll(player, "xDuncan", "x77starboy");
+
+	// Return final string
+	return player;
+}
+
 
 // Getters
 string Fighter::getPlayer()

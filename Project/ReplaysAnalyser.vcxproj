@@ -25,7 +25,6 @@
     <ClInclude Include="..\Code\Match.h" />
     <ClInclude Include="..\Code\MatchList.h" />
     <ClInclude Include="..\Code\Date.h" />
-    <ClInclude Include="..\Code\ReplaysAnalyser.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Code\Common.cpp" />

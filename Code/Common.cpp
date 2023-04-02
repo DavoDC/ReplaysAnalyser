@@ -95,3 +95,12 @@ void replaceAll(string& source, const string& from, const string& to)
 	newString += source.substr(lastPos);
 	source.swap(newString);
 }
+
+
+// contains(): Helper function (wrapper)
+// Returns true if the 1st string contains the 2nd
+bool contains(string s1, string s2)
+{
+	// Return true if s1 contains s2
+	return strstr(s1.c_str(), s2.c_str());
+}
