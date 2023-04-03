@@ -15,6 +15,13 @@ Date::Date()
 }
 
 
+// Construct a date from a YMD
+Date::Date(DateM newYMD)
+{
+	intYMD = newYMD;
+}
+
+
 // Construct a date from a string
 // e.g. "2021-08-24 11.44 AM"
 Date::Date(string rawDateS)

@@ -45,6 +45,32 @@ private:
 	MatchList ml;
 
 	// ### Private methods
+
+	// Helper: Print statistics starting line
+	void printStatsLine(string statName)
+	{
+		print(format("\n### {} Statistics ###", statName));
+	}
+
+	// Helper: Print date statistics
+	void printDateStats()
+	{
+		// Header
+		printStatsLine("Date");
+
+		// Current Date
+		auto now = std::chrono::system_clock::now();
+		DateM ymd{ std::chrono::floor<std::chrono::days>(now) };
+		print("Current Date: " + Date(ymd).toString());
+
+		// Date Range
+		string oldest = ml.getMatches().front().getDate().toString();
+		string newest = ml.getMatches().back().getDate().toString();
+		print(format("Date Range: {} - {}  (Oldest to Newest)", oldest, newest));
+	}
+
+
+
 	// Helper: Print frequency statistics for a given STRING property
 	// statName: Name for this group of statistics
 	// func: Function that retrieves property
@@ -111,42 +137,69 @@ private:
 	// all: Vector of all items
 	void printVariantAnalysis(set<string> variants, stringV all)
 	{
-		// Total items
-		// (Use number of matches as total as some matches have multiple items)
-		int total = ml.getSize();
+		// Frequency-variant pairs
+		vector<pair<int, string>> fvPairs;
 
 		// For each variant
 		for (string curV : variants)
 		{
-			// Special: Skip me
-			if (contains(curV, "davo"))
+			// Special players to skip
+			if (contains(curV, "davo") || contains(curV, "ANON"))
 			{
-				break;
+				continue;
 			}
 
 			// Find out how many instances of this variant are present
 			int freq = int(count(all.begin(), all.end(), curV));
+
+			// Add to list
+			fvPairs.push_back(make_pair(freq, curV));
+		}
+
+		// Print percentages
+		printByPercentage(fvPairs);
+	}
+
+	// Helper: Print sorted percentage breakdown of freq-variant pairs
+	// fvPairs: Frequency-variant pairs
+	void printByPercentage(vector<pair<int, string>> fvPairs)
+	{
+		// Sort by freq
+		sort(fvPairs.begin(), fvPairs.end(),
+			[](pair<int, string> p1, pair<int, string> p2) {
+
+				// Return 'greater' pair
+				return (p1.first > p2.first);
+			});
+
+		// Total items
+		// (Use number of matches as total as some matches have multiple items)
+		int total = ml.getSize();
+
+		// For all pairs
+		for (pair<int, string> curPair : fvPairs)
+		{
+			// Get percentage out of the total items
+			int freq = curPair.first;
+			double percentage = ((double)freq / (double)total) * 100;
+			string percentS = to_string(percentage).erase(4);
+
+			// Get variant value
+			string curV = curPair.second;
+
+			// Get frequency as a string
 			string freqS = to_string(freq);
 
-			// Calculate as a percentage out of the total items
-			double percentage = ((double)freq / (double)total) * 100;
-			string percentageS = to_string(percentage).erase(4);
-		
 			// If percentage significant
-			if (percentage > 0.9)
+			if (percentage > 0.8)
 			{
 				// Format and print
-				print(format("{} = {} matches ({}%)", curV, freqS, percentageS));
+				print(format("{}% = {} ({} matches)", percentS, curV, freqS));
 			}
-			
 		}
 	}
 
-	// Helper: Print statistics starting line
-	void printStatsLine(string statName)
-	{
-		print(format("\n### {} Statistics ###", statName));
-	}
+
 
 public:
 
@@ -163,8 +216,8 @@ public:
 		// Sort by date
 		ml.sortByDate();
 
-		// Print out info
-		// ml.printInfo();
+		// Print date stats
+		printDateStats();
 	}
 
 

@@ -22,8 +22,9 @@ public:
 	// Default Constructor (needed as declaration=instantation for types)
 	Date();
 
-	// Special Constructor
+	// Special Constructors
 	Date(std::string);
+	Date(DateM);
 
 	// Retrieve internal date
 	DateM getYMD();
