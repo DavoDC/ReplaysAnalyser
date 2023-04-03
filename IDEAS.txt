@@ -1,10 +1,12 @@
 STATISTICAL ANALYSIS OF SSF2 REPLAY FILES
 
 
-Print oldest and newest match = use sorted date list
 
 
-SORT LINES BY PERCENTAGE VALUE!!
+
+
+add markdown generation?
+- overload print, specify formatting
 
 
 

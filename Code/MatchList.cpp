@@ -47,21 +47,17 @@ MatchList::MatchList(string replayPath)
 
 
 
-// ###### Sort by date
-// See : //https://cplusplus.com/reference/algorithm/sort/
-// 
-// # Helper function for sorting (Cannot be a member)
-bool getNewerMatch(Match m1, Match m2) {
-
-	// Return 'greater' internal date
-	return (m1.getDate().getYMD() < m2.getDate().getYMD()); 
-}
-
-// # Actual sort function
+// Sort by date
 void MatchList::sortByDate()
 {
 	// Sort vector of matches using comparison function
-	sort(matches.begin(), matches.end(), getNewerMatch);
+	// https://cplusplus.com/reference/algorithm/sort/
+	sort(matches.begin(), matches.end(),
+		[](Match m1, Match m2) {
+
+			// Return 'greater' internal date
+			return (m1.getDate().getYMD() < m2.getDate().getYMD());
+		});
 }
 
 
