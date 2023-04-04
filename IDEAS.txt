@@ -1,7 +1,11 @@
 STATISTICAL ANALYSIS OF SSF2 REPLAY FILES
 
 
-
+Refine aliasing
+- use stringpair vector
+- iterate over all, call replace
+- add matchWholeWord to replace 
+- add more aliases by disabling cutoff,  e.g. CR-KING for xorop?  use github commits to confirm
 
 
 
