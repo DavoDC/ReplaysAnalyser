@@ -1,10 +1,14 @@
 STATISTICAL ANALYSIS OF SSF2 REPLAY FILES
 
 
-Refine aliasing
-- use stringpair vector
-- iterate over all, call replace
-- add matchWholeWord to replace 
+Refine aliasing handling function
+- use stringpair vector called aliases (use macro)
+- use Macro to add to make it short!! aliases.addPair("x", "y")
+- add private helper function: replaceEntireWord
+    - take string and stringpair
+    - if first string makes first of pair, continue, otherwise dont
+    - prevents substring replacement e.g. MrSpigosfan 
+- iterate over all, call replaceEntireWord, add in player ref here
 - add more aliases by disabling cutoff,  e.g. CR-KING for xorop?  use github commits to confirm
 
 
