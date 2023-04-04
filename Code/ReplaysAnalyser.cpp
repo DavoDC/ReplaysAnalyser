@@ -70,11 +70,11 @@ private:
 	}
 
 
-
-	// Helper: Print frequency statistics for a given STRING property
+	// Helper: Print frequency statistics for a given property
 	// statName: Name for this group of statistics
-	// func: Function that retrieves property
-	void printFreqStats(string statName, function<string(Match)> func)
+	// func: Function that retrieves property (String or String Vector)
+	template <typename Property>
+	void printFreqStats(string statName, function<Property(Match)> func)
 	{
 		// Starting message
 		printStatsLine(statName);
@@ -88,43 +88,25 @@ private:
 		// For all matches
 		for (Match curMatch : ml.getMatches())
 		{
-			// Extract some info
-			string curItem = func(curMatch);
+			// Extract property info
+			Property curProp = func(curMatch);
 
-			// Add to both lists
-			variants.insert(curItem);
-			all.push_back(curItem);
-		}
+			// If type is string
+			if constexpr (is_same_v<Property, string>) {
 
-		// Print variant analysis
-		printVariantAnalysis(variants, all);
-	}
-
-	// Helper: Print frequency statistics for a given STRING VECTOR property
-	// statName: Name for this group of statistics
-	// func: Function that retrieves property (STRING VECTOR)
-	void printFreqStats(string statName, function<stringV(Match)> func)
-	{
-		// Starting message
-		printStatsLine(statName);
-
-		// A set containing each variant (unique items)
-		set<string> variants;
-
-		// All items
-		stringV all;
-
-		// For all matches
-		for (Match curMatch : ml.getMatches())
-		{
-			// Extract vector info
-			stringV curList = func(curMatch);
-
-			// Add all items to both lists
-			for (string curItem : curList)
-			{
-				variants.insert(curItem);
-				all.push_back(curItem);
+				// Simply add to both
+				variants.insert(curProp);
+				all.push_back(curProp);
+			}
+			else if constexpr (is_same_v<Property, stringV>) {
+				// Else if type is string vector:
+				// Iterate over all strings in vector
+				for (string curItem : curProp) {
+					
+					// Add to both
+					variants.insert(curItem);
+					all.push_back(curItem);
+				}
 			}
 		}
 
@@ -225,28 +207,29 @@ public:
 	void analyse()
 	{
 		// 1) Version stats
-		printFreqStats("Version",
+		printFreqStats<string>("Version",
 			[](Match m) -> string {
 				return m.getVersion();
 			});
 
 		// 2) Year stats
-		printFreqStats("Year",
+		printFreqStats<string>("Year",
 			[](Match m) -> string {
 				return to_string(m.getYear());
 			});
 
 		// 3) Player stats
-		printFreqStats("Player",
+		printFreqStats<stringV>("Player",
 			[](Match m) -> stringV {
 				return m.getFighters().getPlayers();
 			});
 
 		// 4) Character stats
-		printFreqStats("Character",
+		printFreqStats<stringV>("Character",
 			[](Match m) -> stringV {
 				return m.getFighters().getChars();
 			});
+
 	}
 
 };
