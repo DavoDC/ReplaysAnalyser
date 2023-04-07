@@ -12,6 +12,7 @@
 // String vector macro
 #define stringV std::vector<std::string>
 
+
 // Function declarations
 void print(std::string, bool useEndl = false);
 

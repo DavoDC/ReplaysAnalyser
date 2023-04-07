@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Code\AliasHandler.h" />
     <ClInclude Include="..\Code\Common.h" />
     <ClInclude Include="..\Code\Fighter.h" />
     <ClInclude Include="..\Code\FighterList.h" />
@@ -27,6 +28,7 @@
     <ClInclude Include="..\Code\Date.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Code\AliasHandler.cpp" />
     <ClCompile Include="..\Code\Common.cpp" />
     <ClCompile Include="..\Code\Fighter.cpp" />
     <ClCompile Include="..\Code\FighterList.cpp" />
