@@ -8,6 +8,7 @@
 #include "Common.h"
 #include "MatchList.h"
 
+
 // ### Libraries
 // # For set
 #include <set>
@@ -26,10 +27,11 @@ using namespace std;
 // ## Replay folder path
 // # TEST VALUE
 //const string replayPath = "../Sample_Data";
-// # TEST VALUE 2
-const string replayPath = "C:/Users/David/GitHubRepos/SSF2ReplaysCOPY";
 // # ACTUAL VALUE
-//'C:/Users/David/SSF2Replays'
+const string replayPath = "C:/Users/David/SSF2Replays";
+
+// ## Percentage cutoff value
+const double cutoff = 0.8;
 
 
 
@@ -173,7 +175,7 @@ private:
 			string freqS = to_string(freq);
 
 			// If percentage significant
-			if (percentage > 0.8)
+			if (percentage > cutoff)
 			{
 				// Format and print
 				print(format("{}% = {} ({} matches)", percentS, curV, freqS));
@@ -197,34 +199,34 @@ public:
 
 		// Sort by date
 		ml.sortByDate();
-
-		// Print date stats
-		printDateStats();
 	}
 
 
 	// Analyse replays
 	void analyse()
 	{
-		// 1) Version stats
+		// 1) Date stats
+		printDateStats();
+
+		// 2) Version stats
 		printFreqStats<string>("Version",
 			[](Match m) -> string {
 				return m.getVersion();
 			});
 
-		// 2) Year stats
+		// 3) Year stats
 		printFreqStats<string>("Year",
 			[](Match m) -> string {
 				return to_string(m.getYear());
 			});
 
-		// 3) Player stats
+		// 4) Player stats
 		printFreqStats<stringV>("Player",
 			[](Match m) -> stringV {
 				return m.getFighters().getPlayers();
 			});
 
-		// 4) Character stats
+		// 5) Character stats
 		printFreqStats<stringV>("Character",
 			[](Match m) -> stringV {
 				return m.getFighters().getChars();

@@ -6,19 +6,25 @@
 // Include common
 #include "Common.h"
 
-// Macro for long type name
+// Include Alias Handler
+#include "AliasHandler.h"
+
+// String pair macro
 #define StringPair std::pair<std::string, std::string>
+
 
 class Fighter
 {
 public:
 
+	// # Constructors
 	// Default Constructor (needed as declaration=instantation for types)
 	Fighter();
 
 	// Constructor
 	Fighter(std::string);
 
+	// # Public methods
 	// Getters
 	std::string getPlayer();
 	std::string getChar();
@@ -28,10 +34,13 @@ public:
 
 private:
 
+	// # Private fields
 	// Underlying data structure
 	StringPair pair;
 
-	// Helper function
-	std::string handleAliases(std::string);
+	// Alias handler
+	// (Static since it will be the same for the entire runtime)
+	// (Constructor only runs once, more efficient)
+	static AliasHandler aliasHandler;
 };
 
