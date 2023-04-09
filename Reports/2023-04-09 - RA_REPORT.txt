@@ -1,0 +1,99 @@
+
+####### WELCOME TO REPLAYS ANALYSER #######
+
+Parsed 4972 matches!
+
+### Date Statistics ###
+Current Date: 09/Apr/2023
+Date Range: 11/Jan/2021 - 09/Apr/2023  (Oldest to Newest)
+
+### Version Statistics ###
+50.7% = 1.3.0.1 (2522 matches)
+24.5% = 1.3.1.2 (1221 matches)
+23.1% = 1.3.1.1 (1149 matches)
+1.60% = 1.3.1.0 (80 matches)
+
+### Year Statistics ###
+73.5% = 2021 (3659 matches)
+23.7% = 2022 (1183 matches)
+2.61% = 2023 (130 matches)
+
+### Player Statistics ###
+15.1% = Starboy (755 matches)
+12.4% = Jazz (619 matches)
+9.83% = Pat (489 matches)
+7.46% = Xrlylyl (371 matches)
+6.15% = Victor (306 matches)
+4.94% = Spi (246 matches)
+4.10% = Killergo (204 matches)
+3.66% = JSG (182 matches)
+3.62% = Jake (180 matches)
+2.81% = Nebula (140 matches)
+2.51% = Cody (125 matches)
+2.41% = lokimazin (120 matches)
+2.23% = Epi (111 matches)
+1.87% = Egg (93 matches)
+1.81% = brubble (90 matches)
+1.72% = FakeNews (86 matches)
+1.62% = Azzie (81 matches)
+1.44% = Pac-Main99 (72 matches)
+1.22% = Skidren (61 matches)
+0.98% = Hexxa (49 matches)
+0.90% = Xorop (45 matches)
+0.78% = Lost (39 matches)
+0.60% = Reichardt (30 matches)
+0.60% = Vink (30 matches)
+
+### Character Statistics ###
+67.8% = Wario (3373 matches)
+32.6% = MegaMan (1625 matches)
+9.41% = Sonic (468 matches)
+9.35% = Naruto (465 matches)
+6.99% = Ganondorf (348 matches)
+6.73% = Link (335 matches)
+6.07% = Goku (302 matches)
+5.41% = Jigglypuff (269 matches)
+5.34% = CaptainFalcon (266 matches)
+4.96% = Marth (247 matches)
+4.70% = Sora (234 matches)
+4.44% = Ichigo (221 matches)
+3.47% = Fox (173 matches)
+3.23% = Lloyd (161 matches)
+2.93% = Bowser (146 matches)
+2.57% = Mario (128 matches)
+2.37% = Waluigi (118 matches)
+2.13% = DonkeyKong (106 matches)
+2.13% = Falco (106 matches)
+2.13% = ZeroSuitSamus (106 matches)
+2.07% = Sheik (103 matches)
+1.85% = Pikachu (92 matches)
+1.83% = Ryu (91 matches)
+1.66% = Isaac (83 matches)
+1.66% = PAC-MAN (83 matches)
+1.60% = Pit (80 matches)
+1.60% = Lucario (80 matches)
+1.60% = Chibi-Robo (80 matches)
+1.56% = Peach (78 matches)
+1.50% = Tails (75 matches)
+1.14% = BlackMage (57 matches)
+1.12% = Luigi (56 matches)
+1.08% = BandanaDee (54 matches)
+1.04% = MetaKnight (52 matches)
+1.02% = Luffy (51 matches)
+1.00% = Kirby (50 matches)
+0.96% = Samus (48 matches)
+0.90% = Zelda (45 matches)
+0.82% = MrGameandWatch (41 matches)
+0.82% = Krystal (41 matches)
+0.78% = Ness (39 matches)
+0.78% = Sandbag (39 matches)
+0.66% = Yoshi (33 matches)
+0.64% = Bomberman (32 matches)
+0.62% = Rayman (31 matches)
+0.60% = Simon (30 matches)
+
+Time taken: 3.341 seconds
+
+
+C:\Users\David\GitHubRepos\ReplaysAnalyser\Project\x64\Debug\ReplaysAnalyser.exe (process 10388) exited with code 0.
+Press any key to close this window . . .

@@ -12,11 +12,14 @@
 // # For set
 #include <set>
 
-// Macro for long iterator type
-#define FSIterator filesystem::recursive_directory_iterator
-
 // Namespace mods
 using namespace std;
+namespace fs = filesystem;
+
+// Macro for long iterator type
+#define FSIterator fs::recursive_directory_iterator
+
+
 
 
 // Default Constructor
@@ -29,6 +32,14 @@ MatchList::MatchList()
 // Construct a match list from a directory path
 MatchList::MatchList(string replayPath)
 {
+	// Check path
+	if (!fs::exists(replayPath))
+	{
+		// If invalid, notify and exit
+		print("\nMatchList(): Invalid Replay Path\n");
+		exit(EXIT_FAILURE);
+	}
+
 	// For every path in the directory
 	for (const auto& curPath : FSIterator(replayPath)) {
 

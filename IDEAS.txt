@@ -2,15 +2,14 @@
 STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS
 
 
-
-add more aliases by disabling cutoff,  
-e.g. CR-KING for xorop?  use github commits to confirm
-
-
-
 add markdown generation?
-- overload print, specify formatting
+- outputln("Date Statistics", "heading1");
+- MarkdownFile class 
+- all printing done in replays analyser so can be object of RA
 
 
 
+make useable for normal ppl
+- release , exec
+- GUI !!! 
 

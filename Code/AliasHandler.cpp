@@ -13,33 +13,53 @@ AliasHandler::AliasHandler()
 {
 	// Initialize aliases
 
-	// Spi (7)
-	stringV spi {"A","SPI","SPY","Spii_","SPYRISE","Spyrise","Adriana"};
+	// Neb
+	stringV neb {
+		"B","w","QOZ","i3ssf2","DENT","Morb","joinsomco",
+		"NebulaAU","Cocomelon","StuartNeb","NebulaSSBM"
+	};
+	addAlias("Nebula", neb);
+
+	// Spi
+	stringV spi {
+		"A","SPI","SPY","Bee","BeeMO",
+		"Spii_","SPYRISE","Spyrise","Adriana"
+	};
 	addAlias("Spi", spi);
 
-	// Epi (4)
+	// Jazz
+	stringV jazz {
+		"P2","JAM","RICE","JazBlue959","JAMMY","CHEESEYJM",
+		"JAMVeGMTE","PEANUTJAM", "JAMVEGEMt"
+	};
+	addAlias("Jazz", jazz);
+
+	// Starboy
+	addAlias("Starboy", {
+		"x77starboy","MonteSauce","xDuncan", "MetroJr", "ttgmetro"});
+
+	// Epi
 	addAlias("Epi", { "LV77","power2","ADEPITA","ACiDTRiP" });
 
-	// Jazz (4)
-	addAlias("Jazz", { "P2","JAM","RICE","JazBlue959" });
+	// Davo
+	addAlias("davo", { "P1","DavoDC","davo1776","DAVO1776"});
 
-	// Neb (4)
-	addAlias("Nebula", { "i3ssf2","NebulaAU","StuartNeb","NebulaSSBM" });
-
-	// Davo (3)
-	addAlias("davo", {"P1","DavoDC","davo1776"});
+	// Vink
+	addAlias("Vink", { "SkiesFlap","MalonMySwe","MissMyoui" });
 	
-	// Lost (3)
+	// Lost
 	addAlias("Lost", { "Lostie","KitKats","Lost-Chan" });
 
-	// Pat (2)
+	// Xorop
+	addAlias("Xorop", { "xorop53","CR-KING" });
+
+	// Pat
 	addAlias("Pat", { "funniswor","stpatboi33" });
 
-	// Egg (2)
-	addAlias("Egg", { "TheLegend", "T-LegOfEgg" });
+	// Egg
+	addAlias("Egg", { "TheLegend","T-LegOfEgg" });
 
 	// Singles
-	addSingleAlias("x77starboy", "xDuncan");
 	addSingleAlias("Azzie", "InternetSu");
 	addSingleAlias("Hexxa", "HexxaWyn");
 	addSingleAlias("Jake", "Jakethedog");
