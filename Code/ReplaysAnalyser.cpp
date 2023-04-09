@@ -24,14 +24,12 @@ using namespace std;
 
 
 // ### Global variables
-// ## Replay folder path
-// # TEST VALUE
-//const string replayPath = "../Sample_Data";
-// # ACTUAL VALUE
-const string replayPath = "C:/Users/David/SSF2Replays";
-
-// ## Percentage cutoff value
-const double cutoff = 0.8;
+// # Toggle debug mode (uses sample data for faster tests)
+const bool debugMode = false;
+//const bool debugMode = true;
+// # Percentage cutoff value (mostly arbitrary)
+const double cutoff = 0.6;
+//const double cutoff = 0.2;
 
 
 
@@ -183,6 +181,38 @@ private:
 		}
 	}
 
+	// Helper: Get replay path
+	string getReplayPath()
+	{
+		// If debug mode on
+		if (debugMode)
+		{
+			// Use sample data
+			return string("../Sample_Data");
+		}
+		
+		// Holder
+		string replayPath = string("C:/Users/");
+
+		// Get username from environment variable
+		string username = "David";
+		char* buf = nullptr;
+		size_t sz = 0;
+		if (_dupenv_s(&buf, &sz, "USERNAME") == 0 && buf != nullptr) {
+			username = string(buf);
+			free(buf);
+		} else {
+			print("\nError reading %USERNAME% !!!");
+		}
+
+		// Add username and folder
+		replayPath += username + string("/SSF2Replays");
+
+		// Return replay path
+		return replayPath;
+	}
+
+	
 
 
 public:
@@ -194,7 +224,7 @@ public:
 		print("####### WELCOME TO REPLAYS ANALYSER #######");
 
 		// Parse matches and notify
-		ml = MatchList(replayPath);
+		ml = MatchList(getReplayPath());
 		print("\nParsed " + ml.getSizeS() + " matches!");
 
 		// Sort by date
