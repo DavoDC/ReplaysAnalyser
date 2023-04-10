@@ -7,7 +7,7 @@
 #include "Common.h"
 
 // Alias macro (pairs one string to multiple strings)
-#define Alias std::pair<std::string, stringV>
+#define Alias std::pair<std::string, StringV>
 
 
 // Declare AliasHandler class
@@ -26,7 +26,7 @@ private:
 	std::vector<Alias> aliases;
 
 	// # Private methods (internal helper functions)
-	void addAlias(std::string, stringV);
+	void addAlias(std::string, StringV);
 	void addSingleAlias(std::string, std::string);
 };
 

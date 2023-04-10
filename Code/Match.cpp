@@ -24,7 +24,7 @@ Match::Match(string replayPath)
 	// Split replay name into parts
 	// e.g "..", "Sample_Data", "1.3.1.1"
 	// "2021-08-24 11.44 AM - VersusOnline - davo1776 (Wario)......."
-	stringV pathParts = split(replayPath, "/");
+	StringV pathParts = split(replayPath, "/");
 	// NOTE: Check disabled since path length/structure can vary
 
 	// # INIT 1st FIELD
@@ -47,7 +47,7 @@ Match::Match(string replayPath)
 	// Split replay name into 3 parts
 	// e.g "2021-08-24 11.44 AM", "VersusOnline"
 	// "davo1776 (Wario) vs HexxaWyn (Naruto) ...."
-	stringV replayParts = split(filename, " - ", 3);
+	StringV replayParts = split(filename, " - ", 3);
 
 	// # INIT 2nd FIELD
 	// Extract date from first string. e.g. "2021-08-24 11.44 AM"

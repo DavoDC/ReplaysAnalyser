@@ -28,7 +28,7 @@ Date::Date(string rawDateS)
 {
 	// Split raw date into 3 parts
 	// e.g. '2021-08-24',  '11.44', 'AM'
-	stringV rawParts = split(rawDateS, " ", 3);
+	StringV rawParts = split(rawDateS, " ", 3);
 
 	// Get date part only (first part)
 	string datePart = rawParts.front();

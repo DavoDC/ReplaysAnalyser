@@ -14,21 +14,21 @@ AliasHandler::AliasHandler()
 	// Initialize aliases
 
 	// Neb
-	stringV neb {
+	StringV neb {
 		"B","w","QOZ","i3ssf2","DENT","Morb","joinsomco",
 		"NebulaAU","Cocomelon","StuartNeb","NebulaSSBM"
 	};
 	addAlias("Nebula", neb);
 
 	// Spi
-	stringV spi {
+	StringV spi {
 		"A","SPI","SPY","Bee","BeeMO",
 		"Spii_","SPYRISE","Spyrise","Adriana"
 	};
 	addAlias("Spi", spi);
 
 	// Jazz
-	stringV jazz {
+	StringV jazz {
 		"P2","JAM","RICE","JazBlue959","JAMMY","CHEESEYJM",
 		"JAMVeGMTE","PEANUTJAM", "JAMVEGEMt"
 	};
@@ -79,7 +79,7 @@ void AliasHandler::addSingleAlias(string standardName, string oldName)
 }
 
 // Helper/wrapper for adding one-to-many aliases
-void AliasHandler::addAlias(string standardName, stringV names)
+void AliasHandler::addAlias(string standardName, StringV names)
 {
 	// Call vector add and pair creation functions
 	aliases.push_back(make_pair(standardName, names));

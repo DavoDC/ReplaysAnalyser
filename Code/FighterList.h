@@ -20,8 +20,8 @@ public:
 	FighterList(std::string);
 
 	// Getters
-	stringV getPlayers();
-	stringV getChars();
+	StringV getPlayers();
+	StringV getChars();
 
 	// Get string representation
 	std::string toString();

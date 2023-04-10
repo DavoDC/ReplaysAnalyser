@@ -32,11 +32,13 @@ MatchList::MatchList()
 // Construct a match list from a directory path
 MatchList::MatchList(string replayPath)
 {
-	// Check path
+	// If path is not valid
+	// (This is done here since the filesystem lib is here already)
 	if (!fs::exists(replayPath))
 	{
-		// If invalid, notify and exit
-		print("\nMatchList(): Invalid Replay Path\n");
+		// Notify and exit
+		print("\nMatchList(): Invalid Replay Path");
+		print("\nPath was: " + replayPath + "\n");
 		exit(EXIT_FAILURE);
 	}
 
@@ -53,14 +55,8 @@ MatchList::MatchList(string replayPath)
 			matches.push_back(Match(curPathS));
 		}
 	}
-}
 
 
-
-
-// Sort by date
-void MatchList::sortByDate()
-{
 	// Sort vector of matches using comparison function
 	// https://cplusplus.com/reference/algorithm/sort/
 	sort(matches.begin(), matches.end(),

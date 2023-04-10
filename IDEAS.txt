@@ -2,14 +2,16 @@
 STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS
 
 
+
+Get spi to test exec
+
+
 add markdown generation?
-- outputln("Date Statistics", "heading1");
+- outputln("Date Statistics", "heading1"); (method in RA,  calls print too)
 - MarkdownFile class 
 - all printing done in replays analyser so can be object of RA
-
 
 
 make useable for normal ppl
 - release , exec
 - GUI !!! 
-
