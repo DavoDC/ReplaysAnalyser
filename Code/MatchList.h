@@ -9,6 +9,7 @@
 // Include helper classes
 #include "Match.h"
 
+
 // Declare MatchList class
 class MatchList
 {
@@ -23,7 +24,6 @@ public:
 
 	// ### Methods
 	void printInfo();
-	void sortByDate();
 
 	// # Getters
 	int getSize();

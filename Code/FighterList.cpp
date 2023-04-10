@@ -23,7 +23,7 @@ FighterList::FighterList(string rawPairS)
 
 	// Split into individual pairs
 	// e.g."davo1776 (Wario)", "HexxaWyn (Naruto)" etc.
-	stringV pairs = split(rawPairS, " vs ");
+	StringV pairs = split(rawPairS, " vs ");
 
 	// If there are not 2, 3 or 4 fighters
 	int pLen = int(pairs.size());
@@ -43,10 +43,10 @@ FighterList::FighterList(string rawPairS)
 
 // ### Getters
 // Get the list of players
-stringV FighterList::getPlayers()
+StringV FighterList::getPlayers()
 {
 	// Holder
-	stringV players;
+	StringV players;
 
 	// For every fighter
 	for (Fighter curF : fightersV)
@@ -59,11 +59,12 @@ stringV FighterList::getPlayers()
 	return players;
 }
 
+
 // Get the list of characters
-stringV FighterList::getChars()
+StringV FighterList::getChars()
 {
 	// Holder
-	stringV players;
+	StringV players;
 
 	// For every fighter
 	for (Fighter curF : fightersV)
@@ -75,6 +76,7 @@ stringV FighterList::getChars()
 	// Return holder
 	return players;
 }
+
 
 // Get string representation
 string FighterList::toString()

@@ -35,7 +35,7 @@ Fighter::Fighter(string rawPairS)
 	
 	// Split into player and character (2 parts)
 	// e.g. 'davo1776' and 'Wario'
-	stringV curPairParts = split(rawPairS, pairSep, 2);
+	StringV curPairParts = split(rawPairS, pairSep, 2);
 	
 	// Extract 1st string, the player, and remove whitespace
 	string player = curPairParts[0];

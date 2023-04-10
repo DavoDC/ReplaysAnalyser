@@ -19,60 +19,72 @@
     <Filter Include="Header Files\Modules">
       <UniqueIdentifier>{ee949c01-1e96-4b47-a9c6-a7bce0c14b68}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Modules\MatchModules">
+    <Filter Include="Header Files\Modules\MatchList">
+      <UniqueIdentifier>{909ff553-33fb-4b14-80fd-30cb7a0fe0ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Modules\MatchList\Match">
       <UniqueIdentifier>{662f8bca-574b-4e4c-9a8d-8e00021a1927}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Modules\MatchModules">
+    <Filter Include="Source Files\Modules\MatchList">
       <UniqueIdentifier>{420e3ad4-f879-4018-acb4-27aa2943ad52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Modules\MatchList\Match">
+      <UniqueIdentifier>{1ffce34b-da2a-4a33-9b11-056b07f33488}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Code\Match.h">
-      <Filter>Header Files\Modules</Filter>
-    </ClInclude>
     <ClInclude Include="..\Code\Date.h">
-      <Filter>Header Files\Modules\MatchModules</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Code\MatchList.h">
-      <Filter>Header Files\Modules</Filter>
+      <Filter>Header Files\Modules\MatchList\Match</Filter>
     </ClInclude>
     <ClInclude Include="..\Code\Common.h">
       <Filter>Header Files\Modules</Filter>
     </ClInclude>
     <ClInclude Include="..\Code\Fighter.h">
-      <Filter>Header Files\Modules\MatchModules</Filter>
+      <Filter>Header Files\Modules\MatchList\Match</Filter>
     </ClInclude>
     <ClInclude Include="..\Code\FighterList.h">
-      <Filter>Header Files\Modules\MatchModules</Filter>
+      <Filter>Header Files\Modules\MatchList\Match</Filter>
     </ClInclude>
     <ClInclude Include="..\Code\AliasHandler.h">
-      <Filter>Header Files\Modules\MatchModules</Filter>
+      <Filter>Header Files\Modules\MatchList\Match</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\MatchList.h">
+      <Filter>Header Files\Modules\MatchList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Match.h">
+      <Filter>Header Files\Modules\MatchList</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\ReplaysAnalyser.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Code\ReplaysAnalyser.cpp">
+    <ClCompile Include="..\Code\Main.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Code\Match.cpp">
-      <Filter>Source Files\Modules</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Code\Date.cpp">
-      <Filter>Source Files\Modules\MatchModules</Filter>
     </ClCompile>
     <ClCompile Include="..\Code\Common.cpp">
       <Filter>Source Files\Modules</Filter>
     </ClCompile>
-    <ClCompile Include="..\Code\MatchList.cpp">
-      <Filter>Source Files\Modules</Filter>
+    <ClCompile Include="..\Code\AliasHandler.cpp">
+      <Filter>Source Files\Modules\MatchList\Match</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Date.cpp">
+      <Filter>Source Files\Modules\MatchList\Match</Filter>
     </ClCompile>
     <ClCompile Include="..\Code\Fighter.cpp">
-      <Filter>Source Files\Modules\MatchModules</Filter>
+      <Filter>Source Files\Modules\MatchList\Match</Filter>
     </ClCompile>
     <ClCompile Include="..\Code\FighterList.cpp">
-      <Filter>Source Files\Modules\MatchModules</Filter>
+      <Filter>Source Files\Modules\MatchList\Match</Filter>
     </ClCompile>
-    <ClCompile Include="..\Code\AliasHandler.cpp">
-      <Filter>Source Files\Modules\MatchModules</Filter>
+    <ClCompile Include="..\Code\Match.cpp">
+      <Filter>Source Files\Modules\MatchList</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\MatchList.cpp">
+      <Filter>Source Files\Modules\MatchList</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\ReplaysAnalyser.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
