@@ -9,58 +9,38 @@ using namespace std;
 
 
 // Constructor
-ReplaysAnalyser::ReplaysAnalyser(double cutoff, bool debugMode)
+ReplaysAnalyser::ReplaysAnalyser()
 {
-	// Welcome message
-	print("####### WELCOME TO REPLAYS ANALYSER #######");
-
-	// Set variables
-	this->debugMode = debugMode;
-	this->cutoff = cutoff;
-
-	// Parse matches in replay path
-	ml = MatchList(getReplayPath());
-
-	// Notify
-	print("\nParsed " + ml.getSizeS() + " matches!");
-
-	// Analyse replays
-	analyse();
+	// Set variables to default values
+	this->useSampleData = false;
+	this->cutoff = 0.6;
+	this->columnPrint = true;
 }
 
 
-
-// Helper: Get replay path
-string ReplaysAnalyser::getReplayPath()
+// ### Setters
+// Toggle sample data
+void ReplaysAnalyser::toggleSampleData()
 {
-	// If debug mode on
-	if (debugMode)
-	{
-		// Use sample data
-		return string("../Sample_Data");
-	}
-
-	// Holder
-	string replayPath = string("C:/Users/");
-
-	// Get username from environment variable
-	string username = "David";
-	char* buf = nullptr;
-	size_t sz = 0;
-	if (_dupenv_s(&buf, &sz, "USERNAME") == 0 && buf != nullptr) {
-		username = string(buf);
-		free(buf);
-	}
-	else {
-		print("\nError reading %USERNAME% !!!");
-	}
-
-	// Add username and folder
-	replayPath += username + string("/SSF2Replays");
-
-	// Return replay path
-	return replayPath;
+	printSettingsUpdate("Sample Data");
+	useSampleData = !useSampleData;
 }
+
+// Set cut off
+// newCutoff = Percentage value (e.g. 5.0 = 5%)
+void ReplaysAnalyser::setCutoff(double newCutoff)
+{
+	printSettingsUpdate("Cutoff");
+	cutoff = newCutoff;
+}
+
+// Toggle columing printing
+void ReplaysAnalyser::toggleColumnPrint()
+{
+	printSettingsUpdate("Column Printing");
+	columnPrint = !columnPrint;
+}
+
 
 
 
@@ -68,6 +48,14 @@ string ReplaysAnalyser::getReplayPath()
 // Analyse replays
 void ReplaysAnalyser::analyse()
 {
+	// Welcome message
+	print("####### WELCOME TO REPLAYS ANALYSER #######");
+
+	// Parse replays in path and notify
+	ml = MatchList(getReplayPath());
+	print("\nParsed " + ml.getSizeS() + " matches!");
+
+	// ### Print stats
 	// 1) Date stats
 	printDateStats();
 
@@ -97,11 +85,39 @@ void ReplaysAnalyser::analyse()
 }
 
 
-// Helper: Print statistics starting line
-void ReplaysAnalyser::printStatsLine(string statName)
+
+// Helper: Get replay path
+string ReplaysAnalyser::getReplayPath()
 {
-	print(format("\n### {} Statistics ###", statName));
+	// If sample data usage on
+	if (useSampleData)
+	{
+		// Use sample data
+		return string("../Sample_Data");
+	}
+
+	// Holder
+	string replayPath = string("C:/Users/");
+
+	// Get username from environment variable
+	string username = "David";
+	char* buf = nullptr;
+	size_t sz = 0;
+	if (_dupenv_s(&buf, &sz, "USERNAME") == 0 && buf != nullptr) {
+		username = string(buf);
+		free(buf);
+	}
+	else {
+		print("\nError reading %USERNAME% !!!");
+	}
+
+	// Add username and folder
+	replayPath += username + string("/SSF2Replays");
+
+	// Return replay path
+	return replayPath;
 }
+
 
 
 // Helper: Print date statistics
@@ -120,8 +136,6 @@ void ReplaysAnalyser::printDateStats()
 	string newest = ml.getMatches().back().getDate().toString();
 	print(format("Date Range: {} - {}  (Oldest to Newest)", oldest, newest));
 }
-
-
 
 
 
@@ -200,7 +214,6 @@ void ReplaysAnalyser::printVariantAnalysis(StringSet variants, StringV all)
 }
 
 
-
 // Helper: Print sorted percentage breakdown of freq-variant pairs
 // fvPairs: Frequency-variant pairs
 void ReplaysAnalyser::printByPercentage(vector<FVPair> fvPairs)
@@ -240,3 +253,16 @@ void ReplaysAnalyser::printByPercentage(vector<FVPair> fvPairs)
 	}
 }
 
+
+// Helper: Print statistics starting line
+void ReplaysAnalyser::printStatsLine(string statName)
+{
+	print(format("\n### {} Statistics ###", statName));
+}
+
+
+// Helper: Print settings update
+void ReplaysAnalyser::printSettingsUpdate(string msg)
+{
+	print(format("### Settings Update: {}\n", msg));
+}

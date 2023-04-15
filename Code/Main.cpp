@@ -15,36 +15,58 @@
 // Namespace mods
 using namespace std;
 
+// Function Declaration
+void printTimeTaken(auto);
 
-// Main func
+
+
+
+// Main function
 int main()
 {
 	// Get starting timepoint
 	auto start = chrono::high_resolution_clock::now();
 
-
-	// ### Analyse replays by creating analyser
-	// Default
+	// Create analyser
 	ReplaysAnalyser ra;
 
-	// Use lower cutoff
-	//ReplaysAnalyser ra(0.2, false);
-
+	// ### Settings
 	// Use sample data for fast testing
-	//ReplaysAnalyser ra (0.6, true); 
+	//ra.toggleSampleData();
 
+	// Change cutoff
+	//ra.setCutoff(0.3);
 
-	// Get ending timepoint
-	auto stop = chrono::high_resolution_clock::now();
+	// Toggle column print
+	//ra.toggleColumnPrint();
+	
+	
+	// Run analysis
+	ra.analyse();
 
-	// Calculate duration and format
-	auto rawDur = duration_cast<chrono::milliseconds>(stop - start);
-	double durDoub = double(rawDur.count()) / 1000.0;
-	string durationS = to_string(durDoub).erase(5);
-
-	// Notify
-	print(format("\nTime taken: {} seconds", durationS));
-
+	// Print time taken
+	printTimeTaken(start);
+	
 	// END
 	print("\n");
+}
+
+
+
+
+
+// Helper: Print time taken base
+void printTimeTaken(auto startTime)
+{
+	// Get ending timepoint
+	auto stopTime = chrono::high_resolution_clock::now();
+
+	// Calculate duration
+	auto rawDur = stopTime - startTime;
+	auto dur = duration_cast<chrono::milliseconds>(rawDur);
+	double durDoub = double(dur.count()) / 1000.0;
+	
+	// Format and notify
+	string durationS = to_string(durDoub).erase(5);
+	print(format("\nTime taken: {} seconds", durationS));
 }
