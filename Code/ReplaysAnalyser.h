@@ -33,17 +33,28 @@ class ReplaysAnalyser {
 
 public:
 
-	// Custom Constructor
-	ReplaysAnalyser(double cutoff = 0.6, bool debugMode = false);
+	// Constructor
+	ReplaysAnalyser();
+
+	// Analyse driver
+	void analyse();
+
+	// Settings
+	void toggleSampleData();
+    void setCutoff(double);
+	void toggleColumnPrint();
 
 
 private:
 	// ### Private fields
-	// Debug Mode Toggle (uses sample data for faster tests)
-	bool debugMode;
+	// Use Sample Data
+	bool useSampleData;
 
 	// Percentage Cutoff Value
 	double cutoff;
+
+	// Column Printing
+	bool columnPrint;
 
 	// MatchList
 	MatchList ml;
@@ -52,9 +63,9 @@ private:
 
 
 	// ### Private methods
-	// # Other
-	void analyse();
+	// # General
 	std::string getReplayPath();
+	void printSettingsUpdate(std::string);
 
 	// # Simple Statistics Helpers
 	void printStatsLine(std::string);
