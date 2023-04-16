@@ -3,59 +3,11 @@ $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS
 
 
 
-
-
-put all methods into one big one
-
-
-Add column printing
-
-
-	void printColumns(std::string, std::string, std::string);
-// Print headings
-	///printColumns("%", "Player", "Matches");
-
-	
-			// Print in columns
-			//printColumns(percentS, curV, freqS);
-
-// Helper: Print three columns
-void ReplaysAnalyser::printColumns(string c1, string c2, string c3)
-{
-	cout
-		<< std::left 
-		<< "\n"
-		<< setw(10) << c1
-		<< setw(15) << c2
-		<< c3;
-}
-
-
-
-Fix middle column heading = , use statname
-
-
-
-COMMIT
-
-
-
-
 Make installer for SPI
 https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2022InstallerProjects
 
 
 
-make useable for normal ppl
+make useable for regular users
 - release , exec
 - GUI !!! 
-
-
-add markdown generation?
-- outputln("Date Statistics", "heading1"); (method in RA,  calls print too)
-- MarkdownFile class 
-- all printing done in replays analyser so can be object of RA
-
-
-
-

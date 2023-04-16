@@ -15,6 +15,9 @@ ReplaysAnalyser::ReplaysAnalyser()
 	this->useSampleData = false;
 	this->cutoff = 0.6;
 	this->columnPrint = true;
+	this->matchNum = 0;
+
+	// Note: MatchList not here but uses def. constr.
 }
 
 
@@ -54,6 +57,9 @@ void ReplaysAnalyser::analyse()
 	// Parse replays in path and notify
 	ml = MatchList(getReplayPath());
 	print("\nParsed " + ml.getSizeS() + " matches!");
+
+	// Save total matches
+	matchNum = ml.getSize();
 
 	// ### Print stats
 	// 1) Date stats
@@ -124,7 +130,7 @@ string ReplaysAnalyser::getReplayPath()
 void ReplaysAnalyser::printDateStats()
 {
 	// Header
-	printStatsLine("Date");
+	printStatsHeading("Date");
 
 	// Current Date
 	auto now = chrono::system_clock::now();
@@ -146,14 +152,18 @@ template <typename Property>
 void ReplaysAnalyser::printFreqStats(string statName, function<Property(Match)> func)
 {
 	// Starting message
-	printStatsLine(statName);
+	printStatsHeading(statName);
 
+
+	// # Holders
 	// A set containing each variant (unique items)
 	StringSet variants;
 
 	// All items
 	StringV all;
 
+
+	// # Get variants and items
 	// For all matches
 	for (Match curMatch : ml.getMatches())
 	{
@@ -168,6 +178,7 @@ void ReplaysAnalyser::printFreqStats(string statName, function<Property(Match)> 
 			all.push_back(curProp);
 		}
 		else if constexpr (is_same_v<Property, StringV>) {
+
 			// Else if type is string vector:
 			// Iterate over all strings in vector
 			for (string curItem : curProp) {
@@ -179,83 +190,110 @@ void ReplaysAnalyser::printFreqStats(string statName, function<Property(Match)> 
 		}
 	}
 
-	// Print variant analysis
-	printVariantAnalysis(variants, all);
-}
 
-
-
-// Helper: Print analysis of variants
-// variants: Set of unique items
-// all: Vector of all items
-void ReplaysAnalyser::printVariantAnalysis(StringSet variants, StringV all)
-{
-	// Frequency-variant pairs
+	// # Generate frequency-variant pairs
+	// Holder
 	vector<FVPair> fvPairs;
 
 	// For each variant
 	for (string curV : variants)
 	{
-		// Special players to skip
+		// If a special player
 		if (contains(curV, "davo") || contains(curV, "ANON"))
 		{
+			// Skip
 			continue;
 		}
 
 		// Find out how many instances of this variant are present
 		int freq = int(count(all.begin(), all.end(), curV));
 
-		// Add to list
+		// Add pair to list
 		fvPairs.push_back(make_pair(freq, curV));
 	}
 
-	// Print percentages
-	printByPercentage(fvPairs);
-}
 
-
-// Helper: Print sorted percentage breakdown of freq-variant pairs
-// fvPairs: Frequency-variant pairs
-void ReplaysAnalyser::printByPercentage(vector<FVPair> fvPairs)
-{
-	// Sort by freq
+	// # Sort freq-var pairs by frequency
 	sort(fvPairs.begin(), fvPairs.end(),
 		[](FVPair p1, FVPair p2) {
 
-			// Return 'greater' pair
+			// Return pair with greater frequency
 			return (p1.first > p2.first);
 		});
 
-	// Total items
-	// (Use number of matches as total as some matches have multiple items)
-	int total = ml.getSize();
+
+	// # Print freq-var pairs
+	// Print headings (if column mode on)
+	printColumns("%", statName, "Matches");
 
 	// For all pairs
 	for (FVPair curPair : fvPairs)
 	{
-		// Get percentage out of the total items
+		// Extract frequency
 		int freq = curPair.first;
-		double percentage = ((double)freq / (double)total) * 100;
-		string percentS = to_string(percentage).erase(4);
 
-		// Get variant value
+		// Calculate percentage
+		// Note: Match count used as total as some matches have multiple items
+		double percentage = ((double) freq / (double) matchNum) * 100;
+
+		// Extract 
 		string curV = curPair.second;
 
-		// Get frequency as a string
-		string freqS = to_string(freq);
+		// Print line for pair
+		printStatsLine(percentage, curV, freq);
+	}
+}
 
-		// If percentage significant
-		if (percentage > cutoff)
+
+
+// Helper: Print freq-variant pairs
+// statName: Name for this group of statistics
+// fvPairs: Frequency-variant pairs
+void ReplaysAnalyser::printStatsLine(double percentage, string curV, int freq)
+{
+	// Convert to strings
+	string freqS = to_string(freq);
+	string percentS = to_string(percentage).erase(4) + "%";
+
+	// If percentage significant
+	if (percentage > cutoff)
+	{
+		// Print in certain way
+		if (columnPrint)
 		{
-			// Format and print
-			print(format("{}% = {} ({} matches)", percentS, curV, freqS));
+			// Print in columns
+			printColumns(percentS, curV, freqS);
+		}
+		else
+		{
+			// Print formatted
+			print(format("{} = {} ({} matches)", percentS, curV, freqS));
 		}
 	}
 }
 
 
-// Helper: Print statistics starting line
-void ReplaysAnalyser::printStatsLine(string statName)
+
+
+// Helper: Print three columns
+void ReplaysAnalyser::printColumns(string c1, string c2, string c3)
+{
+	if (columnPrint)
+	{
+		cout
+			<< std::left
+			<< "\n"
+			<< setw(10) << c1
+			<< setw(15) << c2
+			<< c3;
+	}
+}
+
+
+
+
+// Helper: Print statistics heading line
+void ReplaysAnalyser::printStatsHeading(string statName)
 {
 	print(format("\n### {} Statistics ###", statName));
 }
@@ -264,5 +302,5 @@ void ReplaysAnalyser::printStatsLine(string statName)
 // Helper: Print settings update
 void ReplaysAnalyser::printSettingsUpdate(string msg)
 {
-	print(format("### Settings Update: {}\n", msg));
+	print(format("$$$ Settings Update: {}\n", msg));
 }

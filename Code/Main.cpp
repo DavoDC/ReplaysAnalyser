@@ -35,11 +35,11 @@ int main()
 	//ra.toggleSampleData();
 
 	// Change cutoff
-	//ra.setCutoff(0.3);
+	// Note: Go to stay below 2023 % so all yrs still shown
+	//ra.setCutoff(2);
 
 	// Toggle column print
 	//ra.toggleColumnPrint();
-	
 	
 	// Run analysis
 	ra.analyse();

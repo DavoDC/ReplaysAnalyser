@@ -43,6 +43,7 @@ public:
 	void toggleSampleData();
     void setCutoff(double);
 	void toggleColumnPrint();
+	
 
 
 private:
@@ -59,23 +60,22 @@ private:
 	// MatchList
 	MatchList ml;
 
+	// Number of matches
+	int matchNum;
 	
 
 
 	// ### Private methods
-	// # General
+	// # Helpers
 	std::string getReplayPath();
+	void printColumns(std::string, std::string, std::string);
+	void printStatsLine(double, std::string, int);
 	void printSettingsUpdate(std::string);
-
-	// # Simple Statistics Helpers
-	void printStatsLine(std::string);
+	void printStatsHeading(std::string);
 	void printDateStats();
 
-	// # Frequency Statistics Helpers
+	// # Main Statistics Method
 	template <typename Property>
 	void printFreqStats(std::string, std::function<Property(Match)>);
-
-	void printVariantAnalysis(StringSet, StringV);
-	void printByPercentage(std::vector<FVPair>);
 };
 
