@@ -17,7 +17,7 @@ ReplaysAnalyser::ReplaysAnalyser()
 	this->columnPrint = true;
 	this->matchNum = 0;
 
-	// Note: MatchList not here but uses def. constr.
+	// Note: MatchList not here but uses default constr.
 }
 
 

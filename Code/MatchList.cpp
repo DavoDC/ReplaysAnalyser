@@ -42,6 +42,9 @@ MatchList::MatchList(string replayPath)
 		exit(EXIT_FAILURE);
 	}
 
+	// Check
+	bool foundOneReplay = false;
+
 	// For every path in the directory
 	for (const auto& curPath : FSIterator(replayPath)) {
 
@@ -51,11 +54,23 @@ MatchList::MatchList(string replayPath)
 		// If it is a replay path/file
 		if (contains(curPathS, ".ssfrec")) {
 
+			// Update check
+			foundOneReplay = true;
+
 			// Convert to Match and add to list
 			matches.push_back(Match(curPathS));
 		}
 	}
 
+	// If didn't find at least one replay
+	if (!foundOneReplay)
+	{
+		// Notify and exit
+		print("\nMatchList(): Empty Replay Folder");
+		print("\nNo replays found!");
+		print("\nPath was: " + replayPath + "\n");
+		exit(EXIT_FAILURE);
+	}
 
 	// Sort vector of matches using comparison function
 	// https://cplusplus.com/reference/algorithm/sort/
