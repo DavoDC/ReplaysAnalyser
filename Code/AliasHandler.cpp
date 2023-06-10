@@ -29,8 +29,8 @@ AliasHandler::AliasHandler()
 
 	// Jazz
 	StringV jazz {
-		"P2","JAM","RICE","JazBlue959","JAMMY","CHEESEYJM",
-		"JAMVeGMTE","PEANUTJAM", "JAMVEGEMt"
+		"P2","JAM","RICE","JASS","JASZ","JazBlue959","JAMMY",
+		"CHEESEYJM","JAMVeGMTE","PEANUTJAM", "JAMVEGEMt",
 	};
 	addAlias("Jazz", jazz);
 
