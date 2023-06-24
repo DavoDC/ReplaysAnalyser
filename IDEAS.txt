@@ -1,6 +1,17 @@
 
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS
 
+Improve README
+That’d be cool but hard to do since the file format is hard to parse . 
+It uses the file names to provide stats on version , year , characters used , people versed . Etc
+
+What type of stats
+
+Uses file name only not file content
+
+
+Make new report 
+
 
 
 Make installer for SPI
