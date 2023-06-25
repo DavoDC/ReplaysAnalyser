@@ -1,13 +1,13 @@
 # Replays Analyser
-A C++ console program to analyze SSF2 replays statistically.
+A C++ console program to analyze [Super Smash Flash 2](https://mcleodgaming.fandom.com/wiki/Super_Smash_Flash_2) (SSF2) replays statistically.
 
-I use this program to analyze my autosaved replays: [SSF2 Replays](https://github.com/DavoDC/SSF2Replays).
+I use this program to analyze my autosaved replays, which can be found here: [SSF2 Replays](https://github.com/DavoDC/SSF2Replays).
 
 ### Features
 
 #### General
-- Reads <ins>replay file names</ins> *only* (doesn't parse replay file content!)
-- Automatically determines default replay path by reading username from environment variable.
+- Reads <ins>replay file names</ins> *only* (doesn't parse replay file content!).
+- Automatically determines default replay path.
 - Currently exclusive to C++ developers (runs through Visual Studio).
 
 #### Statistics Provided
