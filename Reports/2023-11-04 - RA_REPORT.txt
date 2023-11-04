@@ -1,0 +1,101 @@
+
+####### WELCOME TO REPLAYS ANALYSER #######
+
+Parsed 5133 matches!
+
+### Date Statistics ###
+Current Date: 04/Nov/2023
+Date Range: 11/Jan/2021 - 04/Nov/2023  (Oldest to Newest)
+
+### Version Statistics ###
+%         Version        Matches
+49.1%     1.3.0.1        2522
+26.9%     1.3.1.2        1382
+22.3%     1.3.1.1        1149
+1.55%     1.3.1.0        80
+
+### Year Statistics ###
+%         Year           Matches
+71.2%     2021           3659
+23.1%     2022           1186
+5.61%     2023           288
+
+### Player Statistics ###
+%         Player         Matches
+14.8%     Starboy        760
+12.9%     Jazz           665
+9.66%     Pat            496
+7.40%     Xrlylyl        380
+5.96%     Victor         306
+4.96%     Spi            255
+3.97%     Killergo       204
+3.70%     JSG            190
+3.50%     Jake           180
+2.72%     Nebula         140
+2.43%     Cody           125
+2.33%     lokimazin      120
+2.16%     Epi            111
+1.90%     Egg            98
+1.79%     Azzie          92
+1.75%     brubble        90
+1.73%     FakeNews       89
+1.40%     Pac-Main99     72
+1.18%     Skidren        61
+1.09%     Hexxa          56
+0.87%     Xorop          45
+0.75%     Lost           39
+0.60%     Vink           31
+
+### Character Statistics ###
+%         Character      Matches
+67.5%     Wario          3469
+32.9%     MegaMan        1691
+9.77%     Sonic          502
+9.21%     Naruto         473
+6.87%     Ganondorf      353
+6.66%     Link           342
+5.88%     Goku           302
+5.41%     CaptainFalcon  278
+5.39%     Jigglypuff     277
+4.83%     Marth          248
+4.69%     Sora           241
+4.46%     Ichigo         229
+3.48%     Fox            179
+3.13%     Lloyd          161
+2.92%     Bowser         150
+2.74%     Mario          141
+2.35%     Waluigi        121
+2.14%     ZeroSuitSamus  110
+2.10%     Falco          108
+2.08%     DonkeyKong     107
+2.00%     Sheik          103
+1.87%     Ryu            96
+1.81%     Pikachu        93
+1.61%     Isaac          83
+1.61%     PAC-MAN        83
+1.59%     Peach          82
+1.57%     Pit            81
+1.57%     Chibi-Robo     81
+1.55%     Lucario        80
+1.46%     Tails          75
+1.14%     BandanaDee     59
+1.12%     BlackMage      58
+1.11%     Luigi          57
+1.09%     MetaKnight     56
+1.05%     Samus          54
+1.01%     Kirby          52
+0.99%     Luffy          51
+0.87%     Zelda          45
+0.81%     Krystal        42
+0.79%     MrGameandWatch 41
+0.77%     Sandbag        40
+0.75%     Ness           39
+0.64%     Yoshi          33
+0.62%     Bomberman      32
+0.60%     Rayman         31
+
+Time taken: 0.236 seconds
+
+
+C:\Users\David\GitHubRepos\ReplaysAnalyser\Project\x64\Release\ReplaysAnalyser.exe (process 6752) exited with code 0.
+Press any key to close this window . . .
