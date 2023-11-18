@@ -18,6 +18,9 @@
 // For set
 #include <set>
 
+// For sort
+#include <algorithm>
+
 
 // ### Macros
 // Frequency (int) and Variant (string) type
