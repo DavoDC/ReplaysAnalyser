@@ -2,6 +2,10 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
+Add date range to players and other stats
+(e.g. starboy first match date etc.)
+
+
 Make useable for regular users,
 perhaps via installer?
 https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2022InstallerProjects
