@@ -302,5 +302,6 @@ void ReplaysAnalyser::printStatsHeading(string statName)
 // Helper: Print settings update
 void ReplaysAnalyser::printSettingsUpdate(string msg)
 {
-	print(format("$$$ Settings Update: {}\n", msg));
+	// DISABLED, only enable when debugging
+	// print(format("$$$ Settings Update: {}\n", msg));
 }
