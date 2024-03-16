@@ -3,9 +3,6 @@ $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$
 
 
 
-Use dictionary approach from music analysis
-
-
 ## Player Date Ranges
 Add dates to players , first and last date of matches
 Store list of matches of each player
