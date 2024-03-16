@@ -29,6 +29,7 @@ public:
 	int getSize();
 	std::string getSizeS();
 	std::vector<Match> getMatches();
+	std::vector<Match> getPlayerMatches(std::string);
 
 private:
 

@@ -7,8 +7,10 @@
 // ### Libraries
 // # For FS iterator
 #include <filesystem>
+
 // # For sort
 #include <algorithm>
+
 // # For set
 #include <set>
 
@@ -115,4 +117,27 @@ std::string MatchList::getSizeS()
 vector<Match> MatchList::getMatches()
 {
 	return matches;
+}
+
+// Get matches for a given player
+// playerName: Standardized player name (after alias handling)
+vector<Match> MatchList::getPlayerMatches(string playerName)
+{
+	// Holder for player's matches
+	vector<Match> playerMatches;
+
+	// Copy in player's matches using predicate
+	std::copy_if(matches.begin(), matches.end(), std::back_inserter(playerMatches),
+		[&](Match m)
+		{
+			// Extract player list from match
+			vector<string> playerList = m.getFighters().getPlayers();
+
+			// Return true if player is found in player list
+			return count(playerList.begin(), playerList.end(), playerName) != 0;
+		}
+	);
+
+	// Return result
+	return playerMatches;
 }

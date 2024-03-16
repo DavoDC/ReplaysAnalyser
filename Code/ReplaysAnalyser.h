@@ -35,7 +35,7 @@ public:
 	// Constructor
 	ReplaysAnalyser();
 
-	// Analyse driver
+	// Main function
 	void analyse();
 
 	// Settings
@@ -67,10 +67,12 @@ private:
 	// ### Private methods
 	// # Helpers
 	std::string getReplayPath();
-	void printColumns(std::string, std::string, std::string);
-	void printStatsLine(double, std::string, int);
+	void printColumns(std::string, std::string, std::string, std::string);
+	void printStatsLine(double, std::string, int, std::string);
 	void printSettingsUpdate(std::string);
+	void printVCPair(VCPair, std::string);
 	void printStatsHeading(std::string);
+	void printHeading(std::string);
 	void printDateStats();
 
 	// # Main Statistics Method
