@@ -15,20 +15,16 @@
 // For function type
 #include <functional>
 
-// For set
-#include <set>
-
 // For sort
 #include <algorithm>
 
+// For map
+#include <map>
+
 
 // ### Macros
-// Frequency (int) and Variant (string) type
-#define FVPair std::pair<int, std::string>
-
-// String set type
-#define StringSet std::set<std::string>
-
+// Variant-Count pair
+#define VCPair std::pair<std::string, int>
 
 
 // Declare ReplaysAnalyser class
@@ -44,9 +40,9 @@ public:
 
 	// Settings
 	void toggleSampleData();
-    void setCutoff(double);
+	void setCutoff(double);
 	void toggleColumnPrint();
-	
+
 
 
 private:
@@ -65,7 +61,7 @@ private:
 
 	// Number of matches
 	int matchNum;
-	
+
 
 
 	// ### Private methods
@@ -78,7 +74,6 @@ private:
 	void printDateStats();
 
 	// # Main Statistics Method
-	template <typename Property>
-	void printFreqStats(std::string, std::function<Property(Match)>);
+	void printFreqStats(std::string, std::function<StringV(Match)>);
 };
 

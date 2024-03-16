@@ -66,25 +66,25 @@ void ReplaysAnalyser::analyse()
 	printDateStats();
 
 	// 2) Version stats
-	printFreqStats<string>("Version",
-		[](Match m) -> string {
-			return m.getVersion();
+	printFreqStats("Version",
+		[](Match m) -> StringV {
+			return StringV{ m.getVersion() };
 		});
 
 	// 3) Year stats
-	printFreqStats<string>("Year",
-		[](Match m) -> string {
-			return to_string(m.getYear());
+	printFreqStats("Year",
+		[](Match m) -> StringV {
+			return StringV{ to_string(m.getYear()) };
 		});
 
 	// 4) Player stats
-	printFreqStats<StringV>("Player",
+	printFreqStats("Player",
 		[](Match m) -> StringV {
 			return m.getFighters().getPlayers();
 		});
 
 	// 5) Character stats
-	printFreqStats<StringV>("Character",
+	printFreqStats("Character",
 		[](Match m) -> StringV {
 			return m.getFighters().getChars();
 		});
@@ -144,103 +144,74 @@ void ReplaysAnalyser::printDateStats()
 }
 
 
-
 // Helper: Print frequency statistics for a given property
 // statName: Name for this group of statistics
-// func: Function that retrieves property (String or String Vector)
-template <typename Property>
-void ReplaysAnalyser::printFreqStats(string statName, function<Property(Match)> func)
+// func: Function that retrieves properties (String Vector)
+void ReplaysAnalyser::printFreqStats(string statName, function<StringV(Match)> func)
 {
 	// Starting message
 	printStatsHeading(statName);
 
+	// # Create map of unique strings paired with how many there are
+	map<string, int> itemVariants;
 
-	// # Holders
-	// A set containing each variant (unique items)
-	StringSet variants;
-
-	// All items
-	StringV all;
-
-
-	// # Get variants and items
-	// For all matches
-	for (Match curMatch : ml.getMatches())
+	// For each match
+	vector<Match> matches = ml.getMatches();
+	for (Match curMatch : matches)
 	{
-		// Extract property info
-		Property curProp = func(curMatch);
+		// Extract string properties using the function given (e.g. player names)
+		StringV curProps = func(curMatch);
 
-		// If type is string
-		if constexpr (is_same_v<Property, string>) {
+		// For each string
+		for (string curS : curProps)
+		{
+			// If calculating player stats and a special player is encountered, skip them
+			if (contains(statName, "Player")
+				&& (contains(curS, "davo") || contains(curS, "ANON")))
+			{
+				continue;
+			}
 
-			// Simply add to both
-			variants.insert(curProp);
-			all.push_back(curProp);
-		}
-		else if constexpr (is_same_v<Property, StringV>) {
-
-			// Else if type is string vector:
-			// Iterate over all strings in vector
-			for (string curItem : curProp) {
-
-				// Add to both
-				variants.insert(curItem);
-				all.push_back(curItem);
+			// If the string is already in the map
+			if (itemVariants.contains(curS))
+			{
+				// Increment its count
+				itemVariants[curS]++;
+			}
+			else
+			{
+				// Else if its not in the map, add it
+				itemVariants[curS] = 1;
 			}
 		}
 	}
 
+	// Convert the map to a vector since maps cannot be sorted
+	vector<VCPair> itemVariantsV(itemVariants.begin(), itemVariants.end());
 
-	// # Generate frequency-variant pairs
-	// Holder
-	vector<FVPair> fvPairs;
-
-	// For each variant
-	for (string curV : variants)
-	{
-		// If a special player
-		if (contains(curV, "davo") || contains(curV, "ANON"))
-		{
-			// Skip
-			continue;
-		}
-
-		// Find out how many instances of this variant are present
-		int freq = int(count(all.begin(), all.end(), curV));
-
-		// Add pair to list
-		fvPairs.push_back(make_pair(freq, curV));
-	}
-
-
-	// # Sort freq-var pairs by frequency
-	sort(fvPairs.begin(), fvPairs.end(),
-		[](FVPair p1, FVPair p2) {
-
-			// Return pair with greater frequency
-			return (p1.first > p2.first);
+	// Sort the variants, placing the highest count variants at the top
+	sort(itemVariantsV.begin(), itemVariantsV.end(),
+		[](const VCPair pair1, const VCPair pair2) {
+			// Compare pairs by their counts
+			return pair1.second > pair2.second;
 		});
 
-
-	// # Print freq-var pairs
+	// # Print out variant-count pairs
 	// Print headings (if column mode on)
 	printColumns("%", statName, "Matches");
 
 	// For all pairs
-	for (FVPair curPair : fvPairs)
+	for (VCPair curPair : itemVariantsV)
 	{
-		// Extract frequency
-		int freq = curPair.first;
+		// Extract count (of items for given variant)
+		int count = curPair.second;
 
 		// Calculate percentage
 		// Note: Match count used as total as some matches have multiple items
-		double percentage = ((double) freq / (double) matchNum) * 100;
+		double percentage = ((double)count / (double)matchNum) * 100;
 
-		// Extract 
-		string curV = curPair.second;
-
-		// Print line for pair
-		printStatsLine(percentage, curV, freq);
+		// Print line from pair
+		printStatsLine(percentage, curPair.first, count);
 	}
 }
 

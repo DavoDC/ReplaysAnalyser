@@ -97,8 +97,8 @@ Date Range: 11/Jan/2021 - 16/Mar/2024  (Oldest to Newest)
 0.60%     Bomberman      32
 0.58%     Rayman         31
 
-Time taken: 0.272 seconds
+Time taken: 0.259 seconds
 
 
-C:\Users\David\GitHubRepos\ReplaysAnalyser\Project\x64\Release\ReplaysAnalyser.exe (process 7880) exited with code 0.
+C:\Users\David\GitHubRepos\ReplaysAnalyser\Project\x64\Release\ReplaysAnalyser.exe (process 11688) exited with code 0.
 Press any key to close this window . . .
