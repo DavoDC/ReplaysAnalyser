@@ -2,12 +2,9 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
+Add date ranges for other statistic types, 
+make getDateRange function
 
-## Player Date Ranges
-Add dates to players , first and last date of matches
-Store list of matches of each player
-Add date range to players and other stats
-(e.g. starboy first and last match date etc.)
 
 
 Make useable for regular users,

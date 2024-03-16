@@ -45,10 +45,7 @@ void ReplaysAnalyser::toggleColumnPrint()
 }
 
 
-
-
-
-// Analyse replays
+// MAIN: Analyse replays
 void ReplaysAnalyser::analyse()
 {
 	// Welcome message
@@ -91,7 +88,6 @@ void ReplaysAnalyser::analyse()
 }
 
 
-
 // Helper: Get replay path
 string ReplaysAnalyser::getReplayPath()
 {
@@ -125,7 +121,6 @@ string ReplaysAnalyser::getReplayPath()
 }
 
 
-
 // Helper: Print date statistics
 void ReplaysAnalyser::printDateStats()
 {
@@ -138,6 +133,7 @@ void ReplaysAnalyser::printDateStats()
 	print("Current Date: " + Date(ymd).toString());
 
 	// Date Range
+	// Note: Relies on matchlist being sorted by date beforehand
 	string oldest = ml.getMatches().front().getDate().toString();
 	string newest = ml.getMatches().back().getDate().toString();
 	print(format("Date Range: {} - {}  (Oldest to Newest)", oldest, newest));
@@ -152,7 +148,7 @@ void ReplaysAnalyser::printFreqStats(string statName, function<StringV(Match)> f
 	// Starting message
 	printStatsHeading(statName);
 
-	// # Create map of unique strings paired with how many there are
+	// Create map of unique strings paired with how many there are
 	map<string, int> itemVariants;
 
 	// For each match
@@ -196,58 +192,77 @@ void ReplaysAnalyser::printFreqStats(string statName, function<StringV(Match)> f
 			return pair1.second > pair2.second;
 		});
 
-	// # Print out variant-count pairs
-	// Print headings (if column mode on)
-	printColumns("%", statName, "Matches");
-
-	// For all pairs
+	// Print heading and lines for each variant-count pair
+	printColumns("%", statName, "Matches", "Date Range");
 	for (VCPair curPair : itemVariantsV)
 	{
-		// Extract count (of items for given variant)
-		int count = curPair.second;
-
-		// Calculate percentage
-		// Note: Match count used as total as some matches have multiple items
-		double percentage = ((double)count / (double)matchNum) * 100;
-
-		// Print line from pair
-		printStatsLine(percentage, curPair.first, count);
+		printVCPair(curPair, statName);
 	}
 }
 
 
+// Helper: Print out a given variant-count pair
+void ReplaysAnalyser::printVCPair(VCPair vcPair, string statName)
+{
+	// Extract pair information
+	string varValue = vcPair.first;
+	int varCount = vcPair.second;
 
-// Helper: Print freq-variant pairs
-// statName: Name for this group of statistics
-// fvPairs: Frequency-variant pairs
-void ReplaysAnalyser::printStatsLine(double percentage, string curV, int freq)
+	// Calculate the percentage of matches with the variant
+	double percentage = ((double) varCount / (double) matchNum) * 100;
+
+	// If percentage significant, print statistics line
+	if (percentage > cutoff)
+	{
+		// Date range holder 
+		string dateRange = "";
+
+		// If a significant player
+		if (contains(statName, "Player"))
+		{
+			// Get all the matches for that player
+			vector<Match> playerMatches = ml.getPlayerMatches(varValue);
+
+			// Find oldest and newest matches
+			auto dateRangePair = std::minmax_element(playerMatches.begin(), playerMatches.end(),
+				[](Match m1, Match m2) {
+					// Return 'greater' internal date
+					return (m1.getDate().getYMD() < m2.getDate().getYMD());
+				});
+
+			// Extract date strings and format together
+			string oldest = dateRangePair.first._Ptr->getDate().toString();
+			string newest = dateRangePair.second._Ptr->getDate().toString();
+			dateRange = format("{} - {}", oldest, newest);
+		}
+
+		printStatsLine(percentage, varValue, varCount, dateRange);
+	}
+}
+
+// Helper: Print out statistics line
+void ReplaysAnalyser::printStatsLine(double percentage, string curV, int freq, string dateRange)
 {
 	// Convert to strings
 	string freqS = to_string(freq);
 	string percentS = to_string(percentage).erase(4) + "%";
 
-	// If percentage significant
-	if (percentage > cutoff)
+	// Print in certain way
+	if (columnPrint)
 	{
-		// Print in certain way
-		if (columnPrint)
-		{
-			// Print in columns
-			printColumns(percentS, curV, freqS);
-		}
-		else
-		{
-			// Print formatted
-			print(format("{} = {} ({} matches)", percentS, curV, freqS));
-		}
+		// Print in columns
+		printColumns(percentS, curV, freqS, dateRange);
+	}
+	else
+	{
+		// Print formatted
+		print(format("{} = {} ({} matches) ({})", percentS, curV, freqS, dateRange));
 	}
 }
 
 
-
-
-// Helper: Print three columns
-void ReplaysAnalyser::printColumns(string c1, string c2, string c3)
+// Helper: Print out columns
+void ReplaysAnalyser::printColumns(string c1, string c2, string c3, string c4)
 {
 	if (columnPrint)
 	{
@@ -256,17 +271,23 @@ void ReplaysAnalyser::printColumns(string c1, string c2, string c3)
 			<< "\n"
 			<< setw(10) << c1
 			<< setw(15) << c2
-			<< c3;
+			<< setw(10) << c3
+			<< c4;
 	}
 }
-
-
 
 
 // Helper: Print statistics heading line
 void ReplaysAnalyser::printStatsHeading(string statName)
 {
-	print(format("\n### {} Statistics ###", statName));
+	printHeading(format("{} {}", statName, "Statistics"));
+}
+
+
+// Helper: Print heading line
+void ReplaysAnalyser::printHeading(string statName)
+{
+	print(format("\n### {} ###", statName));
 }
 
 
