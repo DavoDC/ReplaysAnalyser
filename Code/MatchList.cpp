@@ -22,8 +22,6 @@ namespace fs = filesystem;
 #define FSIterator fs::recursive_directory_iterator
 
 
-
-
 // Default Constructor
 MatchList::MatchList()
 {
@@ -85,8 +83,6 @@ MatchList::MatchList(string replayPath)
 }
 
 
-
-
 // Print out all match info
 void MatchList::printInfo()
 {
@@ -95,8 +91,6 @@ void MatchList::printInfo()
 		print(curM.toString());
 	}
 }
-
-
 
 
 // ## Getters
@@ -118,6 +112,47 @@ vector<Match> MatchList::getMatches()
 {
 	return matches;
 }
+
+
+// Get matches played on a given version of the game
+vector<Match> MatchList::getVersionMatches(string version)
+{
+	// Holder for version matches
+	vector<Match> versionMatches;
+
+	// Copy in version matches using predicate
+	std::copy_if(matches.begin(), matches.end(), std::back_inserter(versionMatches),
+		[&](Match m)
+		{
+			// Return true if match's version matches given version
+			return m.getVersion() == version;
+		}
+	);
+
+	// Return result
+	return versionMatches;
+}
+
+
+// Get matches played during a certain year
+vector<Match> MatchList::getYearMatches(string year)
+{
+	// Holder for year matches
+	vector<Match> yearMatches;
+
+	// Copy in year matches using predicate
+	std::copy_if(matches.begin(), matches.end(), std::back_inserter(yearMatches),
+		[&](Match m)
+		{
+			// Return true if match's year matches given year
+			return m.getYear() == stoi(year);
+		}
+	);
+
+	// Return result
+	return yearMatches;
+}
+
 
 // Get matches for a given player
 // playerName: Standardized player name (after alias handling)

@@ -29,6 +29,8 @@ public:
 	int getSize();
 	std::string getSizeS();
 	std::vector<Match> getMatches();
+	std::vector<Match> getVersionMatches(std::string);
+	std::vector<Match> getYearMatches(std::string);
 	std::vector<Match> getPlayerMatches(std::string);
 	std::vector<Match> getCharMatches(std::string);
 

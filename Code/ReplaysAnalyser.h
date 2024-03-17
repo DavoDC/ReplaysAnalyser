@@ -66,6 +66,7 @@ private:
 	// ### Private methods
 	// # Helpers
 	std::string getReplayPath();
+	std::string getDateRangeForMatches(std::vector<Match> matchList);
 	void printColumns(std::string, std::string, std::string, std::string);
 	void printStatsLine(double, std::string, int, std::string);
 	void printSettingsUpdate(std::string);
