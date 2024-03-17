@@ -165,11 +165,8 @@ vector<Match> MatchList::getPlayerMatches(string playerName)
 	std::copy_if(matches.begin(), matches.end(), std::back_inserter(playerMatches),
 		[&](Match m)
 		{
-			// Extract player list from match
-			vector<string> playerList = m.getFighters().getPlayers();
-
-			// Return true if player is found in player list
-			return count(playerList.begin(), playerList.end(), playerName) != 0;
+			// Return true if the player is found in the match's player list
+			return vecContains(m.getFighters().getPlayers(), playerName);
 		}
 	);
 
@@ -188,11 +185,8 @@ vector<Match> MatchList::getCharMatches(string charName)
 	std::copy_if(matches.begin(), matches.end(), std::back_inserter(charMatches),
 		[&](Match m)
 		{
-			// Extract character list from match
-			vector<string> charList = m.getFighters().getChars();
-
-			// Return true if character is found in character list
-			return count(charList.begin(), charList.end(), charName) != 0;
+			// Return true if the character is found in the match's character list
+			return vecContains(m.getFighters().getChars(), charName);
 		}
 	);
 
@@ -203,23 +197,4 @@ vector<Match> MatchList::getCharMatches(string charName)
 // Helper for retrieving subsets of matches
 // common: Common property in a subset of matches
 // FUNCTION: Use same function passed in for freq calcs
-//vector<Match> MatchList::getCertainMatches(string common, FUNCTION)
-//{
-//	// Holder for match subset
-//	vector<Match> matchSubset;
-//
-//	// Copy matches into holder that possess a given common property
-//	std::copy_if(matches.begin(), matches.end(), std::back_inserter(matchSubset),
-//		[&](Match m)
-//		{
-//			// Extract list of the relevant properties
-//			vector<string> propList = func(m);
-//
-//			// Return true if value is found in properties
-//			return count(propList.begin(), propList.end(), common) != 0;
-//		}
-//	);
-//
-//	// Return result
-//	return matchSubset;
-//}
+// GENERALIZE THIS

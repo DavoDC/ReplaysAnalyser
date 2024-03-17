@@ -9,7 +9,7 @@
 // ### Libraries
 #include <chrono>
 
-// Macro for long type name
+// Macro for long date type name
 #define DateM std::chrono::year_month_day
 
 

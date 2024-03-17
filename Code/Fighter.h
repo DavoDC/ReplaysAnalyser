@@ -9,9 +9,6 @@
 // Include Alias Handler
 #include "AliasHandler.h"
 
-// String pair macro
-#define StringPair std::pair<std::string, std::string>
-
 
 class Fighter
 {

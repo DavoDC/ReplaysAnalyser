@@ -5,12 +5,15 @@
 
 // Libraries
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <vector>
 #include <format>
 
-// String vector macro
+
+// Macros
 #define StringV std::vector<std::string>
+#define StringPair std::pair<std::string, std::string>
 
 
 // Function declarations
@@ -22,3 +25,4 @@ StringV split(std::string fullS, std::string sep, int exp);
 void replaceAll(std::string& source, const std::string& from, const std::string& to);
 
 bool contains(std::string, std::string);
+bool vecContains(StringV, std::string);

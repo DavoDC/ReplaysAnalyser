@@ -31,11 +31,11 @@
     <Filter Include="Source Files\Modules\MatchList\Match">
       <UniqueIdentifier>{1ffce34b-da2a-4a33-9b11-056b07f33488}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Modules\Statistics">
-      <UniqueIdentifier>{288c0ac3-9bf5-433b-809b-55a50c38ca40}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Modules\Statistics">
-      <UniqueIdentifier>{f0669657-b63c-4af3-8eca-3d12406bc02a}</UniqueIdentifier>
+      <UniqueIdentifier>{64c68dc6-c95e-47a2-91bf-141a991c4112}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Modules\Statistics">
+      <UniqueIdentifier>{152b7dab-21e7-4429-bfc8-f412b01c9fc8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -63,7 +63,13 @@
     <ClInclude Include="..\Code\ReplaysAnalyser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\Code\Statistics.h">
+    <ClInclude Include="..\Code\StatPrinter.h">
+      <Filter>Header Files\Modules\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\StatList.h">
+      <Filter>Header Files\Modules\Statistics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Code\Stat.h">
       <Filter>Header Files\Modules\Statistics</Filter>
     </ClInclude>
   </ItemGroup>
@@ -95,7 +101,13 @@
     <ClCompile Include="..\Code\ReplaysAnalyser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\Code\Statistics.cpp">
+    <ClCompile Include="..\Code\StatPrinter.cpp">
+      <Filter>Source Files\Modules\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\StatList.cpp">
+      <Filter>Source Files\Modules\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\Stat.cpp">
       <Filter>Source Files\Modules\Statistics</Filter>
     </ClCompile>
   </ItemGroup>
