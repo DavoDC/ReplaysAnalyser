@@ -11,7 +11,11 @@ using namespace std;
 // Default Constructor
 Date::Date()
 {
-	intYMD = DateM();
+	// Get current system time
+	auto now = chrono::system_clock::now();
+
+	// Convert system time to nearest whole day and save
+	intYMD = DateM(chrono::floor<chrono::days>(now));
 }
 
 

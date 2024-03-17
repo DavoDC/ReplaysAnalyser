@@ -37,9 +37,6 @@ int main()
 	// Change cutoff
 	// Note: Adjust such that all years are shown
 	ra.setCutoff(0.5);
-
-	// Toggle column print
-	//ra.toggleColumnPrint();
 	
 	// Run analysis
 	ra.analyse();

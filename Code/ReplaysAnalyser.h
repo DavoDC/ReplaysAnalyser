@@ -7,24 +7,10 @@
 // Include common
 #include "Common.h"
 
-// Include needed headers
+// Helper classes
 #include "MatchList.h"
-
-
-// ### Libraries
-// For function type
-#include <functional>
-
-// For sort
-#include <algorithm>
-
-// For map
-#include <map>
-
-
-// ### Macros
-// Variant-Count pair
-#define VCPair std::pair<std::string, int>
+#include "StatPrinter.h"
+#include "StatList.h"
 
 
 // Declare ReplaysAnalyser class
@@ -38,11 +24,9 @@ public:
 	// Settings
 	void toggleSampleData();
 	void setCutoff(double);
-	void toggleColumnPrint();
 
 	// Main function
 	void analyse();
-
 
 private:
 	// ### Private fields
@@ -62,20 +46,8 @@ private:
 	int matchNum;
 
 
-
 	// ### Private methods
 	// # Helpers
 	std::string getReplayPath();
-	std::string getDateRangeForMatches(std::vector<Match> matchList);
-	void printColumns(std::string, std::string, std::string, std::string);
-	void printStatsLine(double, std::string, int, std::string);
-	void printSettingsUpdate(std::string);
-	void printVCPair(VCPair, std::string);
-	void printStatsHeading(std::string);
-	void printHeading(std::string);
-	void printDateStats();
-
-	// # Main Statistics Method
-	void printFreqStats(std::string, std::function<StringV(Match)>);
 };
 

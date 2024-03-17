@@ -5,9 +5,6 @@
 #include "Common.h"
 
 // ### Libraries
-
-// For string splitting
-#include <iomanip>
 #include <ranges>
 #include <string_view>
 
@@ -103,4 +100,18 @@ bool contains(string s1, string s2)
 {
 	// Return true if s1 contains s2
 	return strstr(s1.c_str(), s2.c_str());
+}
+
+
+// contains(): Helper function for checking if a string vector contains a given string
+bool vecContains(StringV list, string value)
+{
+	// If vector is empty, stop and return false
+	if (list.empty())
+	{
+		return false;
+	}
+
+	// Return true if value found
+	return find(list.begin(), list.end(), value) != list.end();
 }
