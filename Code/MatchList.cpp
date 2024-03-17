@@ -141,3 +141,50 @@ vector<Match> MatchList::getPlayerMatches(string playerName)
 	// Return result
 	return playerMatches;
 }
+
+// Get matches for a given character
+// charName: Character name
+vector<Match> MatchList::getCharMatches(string charName)
+{
+	// Holder for character's matches
+	vector<Match> charMatches;
+
+	// Copy in character's matches using predicate
+	std::copy_if(matches.begin(), matches.end(), std::back_inserter(charMatches),
+		[&](Match m)
+		{
+			// Extract character list from match
+			vector<string> charList = m.getFighters().getChars();
+
+			// Return true if character is found in character list
+			return count(charList.begin(), charList.end(), charName) != 0;
+		}
+	);
+
+	// Return result
+	return charMatches;
+}
+
+// Helper for retrieving subsets of matches
+// common: Common property in a subset of matches
+// FUNCTION: Use same function passed in for freq calcs
+//vector<Match> MatchList::getCertainMatches(string common, FUNCTION)
+//{
+//	// Holder for match subset
+//	vector<Match> matchSubset;
+//
+//	// Copy matches into holder that possess a given common property
+//	std::copy_if(matches.begin(), matches.end(), std::back_inserter(matchSubset),
+//		[&](Match m)
+//		{
+//			// Extract list of the relevant properties
+//			vector<string> propList = func(m);
+//
+//			// Return true if value is found in properties
+//			return count(propList.begin(), propList.end(), common) != 0;
+//		}
+//	);
+//
+//	// Return result
+//	return matchSubset;
+//}

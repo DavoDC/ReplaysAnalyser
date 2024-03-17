@@ -58,6 +58,8 @@ void ReplaysAnalyser::analyse()
 	// Save total matches
 	matchNum = ml.getSize();
 
+	ml.printInfo();
+
 	// ### Print stats
 	// 1) Date stats
 	printDateStats();
@@ -168,17 +170,8 @@ void ReplaysAnalyser::printFreqStats(string statName, function<StringV(Match)> f
 				continue;
 			}
 
-			// If the string is already in the map
-			if (itemVariants.contains(curS))
-			{
-				// Increment its count
-				itemVariants[curS]++;
-			}
-			else
-			{
-				// Else if its not in the map, add it
-				itemVariants[curS] = 1;
-			}
+			// Increment the count of the variant (or add a new key with a count of 1)
+			itemVariants[curS]++;
 		}
 	}
 
@@ -217,7 +210,7 @@ void ReplaysAnalyser::printVCPair(VCPair vcPair, string statName)
 		// Date range holder 
 		string dateRange = "";
 
-		// If a significant player
+		// If getting player stats, get player date range
 		if (contains(statName, "Player"))
 		{
 			// Get all the matches for that player
@@ -225,6 +218,23 @@ void ReplaysAnalyser::printVCPair(VCPair vcPair, string statName)
 
 			// Find oldest and newest matches
 			auto dateRangePair = std::minmax_element(playerMatches.begin(), playerMatches.end(),
+				[](Match m1, Match m2) {
+					// Return 'greater' internal date
+					return (m1.getDate().getYMD() < m2.getDate().getYMD());
+				});
+
+			// Extract date strings and format together
+			string oldest = dateRangePair.first._Ptr->getDate().toString();
+			string newest = dateRangePair.second._Ptr->getDate().toString();
+			dateRange = format("{} - {}", oldest, newest);
+		}
+		else if (contains(statName, "Character"))
+		{
+			// Get all the matches for that character
+			vector<Match> charMatches = ml.getCharMatches(varValue);
+
+			// Find oldest and newest matches
+			auto dateRangePair = std::minmax_element(charMatches.begin(), charMatches.end(),
 				[](Match m1, Match m2) {
 					// Return 'greater' internal date
 					return (m1.getDate().getYMD() < m2.getDate().getYMD());

@@ -16,7 +16,7 @@ class MatchList
 public:
 
 	// ### Public Methods
-	// Default Constructor (needed as declaration=instantation for types)
+	// Default Constructor (needed as declaration=instantiation for types)
 	MatchList();
 	
 	// Constructor
@@ -30,11 +30,15 @@ public:
 	std::string getSizeS();
 	std::vector<Match> getMatches();
 	std::vector<Match> getPlayerMatches(std::string);
+	std::vector<Match> getCharMatches(std::string);
 
 private:
 
 	// ### Private Fields
 	// # Underlying data structure
 	std::vector<Match> matches;
+
+	// ### Private Methods
+	//std::vector<Match> getCertainMatches(std::string);
 };
 
