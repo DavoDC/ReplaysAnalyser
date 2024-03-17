@@ -27,6 +27,7 @@
     <ClInclude Include="..\Code\MatchList.h" />
     <ClInclude Include="..\Code\Date.h" />
     <ClInclude Include="..\Code\ReplaysAnalyser.h" />
+    <ClInclude Include="..\Code\Statistics.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Code\AliasHandler.cpp" />
@@ -38,6 +39,7 @@
     <ClCompile Include="..\Code\Date.cpp" />
     <ClCompile Include="..\Code\Main.cpp" />
     <ClCompile Include="..\Code\ReplaysAnalyser.cpp" />
+    <ClCompile Include="..\Code\Statistics.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="..\IDEAS.txt" />

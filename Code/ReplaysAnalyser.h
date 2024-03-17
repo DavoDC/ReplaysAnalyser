@@ -35,14 +35,13 @@ public:
 	// Constructor
 	ReplaysAnalyser();
 
-	// Main function
-	void analyse();
-
 	// Settings
 	void toggleSampleData();
 	void setCutoff(double);
 	void toggleColumnPrint();
 
+	// Main function
+	void analyse();
 
 
 private:

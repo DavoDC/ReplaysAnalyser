@@ -2,12 +2,11 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
-Add date ranges for other statistic types, 
-make getDateRange function
+Add date ranges for all statistic types
 
 
-Improve statistics code, make statistics object constructed from function, 
-and a printer object. make printer first 
+Refactor statistics code to be OO
+- Reuse Extractor function given for both frequency and date range calcs
 
 
 
