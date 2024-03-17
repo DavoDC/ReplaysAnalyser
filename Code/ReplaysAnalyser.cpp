@@ -58,8 +58,6 @@ void ReplaysAnalyser::analyse()
 	// Save total matches
 	matchNum = ml.getSize();
 
-	ml.printInfo();
-
 	// ### Print stats
 	// 1) Date stats
 	printDateStats();
