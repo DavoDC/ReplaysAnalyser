@@ -6,6 +6,10 @@ Add date ranges for other statistic types,
 make getDateRange function
 
 
+Improve statistics code, make statistics object constructed from function, 
+and a printer object. make printer first 
+
+
 
 Make useable for regular users,
 perhaps via installer?
