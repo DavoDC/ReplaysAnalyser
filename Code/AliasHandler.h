@@ -21,6 +21,9 @@ public:
 	// # Public methods
 	std::string handlePlayer(std::string);
 
+	// # Constant
+	static const std::string ANON;
+
 private:
 	// # Private fields
 	std::vector<Alias> aliases;

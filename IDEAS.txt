@@ -2,23 +2,18 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
-Finalize refactor 
-- Make function calls for rest of stat sections 
-- Do one stat printer call for them, provide statName once, do heading internally 
-- make Match functions that return StringV to make providing func easier 
+Generalize 4 similar functions in MatchList
 
 
-Reduce code duplication
-- Make common function for comparing matches by date and use at least twice
-- Generalize 4 similar functions in MatchList
+Optimize 
+- Run code analysis
+- Fix cppcheck warnings 
+- Pass matchlist by ref
+
 
 Check whole project 
 - Fix documentation, should be in header only, /** style 
 - Look for improvements
-
-Simplify 
-- Remove sample data 
-- Add in cutoff logic, calculate lowest year stat, div/3 and use as cutoff
 
 
 RELEASE IT FOR REGULAR USERS 

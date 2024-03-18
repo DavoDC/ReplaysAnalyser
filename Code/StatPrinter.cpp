@@ -35,10 +35,13 @@ void StatPrinter::printDateRange(string oldest, string newest)
 
 
 // Print out a list of statistics objects
-void StatPrinter::printStatsList(vector<Stat> statList)
+void StatPrinter::printStatsList(string statName, vector<Stat> statList)
 {
+	// Print heading 
+	printHeading(statName);
+
 	// Print column headings
-	printColumns("%", "TEMPORARY", "Matches", "Date Range");
+	printColumns("%", statName, "Matches", "Date Range");
 
 	// Print each stat
 	for (Stat curStat : statList)

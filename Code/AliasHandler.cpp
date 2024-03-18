@@ -7,51 +7,57 @@
 // Namespace mods
 using namespace std;
 
+// Name of anonymous player
+const std::string AliasHandler::ANON = "ANONY";
+
 
 // Default Constructor
 AliasHandler::AliasHandler()
 {
 	// Initialize aliases
 
-	// Neb
-	StringV neb {
-		"B","w","QOZ","i3ssf2","DENT","Morb","joinsomco",
+	// Jazz
+	StringV jazz{
+		"P2","JAM","JAZ","RICE","JASS","JASZ","JAMm",
+		"JazBlue959", "JAMMY", "CHEESEYJM","CHESSJAM",
+		"JAMVeGMTE","PEANUTJAM", "JAMVEGEMt", "JAMMEDUP",
+		"JAMMED"
+	};
+	addAlias("Jazz", jazz);
+
+	// Nebula/Rain
+	StringV neb{
+		"QOZ","rain","DENT","Morb","i3ssf2","joinsomco",
 		"NebulaAU","Cocomelon","StuartNeb","NebulaSSBM"
 	};
 	addAlias("Nebula", neb);
 
 	// Spi
-	StringV spi {
-		"A","SPI","SPY","Bee","BeeMO",
+	StringV spi{
+		"SPI","SPi","SPY","Bee","BeeMO","AdriBee",
 		"Spii_","SPYRISE","Spyrise","Adriana"
 	};
 	addAlias("Spi", spi);
 
-	// Jazz
-	StringV jazz {
-		"P2","JAM","RICE","JASS","JASZ","JazBlue959","JAMMY",
-		"CHEESEYJM","JAMVeGMTE","PEANUTJAM", "JAMVEGEMt",
-	};
-	addAlias("Jazz", jazz);
-
 	// Starboy
-	addAlias("Starboy", {
-		"x77starboy","MonteSauce","xDuncan", "MetroJr", "ttgmetro"});
-
-	// Epi
-	addAlias("Epi", { "LV77","power2","ADEPITA","ACiDTRiP" });
+	addAlias("Starboy",
+		{"x77starboy","MonteSauce","xDuncan", "MetroJr", "ttgmetro" });
 
 	// Davo
-	addAlias("davo", { "P1","DavoDC","davo1776","DAVO1776"});
+	addAlias("davo",
+		{ "P1","DAVO","DavoDC","davo1776","DAVO1776", "DISCORD", "davo1776_"});
+
+	// Epi
+	addAlias("Epi", { "LV77","power2","ADEPITA","EpiGOAT","ACiDTRiP" });
 
 	// Vink
 	addAlias("Vink", { "SkiesFlap","MalonMySwe","MissMyoui" });
-	
+
 	// Lost
 	addAlias("Lost", { "Lostie","KitKats","Lost-Chan" });
 
 	// Xorop
-	addAlias("Xorop", { "xorop53","CR-KING" });
+	addAlias("Xorop", { "xorop53","CR-KING", "XOROP"});
 
 	// Pat
 	addAlias("Pat", { "funniswor","stpatboi33" });
@@ -59,16 +65,23 @@ AliasHandler::AliasHandler()
 	// Egg
 	addAlias("Egg", { "TheLegend","T-LegOfEgg" });
 
-	// Singles
-	addSingleAlias("Azzie", "InternetSu");
-	addSingleAlias("Hexxa", "HexxaWyn");
-	addSingleAlias("Jake", "Jakethedog");
-	addSingleAlias("Victor", "MrAgosFan");
-	addSingleAlias("brubble", "brubblefis");
-	addSingleAlias("Cody", "kalakly");
+	// Ben
+	addAlias("Ben", { "BeetleOven","beetoeoven" });
 
-	// Empty player
-	addSingleAlias("ANON", "");
+	// Singles
+	addSingleAlias("Cody", "kalakly");
+	addSingleAlias("Hexxa", "HexxaWyn");
+	addSingleAlias("Malik", "TinMan174");
+	addSingleAlias("Jake", "Jakethedog");
+	addSingleAlias("JSG", "JustSomeGuy");
+	addSingleAlias("Flint", "Flint_the_");
+	addSingleAlias("Victor", "MrAgosFan");
+	addSingleAlias("Azzie", "InternetSu");
+	addSingleAlias("Brubble", "brubblefis");
+	addSingleAlias("Lokimazin", "lokimazin");
+
+	// Anonymous player
+	addSingleAlias(ANON, "");
 }
 
 
@@ -89,6 +102,12 @@ void AliasHandler::addAlias(string standardName, StringV names)
 // Handle a given player name
 string AliasHandler::handlePlayer(string player)
 {
+	// If player name is one character, classify as anonymous
+	if (player.size() == 1)
+	{
+		return ANON;
+	}
+
 	// Holder
 	// (Initialize to original in case no alias is found)
 	string newName = player;
