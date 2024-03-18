@@ -23,17 +23,22 @@ public:
 	// Constructor
 	Match(std::string);
 
+	// Getters
+	int getYear();
+	Date getDate();
+	std::string getYearS();
+	std::string getDateS();
+	std::string getVersion();
+	FighterList getFighters();
+
 	// Get string representation
 	std::string toString();
 
-	// ## Getters
-	// # Main Fields
-	std::string getVersion();
-	Date getDate();
-	FighterList getFighters();
+	/**
+	 * @return True if this match is newer than the one inputted
+	*/
+	bool isMatchNewer(Match mInput);
 
-	// # Components
-	int getYear();
 
 private:
 

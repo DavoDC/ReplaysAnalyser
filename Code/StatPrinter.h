@@ -23,7 +23,7 @@ public:
 	void printHeading(std::string);
 	void printCurDate(std::string);
 	void printDateRange(std::string, std::string);
-	void printStatsList(std::vector<Stat> statList);
+	void printStatsList(std::string statName, std::vector<Stat> statList);
 	
 
 private:

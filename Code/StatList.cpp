@@ -81,11 +81,10 @@ StringPair StatList::getDateRangeForMatches(vector<Match> matchList)
 	// Find oldest and newest matches
 	auto dateRangePair = std::minmax_element(matchList.begin(), matchList.end(),
 		[](Match m1, Match m2) {
-			// Return 'greater' internal date
-			return (m1.getDate().getYMD() < m2.getDate().getYMD());
+			return m2.isMatchNewer(m1);
 		});
 
 	// Convert to strings and pair together
-	return StringPair(dateRangePair.first._Ptr->getDate().toString(),
-		dateRangePair.second._Ptr->getDate().toString());
+	return StringPair(dateRangePair.first._Ptr->getDateS(),
+		dateRangePair.second._Ptr->getDateS());
 }

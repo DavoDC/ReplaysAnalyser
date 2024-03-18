@@ -25,7 +25,6 @@ Match::Match(string replayPath)
 	// e.g "..", "Sample_Data", "1.3.1.1"
 	// "2021-08-24 11.44 AM - VersusOnline - davo1776 (Wario)......."
 	StringV pathParts = split(replayPath, "/");
-	// NOTE: Check disabled since path length/structure can vary
 
 	// # INIT 1st FIELD
 	// Extract and save version (2nd last part). e.g. 1.3.1.1
@@ -60,6 +59,38 @@ Match::Match(string replayPath)
 }
 
 
+// Getters
+int Match::getYear()
+{
+	return int(date.getYMD().year());
+}
+
+Date Match::getDate()
+{
+	return date;
+}
+
+string Match::getYearS()
+{
+	return to_string(getYear());
+}
+
+string Match::getDateS()
+{
+	return date.toString();
+}
+
+string Match::getVersion()
+{
+	return version;
+}
+
+FighterList Match::getFighters()
+{
+	return fighters;
+}
+
+
 
 // Get a string representation of the match (one line)
 string Match::toString()
@@ -71,26 +102,10 @@ string Match::toString()
 }
 
 
-
-
-// Getters
-string Match::getVersion()
+/**
+ * @return True if this match is newer than the one inputted
+*/
+bool Match::isMatchNewer(Match mInput)
 {
-	return version;
+	return this->getDate().getYMD() > mInput.getDate().getYMD();
 }
-
-Date Match::getDate()
-{
-	return date;
-}
-
-FighterList Match::getFighters()
-{
-	return fighters;
-}
-
-int Match::getYear()
-{
-	return int(date.getYMD().year());
-}
-

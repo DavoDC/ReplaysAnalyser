@@ -13,8 +13,6 @@ ReplaysAnalyser::ReplaysAnalyser()
 {
 	// Set variables to default values
 	this->useSampleData = false;
-	this->cutoff = 0.6;
-	this->columnPrint = true;
 	this->matchNum = 0;
 }
 
@@ -24,13 +22,6 @@ ReplaysAnalyser::ReplaysAnalyser()
 void ReplaysAnalyser::toggleSampleData()
 {
 	useSampleData = !useSampleData;
-}
-
-// Set cut off
-// newCutoff = Percentage value (e.g. 5.0 = 5%)
-void ReplaysAnalyser::setCutoff(double newCutoff)
-{
-	cutoff = newCutoff;
 }
 
 
@@ -43,7 +34,7 @@ void ReplaysAnalyser::analyse()
 	// Parse replays and notify
 	ml = MatchList(getReplayPath());
 	matchNum = ml.getSize();
-	print("\nParsed " + ml.getSizeS() + " matches!");
+	print("\nParsed " + to_string(matchNum) + " matches!");
 
 	// Create statistics printer
 	StatPrinter statP = StatPrinter();
@@ -52,39 +43,55 @@ void ReplaysAnalyser::analyse()
 	// 1) Date stats
 	statP.printHeading("Date");
 	statP.printCurDate(Date().toString());
-	statP.printDateRange(ml.getMatches().front().getDate().toString(), 
-		ml.getMatches().back().getDate().toString());
+	statP.printDateRange(ml.getFirstMatchDateS(), ml.getLastMatchDateS());
+
 
 	// 2) Version stats
-	statP.printHeading("Version");
 	StatList versionStats = StatList(ml,
 		[](Match lm) -> StringV {
 			return StringV{ lm.getVersion() };
 		},
-		StringV(), cutoff,
+		StringV(), 0,
 		[](MatchList lml, string lvariant) -> vector<Match> {
 			return lml.getVersionMatches(lvariant);
 		});
-	statP.printStatsList(versionStats.getStatList());
+	statP.printStatsList("Version", versionStats.getStatList());
 
 
-	//// 3) Year stats
-	//printFreqStats("Year",
-	//	[](Match m) -> StringV {
-	//		return StringV{ to_string(m.getYear()) };
-	//	});
+	// 3) Year stats
+	StatList yearStats = StatList(ml,
+		[](Match m) -> StringV {
+			return StringV{ m.getYearS() };
+		},
+		StringV(), 0,
+		[](MatchList lml, string lvariant) -> vector<Match> {
+			return lml.getYearMatches(lvariant);
+		});
+	statP.printStatsList("Year", yearStats.getStatList());
 
-	//// 4) Player stats
-	//printFreqStats("Player",
-	//	[](Match m) -> StringV {
-	//		return m.getFighters().getPlayers();
-	//	});
 
-	//// 5) Character stats
-	//printFreqStats("Character",
-	//	[](Match m) -> StringV {
-	//		return m.getFighters().getChars();
-	//	});
+	// 4) Player stats
+	StatList playerStats = StatList(ml,
+		[](Match m) -> StringV {
+			return m.getFighters().getPlayers();
+		},
+		StringV{ "davo", AliasHandler::ANON }, 0.4,
+		[](MatchList lml, string lvariant) -> vector<Match> {
+			return lml.getPlayerMatches(lvariant);
+		});
+	statP.printStatsList("Player", playerStats.getStatList());
+
+
+	// 5) Character stats
+	StatList charStats = StatList(ml,
+		[](Match m) -> StringV {
+			return m.getFighters().getChars();
+		},
+		StringV(), 1.0,
+		[](MatchList lml, string lvariant) -> vector<Match> {
+			return lml.getCharMatches(lvariant);
+		});
+	statP.printStatsList("Character", charStats.getStatList());
 }
 
 

@@ -27,8 +27,9 @@ public:
 
 	// # Getters
 	int getSize();
-	std::string getSizeS();
 	std::vector<Match> getMatches();
+	std::string getFirstMatchDateS();
+	std::string getLastMatchDateS();
 	std::vector<Match> getVersionMatches(std::string);
 	std::vector<Match> getYearMatches(std::string);
 	std::vector<Match> getPlayerMatches(std::string);

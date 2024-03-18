@@ -72,13 +72,11 @@ MatchList::MatchList(string replayPath)
 		exit(EXIT_FAILURE);
 	}
 
-	// Sort vector of matches using comparison function
-	// https://cplusplus.com/reference/algorithm/sort/
+	// Sort matches by date
 	sort(matches.begin(), matches.end(),
 		[](Match m1, Match m2) {
 
-			// Return 'greater' internal date
-			return (m1.getDate().getYMD() < m2.getDate().getYMD());
+			return m2.isMatchNewer(m1);
 		});
 }
 
@@ -95,23 +93,30 @@ void MatchList::printInfo()
 
 // ## Getters
 
-// Get size as an int
+// Get number of matches in list
 int MatchList::getSize()
 {
 	return int(matches.size());
 }
 
-// Get size as a string
-std::string MatchList::getSizeS()
-{
-	return to_string(getSize());
-}
-
-// Get matches
+// Get underlying vector
 vector<Match> MatchList::getMatches()
 {
 	return matches;
 }
+
+// Get date of first match as a string
+string MatchList::getFirstMatchDateS()
+{
+	return matches.front().getDateS();
+}
+
+// Get date of last match as a string
+string MatchList::getLastMatchDateS()
+{
+	return matches.back().getDateS();
+}
+
 
 
 // Get matches played on a given version of the game

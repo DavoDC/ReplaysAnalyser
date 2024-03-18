@@ -23,23 +23,16 @@ public:
 
 	// Settings
 	void toggleSampleData();
-	void setCutoff(double);
 
 	// Main function
 	void analyse();
 
 private:
 	// ### Private fields
-	// Use Sample Data
+	// Sample data toggle
 	bool useSampleData;
 
-	// Percentage Cutoff Value
-	double cutoff;
-
-	// Column Printing
-	bool columnPrint;
-
-	// MatchList
+	// List of matches
 	MatchList ml;
 
 	// Number of matches
@@ -47,7 +40,6 @@ private:
 
 
 	// ### Private methods
-	// # Helpers
 	std::string getReplayPath();
 };
 
