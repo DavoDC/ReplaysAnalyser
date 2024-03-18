@@ -2,11 +2,33 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
-Make common function for comparing matches by date and use at least twice
+Finalize refactor 
+- Make function calls for rest of stat sections 
+- Do one stat printer call for them, provide statName once, do heading internally 
+- make Match functions that return StringV to make providing func easier 
 
-Generalize 4 similar functions in MatchList
+
+Reduce code duplication
+- Make common function for comparing matches by date and use at least twice
+- Generalize 4 similar functions in MatchList
+
+Check whole project 
+- Fix documentation, should be in header only, /** style 
+- Look for improvements
+
+Simplify 
+- Remove sample data 
+- Add in cutoff logic, calculate lowest year stat, div/3 and use as cutoff
 
 
-Make useable for regular users,
-perhaps via installer?
+RELEASE IT FOR REGULAR USERS 
+- Make useable for regular users
+- Create installer
+- Test on E15
+- Make installation steps on readme when done
+
+https://www.google.com/search?q=how+to+turn+c%2B%2B+console+program+into+stanadlone+exe&sca_esv=1146a47570834aa6&rlz=1C1VDKB_en-GBAU987AU987&ei=sY_3Ze7eFfX2seMPlcW7uAg&ved=0ahUKEwiu-8_iy_yEAxV1e2wGHZXiDocQ4dUDCBA&uact=5&oq=how+to+turn+c%2B%2B+console+program+into+stanadlone+exe&gs_lp=Egxnd3Mtd2l6LXNlcnAiM2hvdyB0byB0dXJuIGMrKyBjb25zb2xlIHByb2dyYW0gaW50byBzdGFuYWRsb25lIGV4ZTIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogRIqBtQlQZYtBlwAXgBkAEAmAHUAqAB5hiqAQUyLTguM7gBA8gBAPgBAZgCBKACzgbCAgoQABhHGNYEGLADmAMAiAYBkAYIkgcHMS4wLjIuMaAHgCg&sclient=gws-wiz-serp
+
+https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170
+
 https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2022InstallerProjects
