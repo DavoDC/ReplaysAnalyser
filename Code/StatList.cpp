@@ -58,11 +58,11 @@ StatList::StatList(MatchList matchList, PropExt propExt, StringV ignore,
 		// If percentage significant
 		if (percentage > cutoff)
 		{
-			// Get date range string pair
-			StringPair dateRange = getDateRangeForMatches(matchVExt(matchList, curPair.first));
+			// Get matches for that variant
+			vector<Match> varMatchList = matchVExt(matchList, curPair.first);
 			
-			// Create stats object and add to list
-			statList.push_back(Stat(percentage, curPair, dateRange));
+			// Create and add statistics object to list
+			statList.push_back(Stat(percentage, curPair, varMatchList));
 		}
 	}
 }
@@ -72,19 +72,4 @@ StatList::StatList(MatchList matchList, PropExt propExt, StringV ignore,
 vector<Stat> StatList::getStatList()
 {
 	return statList;
-}
-
-
-// Helper: Get date range string pair for a given match list
-StringPair StatList::getDateRangeForMatches(vector<Match> matchList)
-{
-	// Find oldest and newest matches
-	auto dateRangePair = std::minmax_element(matchList.begin(), matchList.end(),
-		[](Match m1, Match m2) {
-			return m2.isMatchNewer(m1);
-		});
-
-	// Convert to strings and pair together
-	return StringPair(dateRangePair.first._Ptr->getDateS(),
-		dateRangePair.second._Ptr->getDateS());
 }

@@ -30,7 +30,8 @@ private:
 	void printStat(Stat stat);
 	void printHeading(std::string);
 	void printDateColumns(std::string, std::string, std::string);
-	void printStatColumns(std::string, std::string, std::string, std::string);
+	void printStatColumns(std::string, std::string, std::string, 
+		std::string, std::string);
 	std::string formatDateRange(std::string, std::string);
 };
 
