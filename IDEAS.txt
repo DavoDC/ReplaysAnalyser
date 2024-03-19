@@ -2,16 +2,8 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
-Add duration statistic to all sections
-
-
-Generalize 4 similar functions in MatchList
-
-
-Update README to include new Date Range features
-
-
 Optimize 
+- Generalize 4 similar functions in MatchList
 - Run code analysis
 - Fix cppcheck warnings 
 - Pass matchlist by ref

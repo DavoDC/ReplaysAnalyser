@@ -1,7 +1,7 @@
 # Replays Analyser
-A C++ console program to analyze [Super Smash Flash 2](https://mcleodgaming.fandom.com/wiki/Super_Smash_Flash_2) (SSF2) replays statistically.
+A C++ console program to analyse [Super Smash Flash 2](https://mcleodgaming.fandom.com/wiki/Super_Smash_Flash_2) (SSF2) replays statistically.
 
-I use this program to analyze my autosaved replays, which can be found here: [SSF2 Replays](https://github.com/DavoDC/SSF2Replays).
+I use this program to analyse my autosaved replays, which can be found here: [SSF2 Replays](https://github.com/DavoDC/SSF2Replays).
 
 ### Features
 
@@ -12,8 +12,8 @@ I use this program to analyze my autosaved replays, which can be found here: [SS
 
 #### Statistics Provided
 - Number of replays/matches.
-- Date range of matches.
-- Percentage and count breakdown of:
+- Date range of matches, and duration between.
+- Percentage, count, date range and duration breakdowns of:
     - Game versions used.
     - Years matches were played.
     - Players involved.
