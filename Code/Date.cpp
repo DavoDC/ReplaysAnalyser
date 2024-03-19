@@ -6,16 +6,17 @@
 
 // Namespace mods
 using namespace std;
+using namespace std::chrono;
 
 
 // Default Constructor
 Date::Date()
 {
 	// Get current system time
-	auto now = chrono::system_clock::now();
+	auto now = system_clock::now();
 
 	// Convert system time to nearest whole day and save
-	intYMD = DateM(chrono::floor<chrono::days>(now));
+	intYMD = DateM(floor<days>(now));
 }
 
 
@@ -31,12 +32,11 @@ Date::Date(DateM newYMD)
 Date::Date(string rawDateS)
 {
 	// Split raw date into 3 parts
-	// e.g. '2021-08-24',  '11.44', 'AM'
+	// e.g. '2021-08-24', '11.44', 'AM'
 	StringV rawParts = split(rawDateS, " ", 3);
 
-	// Get date part only (first part)
-	string datePart = rawParts.front();
-	stringstream ss(datePart);
+	// Extract date part as a string steam
+	stringstream ss(rawParts.front());
 
 	// Holder
 	DateM newYMD;
@@ -52,8 +52,8 @@ Date::Date(string rawDateS)
 		print("Raw Date: " + rawDateS);
 
 		// Try to fix
-		auto sysTime = chrono::sys_time<chrono::days>{ newYMD };
-		auto fixedYMD = chrono::year_month_day{ sysTime };
+		auto sysTime = sys_time<days>{ newYMD };
+		auto fixedYMD = DateM{ sysTime };
 
 		// If valid and year is not negative
 		if (fixedYMD.ok() && int(fixedYMD.year()) > 0)
@@ -69,9 +69,9 @@ Date::Date(string rawDateS)
 		else
 		{
 			// Else if it couldn't be fixed, notify
-			print("ERROR: Couldn't fix date automatically");
+			print("ERROR: Couldn't fix date automatically!");
 			print("Fix attempt: " + format("{:%Y-%m-%d}", fixedYMD));
-			print("Please fix manually", true);
+			print("Please fix manually!", true);
 		}
 	}
 
@@ -93,4 +93,38 @@ DateM Date::getYMD()
 string Date::toString()
 {
 	return format("{:%d/%b/%Y}", intYMD);
+}
+
+
+// Get absolute duration compared to another date
+string Date::getAbsDuration(Date dateIn)
+{
+	// # 0. Calculate absolute difference in days
+	days dayDiff = abs(sys_days(this->intYMD) - sys_days(dateIn.intYMD));
+
+    // # 1. Get years and subtract years
+	// Convert difference to years
+	years yearVal = duration_cast<years>(dayDiff);
+
+	// Convert years to days and subtract from difference
+	dayDiff = dayDiff - duration_cast<days>(yearVal);
+
+	// # 2. Get months and subtract months
+	// Convert difference to months
+	months monthVal = duration_cast<months>(dayDiff);
+	
+	// Convert months to days and subtract from difference
+	dayDiff = dayDiff - duration_cast<days>(monthVal);
+
+	// # 3. Get days
+	// Convert difference to days
+	days dayVal = duration_cast<days>(dayDiff);
+
+	// # 4. Convert to strings
+	string yearS = to_string(yearVal.count());
+	string monthS = to_string(monthVal.count());
+	string dayS = to_string(dayVal.count());
+
+	// Return strings formatted together
+	return format("{}y, {}m, {}d", yearS, monthS, dayS);
 }

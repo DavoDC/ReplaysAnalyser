@@ -8,6 +8,7 @@
 
 // Include helper classes
 #include "Stat.h"
+#include "Date.h"
 
 // Declare StatPrinter class
 class StatPrinter
@@ -20,17 +21,16 @@ public:
 	StatPrinter();
 
 	// Methods
-	void printHeading(std::string);
-	void printCurDate(std::string);
-	void printDateRange(std::string, std::string);
+	void printDateStats(Date oldest, Date newest);
 	void printStatsList(std::string statName, std::vector<Stat> statList);
 	
-
 private:
 
 	// ### Private Methods
-	std::string formatDateRange(std::string, std::string);
-	void printColumns(std::string, std::string, std::string, std::string);
 	void printStat(Stat stat);
+	void printHeading(std::string);
+	void printDateColumns(std::string, std::string, std::string);
+	void printStatColumns(std::string, std::string, std::string, std::string);
+	std::string formatDateRange(std::string, std::string);
 };
 
