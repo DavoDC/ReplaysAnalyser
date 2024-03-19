@@ -105,16 +105,16 @@ vector<Match> MatchList::getMatches()
 	return matches;
 }
 
-// Get date of first match as a string
-string MatchList::getFirstMatchDateS()
+// Get date of first match
+Date MatchList::getFirstMatchDate()
 {
-	return matches.front().getDateS();
+	return matches.front().getDate();
 }
 
-// Get date of last match as a string
-string MatchList::getLastMatchDateS()
+// Get date of last match
+Date MatchList::getLastMatchDate()
 {
-	return matches.back().getDateS();
+	return matches.back().getDate();
 }
 
 

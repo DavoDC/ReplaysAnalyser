@@ -14,23 +14,22 @@ StatPrinter::StatPrinter()
 }
 
 // ### METHODS
-// Print heading for a section of statistics
-void StatPrinter::printHeading(string statName)
+// Print overall date statistics
+void StatPrinter::printDateStats(Date oldest, Date newest)
 {
-	print(format("\n### {} Statistics ###", statName));
-}
+	// Print headings
+	printHeading("Date");
+	
+	// Print column headings
+	printDateColumns("Current Date", "Date Range", "Duration");
 
+	// Get info
+	string curDate = Date().toString();
+	string dateRange = formatDateRange(oldest.toString(), newest.toString());
+	string duration = oldest.getAbsDuration(newest);
 
-// Print the current date
-void StatPrinter::printCurDate(string curDateS)
-{
-	print(format("{} {}", "Current Date:", curDateS));
-}
-
-// Print the date range
-void StatPrinter::printDateRange(string oldest, string newest)
-{
-	print(format("{} {}", "Date Range:", formatDateRange(oldest, newest)));
+	// Print info
+	printDateColumns(curDate, dateRange, duration);
 }
 
 
@@ -41,7 +40,7 @@ void StatPrinter::printStatsList(string statName, vector<Stat> statList)
 	printHeading(statName);
 
 	// Print column headings
-	printColumns("%", statName, "Matches", "Date Range");
+	printStatColumns("%", statName, "Matches", "Date Range");
 
 	// Print each stat
 	for (Stat curStat : statList)
@@ -52,14 +51,41 @@ void StatPrinter::printStatsList(string statName, vector<Stat> statList)
 
 
 // ### HELPERS
+// Print heading for a section of statistics
+void StatPrinter::printHeading(string statName)
+{
+	print(format("\n### {} Statistics ###", statName));
+}
+
 // Helper: Format two dates representing a range
 string StatPrinter::formatDateRange(string date1, string date2)
 {
 	return format("{} - {}", date1, date2);
 }
 
-// Helper: Print out columns
-void StatPrinter::printColumns(string c1, string c2, string c3, string c4)
+// Helper: Print out date columns
+void StatPrinter::printDateColumns(string c1, string c2, string c3)
+{
+	cout
+		<< left
+		<< "\n"
+		<< setw(15) << c1
+		<< setw(30) << c2
+		<< setw(10) << c3;
+}
+
+// Helper: Print out statistic
+void StatPrinter::printStat(Stat stat)
+{
+	printStatColumns(
+		stat.getPercentage(),
+		stat.getVariantValue(), stat.getVariantCount(),
+		formatDateRange(stat.getOldestDate(), stat.getNewestDate())
+	);
+}
+
+// Helper: Print out statistic columns
+void StatPrinter::printStatColumns(string c1, string c2, string c3, string c4)
 {
 	cout
 		<< left
@@ -68,14 +94,4 @@ void StatPrinter::printColumns(string c1, string c2, string c3, string c4)
 		<< setw(15) << c2
 		<< setw(10) << c3
 		<< c4;
-}
-
-// Helper: Print out statistic
-void StatPrinter::printStat(Stat stat)
-{
-	printColumns(
-		stat.getPercentage(),
-		stat.getVariantValue(), stat.getVariantCount(),
-		formatDateRange(stat.getOldestDate(), stat.getNewestDate())
-	);
 }

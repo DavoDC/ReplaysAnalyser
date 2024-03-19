@@ -31,6 +31,9 @@ public:
 
 	// Convert to string
 	std::string toString();
+
+	// Get absolute duration compared to another date
+	std::string getAbsDuration(Date);
 private:
 
 	// Internal standard date object
