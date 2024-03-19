@@ -5,6 +5,10 @@
 
 // Include common
 #include "Common.h"
+#include "Match.h"
+
+// Libraries
+#include <algorithm>
 
 // ### Macros
 // Variant-Count pair
@@ -24,9 +28,9 @@ public:
 	 * @brief Construct a statistic object
 	 * @param percentage Of matches with the variant 
 	 * @param vcPair A variant-count pair
-	 * @param dateRange Oldest and newest dates for variant's matches
+	 * @param varMList The matches with the variant
 	*/
-	Stat(double percentage, VCPair vcPair, StringPair dateRange);
+	Stat(double percentage, VCPair vcPair, std::vector<Match> varMList);
 
 	// ### Getters
 	std::string getPercentage() const;
@@ -34,14 +38,16 @@ public:
 	std::string getVariantCount() const;
 	std::string getOldestDate() const;
 	std::string getNewestDate() const;
+	std::string getDuration() const;
 
 private:
 
 	// ### Private Fields
-	std::string percentage;
+	std::string percentageS;
 	std::string variantValue;
-	std::string variantCount; 
-	std::string oldestDate;
-	std::string newestDate;
+	std::string variantCountS; 
+	std::string oldestDateS;
+	std::string newestDateS;
+	std::string durationS;
 };
 

@@ -40,7 +40,7 @@ void StatPrinter::printStatsList(string statName, vector<Stat> statList)
 	printHeading(statName);
 
 	// Print column headings
-	printStatColumns("%", statName, "Matches", "Date Range");
+	printStatColumns("%", statName, "Matches", "Date Range", "Duration");
 
 	// Print each stat
 	for (Stat curStat : statList)
@@ -80,12 +80,14 @@ void StatPrinter::printStat(Stat stat)
 	printStatColumns(
 		stat.getPercentage(),
 		stat.getVariantValue(), stat.getVariantCount(),
-		formatDateRange(stat.getOldestDate(), stat.getNewestDate())
+		formatDateRange(stat.getOldestDate(), stat.getNewestDate()),
+		stat.getDuration()
 	);
 }
 
 // Helper: Print out statistic columns
-void StatPrinter::printStatColumns(string c1, string c2, string c3, string c4)
+void StatPrinter::printStatColumns(string c1, string c2, string c3, 
+	string c4, string c5)
 {
 	cout
 		<< left
@@ -93,5 +95,6 @@ void StatPrinter::printStatColumns(string c1, string c2, string c3, string c4)
 		<< setw(10) << c1
 		<< setw(15) << c2
 		<< setw(10) << c3
-		<< c4;
+		<< setw(30) << c4
+		<< c5;
 }

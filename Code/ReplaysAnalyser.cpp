@@ -54,40 +54,40 @@ void ReplaysAnalyser::analyse()
 	statP.printStatsList("Version", versionStats.getStatList());
 
 
-	//// 3) Year stats
-	//StatList yearStats = StatList(ml,
-	//	[](Match m) -> StringV {
-	//		return StringV{ m.getYearS() };
-	//	},
-	//	StringV(), 0,
-	//	[](MatchList lml, string lvariant) -> vector<Match> {
-	//		return lml.getYearMatches(lvariant);
-	//	});
-	//statP.printStatsList("Year", yearStats.getStatList());
+	// 3) Year stats
+	StatList yearStats = StatList(ml,
+		[](Match m) -> StringV {
+			return StringV{ m.getYearS() };
+		},
+		StringV(), 0,
+		[](MatchList lml, string lvariant) -> vector<Match> {
+			return lml.getYearMatches(lvariant);
+		});
+	statP.printStatsList("Year", yearStats.getStatList());
 
 
-	//// 4) Player stats
-	//StatList playerStats = StatList(ml,
-	//	[](Match m) -> StringV {
-	//		return m.getFighters().getPlayers();
-	//	},
-	//	StringV{ "davo", AliasHandler::ANON }, 0.4,
-	//	[](MatchList lml, string lvariant) -> vector<Match> {
-	//		return lml.getPlayerMatches(lvariant);
-	//	});
-	//statP.printStatsList("Player", playerStats.getStatList());
+	// 4) Player stats
+	StatList playerStats = StatList(ml,
+		[](Match m) -> StringV {
+			return m.getFighters().getPlayers();
+		},
+		StringV{ "davo", AliasHandler::ANON }, 0.4,
+		[](MatchList lml, string lvariant) -> vector<Match> {
+			return lml.getPlayerMatches(lvariant);
+		});
+	statP.printStatsList("Player", playerStats.getStatList());
 
 
-	//// 5) Character stats
-	//StatList charStats = StatList(ml,
-	//	[](Match m) -> StringV {
-	//		return m.getFighters().getChars();
-	//	},
-	//	StringV(), 1.0,
-	//	[](MatchList lml, string lvariant) -> vector<Match> {
-	//		return lml.getCharMatches(lvariant);
-	//	});
-	//statP.printStatsList("Character", charStats.getStatList());
+	// 5) Character stats
+	StatList charStats = StatList(ml,
+		[](Match m) -> StringV {
+			return m.getFighters().getChars();
+		},
+		StringV(), 1.0,
+		[](MatchList lml, string lvariant) -> vector<Match> {
+			return lml.getCharMatches(lvariant);
+		});
+	statP.printStatsList("Character", charStats.getStatList());
 }
 
 

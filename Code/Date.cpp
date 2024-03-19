@@ -102,7 +102,7 @@ string Date::getAbsDuration(Date dateIn)
 	// # 0. Calculate absolute difference in days
 	days dayDiff = abs(sys_days(this->intYMD) - sys_days(dateIn.intYMD));
 
-    // # 1. Get years and subtract years
+	// # 1. Get years and subtract years
 	// Convert difference to years
 	years yearVal = duration_cast<years>(dayDiff);
 
@@ -112,7 +112,7 @@ string Date::getAbsDuration(Date dateIn)
 	// # 2. Get months and subtract months
 	// Convert difference to months
 	months monthVal = duration_cast<months>(dayDiff);
-	
+
 	// Convert months to days and subtract from difference
 	dayDiff = dayDiff - duration_cast<days>(monthVal);
 
@@ -125,6 +125,31 @@ string Date::getAbsDuration(Date dateIn)
 	string monthS = to_string(monthVal.count());
 	string dayS = to_string(dayVal.count());
 
-	// Return strings formatted together
-	return format("{}y, {}m, {}d", yearS, monthS, dayS);
+	// # 5. Remove leading duration parts that are zero
+	if (yearS == "0")
+	{
+		yearS = "";
+		if (monthS == "0")
+		{
+			monthS = "";
+		}
+	}
+
+	// # 6. Add non-empty strings to result
+	string durationS = "";
+
+	if (yearS != "")
+	{
+		durationS += yearS + "y,";
+	}
+
+	if (monthS != "")
+	{
+		durationS += monthS + "m,";
+	}
+
+	durationS += dayS + "d";
+
+	// Return result
+	return durationS;
 }

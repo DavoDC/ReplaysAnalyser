@@ -13,19 +13,34 @@ Stat::Stat()
 }
 
 // Construct a statistics object
-Stat::Stat(double percentage, VCPair vcPair, StringPair dateRange)
+Stat::Stat(double percentage, VCPair vcPair, vector<Match> varMList)
 {
-	this->percentage = to_string(percentage).erase(4) + "%";
+	// Process and save percentage 
+	this->percentageS = to_string(percentage).erase(4) + "%";
+
+	// Extract and save variant and count values
 	this->variantValue = vcPair.first;
-	this->variantCount = to_string(vcPair.second);
-	this->oldestDate = dateRange.first;
-	this->newestDate = dateRange.second;
+	this->variantCountS = to_string(vcPair.second);
+
+	// Calculate and save oldest and newest matches
+	auto dateRangePair = minmax_element(
+		varMList.begin(), varMList.end(),
+		[](Match m1, Match m2) {
+			return m2.isMatchNewer(m1);
+		});
+	Date oldestDate = dateRangePair.first._Ptr->getDate();
+	Date newestDate = dateRangePair.second._Ptr->getDate();
+	oldestDateS = oldestDate.toString();
+	newestDateS = newestDate.toString();
+
+	// Get and save duration
+	durationS = oldestDate.getAbsDuration(newestDate);
 }
 
 // ### Getters
 std::string Stat::getPercentage() const
 {
-	return percentage;
+	return percentageS;
 }
 
 std::string Stat::getVariantValue() const
@@ -35,15 +50,20 @@ std::string Stat::getVariantValue() const
 
 std::string Stat::getVariantCount() const
 {
-	return variantCount;
+	return variantCountS;
 }
 
 std::string Stat::getOldestDate() const
 {
-	return oldestDate;
+	return oldestDateS;
 }
 
 std::string Stat::getNewestDate() const
 {
-	return newestDate;
+	return newestDateS;
+}
+
+std::string Stat::getDuration() const
+{
+	return durationS;
 }

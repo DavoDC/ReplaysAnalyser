@@ -1,0 +1,97 @@
+
+####### WELCOME TO REPLAYS ANALYSER #######
+
+Parsed 5297 matches!
+
+### Date Statistics ###
+Current Date   Date Range                    Duration
+19/Mar/2024    11/Jan/2021 - 16/Mar/2024     3y,2m,5d
+
+### Version Statistics ###
+%         Version        Matches   Date Range                    Duration
+47.6%     1.3.0.1        2522      11/Jan/2021 - 13/Aug/2021     7m,1d
+29.1%     1.3.1.2        1546      17/Feb/2022 - 16/Mar/2024     2y,0m,28d
+21.6%     1.3.1.1        1149      20/Aug/2021 - 14/Feb/2022     5m,26d
+1.51%     1.3.1.0        80        14/Aug/2021 - 19/Aug/2021     5d
+
+### Year Statistics ###
+%         Year           Matches   Date Range                    Duration
+69.0%     2021           3659      11/Jan/2021 - 31/Dec/2021     11m,20d
+22.3%     2022           1186      02/Jan/2022 - 29/Dec/2022     11m,27d
+6.70%     2023           355       07/Jan/2023 - 26/Dec/2023     11m,19d
+1.83%     2024           97        01/Jan/2024 - 16/Mar/2024     2m,15d
+
+### Player Statistics ###
+%         Player         Matches   Date Range                    Duration
+14.6%     Jazz           776       11/Jan/2021 - 02/Mar/2024     3y,1m,21d
+14.3%     Starboy        760       24/May/2021 - 31/May/2023     2y,0m,7d
+9.60%     Pat            509       05/Jun/2021 - 06/Jan/2024     2y,7m,2d
+7.17%     Xrlylyl        380       11/Jan/2021 - 04/Nov/2023     2y,9m,24d
+6.87%     Victor         364       11/Jan/2021 - 07/Jan/2024     2y,11m,27d
+4.19%     Spi            222       14/Jun/2021 - 14/Jan/2024     2y,7m,1d
+3.85%     Killergo       204       08/Apr/2021 - 24/Mar/2022     11m,16d
+3.58%     JSG            190       19/Jan/2021 - 03/Oct/2023     2y,8m,14d
+3.39%     Jake           180       08/Mar/2021 - 16/Jul/2022     1y,4m,9d
+2.73%     Cody           145       21/Jan/2021 - 07/Jan/2024     2y,11m,17d
+2.56%     Nebula         136       27/Feb/2022 - 01/Jan/2024     1y,10m,4d
+2.26%     Lokimazin      120       14/Apr/2021 - 17/Aug/2021     4m,4d
+2.18%     Epi            116       18/Jan/2021 - 26/Nov/2022     1y,10m,8d
+1.98%     Egg            105       13/Apr/2021 - 07/Jan/2024     2y,8m,26d
+1.73%     Azzie          92        29/Nov/2021 - 23/Jul/2023     1y,7m,23d
+1.69%     Brubble        90        31/Jan/2021 - 09/May/2022     1y,3m,7d
+1.68%     FakeNews       89        27/May/2021 - 12/Apr/2023     1y,10m,16d
+1.35%     Pac-Main99     72        30/Mar/2021 - 05/Sep/2021     5m,7d
+1.28%     Xorop          68        25/Jan/2021 - 18/Dec/2022     1y,10m,23d
+1.15%     Skidren        61        23/Jan/2021 - 04/Mar/2023     2y,1m,10d
+1.05%     Hexxa          56        06/May/2021 - 24/Jun/2023     2y,1m,19d
+0.73%     Lost           39        15/Mar/2021 - 11/Dec/2022     1y,8m,28d
+0.60%     Vink           32        10/Dec/2021 - 23/Jan/2024     2y,1m,14d
+0.56%     Reichardt      30        15/Aug/2021 - 15/Jul/2022     10m,30d
+0.49%     Flint          26        19/Aug/2023 - 09/Dec/2023     3m,21d
+0.43%     xOnlyOne1      23        24/May/2021 - 19/Dec/2021     6m,27d
+0.41%     Zac12345       22        06/Jun/2021 - 30/Jul/2022     1y,1m,24d
+
+### Character Statistics ###
+%         Character      Matches   Date Range                    Duration
+67.2%     Wario          3561      11/Jan/2021 - 16/Mar/2024     3y,2m,5d
+33.3%     MegaMan        1766      11/Jan/2021 - 16/Mar/2024     3y,2m,5d
+10.5%     Sonic          558       11/Jan/2021 - 02/Mar/2024     3y,1m,21d
+9.08%     Naruto         481       11/Jan/2021 - 02/Mar/2024     3y,1m,21d
+7.45%     Link           395       18/Jan/2021 - 23/Jan/2024     3y,0m,5d
+6.77%     Ganondorf      359       11/Jan/2021 - 07/Jan/2024     2y,11m,27d
+5.75%     Goku           305       11/Jan/2021 - 07/Jan/2024     2y,11m,27d
+5.36%     CaptainFalcon  284       11/Jan/2021 - 13/Jan/2024     3y,0m,2d
+5.24%     Jigglypuff     278       11/Jan/2021 - 01/Jan/2024     2y,11m,21d
+4.71%     Marth          250       12/Jan/2021 - 07/Jan/2024     2y,11m,26d
+4.60%     Sora           244       11/Jan/2021 - 07/Jan/2024     2y,11m,27d
+4.47%     Ichigo         237       17/Jan/2021 - 07/Jan/2024     2y,11m,21d
+3.47%     Fox            184       11/Jan/2021 - 14/Jan/2024     3y,0m,3d
+3.19%     Bowser         169       12/Jan/2021 - 07/Jan/2024     2y,11m,26d
+3.03%     Lloyd          161       19/Jan/2021 - 04/Mar/2023     2y,1m,14d
+2.79%     Mario          148       11/Jan/2021 - 02/Mar/2024     3y,1m,21d
+2.32%     Waluigi        123       11/Jan/2021 - 07/Jan/2024     2y,11m,27d
+2.07%     Falco          110       11/Jan/2021 - 07/Jan/2024     2y,11m,27d
+2.07%     ZeroSuitSamus  110       19/Jan/2021 - 19/Aug/2023     2y,6m,30d
+2.05%     DonkeyKong     109       11/Jan/2021 - 06/Jan/2024     2y,11m,26d
+1.94%     Sheik          103       12/Jan/2021 - 04/Mar/2023     2y,1m,21d
+1.85%     Ryu            98        11/Jan/2021 - 09/Dec/2023     2y,10m,28d
+1.77%     Pikachu        94        13/Jan/2021 - 01/Jan/2024     2y,11m,19d
+1.62%     Chibi-Robo     86        18/Jan/2021 - 07/Jan/2024     2y,11m,20d
+1.58%     Lucario        84        21/Jan/2021 - 14/Jan/2024     2y,11m,24d
+1.56%     Isaac          83        18/Jan/2021 - 04/Mar/2023     2y,1m,15d
+1.56%     PAC-MAN        83        11/Jan/2021 - 08/Aug/2022     1y,6m,27d
+1.54%     Peach          82        19/Jan/2021 - 03/Oct/2023     2y,8m,14d
+1.52%     Pit            81        11/Jan/2021 - 15/Apr/2023     2y,3m,3d
+1.49%     Tails          79        11/Jan/2021 - 06/Jan/2024     2y,11m,26d
+1.17%     BandanaDee     62        19/Jan/2021 - 26/Dec/2023     2y,11m,7d
+1.15%     BlackMage      61        11/Jan/2021 - 06/Jan/2024     2y,11m,26d
+1.13%     Kirby          60        11/Jan/2021 - 14/Jan/2024     3y,0m,3d
+1.09%     MetaKnight     58        19/Jan/2021 - 07/Jan/2024     2y,11m,19d
+1.09%     Luigi          58        11/Jan/2021 - 05/Jan/2024     2y,11m,25d
+1.01%     Samus          54        21/Jan/2021 - 03/Oct/2023     2y,8m,12d
+
+Time taken: 0.585 seconds
+
+
+C:\Users\David\GitHubRepos\ReplaysAnalyser\Project\x64\Release\ReplaysAnalyser.exe (process 6952) exited with code 0.
+Press any key to close this window . . .
