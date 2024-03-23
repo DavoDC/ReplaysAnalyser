@@ -2,18 +2,22 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
+Changes 
+- Add davo back to list for others only (replays analyser function?) , don’t set to 100, check why 99
+- Add 2 private fields for player/char cutoffs
+- Use replays analyser setters as settings only!
+- Add custom replay path setting for easier testing 
+- Change duration to time period
+
+
 Optimize
 - Fix cppcheck warnings (Pass matchlist by ref)
 - Run code analysis
 
 
-Add 2 private fields for player/char cutoffs
-
-
-Check whole project 
-- Fix documentation, should be in header only, /** style 
-- Research putting all doc in headers 
-- Look for improvements
+TESTING 
+- Test on others replays 
+- e.g. Egg, Pika, Cody, Jazz
 
 
 RELEASE IT FOR REGULAR USERS 
@@ -21,9 +25,17 @@ RELEASE IT FOR REGULAR USERS
 - Create installer
 - Test on E15
 - Make installation steps on readme when done
+- Testers: Spi, Cody, Jazz?
 
 https://www.google.com/search?q=how+to+turn+c%2B%2B+console+program+into+stanadlone+exe&sca_esv=1146a47570834aa6&rlz=1C1VDKB_en-GBAU987AU987&ei=sY_3Ze7eFfX2seMPlcW7uAg&ved=0ahUKEwiu-8_iy_yEAxV1e2wGHZXiDocQ4dUDCBA&uact=5&oq=how+to+turn+c%2B%2B+console+program+into+stanadlone+exe&gs_lp=Egxnd3Mtd2l6LXNlcnAiM2hvdyB0byB0dXJuIGMrKyBjb25zb2xlIHByb2dyYW0gaW50byBzdGFuYWRsb25lIGV4ZTIIEAAYgAQYogQyCBAAGIAEGKIEMggQABiABBiiBDIIEAAYgAQYogRIqBtQlQZYtBlwAXgBkAEAmAHUAqAB5hiqAQUyLTguM7gBA8gBAPgBAZgCBKACzgbCAgoQABhHGNYEGLADmAMAiAYBkAYIkgcHMS4wLjIuMaAHgCg&sclient=gws-wiz-serp
 
 https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170
 
 https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2022InstallerProjects
+
+
+
+
+FIX DOCUMENTATION
+- Fix documentation, should be in header only, /** style 
+- Research putting all doc in headers 
