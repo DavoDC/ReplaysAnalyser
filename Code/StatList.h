@@ -57,8 +57,5 @@ private:
 	// ### Private Fields
 	// Underlying data structure
 	std::vector<Stat> statList;
-
-	// ### Private Methods
-	StringPair getDateRangeForMatches(std::vector<Match> matchList);
 };
 
