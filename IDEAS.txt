@@ -2,15 +2,17 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
-Optimize 
-- Generalize 4 similar functions in MatchList
+Optimize
+- Fix cppcheck warnings (Pass matchlist by ref)
 - Run code analysis
-- Fix cppcheck warnings 
-- Pass matchlist by ref
+
+
+Add 2 private fields for player/char cutoffs
 
 
 Check whole project 
 - Fix documentation, should be in header only, /** style 
+- Research putting all doc in headers 
 - Look for improvements
 
 

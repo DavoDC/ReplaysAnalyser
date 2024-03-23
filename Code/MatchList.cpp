@@ -118,44 +118,23 @@ Date MatchList::getLastMatchDate()
 }
 
 
-
 // Get matches played on a given version of the game
 vector<Match> MatchList::getVersionMatches(string version)
 {
-	// Holder for version matches
-	vector<Match> versionMatches;
-
-	// Copy in version matches using predicate
-	std::copy_if(matches.begin(), matches.end(), std::back_inserter(versionMatches),
-		[&](Match m)
+	return getVariantMatches([&](Match lm)
 		{
-			// Return true if match's version matches given version
-			return m.getVersion() == version;
-		}
-	);
-
-	// Return result
-	return versionMatches;
+			return lm.getVersion() == version;
+		});
 }
 
 
 // Get matches played during a certain year
 vector<Match> MatchList::getYearMatches(string year)
 {
-	// Holder for year matches
-	vector<Match> yearMatches;
-
-	// Copy in year matches using predicate
-	std::copy_if(matches.begin(), matches.end(), std::back_inserter(yearMatches),
-		[&](Match m)
+	return getVariantMatches([&](Match lm)
 		{
-			// Return true if match's year matches given year
-			return m.getYear() == stoi(year);
-		}
-	);
-
-	// Return result
-	return yearMatches;
+			return lm.getYear() == stoi(year);
+		});
 }
 
 
@@ -163,43 +142,37 @@ vector<Match> MatchList::getYearMatches(string year)
 // playerName: Standardized player name (after alias handling)
 vector<Match> MatchList::getPlayerMatches(string playerName)
 {
-	// Holder for player's matches
-	vector<Match> playerMatches;
-
-	// Copy in player's matches using predicate
-	std::copy_if(matches.begin(), matches.end(), std::back_inserter(playerMatches),
-		[&](Match m)
+	return getVariantMatches([&](Match lm)
 		{
-			// Return true if the player is found in the match's player list
-			return vecContains(m.getFighters().getPlayers(), playerName);
-		}
-	);
-
-	// Return result
-	return playerMatches;
+			return vecContains(lm.getFighters().getPlayers(), playerName);
+		});
 }
 
 // Get matches for a given character
 // charName: Character name
 vector<Match> MatchList::getCharMatches(string charName)
 {
-	// Holder for character's matches
-	vector<Match> charMatches;
+	return getVariantMatches([&](Match lm)
+		{
+			return vecContains(lm.getFighters().getChars(), charName);
+		});
+}
 
-	// Copy in character's matches using predicate
-	std::copy_if(matches.begin(), matches.end(), std::back_inserter(charMatches),
+// Helper for retrieving a variant's matches
+// variantValue: The variant's values
+vector<Match> MatchList::getVariantMatches(VarMatchChecker hasVariant)
+{
+	// Holder for the variant's matches
+	vector<Match> variantMatches;
+
+	// Copy in match if it has the variant
+	std::copy_if(matches.begin(), matches.end(), std::back_inserter(variantMatches),
 		[&](Match m)
 		{
-			// Return true if the character is found in the match's character list
-			return vecContains(m.getFighters().getChars(), charName);
+			return hasVariant(m);
 		}
 	);
 
 	// Return result
-	return charMatches;
+	return variantMatches;
 }
-
-// Helper for retrieving subsets of matches
-// common: Common property in a subset of matches
-// FUNCTION: Use same function passed in for freq calcs
-// GENERALIZE THIS

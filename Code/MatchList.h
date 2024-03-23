@@ -9,6 +9,11 @@
 // Include helper classes
 #include "Match.h"
 
+// Libraries
+#include <functional>
+
+// Returns true if the match contains a given variant
+#define VarMatchChecker std::function<bool(Match)>
 
 // Declare MatchList class
 class MatchList
@@ -42,6 +47,6 @@ private:
 	std::vector<Match> matches;
 
 	// ### Private Methods
-	//std::vector<Match> getCertainMatches(std::string);
+	std::vector<Match> getVariantMatches(VarMatchChecker);
 };
 

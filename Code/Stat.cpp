@@ -15,6 +15,13 @@ Stat::Stat()
 // Construct a statistics object
 Stat::Stat(double percentage, VCPair vcPair, vector<Match> varMList)
 {
+	// Notify and stop if matchlist empty
+	if (varMList.empty())
+	{
+		print("Empty matchlist provided to Stat!");
+		return;
+	}
+
 	// Process and save percentage 
 	this->percentageS = to_string(percentage).erase(4) + "%";
 
