@@ -29,6 +29,11 @@ void ReplaysAnalyser::useSampleData()
 	setCustomPath("../Sample_Data");
 }
 
+void ReplaysAnalyser::setCustomPathInDownloads(string folderName)
+{
+	setCustomPath(format("C:/Users/David/Downloads/{}", folderName));
+}
+
 void ReplaysAnalyser::addIgnoredPlayer(string playerName)
 {
 	this->ignoredPlayers.push_back(playerName);
@@ -53,8 +58,8 @@ void ReplaysAnalyser::analyse()
 
 	// Parse replays and notify
 	string replayPath = getReplayPath();
-	print(format("\nParsing matches in '{}'...", replayPath));
 	MatchList ml = MatchList(replayPath);
+	print(format("\nParsing matches in '{}'...", replayPath));
 	print(format("Parsed {} matches!", ml.getSizeS()));
 
 	// Create statistics printer

@@ -29,8 +29,10 @@ int main()
 	ReplaysAnalyser ra;
 
 	// ### Settings
+	//ra.addIgnoredPlayer("davo");
 	//ra.useSampleData();
-	ra.addIgnoredPlayer("davo");
+	ra.setCustomPathInDownloads("Spi-SSF2Replays");
+
 	
 	// Run analysis
 	ra.analyse();
