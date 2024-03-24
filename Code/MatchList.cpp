@@ -99,6 +99,12 @@ int MatchList::getSize()
 	return int(matches.size());
 }
 
+// Get number of matches as a string
+string MatchList::getSizeS()
+{
+	return to_string(getSize());
+}
+
 // Get underlying vector
 vector<Match> MatchList::getMatches()
 {

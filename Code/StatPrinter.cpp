@@ -21,7 +21,7 @@ void StatPrinter::printDateStats(Date oldest, Date newest)
 	printHeading("Date");
 	
 	// Print column headings
-	printDateColumns("Current Date", "Date Range", "Duration");
+	printDateColumns("Current Date", "Date Range", "Time Period");
 
 	// Get info
 	string curDate = Date().toString();
@@ -40,7 +40,7 @@ void StatPrinter::printStatsList(string statName, vector<Stat> statList)
 	printHeading(statName);
 
 	// Print column headings
-	printStatColumns("%", statName, "Matches", "Date Range", "Duration");
+	printStatColumns("%", statName, "Matches", "Date Range", "Time Period");
 
 	// Print each stat
 	for (Stat curStat : statList)

@@ -15,6 +15,7 @@
 // Returns true if the match contains a given variant
 #define VarMatchChecker std::function<bool(Match)>
 
+
 // Declare MatchList class
 class MatchList
 {
@@ -32,13 +33,14 @@ public:
 
 	// # Getters
 	int getSize();
-	std::vector<Match> getMatches();
-	Date getFirstMatchDate();
+	std::string getSizeS();
 	Date getLastMatchDate();
-	std::vector<Match> getVersionMatches(std::string);
+	Date getFirstMatchDate();
+	std::vector<Match> getMatches();
 	std::vector<Match> getYearMatches(std::string);
-	std::vector<Match> getPlayerMatches(std::string);
 	std::vector<Match> getCharMatches(std::string);
+	std::vector<Match> getPlayerMatches(std::string);
+	std::vector<Match> getVersionMatches(std::string);
 
 private:
 
