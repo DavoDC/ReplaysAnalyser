@@ -2,17 +2,6 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
-
-SETTING 
-- Add configuration options to outer replaysanalyser interface, set all encoded values as variables, add setters 
-- Add custom replay path setting for easier testing  - needs path set and boolean , isCustomPathSet
-- Add 2 private fields for player/char cutoffs
-- Add davo back to list for others only (replays analyser function?) , don’t set to 100, check why 99
-- Use replays analyser setters as settings only!
-
-
-
-
 OPTIMIZE 
 - Fix cppcheck warnings (Pass matchlist by ref)
 - Run code analysis

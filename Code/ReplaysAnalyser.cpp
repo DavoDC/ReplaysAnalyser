@@ -11,15 +11,37 @@ using namespace std;
 // Constructor
 ReplaysAnalyser::ReplaysAnalyser()
 {
-	// Set variables to default values
-	this->useSampleData = false;
+	this->customPath = "";
+	this->ignoredPlayers = StringV{ AliasHandler::ANON };
+	this->playerCutoff = 0.4;
+	this->charCutoff = 1.0;
 }
 
 
-// Toggle sample data
-void ReplaysAnalyser::toggleSampleData()
+// Setting functions
+void ReplaysAnalyser::setCustomPath(string pathInput)
 {
-	useSampleData = !useSampleData;
+	this->customPath = pathInput;
+}
+
+void ReplaysAnalyser::useSampleData()
+{
+	setCustomPath("../Sample_Data");
+}
+
+void ReplaysAnalyser::addIgnoredPlayer(string playerName)
+{
+	this->ignoredPlayers.push_back(playerName);
+}
+
+void ReplaysAnalyser::setPlayerCutoff(double newPlayerCutoff)
+{
+	this->playerCutoff = newPlayerCutoff;
+}
+
+void ReplaysAnalyser::setCharCutoff(double newCharCutoff)
+{
+	this->charCutoff = newCharCutoff;
 }
 
 
@@ -71,7 +93,7 @@ void ReplaysAnalyser::analyse()
 		[](Match m) -> StringV {
 			return m.getFighters().getPlayers();
 		},
-		StringV{ "davo", AliasHandler::ANON }, 0.4,
+		ignoredPlayers, playerCutoff,
 		[](MatchList lml, string lvariant) -> vector<Match> {
 			return lml.getPlayerMatches(lvariant);
 		});
@@ -83,7 +105,7 @@ void ReplaysAnalyser::analyse()
 		[](Match m) -> StringV {
 			return m.getFighters().getChars();
 		},
-		StringV(), 1.0,
+		StringV(), charCutoff,
 		[](MatchList lml, string lvariant) -> vector<Match> {
 			return lml.getCharMatches(lvariant);
 		});
@@ -94,13 +116,13 @@ void ReplaysAnalyser::analyse()
 // Helper: Get replay path
 string ReplaysAnalyser::getReplayPath()
 {
-	// If sample data wanted, use it instead
-	if (useSampleData)
+	// # If custom path set, use it
+	if (customPath != "")
 	{
-		return string("../Sample_Data");
+		return customPath;
 	}
 
-	// Holder
+	// # Otherwise, try to find default replay path for this user
 	string replayPath = string("C:/Users/");
 
 	// Get username from environment variable
