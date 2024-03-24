@@ -19,33 +19,26 @@ using namespace std;
 void printTimeTaken(auto);
 
 
-
-
 // Main function
 int main()
 {
-	// Get starting timepoint
+	// # Get starting timepoint
 	auto start = chrono::high_resolution_clock::now();
 
-	// Create analyser
+	// # Create analyser
 	ReplaysAnalyser ra;
 
 	// ### Settings
 	// Use sample data for fast testing
-	//ra.toggleSampleData();
+	ra.toggleSampleData();
 	
 	// Run analysis
 	ra.analyse();
 
-	// Print time taken
+	// # Print time taken and finish
 	printTimeTaken(start);
-	
-	// END
 	print("\n");
 }
-
-
-
 
 
 // Helper: Print time taken base

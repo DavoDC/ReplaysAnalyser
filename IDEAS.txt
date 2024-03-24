@@ -2,21 +2,25 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
-Changes 
-- Add davo back to list for others only (replays analyser function?) , don’t set to 100, check why 99
+
+SETTING 
+- Add configuration options to outer replaysanalyser interface, set all encoded values as variables, add setters 
+- Add custom replay path setting for easier testing  - needs path set and boolean , isCustomPathSet
 - Add 2 private fields for player/char cutoffs
+- Add davo back to list for others only (replays analyser function?) , don’t set to 100, check why 99
 - Use replays analyser setters as settings only!
-- Add custom replay path setting for easier testing 
-- Change duration to time period
 
 
-Optimize
+
+
+OPTIMIZE 
 - Fix cppcheck warnings (Pass matchlist by ref)
 - Run code analysis
 
 
 TESTING 
 - Test on others replays 
+- ANALYSE SPI's replays!
 - e.g. Egg, Pika, Cody, Jazz
 
 
@@ -39,3 +43,7 @@ https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.Microsoft
 FIX DOCUMENTATION
 - Fix documentation, should be in header only, /** style 
 - Research putting all doc in headers 
+
+
+
+Do a test on first version of ssf2replays

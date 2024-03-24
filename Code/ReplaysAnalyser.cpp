@@ -13,7 +13,6 @@ ReplaysAnalyser::ReplaysAnalyser()
 {
 	// Set variables to default values
 	this->useSampleData = false;
-	this->matchNum = 0;
 }
 
 
@@ -31,9 +30,10 @@ void ReplaysAnalyser::analyse()
 	print("####### WELCOME TO REPLAYS ANALYSER #######");
 
 	// Parse replays and notify
-	ml = MatchList(getReplayPath());
-	matchNum = ml.getSize();
-	print("\nParsed " + to_string(matchNum) + " matches!");
+	string replayPath = getReplayPath();
+	print(format("\nParsing matches in '{}'...", replayPath));
+	MatchList ml = MatchList(replayPath);
+	print(format("Parsed {} matches!", ml.getSizeS()));
 
 	// Create statistics printer
 	StatPrinter statP = StatPrinter();

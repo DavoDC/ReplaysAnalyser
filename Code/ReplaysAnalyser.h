@@ -21,7 +21,7 @@ public:
 	// Constructor
 	ReplaysAnalyser();
 
-	// Settings
+	// Setting functions
 	void toggleSampleData();
 
 	// Main function
@@ -29,14 +29,9 @@ public:
 
 private:
 	// ### Private fields
+	
 	// Sample data toggle
 	bool useSampleData;
-
-	// List of matches
-	MatchList ml;
-
-	// Number of matches
-	int matchNum;
 
 
 	// ### Private methods
