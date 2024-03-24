@@ -29,8 +29,8 @@ int main()
 	ReplaysAnalyser ra;
 
 	// ### Settings
-	// Use sample data for fast testing
-	ra.toggleSampleData();
+	//ra.useSampleData();
+	ra.addIgnoredPlayer("davo");
 	
 	// Run analysis
 	ra.analyse();

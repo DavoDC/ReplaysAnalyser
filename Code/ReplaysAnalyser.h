@@ -22,17 +22,27 @@ public:
 	ReplaysAnalyser();
 
 	// Setting functions
-	void toggleSampleData();
-
+	void useSampleData();
+	void setCustomPath(std::string path);
+	void setCharCutoff(double newCharCutoff);
+	void setPlayerCutoff(double newPlayerCutoff);
+	void addIgnoredPlayer(std::string playerName);
+	
 	// Main function
 	void analyse();
 
 private:
 	// ### Private fields
 	
-	// Sample data toggle
-	bool useSampleData;
+	// Custom replay path
+	std::string customPath;
 
+	// Ignored player list
+	StringV ignoredPlayers;
+
+	// Cutoffs
+	double playerCutoff; 
+	double charCutoff;
 
 	// ### Private methods
 	std::string getReplayPath();
