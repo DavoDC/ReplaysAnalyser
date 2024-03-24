@@ -2,15 +2,28 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
-OPTIMIZE 
-- Fix cppcheck warnings (Pass matchlist by ref)
-- Run code analysis
+FIX BUGS IDENTIFIED VIA RUNNING ON SPIs Replays 
+- Add spi as collaborator : https://github.com/DavoDC/Spi-SSF2Replays
+- Add more aliases for spi, use 0 cutoff and add all, for others too
+- Add boolean for matches - offline or online ! 
+- Add CPU match handling 
+- Prevent "blank" character 
+- Fix splitting issues 
+
+
 
 
 TESTING 
 - Test on others replays 
 - ANALYSE SPI's replays!
 - e.g. Egg, Pika, Cody, Jazz
+
+
+
+OPTIMIZE 
+- Fix cppcheck warnings (Pass matchlist by ref)
+- Run code analysis
+
 
 
 RELEASE IT FOR REGULAR USERS 

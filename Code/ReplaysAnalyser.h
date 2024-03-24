@@ -24,6 +24,7 @@ public:
 	// Setting functions
 	void useSampleData();
 	void setCustomPath(std::string path);
+	void setCustomPathInDownloads(std::string folderName);
 	void setCharCutoff(double newCharCutoff);
 	void setPlayerCutoff(double newPlayerCutoff);
 	void addIgnoredPlayer(std::string playerName);

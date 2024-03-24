@@ -64,15 +64,15 @@ Date::Date(string rawDateS)
 
 			// Notify
 			print("Date should be: " + format("{:%Y-%m-%d}", newYMD));
-			print("Please rename file accordingly", true);
 		}
 		else
 		{
 			// Else if it couldn't be fixed, notify
 			print("ERROR: Couldn't fix date automatically!");
-			print("Fix attempt: " + format("{:%Y-%m-%d}", fixedYMD));
-			print("Please fix manually!", true);
 		}
+
+		// Advise user
+		print("Please rename/fix files manually! (BRU recommended)", true);
 	}
 
 	// Save holder into field
