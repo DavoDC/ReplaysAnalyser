@@ -31,7 +31,7 @@ int main()
 	// ### Settings
 	//ra.addIgnoredPlayer("davo");
 	//ra.useSampleData();
-	ra.setCustomLocalRepoFolder("Spi-SSF2Replays");
+	//ra.setCustomLocalRepoFolder("Spi-SSF2Replays");
 	//ra.setPlayerCutoff(0);
 
 	

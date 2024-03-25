@@ -2,6 +2,11 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
+P1/P2 
+- Make settings for setting P1/P2 aliases
+- has to be custom set, dont rely on paths or anything
+- Fix 100% string formatting
+
 
 OFFLINE/ONLINE MATCHES
 - Add boolean for matches - offline or online ! 
@@ -28,6 +33,7 @@ print number of errors and how to fix
 - Add CPU match handling 
 - Prevent "blank" character , use "RANDOM instead"
 - Fix splitting issues 
+- Investigate blank players - are they legit or spliting errors? Disable ANON alias when testing
 
 
 
