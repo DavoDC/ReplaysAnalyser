@@ -8,7 +8,7 @@
 using namespace std;
 
 // Name of anonymous player
-const std::string AliasHandler::ANON = "ANONY";
+const std::string AliasHandler::ANON = "ANON";
 
 
 // Default Constructor
@@ -18,34 +18,37 @@ AliasHandler::AliasHandler()
 
 	// Jazz
 	StringV jazz{
-		"P2","JAM","JAZ","RICE","JASS","JASZ","JAMm",
+		"JAM","JAZ","RICE","JASS","JASZ","JAMm",
 		"JazBlue959", "JAMMY", "CHEESEYJM","CHESSJAM",
 		"JAMVeGMTE","PEANUTJAM", "JAMVEGEMt", "JAMMEDUP",
 		"JAMMED"
 	};
 	addAlias("Jazz", jazz);
 
-	// Nebula/Rain
-	StringV neb{
-		"QOZ","rain","DENT","Morb","i3ssf2","joinsomco",
-		"NebulaAU","Cocomelon","StuartNeb","NebulaSSBM"
-	};
-	addAlias("Nebula", neb);
-
 	// Spi
 	StringV spi{
-		"SPI","SPi","SPY","Bee","BeeMO","AdriBee",
-		"Spii_","SPYRISE","Spyrise","Adriana"
+		"SPI","SPi","SPY","Spii_", "SPii", "Spii", "Spii329",
+		"SPYRISE","Spyrise","Bee","BeeMO", "BeeMO3","Bee3",
+		"AdriOnTop","Adri","AdriBee","Adriana", "Adriana3"
 	};
 	addAlias("Spi", spi);
 
+	// Nebula/Rain
+	StringV neb{
+		"QOZ","Neb","NEB", "May",
+		"rain","DENT","Morb", "MORB",
+		"i3ssf2","joinsomco", "NebulaAU","Cocomelon",
+		"StuartNeb", "NebulaSSBM", "rain93226",
+	};
+	addAlias("Nebula", neb);
+
 	// Starboy
 	addAlias("Starboy",
-		{"x77starboy","MonteSauce","xDuncan", "MetroJr", "ttgmetro" });
+		{ "x77starboy","MonteSauce","xDuncan", "MetroJr", "ttgmetro" });
 
 	// Davo
 	addAlias("davo",
-		{ "P1","DAVO","DavoDC","davo1776","DAVO1776", "DISCORD", "davo1776_"});
+		{ "DAVO","DavoDC","davo1776","DAVO1776", "DISCORD", "davo1776_" });
 
 	// Epi
 	addAlias("Epi", { "LV77","power2","ADEPITA","EpiGOAT","ACiDTRiP" });
@@ -57,7 +60,7 @@ AliasHandler::AliasHandler()
 	addAlias("Lost", { "Lostie","KitKats","Lost-Chan" });
 
 	// Xorop
-	addAlias("Xorop", { "xorop53","CR-KING", "XOROP"});
+	addAlias("Xorop", { "xorop53","CR-KING", "XOROP" });
 
 	// Pat
 	addAlias("Pat", { "funniswor","stpatboi33" });
