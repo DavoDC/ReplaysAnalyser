@@ -19,19 +19,29 @@ ReplaysAnalyser::ReplaysAnalyser()
 
 
 // Setting functions
-void ReplaysAnalyser::setCustomPath(string pathInput)
-{
-	this->customPath = pathInput;
-}
-
 void ReplaysAnalyser::useSampleData()
 {
 	setCustomPath("../Sample_Data");
 }
 
-void ReplaysAnalyser::setCustomPathInDownloads(string folderName)
+void ReplaysAnalyser::setCustomPath(string pathInput)
 {
-	setCustomPath(format("C:/Users/David/Downloads/{}", folderName));
+	this->customPath = pathInput;
+}
+
+void ReplaysAnalyser::setCustomLocalPath(string path)
+{
+	setCustomPath(format("C:/Users/David/{}", path));
+}
+
+void ReplaysAnalyser::setCustomLocalDwlFolder(string folderName)
+{
+	setCustomLocalPath(format("Downloads/{}", folderName));
+}
+
+void ReplaysAnalyser::setCustomLocalRepoFolder(string folderName)
+{
+	setCustomLocalPath(format("GitHubRepos/{}", folderName));
 }
 
 void ReplaysAnalyser::addIgnoredPlayer(string playerName)

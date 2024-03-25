@@ -2,21 +2,44 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
-FIX BUGS IDENTIFIED VIA RUNNING ON SPIs Replays 
 
-Easy improvements 
-- Add more aliases for spi, use 0 cutoff and add all, for others too
+OFFLINE/ONLINE MATCHES
 - Add boolean for matches - offline or online ! 
+-  check if contains online 
+-  add options to disable offline, disable online 
 
-Date fixing 
-- Move date fixing to separate function, make more intelligent, try reducing "32"s to lower nums
--> run on a quarter of original data to test this 
-- Change notifs to one line: e.g. Fix date by renaming file (BRU recommended): x -> x 
 
-Important 
+
+SPLITTING ERRORS
+- DO FIRST, using spi dataset (fixed)
+
+Make Error class 
+- replay path 
+- stringVector of information
+
+Add an error list to Match class 
+Populated when being constructed 
+No printing about errors during construction 
+
+AFTER , iterate over error types and 
+print number of errors and how to fix 
+
+
 - Add CPU match handling 
-- Prevent "blank" character 
+- Prevent "blank" character , use "RANDOM instead"
 - Fix splitting issues 
+
+
+
+
+DATE ERRORS
+- Extend error system
+-> Get fraction of original spi data, and disable stats printing  to induce date errors 
+- Move date fixing to separate function, make more intelligent, try reducing "32"s to lower nums
+- Change notifs to one line: e.g. Fix date by renaming file (BRU recommended): x -> x 
+- for date errors, do not print date errors already seen before 
+
+
 
 
 
