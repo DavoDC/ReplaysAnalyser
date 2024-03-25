@@ -82,9 +82,6 @@ AliasHandler::AliasHandler()
 	addSingleAlias("Azzie", "InternetSu");
 	addSingleAlias("Brubble", "brubblefis");
 	addSingleAlias("Lokimazin", "lokimazin");
-
-	// Anonymous player
-	addSingleAlias(ANON, "");
 }
 
 
@@ -105,8 +102,8 @@ void AliasHandler::addAlias(string standardName, StringV names)
 // Handle a given player name
 string AliasHandler::handlePlayer(string player)
 {
-	// If player name is one character, classify as anonymous
-	if (player.size() == 1)
+	// If player name is empty or one character, classify as anonymous
+	if (player.empty() || player.size() == 1)
 	{
 		return ANON;
 	}
