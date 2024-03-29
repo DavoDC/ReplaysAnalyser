@@ -59,9 +59,9 @@ void ReplaysAnalyser::setCharCutoff(double newCharCutoff)
 	this->charCutoff = newCharCutoff;
 }
 
-void ReplaysAnalyser::setOfflinePlayerAliases(string p1name, string p2name)
+void ReplaysAnalyser::setOfflinePlayerAliases(string p1Name, string p2Name)
 {
-	AliasHandler::setOfflinePlayerAliases(p1name, p2name);
+	AliasHandler::setOfflinePlayerNames(p1Name, p2Name);
 }
 
 

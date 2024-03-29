@@ -34,10 +34,5 @@ private:
 	// # Private fields
 	// Underlying data structure
 	StringPair pair;
-
-	// Alias handler
-	// (Static since it will be the same for the entire runtime)
-	// (Constructor only runs once, more efficient)
-	static AliasHandler aliasHandler;
 };
 
