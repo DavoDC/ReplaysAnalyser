@@ -28,13 +28,16 @@ int main()
 	// # Create analyser
 	ReplaysAnalyser ra;
 
-	// ### Settings
-	//ra.addIgnoredPlayer("davo");
-	//ra.useSampleData();
-	//ra.setCustomLocalRepoFolder("Spi-SSF2Replays");
-	//ra.setPlayerCutoff(0);
-	ra.setOfflinePlayerAliases("Spi", "Starboy");
+	// My settings
+	ra.addIgnoredPlayer("davo");
 
+	// Spi settings
+	//ra.setCustomLocalRepoFolder("Spi-SSF2Replays");
+	//ra.setOfflinePlayerAliases("Spi", AliasHandler::ANON);
+
+	// Other settings
+	//ra.useSampleData();
+	//ra.setPlayerCutoff(0);
 	
 	// Run analysis
 	ra.analyse();

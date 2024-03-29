@@ -1,24 +1,34 @@
-// AliasHandler.cpp : 
-// Defines AliasHandler class
-
-// Header file
+// AliasHandler.cpp
 #include "AliasHandler.h"
 
-// Namespace mods
+// Namespace modifier
 using namespace std;
 
-// Name of anonymous player
-const std::string AliasHandler::ANON = "ANON";
+// Set default values
+const string AliasHandler::ANON = "ANON";
+string AliasHandler::p1Name = "davo";
+string AliasHandler::p2Name = "Jazz";
+vector<Alias> AliasHandler::aliases;
 
-// Set default offline player aliases
-std::string AliasHandler::p1Alias = "davo";
-std::string AliasHandler::p2Alias = "Jazz";
 
-
-// Default Constructor
-AliasHandler::AliasHandler()
+void AliasHandler::setOfflinePlayerNames(string p1Name, string p2Name)
 {
-	// Initialize aliases
+	AliasHandler::p1Name = p1Name;
+	AliasHandler::p2Name = p2Name;
+}
+
+
+void AliasHandler::initAliases()
+{
+	// If aliases are already initialized, stop
+	if (!aliases.empty())
+	{
+		return;
+	}
+
+	// Add offline player aliases
+	addSingleAlias(p1Name, "P1");
+	addSingleAlias(p2Name, "P2");
 
 	// Jazz
 	StringV jazz{
@@ -75,7 +85,7 @@ AliasHandler::AliasHandler()
 	// Ben
 	addAlias("Ben", { "BeetleOven","beetoeoven" });
 
-	// Singles
+	// Simple aliases
 	addSingleAlias("Cody", "kalakly");
 	addSingleAlias("Hexxa", "HexxaWyn");
 	addSingleAlias("Jake", "Jakethedog");
@@ -86,45 +96,35 @@ AliasHandler::AliasHandler()
 	addSingleAlias("Azzie", "InternetSu");
 	addSingleAlias("Brubble", "brubblefis");
 	addSingleAlias("Lokimazin", "lokimazin");
-
-	// Handle offline player aliases
-	addSingleAlias(p1Alias, "P1");
-	addSingleAlias(p2Alias, "P2");
 }
 
 
-void AliasHandler::setOfflinePlayerAliases(string p1name, string p2name)
-{
-	p1Alias = p1name;
-	p2Alias = p2name;
-}
-
-
-// Helper/wrapper for adding one-to-one aliases
 void AliasHandler::addSingleAlias(string standardName, string oldName)
 {
 	addAlias(standardName, { oldName });
 }
 
-// Helper/wrapper for adding one-to-many aliases
+
 void AliasHandler::addAlias(string standardName, StringV names)
 {
-	// Call vector add and pair creation functions
+	// Create pair then add to vector
 	aliases.push_back(make_pair(standardName, names));
 }
 
 
-// Handle a given player name
-string AliasHandler::handlePlayer(string player)
+string AliasHandler::getStandardName(string pName)
 {
+	// Initialise aliases, if needed
+	initAliases();
+
 	// If player name is empty or one character, classify as anonymous
-	if (player.empty() || player.size() == 1)
+	if (pName.empty() || pName.size() == 1)
 	{
 		return ANON;
 	}
 
 	// Initialize new name to original in case no alias is found
-	string newName = player;
+	string newName = pName;
 
 	// For every alias
 	for (Alias curAlias : aliases)
@@ -133,13 +133,10 @@ string AliasHandler::handlePlayer(string player)
 		for (string rawName : curAlias.second)
 		{
 			// If the player's name matches a raw name
-			if (equalsIgnoreCase(player, rawName))
+			if (equalsIgnoreCase(pName, rawName))
 			{
 				// Set player name to standard name
 				newName = curAlias.first;
-
-				// Equivalent to 'assign()', see here:
-				// https://stackoverflow.com/q/34196053/17869538
 
 				// Stop iterating
 				break;

@@ -11,9 +11,6 @@ using namespace std;
 // Global constant - pair separator
 const string pairSep = "###$###";
 
-// Initialize static Alias handler
-AliasHandler Fighter::aliasHandler;
-
 
 // Default Constructor
 Fighter::Fighter()
@@ -37,12 +34,12 @@ Fighter::Fighter(string rawPairS)
 	// e.g. 'davo1776' and 'Wario'
 	StringV curPairParts = split(rawPairS, pairSep, 2);
 	
-	// Extract 1st string, the player, and remove whitespace
+	// Extract 1st string, the player name, and remove whitespace
 	string player = curPairParts[0];
 	replaceAll(player, " ", "");
 
 	// Handle player aliases
-	player = aliasHandler.handlePlayer(player);
+	player = AliasHandler::getStandardName(player);
 
 	// Extract 2nd string, the character, and remove whitespace
 	string character = curPairParts[1];
