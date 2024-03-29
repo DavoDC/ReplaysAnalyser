@@ -29,7 +29,15 @@ Fighter::Fighter(string rawPairS)
 
 	// Remove extra bracket at end
 	replaceAll(rawPairS, ")", "");
-	
+
+	// Look for a second occurrence of the separator (shouldn't be there)
+	size_t pos = rawPairS.find(pairSep, rawPairS.find(pairSep) + pairSep.size());
+
+	// If second occurence found, remove everything after it
+	if (pos != std::string::npos) {
+		rawPairS.erase(pos);
+	}
+
 	// Split into player and character (2 parts)
 	// e.g. 'davo1776' and 'Wario'
 	StringV curPairParts = split(rawPairS, pairSep, 2);

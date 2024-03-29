@@ -13,7 +13,7 @@ ReplaysAnalyser::ReplaysAnalyser()
 {
 	this->customPath = "";
 	this->ignoredPlayers = StringV{ AliasHandler::ANON };
-	this->playerCutoff = 0.4;
+	this->playerCutoff = 0.45;
 	this->charCutoff = 1.0;
 }
 

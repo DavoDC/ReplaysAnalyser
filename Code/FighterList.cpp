@@ -16,7 +16,7 @@ FighterList::FighterList()
 // Construct FighterList from raw string
 // e.g. "davo1776 (Wario) vs HexxaWyn (Naruto) 
 // vs FakeNews (Falco) vs x77starboy (Naruto).ssfrec"
-FighterList::FighterList(string rawPairS)
+FighterList::FighterList(string rawPairS, string replayType)
 {
 	// Remove extension
 	replaceAll(rawPairS, ".ssfrec", "");
@@ -25,12 +25,21 @@ FighterList::FighterList(string rawPairS)
 	// e.g."davo1776 (Wario)", "HexxaWyn (Naruto)" etc.
 	StringV pairs = split(rawPairS, " vs ");
 
-	// If there are not 2, 3 or 4 fighters
-	int pLen = int(pairs.size());
-	if (!(pLen >= 2 && pLen <= 4))
+	// # Check number of fighters
+	int minFighters = 2;
+
+	// Reduce minimum fighter requirement for 'Break the Target' replays
+	if (contains(replayType, "BTT"))
 	{
-		print("WARNING: Unusual number of fighters detected");
-		print("Fighters: " + to_string(pLen));
+		minFighters--;
+	}
+
+	// Check amount and notify if needed
+	int pLen = int(pairs.size());
+	if (!(pLen >= minFighters && pLen <= 4))
+	{
+		string errMsg = "WARNING: Unusual number of fighters detected";
+		print(format("{} ({})", errMsg, to_string(pLen)));
 	}
 
 	// For every pair string
