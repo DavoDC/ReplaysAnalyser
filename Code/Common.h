@@ -26,3 +26,5 @@ void replaceAll(std::string& source, const std::string& from, const std::string&
 
 bool contains(std::string, std::string);
 bool vecContains(StringV, std::string);
+
+bool equalsIgnoreCase(const std::string& str1, const std::string& str2);
