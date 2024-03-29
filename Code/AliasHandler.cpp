@@ -19,36 +19,36 @@ AliasHandler::AliasHandler()
 	// Jazz
 	StringV jazz{
 		"JAM","JAZ","RICE","JASS","JASZ","JAMm",
-		"JazBlue959", "JAMMY", "CHEESEYJM","CHESSJAM",
-		"JAMVeGMTE","PEANUTJAM", "JAMVEGEMt", "JAMMEDUP",
+		"JazBlue959","JAMMY","CHEESEYJM","CHESSJAM",
+		"JAMVeGMTE","PEANUTJAM","JAMVEGEMt","JAMMEDUP",
 		"JAMMED"
 	};
 	addAlias("Jazz", jazz);
 
 	// Spi
 	StringV spi{
-		"SPI","SPi","SPY","Spii_", "SPii", "Spii", "Spii329",
-		"SPYRISE","Spyrise","Bee","BeeMO", "BeeMO3","Bee3",
-		"AdriOnTop","Adri","AdriBee","Adriana", "Adriana3"
+		"Spi","SPY","Spii","Spii_","Spii329","Spyrise",
+		"Bee","BeeMO", "BeeMO3","Bee3",
+		"Adri","AdriBee","AdriOnTop","Adriana","Adriana3"
 	};
 	addAlias("Spi", spi);
 
 	// Nebula/Rain
 	StringV neb{
-		"QOZ","Neb","NEB", "May",
-		"rain","DENT","Morb", "MORB",
-		"i3ssf2","joinsomco", "NebulaAU","Cocomelon",
-		"StuartNeb", "NebulaSSBM", "rain93226",
+		"Neb","May","QOZ","rain","DENT","Morb",
+		"i3ssf2","joinsomco","NebulaAU","Cocomelon",
+		"StuartNeb","NebulaSSBM","rain93226",
 	};
 	addAlias("Nebula", neb);
 
 	// Starboy
 	addAlias("Starboy",
-		{ "x77starboy","MonteSauce","xDuncan", "MetroJr", "ttgmetro" });
+		{
+			"x77starboy","MonteSauce","xDuncan", "MetroJr", "ttgmetro"
+		});
 
 	// Davo
-	addAlias("davo",
-		{ "DAVO","DavoDC","davo1776","DAVO1776", "DISCORD", "davo1776_" });
+	addAlias("davo", { "DAVO", "davo1776","davo1776_","DavoDC","DISCORD" });
 
 	// Epi
 	addAlias("Epi", { "LV77","power2","ADEPITA","EpiGOAT","ACiDTRiP" });
@@ -74,9 +74,9 @@ AliasHandler::AliasHandler()
 	// Singles
 	addSingleAlias("Cody", "kalakly");
 	addSingleAlias("Hexxa", "HexxaWyn");
-	addSingleAlias("Malik", "TinMan174");
 	addSingleAlias("Jake", "Jakethedog");
 	addSingleAlias("JSG", "JustSomeGuy");
+	addSingleAlias("Malik", "TinMan174");
 	addSingleAlias("Flint", "Flint_the_");
 	addSingleAlias("Victor", "MrAgosFan");
 	addSingleAlias("Azzie", "InternetSu");
@@ -108,18 +108,17 @@ string AliasHandler::handlePlayer(string player)
 		return ANON;
 	}
 
-	// Holder
-	// (Initialize to original in case no alias is found)
+	// Initialize new name to original in case no alias is found
 	string newName = player;
 
 	// For every alias
 	for (Alias curAlias : aliases)
 	{
-		// For every raw name (unstandardized, actual names)
+		// For every raw/unstandardized/actual name in the alias
 		for (string rawName : curAlias.second)
 		{
-			// If the player's name is a perfect match
-			if (player == rawName)
+			// If the player's name matches a raw name
+			if (equalsIgnoreCase(player, rawName))
 			{
 				// Set player name to standard name
 				newName = curAlias.first;

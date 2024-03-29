@@ -115,3 +115,12 @@ bool vecContains(StringV list, string value)
 	// Return true if value found
 	return find(list.begin(), list.end(), value) != list.end();
 }
+
+
+bool equalsIgnoreCase(const string& str1, const string& str2) {
+	return std::equal(str1.begin(), str1.end(), str2.begin(), str2.end(), 
+		[](char a, char b) 
+		{
+			return std::tolower(a) == std::tolower(b);
+		});
+}
