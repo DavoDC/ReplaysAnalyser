@@ -10,6 +10,10 @@ using namespace std;
 // Name of anonymous player
 const std::string AliasHandler::ANON = "ANON";
 
+// Set default offline player aliases
+std::string AliasHandler::p1Alias = "davo";
+std::string AliasHandler::p2Alias = "Jazz";
+
 
 // Default Constructor
 AliasHandler::AliasHandler()
@@ -82,6 +86,17 @@ AliasHandler::AliasHandler()
 	addSingleAlias("Azzie", "InternetSu");
 	addSingleAlias("Brubble", "brubblefis");
 	addSingleAlias("Lokimazin", "lokimazin");
+
+	// Handle offline player aliases
+	addSingleAlias(p1Alias, "P1");
+	addSingleAlias(p2Alias, "P2");
+}
+
+
+void AliasHandler::setOfflinePlayerAliases(string p1name, string p2name)
+{
+	p1Alias = p1name;
+	p2Alias = p2name;
 }
 
 

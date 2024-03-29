@@ -30,6 +30,7 @@ public:
 	void setCharCutoff(double newCharCutoff);
 	void setPlayerCutoff(double newPlayerCutoff);
 	void addIgnoredPlayer(std::string playerName);
+	void setOfflinePlayerAliases(std::string p1name, std::string p2name);
 	
 	// Main function
 	void analyse();

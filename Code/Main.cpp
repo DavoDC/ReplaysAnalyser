@@ -33,6 +33,7 @@ int main()
 	//ra.useSampleData();
 	//ra.setCustomLocalRepoFolder("Spi-SSF2Replays");
 	//ra.setPlayerCutoff(0);
+	ra.setOfflinePlayerAliases("Spi", "Starboy");
 
 	
 	// Run analysis
