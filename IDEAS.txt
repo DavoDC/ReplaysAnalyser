@@ -3,9 +3,10 @@ $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$
 
 
 P1/P2 
+- Define as "Standard name of P1/P2 player", dont call alias
 - Make settings for setting P1/P2 aliases
 - has to be custom set, dont rely on paths or anything
-- Fix 100% string formatting
+- FIX IT - probably have to make everything static 
 
 
 OFFLINE/ONLINE MATCHES

@@ -22,8 +22,12 @@ Stat::Stat(double percentage, VCPair vcPair, vector<Match> varMList)
 		return;
 	}
 
-	// Process and save percentage 
+	// Process and save percentage
 	this->percentageS = to_string(percentage).erase(4) + "%";
+	if (percentage >= 100)
+	{
+		this->percentageS = "100%";
+	}
 
 	// Extract and save variant and count values
 	this->variantValue = vcPair.first;
