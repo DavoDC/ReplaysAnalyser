@@ -17,7 +17,7 @@ public:
 	FighterList();
 
 	// Constructor
-	FighterList(std::string);
+	FighterList(std::string, std::string);
 
 	// Getters
 	StringV getPlayers();

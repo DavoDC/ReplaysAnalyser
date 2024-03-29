@@ -2,39 +2,18 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
-P1/P2 
-- Define as "Standard name of P1/P2 player", dont call alias
-- Make settings for setting P1/P2 aliases
-- has to be custom set, dont rely on paths or anything
-- FIX IT - probably have to make everything static 
+HANDLE BLANK CHARS/PLAYERS
+- Prevent "blank" character , use "RANDOM instead"
+- Investigate blank players - are they legit or spliting errors? 
+Disable ANON alias when testing
+
+
 
 
 OFFLINE/ONLINE MATCHES
 - Add boolean for matches - offline or online ! 
 -  check if contains online 
 -  add options to disable offline, disable online 
-
-
-
-SPLITTING ERRORS
-- DO FIRST, using spi dataset (fixed)
-
-Make Error class 
-- replay path 
-- stringVector of information
-
-Add an error list to Match class 
-Populated when being constructed 
-No printing about errors during construction 
-
-AFTER , iterate over error types and 
-print number of errors and how to fix 
-
-
-- Add CPU match handling 
-- Prevent "blank" character , use "RANDOM instead"
-- Fix splitting issues 
-- Investigate blank players - are they legit or spliting errors? Disable ANON alias when testing
 
 
 
@@ -45,9 +24,6 @@ DATE ERRORS
 - Move date fixing to separate function, make more intelligent, try reducing "32"s to lower nums
 - Change notifs to one line: e.g. Fix date by renaming file (BRU recommended): x -> x 
 - for date errors, do not print date errors already seen before 
-
-
-
 
 
 

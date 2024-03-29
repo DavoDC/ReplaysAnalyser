@@ -26,7 +26,6 @@ Match::Match(string replayPath)
 	// "2021-08-24 11.44 AM - VersusOnline - davo1776 (Wario)......."
 	StringV pathParts = split(replayPath, "/");
 
-	// # INIT 1st FIELD
 	// Extract and save version (2nd last part). e.g. 1.3.1.1
 	version = pathParts[pathParts.size() - 2];
 
@@ -42,20 +41,20 @@ Match::Match(string replayPath)
 	// e.g. 2021-08-24 11.44 AM - VersusOnline - davo1776 (Wario).......
 	string filename = pathParts.back();
 
-
 	// Split replay name into 3 parts
 	// e.g "2021-08-24 11.44 AM", "VersusOnline"
 	// "davo1776 (Wario) vs HexxaWyn (Naruto) ...."
 	StringV replayParts = split(filename, " - ", 3);
 
-	// # INIT 2nd FIELD
 	// Extract date from first string. e.g. "2021-08-24 11.44 AM"
 	date = Date(replayParts.front());
 
-	// # INIT 3rd FIELD
+	// Extract replay type from second string
+	string replayType = replayParts[1];
+
 	// Extract fighters from last string
 	// e.g. "davo1776 (Wario) vs HexxaWyn (Naruto) ...."
-	fighters = FighterList(replayParts.back());
+	fighters = FighterList(replayParts.back(), replayType);
 }
 
 

@@ -62,10 +62,11 @@ StringV split(string fullS, string sep, int exp)
 	if (pLen != exp)
 	{
 		// Notify
-		print("WARNING: Split had unexpected results!");
+		string errMsg = "WARNING: Unusual split!";
 		string pLenS = to_string(pLen);
 		string expS = to_string(exp);
-		print(format("Expected [{}] parts but got [{}]", expS, pLenS));
+		string comp = format("expected {} parts but got {}", expS, pLenS);
+		print(format("{} ({})", errMsg, comp));
 		print(format("Call: split({}, {}, {})", fullS, sep, exp), true);
 	}
 
