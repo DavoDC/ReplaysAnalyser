@@ -2,19 +2,7 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
-HANDLE BLANK CHARS/PLAYERS
-- Prevent "blank" character , use "RANDOM instead"
-- Investigate blank players - are they legit or spliting errors? 
-Disable ANON alias when testing
-
-
-
-
-OFFLINE/ONLINE MATCHES
-- Add boolean for matches - offline or online ! 
--  check if contains online 
--  add options to disable offline, disable online 
-
+Check all print statements, Factor out similar/error printing
 
 
 
@@ -26,8 +14,17 @@ DATE ERRORS
 - for date errors, do not print date errors already seen before 
 
 
+FIX DOCUMENTATION
+- Fix documentation, should be in header only, /** style 
+- Research putting all doc in headers 
+
+
+
+
+
 
 TESTING 
+- Do a test on earliest version of ur ssf2replays
 - Test on others replays 
 - ANALYSE SPI's replays!
 - e.g. Egg, Pika, Cody, Jazz
@@ -52,14 +49,3 @@ https://www.google.com/search?q=how+to+turn+c%2B%2B+console+program+into+stanadl
 https://learn.microsoft.com/en-US/cpp/windows/latest-supported-vc-redist?view=msvc-170
 
 https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.MicrosoftVisualStudio2022InstallerProjects
-
-
-
-
-FIX DOCUMENTATION
-- Fix documentation, should be in header only, /** style 
-- Research putting all doc in headers 
-
-
-
-Do a test on first version of ssf2replays

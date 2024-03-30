@@ -26,6 +26,7 @@ public:
 	// Getters
 	int getYear();
 	Date getDate();
+	bool isOnlineMatch();
 	std::string getYearS();
 	std::string getDateS();
 	std::string getVersion();
@@ -50,6 +51,9 @@ private:
 	// # From file name:
 	// Date of match
 	Date date;
+
+	// Online match status
+	bool onlineMatch;
 
 	// Fighters (2, 3 or 4)
 	FighterList fighters;

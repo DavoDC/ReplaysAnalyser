@@ -26,7 +26,7 @@ public:
 	MatchList();
 	
 	// Constructor
-	MatchList(std::string);
+	MatchList(std::string, bool);
 
 	// ### Methods
 	void printInfo();

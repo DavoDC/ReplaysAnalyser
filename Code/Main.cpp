@@ -29,14 +29,15 @@ int main()
 	ReplaysAnalyser ra;
 
 	// My settings
-	//ra.addIgnoredPlayer("davo");
+	ra.addIgnoredPlayer("davo");
 
 	// Settings for Spi's replays
-	ra.setCustomLocalRepoFolder("Spi-SSF2Replays");
-	ra.setOfflinePlayerAliases("Spi", AliasHandler::ANON);
-	ra.addIgnoredPlayer("Spi");
+	//ra.setCustomLocalRepoFolder("Spi-SSF2Replays");
+	//ra.setOfflinePlayerAliases("Spi", AliasHandler::ANON);
+	//ra.addIgnoredPlayer("Spi");
 
 	// Other settings
+	//ra.toggleOnlineMatchesOnly();
 	//ra.useSampleData();
 	//ra.setPlayerCutoff(0);
 	
