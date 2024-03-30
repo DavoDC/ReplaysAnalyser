@@ -31,6 +31,7 @@ public:
 	void setPlayerCutoff(double newPlayerCutoff);
 	void addIgnoredPlayer(std::string playerName);
 	void setOfflinePlayerAliases(std::string p1name, std::string p2name);
+	void toggleOnlineMatchesOnly();
 	
 	// Main function
 	void analyse();
@@ -47,6 +48,9 @@ private:
 	// Cutoffs
 	double playerCutoff; 
 	double charCutoff;
+
+	// Online matches only
+	bool onlineMatchesOnly;
 
 	// ### Private methods
 	std::string getReplayPath();

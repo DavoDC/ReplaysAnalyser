@@ -30,10 +30,9 @@ MatchList::MatchList()
 
 
 // Construct a match list from a directory path
-MatchList::MatchList(string replayPath)
+MatchList::MatchList(string replayPath, bool onlineMatchesOnly)
 {
 	// If path is not valid
-	// (This is done here since the filesystem lib is here already)
 	if (!fs::exists(replayPath))
 	{
 		// Notify and exit
@@ -57,8 +56,14 @@ MatchList::MatchList(string replayPath)
 			// Update check
 			foundOneReplay = true;
 
-			// Convert to Match and add to list
-			matches.push_back(Match(curPathS));
+			// Convert to Match 
+			Match curMatch = Match(curPathS);
+
+			// Add if passes online match filter, if enabled
+			if (!onlineMatchesOnly || curMatch.isOnlineMatch())
+			{
+				matches.push_back(curMatch);
+			}
 		}
 	}
 

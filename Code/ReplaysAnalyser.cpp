@@ -15,6 +15,7 @@ ReplaysAnalyser::ReplaysAnalyser()
 	this->ignoredPlayers = StringV{ AliasHandler::ANON };
 	this->playerCutoff = 0.45;
 	this->charCutoff = 1.0;
+	this->onlineMatchesOnly = false;
 }
 
 
@@ -64,6 +65,11 @@ void ReplaysAnalyser::setOfflinePlayerAliases(string p1Name, string p2Name)
 	AliasHandler::setOfflinePlayerNames(p1Name, p2Name);
 }
 
+void ReplaysAnalyser::toggleOnlineMatchesOnly()
+{
+	onlineMatchesOnly = !onlineMatchesOnly;
+}
+
 
 // ### Main Method: Do analysis
 void ReplaysAnalyser::analyse()
@@ -73,9 +79,13 @@ void ReplaysAnalyser::analyse()
 
 	// Parse replays and notify
 	string replayPath = getReplayPath();
-	MatchList ml = MatchList(replayPath);
+	MatchList ml = MatchList(replayPath, onlineMatchesOnly);
 	print(format("\nParsing matches in '{}'...", replayPath));
 	print(format("Parsed {} matches!", ml.getSizeS()));
+	if (onlineMatchesOnly)
+	{
+		print("NOTE: Only online matches were included!");
+	}
 
 	// Create statistics printer
 	StatPrinter statP = StatPrinter();

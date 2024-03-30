@@ -23,6 +23,9 @@ Fighter::Fighter()
 // e.g. "davo1776 (Wario)"
 Fighter::Fighter(string rawPairS)
 {
+	// Add 'Random' character
+	replaceAll(rawPairS, " ()", " (Random)");
+	
 	// Add different separator than white space
 	// (Because individual components have spaces as well)
 	replaceAll(rawPairS, " (", pairSep);

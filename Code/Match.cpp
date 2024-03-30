@@ -51,6 +51,7 @@ Match::Match(string replayPath)
 
 	// Extract replay type from second string
 	string replayType = replayParts[1];
+	onlineMatch = contains(replayType, "Online");
 
 	// Extract fighters from last string
 	// e.g. "davo1776 (Wario) vs HexxaWyn (Naruto) ...."
@@ -67,6 +68,11 @@ int Match::getYear()
 Date Match::getDate()
 {
 	return date;
+}
+
+bool Match::isOnlineMatch()
+{
+	return onlineMatch;
 }
 
 string Match::getYearS()
