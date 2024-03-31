@@ -38,8 +38,7 @@ FighterList::FighterList(string rawPairS, string replayType)
 	int pLen = int(pairs.size());
 	if (!(pLen >= minFighters && pLen <= 4))
 	{
-		string errMsg = "WARNING: Unusual number of fighters detected";
-		print(format("{} ({})", errMsg, to_string(pLen)));
+		warn("Unusual number of fighters detected", to_string(pLen));
 	}
 
 	// For every pair string

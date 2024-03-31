@@ -18,6 +18,7 @@
 
 // Function declarations
 void print(std::string, bool useEndl = false);
+void warn(std::string desc, std::string details);
 
 StringV split(std::string, std::string);
 StringV split(std::string fullS, std::string sep, int exp);

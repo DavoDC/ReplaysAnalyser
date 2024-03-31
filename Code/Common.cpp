@@ -24,6 +24,12 @@ void print(string s, bool useEndl)
 }
 
 
+void warn(string desc, string details)
+{
+	print(format("WARNING: {} ({})", desc, details));
+}
+
+
 // split(): Helper function for splitting strings
 // fullS = The full string
 // sep = The string that separates the parts
@@ -62,11 +68,10 @@ StringV split(string fullS, string sep, int exp)
 	if (pLen != exp)
 	{
 		// Notify
-		string errMsg = "WARNING: Unusual split!";
 		string pLenS = to_string(pLen);
 		string expS = to_string(exp);
 		string comp = format("expected {} parts but got {}", expS, pLenS);
-		print(format("{} ({})", errMsg, comp));
+		warn("Unusual split!", comp);
 		print(format("Call: split({}, {}, {})", fullS, sep, exp), true);
 	}
 
