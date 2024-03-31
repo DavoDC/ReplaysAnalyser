@@ -1,16 +1,8 @@
-// Main.cpp : 
-// This file contains the 'main' function. 
-// Program execution begins and ends there.
-
-// ### Libraries
-// # For timing
-#include <chrono>
-
-// No header file for self
-
-// Include needed headers
+// Main.cpp
+// (Has no header file for self)
 #include "Common.h"
 #include "ReplaysAnalyser.h"
+#include <chrono>
 
 // Namespace mods
 using namespace std;

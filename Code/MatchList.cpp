@@ -1,7 +1,4 @@
-// MatchList.cpp : 
-// Defines MatchList class
-
-// Header file
+// MatchList.cpp
 #include "MatchList.h"
 
 // ### Libraries

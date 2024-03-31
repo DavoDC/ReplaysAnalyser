@@ -3,16 +3,10 @@
 // StatList.h
 // Represents a statistics calculator
 
-// Include common
 #include "Common.h"
-
-// Include helper classes
 #include "MatchList.h"
 #include "Match.h"
 #include "Stat.h"
-
-
-// ### Libraries
 #include <functional>
 #include <map>
 #include <algorithm>

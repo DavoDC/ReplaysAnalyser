@@ -3,10 +3,7 @@
 // StatPrinter.h
 // Handles printing of statistics information
 
-// Include common
 #include "Common.h"
-
-// Include helper classes
 #include "Stat.h"
 #include "Date.h"
 

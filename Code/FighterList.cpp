@@ -1,21 +1,16 @@
-// FighterList.cpp : 
-// Defines FighterList class
-
-// Header file
+// FighterList.cpp
 #include "FighterList.h"
 
 // Namespace mods
 using namespace std;
 
-// Default Constructor
+
 FighterList::FighterList()
 {
 	fightersV = vector<Fighter>();
 }
 
-// Construct FighterList from raw string
-// e.g. "davo1776 (Wario) vs HexxaWyn (Naruto) 
-// vs FakeNews (Falco) vs x77starboy (Naruto).ssfrec"
+
 FighterList::FighterList(string rawPairS, string replayType)
 {
 	// Remove extension
@@ -41,52 +36,35 @@ FighterList::FighterList(string rawPairS, string replayType)
 		warn("Unusual number of fighters detected", to_string(pLen));
 	}
 
-	// For every pair string
+	// Convert every pair string to a fighter and add to list
 	for (string curPairS : pairs) {
-
-		// Convert to Fighter and add
 		fightersV.push_back(Fighter(curPairS));
 	}
 }
 
-// ### Getters
-// Get the list of players
+
 StringV FighterList::getPlayers()
 {
-	// Holder
 	StringV players;
-
-	// For every fighter
 	for (Fighter curF : fightersV)
 	{
-		// Extract and add player
 		players.push_back(curF.getPlayer());
 	}
-
-	// Return holder
 	return players;
 }
 
 
-// Get the list of characters
 StringV FighterList::getChars()
 {
-	// Holder
 	StringV players;
-
-	// For every fighter
 	for (Fighter curF : fightersV)
 	{
-		// Extract and add character
 		players.push_back(curF.getChar());
 	}
-
-	// Return holder
 	return players;
 }
 
 
-// Get string representation
 string FighterList::toString()
 {
 	// Holder

@@ -1,7 +1,4 @@
-// StatList.cpp : 
-// Defines StatList class
-
-// Header file
+// StatList.cpp
 #include "StatList.h"
 
 // Namespace mods

@@ -1,7 +1,4 @@
-// ReplaysAnalyser.cpp : 
-// Defines ReplaysAnalyser class
-
-// Include header file
+// ReplaysAnalyser.cpp
 #include "ReplaysAnalyser.h"
 
 // Namespace mods

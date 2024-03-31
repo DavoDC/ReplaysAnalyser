@@ -3,10 +3,7 @@
 // Match.h
 // Models a SSF2 match
 
-// Include common
 #include "Common.h"
-
-// Include helper classes
 #include "Date.h"
 #include "FighterList.h"
 
@@ -15,9 +12,7 @@ class Match
 {
 public:
 
-	// ### Public Methods
-	
-	// Default Constructor (needed as declaration=instantation for types)
+
 	Match();
 
 	// Constructor
