@@ -2,16 +2,12 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
-Check all print statements, Factor out similar/error printing
-
-
-
-DATE ERRORS
-- Extend error system
--> Get fraction of original spi data, and disable stats printing  to induce date errors 
-- Move date fixing to separate function, make more intelligent, try reducing "32"s to lower nums
+IMPROVE DATE ERRORS
+- -> Get fraction of original spi data, and disable stats printing  to induce date errors 
 - Change notifs to one line: e.g. Fix date by renaming file (BRU recommended): x -> x 
 - for date errors, do not print date errors already seen before 
+- Move date fixing to separate function, make more intelligent, try reducing "32"s to lower nums
+
 
 
 FIX DOCUMENTATION
@@ -19,8 +15,9 @@ FIX DOCUMENTATION
 - Research putting all doc in headers 
 
 
-
-
+OPTIMIZE 
+- Fix cppcheck warnings (Pass matchlist by ref)
+- Run code analysis
 
 
 TESTING 
@@ -28,13 +25,6 @@ TESTING
 - Test on others replays 
 - ANALYSE SPI's replays!
 - e.g. Egg, Pika, Cody, Jazz
-
-
-
-OPTIMIZE 
-- Fix cppcheck warnings (Pass matchlist by ref)
-- Run code analysis
-
 
 
 RELEASE IT FOR REGULAR USERS 

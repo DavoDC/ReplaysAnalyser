@@ -48,8 +48,7 @@ Date::Date(string rawDateS)
 	if (!newYMD.ok())
 	{
 		// Notify
-		print("WARNING: Invalid date detected!");
-		print("Raw Date: " + rawDateS);
+		warn("Invalid date found!", rawDateS);
 
 		// Try to fix
 		auto sysTime = sys_time<days>{ newYMD };

@@ -26,15 +26,11 @@ Match::Match(string replayPath)
 	// "2021-08-24 11.44 AM - VersusOnline - davo1776 (Wario)......."
 	StringV pathParts = split(replayPath, "/");
 
-	// Extract and save version (2nd last part). e.g. 1.3.1.1
+	// Extract and save version (2nd last part). e.g. 1.3.1.1, and check
 	version = pathParts[pathParts.size() - 2];
-
-	// If doesn't have length 7
 	if (version.length() != 7)
 	{
-		// Notify
-		print("WARNING: Unusual version string detected!");
-		print("Version: " + version);
+		warn("Unusual version string!", version);
 	}
 
 	// Extract replay name (last part)

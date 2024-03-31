@@ -87,59 +87,59 @@ void ReplaysAnalyser::analyse()
 		print("NOTE: Only online matches were included!");
 	}
 
-	// Create statistics printer
-	StatPrinter statP = StatPrinter();
+	//// Create statistics printer
+	//StatPrinter statP = StatPrinter();
 
-	// ### Print statistics
-	// 1) Date stats
-	statP.printDateStats(ml.getFirstMatchDate(), ml.getLastMatchDate());
+	//// ### Print statistics
+	//// 1) Date stats
+	//statP.printDateStats(ml.getFirstMatchDate(), ml.getLastMatchDate());
 
-	// 2) Version stats
-	StatList versionStats = StatList(ml,
-		[](Match lm) -> StringV {
-			return StringV{ lm.getVersion() };
-		},
-		StringV(), 0,
-		[](MatchList lml, string lvariant) -> vector<Match> {
-			return lml.getVersionMatches(lvariant);
-		});
-	statP.printStatsList("Version", versionStats.getStatList());
-
-
-	// 3) Year stats
-	StatList yearStats = StatList(ml,
-		[](Match m) -> StringV {
-			return StringV{ m.getYearS() };
-		},
-		StringV(), 0,
-		[](MatchList lml, string lvariant) -> vector<Match> {
-			return lml.getYearMatches(lvariant);
-		});
-	statP.printStatsList("Year", yearStats.getStatList());
+	//// 2) Version stats
+	//StatList versionStats = StatList(ml,
+	//	[](Match lm) -> StringV {
+	//		return StringV{ lm.getVersion() };
+	//	},
+	//	StringV(), 0,
+	//	[](MatchList lml, string lvariant) -> vector<Match> {
+	//		return lml.getVersionMatches(lvariant);
+	//	});
+	//statP.printStatsList("Version", versionStats.getStatList());
 
 
-	// 4) Player stats
-	StatList playerStats = StatList(ml,
-		[](Match m) -> StringV {
-			return m.getFighters().getPlayers();
-		},
-		ignoredPlayers, playerCutoff,
-		[](MatchList lml, string lvariant) -> vector<Match> {
-			return lml.getPlayerMatches(lvariant);
-		});
-	statP.printStatsList("Player", playerStats.getStatList());
+	//// 3) Year stats
+	//StatList yearStats = StatList(ml,
+	//	[](Match m) -> StringV {
+	//		return StringV{ m.getYearS() };
+	//	},
+	//	StringV(), 0,
+	//	[](MatchList lml, string lvariant) -> vector<Match> {
+	//		return lml.getYearMatches(lvariant);
+	//	});
+	//statP.printStatsList("Year", yearStats.getStatList());
 
 
-	// 5) Character stats
-	StatList charStats = StatList(ml,
-		[](Match m) -> StringV {
-			return m.getFighters().getChars();
-		},
-		StringV(), charCutoff,
-		[](MatchList lml, string lvariant) -> vector<Match> {
-			return lml.getCharMatches(lvariant);
-		});
-	statP.printStatsList("Character", charStats.getStatList());
+	//// 4) Player stats
+	//StatList playerStats = StatList(ml,
+	//	[](Match m) -> StringV {
+	//		return m.getFighters().getPlayers();
+	//	},
+	//	ignoredPlayers, playerCutoff,
+	//	[](MatchList lml, string lvariant) -> vector<Match> {
+	//		return lml.getPlayerMatches(lvariant);
+	//	});
+	//statP.printStatsList("Player", playerStats.getStatList());
+
+
+	//// 5) Character stats
+	//StatList charStats = StatList(ml,
+	//	[](Match m) -> StringV {
+	//		return m.getFighters().getChars();
+	//	},
+	//	StringV(), charCutoff,
+	//	[](MatchList lml, string lvariant) -> vector<Match> {
+	//		return lml.getCharMatches(lvariant);
+	//	});
+	//statP.printStatsList("Character", charStats.getStatList());
 }
 
 
