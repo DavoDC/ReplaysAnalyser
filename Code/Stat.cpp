@@ -45,7 +45,7 @@ Stat::Stat(double percentage, VCPair vcPair, vector<Match> varMList)
 	newestDateS = newestDate.toString();
 
 	// Get and save duration
-	durationS = oldestDate.getAbsDuration(newestDate);
+	durationS = oldestDate.getAbsTimePeriod(newestDate);
 }
 
 // ### Getters

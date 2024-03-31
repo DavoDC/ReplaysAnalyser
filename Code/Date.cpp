@@ -1,7 +1,4 @@
-// Date.cpp : 
-// Defines Date class
-
-// Header file
+// Date.cpp
 #include "Date.h"
 
 // Namespace mods
@@ -9,7 +6,6 @@ using namespace std;
 using namespace std::chrono;
 
 
-// Default Constructor
 Date::Date()
 {
 	// Get current system time
@@ -20,83 +16,81 @@ Date::Date()
 }
 
 
-// Construct a date from a YMD
 Date::Date(DateM newYMD)
 {
 	intYMD = newYMD;
 }
 
 
-// Construct a date from a string
-// e.g. "2021-08-24 11.44 AM"
-Date::Date(string rawDateS)
+Date::Date(string dateS)
 {
-	// Split raw date into 3 parts
-	// e.g. '2021-08-24', '11.44', 'AM'
-	StringV rawParts = split(rawDateS, " ", 3);
-
-	// Extract date part as a string steam
-	stringstream ss(rawParts.front());
-
-	// Holder
+	// Convert date stream into a date object
+	stringstream ss(dateS);
 	DateM newYMD;
-
-	// Convert date string into date object
 	chrono::from_stream(ss, "%F", newYMD);
 
-	// If date is not valid
-	if (!newYMD.ok())
-	{
-		// Notify
-		warn("Invalid date found!", rawDateS);
-
-		// Try to fix
-		auto sysTime = sys_time<days>{ newYMD };
-		auto fixedYMD = DateM{ sysTime };
-
-		// If valid and year is not negative
-		if (fixedYMD.ok() && int(fixedYMD.year()) > 0)
-		{
-			// Has been successfully fixed, so:
-			// Update field with fixed date
-			newYMD = fixedYMD;
-
-			// Notify
-			print("Date should be: " + format("{:%Y-%m-%d}", newYMD));
-		}
-		else
-		{
-			// Else if it couldn't be fixed, notify
-			print("ERROR: Couldn't fix date automatically!");
-		}
-
-		// Advise user
-		print("Please rename/fix files manually! (BRU recommended)", true);
-	}
-
-	// Save holder into field
-	intYMD = newYMD;
+	// Save date after checking/fixing it
+	this->intYMD = fixDate(newYMD, dateS);
 }
 
 
-// Extract internal date
+DateM Date::fixDate(DateM dateIn, string dateS)
+{
+	// If the date is valid, return it
+	if (isValid(dateIn))
+	{
+		return dateIn;
+	}
+
+	// Else if the date is invalid, try to fix it
+	DateM newDate = DateM{ sys_time<days>{ dateIn } };
+
+	// If the date is now valid, return the fixed date
+	if (isValid(newDate))
+	{
+		return newDate;
+	}
+
+	// Else if the new date is still invalid
+
+	// # Make a version of the inputted date with one less day
+	// Split date (e.g. 2021-08-24) into parts. e.g. '2021','08','24'
+	StringV dateParts = split(dateS, "-", 3);
+	year yearIn = year(stoi(dateParts.front()));
+	month monthIn = month(stoi(dateParts[1]));
+	day dayIn = day(stoi(dateParts.back()) - 1);
+	DateM modifiedDateIn = DateM(yearIn, monthIn, dayIn);
+
+	// Recursively run the modified date through the function again
+	return fixDate(modifiedDateIn, toOrigString(modifiedDateIn));
+}
+
+
+bool Date::isValid(DateM date)
+{
+	return date.ok() && int(date.year()) > 0;
+}
+
+
 DateM Date::getYMD()
 {
 	return intYMD;
 }
 
 
-// Get date string in preferred format
-// Format codes: 
-// https://en.cppreference.com/w/cpp/chrono/year_month_day/formatter
 string Date::toString()
 {
 	return format("{:%d/%b/%Y}", intYMD);
 }
 
 
-// Get absolute duration compared to another date
-string Date::getAbsDuration(Date dateIn)
+string Date::toOrigString(DateM date)
+{
+	return format("{:%Y-%m-%d}", date);
+}
+
+
+string Date::getAbsTimePeriod(Date dateIn)
 {
 	// # 0. Calculate absolute difference in days
 	days dayDiff = abs(sys_days(this->intYMD) - sys_days(dateIn.intYMD));

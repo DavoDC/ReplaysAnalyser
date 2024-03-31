@@ -26,7 +26,7 @@ void StatPrinter::printDateStats(Date oldest, Date newest)
 	// Get info
 	string curDate = Date().toString();
 	string dateRange = formatDateRange(oldest.toString(), newest.toString());
-	string duration = oldest.getAbsDuration(newest);
+	string duration = oldest.getAbsTimePeriod(newest);
 
 	// Print info
 	printDateColumns(curDate, dateRange, duration);

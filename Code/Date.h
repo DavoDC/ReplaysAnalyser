@@ -1,43 +1,75 @@
 #pragma once
 
 // Date.h
-// Acts as a wrapper for standard Date class
+// An extended version of std::chrono::year_month_day
 
-// Include common
 #include "Common.h"
-
-// ### Libraries
 #include <chrono>
 
-// Macro for long date type name
+// Macro for long date type (YMD object type)
 #define DateM std::chrono::year_month_day
 
 
-// Declare Date class
 class Date
 {
 
 public:
 
-	// Default Constructor (needed as declaration=instantation for types)
+	/**
+	 * @brief Construct a date set to the current date
+	*/
 	Date();
 
-	// Special Constructors
-	Date(std::string);
+	/**
+	 * @brief Construct a date from a date string
+	 * @param dateS The date as a string (default 'yyyy-mm-dd' format)
+	*/
+	Date(std::string dateS);
+
+	/**
+	 * @brief Construct a date from a given YMD object
+	*/
 	Date(DateM);
 
-	// Retrieve internal date
+	/**
+	 * @return The underlying YMD date object
+	*/
 	DateM getYMD();
 
-	// Convert to string
+	/**
+	 * @return The date as a string (preferred 'dd/MON/yyyy' format)
+	*/
 	std::string toString();
 
-	// Get absolute duration compared to another date
-	std::string getAbsDuration(Date);
+	/**
+	 * @brief Get the time period between this date and the given one
+	 * @param dateIn The given date to be compared
+	 * @return The absolute time period as a string (Xy,Xm,Xd)
+	*/
+	std::string getAbsTimePeriod(Date dateIn);
+
 private:
 
-	// Internal standard date object
+	/**
+	 * @brief The underlying YMD date object
+	*/
 	DateM intYMD;
 
+	/**
+	 * @return true if the given date is valid 
+	*/
+	bool isValid(DateM);
+
+	/**
+	 * @return The given date as a string (default 'yyyy-mm-dd' format)
+	*/
+	std::string toOrigString(DateM);
+
+	/**
+	 * @param date A date that may be invalid
+	 * @param dateS The date as a string (default 'yyyy-mm-dd' format)
+	 * @return A valid date
+	*/
+	DateM fixDate(DateM date, std::string dateS);
 };
 
