@@ -13,6 +13,7 @@ Match::Match()
 {
 	version = "";
 	date = Date();
+	onlineMatch = false;
 	fighters = FighterList();
 }
 
@@ -42,8 +43,11 @@ Match::Match(string replayPath)
 	// "davo1776 (Wario) vs HexxaWyn (Naruto) ...."
 	StringV replayParts = split(filename, " - ", 3);
 
-	// Extract date from first string. e.g. "2021-08-24 11.44 AM"
-	date = Date(replayParts.front());
+	// # Extract date from first string. e.g. "2021-08-24 11.44 AM"
+	// Split into 3 parts. e.g. '2021-08-24', '11.44', 'AM'
+	StringV dateParts = split(replayParts.front(), " ", 3);
+	// Make date from first part only. e.g. '2021-08-24'
+	date = Date(dateParts.front());
 
 	// Extract replay type from second string
 	string replayType = replayParts[1];
