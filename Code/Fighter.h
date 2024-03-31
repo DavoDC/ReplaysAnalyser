@@ -1,12 +1,9 @@
 #pragma once
 
 // Fighter.h
-// Models a player-character pair
+// Represents a player controlling a character
 
-// Include common
 #include "Common.h"
-
-// Include Alias Handler
 #include "AliasHandler.h"
 
 
@@ -14,25 +11,43 @@ class Fighter
 {
 public:
 
-	// # Constructors
-	// Default Constructor (needed as declaration=instantation for types)
+	/**
+	 * @brief Construct an empty Fighter
+	*/
 	Fighter();
 
-	// Constructor
-	Fighter(std::string);
+	/**
+	 * @brief Constructs a Fighter from a given string
+	 * @param A fighter 'pair' string. e.g. 'davo1776 (Wario)'
+	*/
+	Fighter(std::string rawPairS);
 
-	// # Public methods
-	// Getters
+	/**
+	 * @return The player's name
+	*/
 	std::string getPlayer();
+
+	/**
+	 * @return The character's name
+	*/
 	std::string getChar();
 
-	// Get string representation
+	/**
+	 * @return A string representation of this Fighter
+	*/
 	std::string toString();
 
 private:
 
-	// # Private fields
-	// Underlying data structure
-	StringPair pair;
+	/**
+	 * @brief The underlying data structure
+	 * @brief A player string paired to a character string
+	*/
+	StringPair fPair;
+
+	/**
+	 * @brief The pair separator string
+	*/
+	const std::string pairSep = "###$###";
 };
 
