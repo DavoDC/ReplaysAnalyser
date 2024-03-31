@@ -1,33 +1,22 @@
-// Fighter.cpp : 
-// Defines Fighter class
-
-// Header file
+// Fighter.cpp
 #include "Fighter.h"
 
 // Namespace mods
 using namespace std;
 
 
-// Global constant - pair separator
-const string pairSep = "###$###";
-
-
-// Default Constructor
 Fighter::Fighter()
 {
-	pair = StringPair();
+	fPair = StringPair();
 }
 
 
-// Constructs a Fighter from a given string
-// e.g. "davo1776 (Wario)"
 Fighter::Fighter(string rawPairS)
 {
 	// Add 'Random' character
 	replaceAll(rawPairS, " ()", " (Random)");
 	
-	// Add different separator than white space
-	// (Because individual components have spaces as well)
+	// Replace middle part with separator
 	replaceAll(rawPairS, " (", pairSep);
 
 	// Remove extra bracket at end
@@ -49,7 +38,7 @@ Fighter::Fighter(string rawPairS)
 	string player = curPairParts[0];
 	replaceAll(player, " ", "");
 
-	// Handle player aliases
+	// Standardise the player's name, accounting for aliases
 	player = AliasHandler::getStandardName(player);
 
 	// Extract 2nd string, the character, and remove whitespace
@@ -57,24 +46,22 @@ Fighter::Fighter(string rawPairS)
 	replaceAll(character, " ", "");
 	
 	// Create pair object and save
-	StringPair newPair(player, character);
-	pair = newPair;
+	fPair = make_pair(player, character);
 }
 
 
-// Getters
 string Fighter::getPlayer()
 {
-	return pair.first;
+	return fPair.first;
 }
+
 
 string Fighter::getChar()
 {
-	return pair.second;
+	return fPair.second;
 }
 
 
-// Get string representation
 string Fighter::toString()
 {
 	return format("{}({})", getPlayer(), getChar());
