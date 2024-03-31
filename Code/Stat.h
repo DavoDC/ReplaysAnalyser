@@ -3,11 +3,8 @@
 // Stat.h
 // Represents a statistic
 
-// Include common
 #include "Common.h"
 #include "Match.h"
-
-// Libraries
 #include <algorithm>
 
 // ### Macros

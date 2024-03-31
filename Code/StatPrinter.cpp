@@ -1,7 +1,4 @@
-// StatPrinter.cpp : 
-// Defines StatPrinter class
-
-// Header file
+// StatPrinter.cpp
 #include "StatPrinter.h"
 
 // Namespace mods

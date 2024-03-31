@@ -1,10 +1,5 @@
-// Common.cpp : 
-// Helper functions commonly used
-
-// Header file
+// Common.cpp
 #include "Common.h"
-
-// ### Libraries
 #include <ranges>
 #include <string_view>
 
@@ -12,9 +7,6 @@
 using namespace std;
 
 
-// print(): Helper function for printing
-// - s = String to print
-// - useEndl = Give True if you want endl (False by default)
 void print(string s, bool useEndl)
 {
 	cout << "\n" << s;
@@ -30,38 +22,20 @@ void warn(string desc, string details)
 }
 
 
-// split(): Helper function for splitting strings
-// fullS = The full string
-// sep = The string that separates the parts
-// Returns the parts as a vector
 StringV split(string fullS, string sep)
 {
-	// Holder vector
 	StringV parts;
-
-	// For every part
 	for (const auto curPart : views::split(fullS, sep)) {
-
-		// Convert to string
-		string curPartS = string(curPart.begin(), curPart.end());
-
-		// Add to vector
-		parts.push_back(curPartS);
+		parts.push_back(string(curPart.begin(), curPart.end()));
 	}
-
-	// Return vector
 	return parts;
 }
 
 
-// split(): Helper function for splitting strings, with check!
-// exp = The expected number of parts
 StringV split(string fullS, string sep, int exp)
 {
-	// Holder vector
+	// Split and get length
 	StringV parts = split(fullS, sep);
-
-	// Get parts length
 	int pLen = int(parts.size());
 
 	// If number of parts doesn't match expected
@@ -79,10 +53,7 @@ StringV split(string fullS, string sep, int exp)
 	return parts;
 }
 
-// replaceAll(): Helper function for removing substrings
-// source = The original string, will be modified
-// from = The substring to replace
-// to = The string to be substituted in
+
 void replaceAll(string& source, const string& from, const string& to)
 {
 	string newString;
@@ -100,25 +71,18 @@ void replaceAll(string& source, const string& from, const string& to)
 }
 
 
-// contains(): Helper function (wrapper)
-// Returns true if the 1st string contains the 2nd
 bool contains(string s1, string s2)
 {
-	// Return true if s1 contains s2
 	return strstr(s1.c_str(), s2.c_str());
 }
 
 
-// contains(): Helper function for checking if a string vector contains a given string
 bool vecContains(StringV list, string value)
 {
-	// If vector is empty, stop and return false
 	if (list.empty())
 	{
 		return false;
 	}
-
-	// Return true if value found
 	return find(list.begin(), list.end(), value) != list.end();
 }
 

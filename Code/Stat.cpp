@@ -1,7 +1,4 @@
-// Stat.cpp : 
-// Defines Stat class
-
-// Header file
+// Stat.cpp
 #include "Stat.h"
 
 // Namespace mods

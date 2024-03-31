@@ -3,32 +3,45 @@
 // FighterList.h
 // Models a list of fighters
 
-// Include common
 #include "Common.h"
-
-// Include sub-component
 #include "Fighter.h"
 
 class FighterList
 {
 public:
 
-	// Default Constructor (needed as declaration=instantation for types)
+	/**
+	 * @brief Construct an empty FighterList
+	*/
 	FighterList();
 
-	// Constructor
-	FighterList(std::string, std::string);
+	/**
+	 * @brief Construct a FighterList from strings
+	 * @param rawFighterList e.g. "davo (Wario) vs Spi (Falco).ssfrec"
+	 * @param replayType e.g. Versus, Versus Online, BTT etc.
+	*/
+	FighterList(std::string rawFighterList, std::string replayType);
 
-	// Getters
+	/**
+	 * @return A list of the players involved
+	*/
 	StringV getPlayers();
+
+	/**
+	 * @return A list of the characters involved
+	*/
 	StringV getChars();
 
-	// Get string representation
+	/**
+	 * @return String representation of this Fighter List
+	*/
 	std::string toString();
 
 private:
 
-	// Underlying data structure
+	/**
+	 * @brief Underlying data structure (list of Fighters)
+	*/
 	std::vector<Fighter> fightersV;
 };
 

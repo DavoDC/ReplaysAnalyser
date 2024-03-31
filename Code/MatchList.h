@@ -3,13 +3,8 @@
 // MatchList.h
 // Models a list of SSF2 matches
 
-// Include common
 #include "Common.h"
-
-// Include helper classes
 #include "Match.h"
-
-// Libraries
 #include <functional>
 
 // Returns true if the match contains a given variant

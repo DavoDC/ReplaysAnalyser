@@ -1,7 +1,4 @@
-// Match.cpp : 
-// Defines Match class
-
-// Header file
+// Match.cpp
 #include "Match.h"
 
 // Namespace mods
