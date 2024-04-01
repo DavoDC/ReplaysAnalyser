@@ -79,9 +79,22 @@ void ReplaysAnalyser::analyse()
 	MatchList ml = MatchList(replayPath, onlineMatchesOnly);
 	print(format("\nParsing matches in '{}'...", replayPath));
 	print(format("Parsed {} matches!", ml.getSizeS()));
+
+	// If "online only" enabled, notify
 	if (onlineMatchesOnly)
 	{
 		print("NOTE: Only online matches were included!");
+	}
+
+	// Notify if there were any fixed/invalid dates
+	int datesFixed = int(Date::fixedDates.size());
+	if (datesFixed == 0)
+	{
+		print("NOTE: All dates were valid!");
+	}
+	else
+	{
+		warn("Invalid date(s) found!", to_string(datesFixed));
 	}
 
 	// Create statistics printer
@@ -169,4 +182,9 @@ string ReplaysAnalyser::getReplayPath()
 
 	// Return replay path
 	return replayPath;
+}
+
+void ReplaysAnalyser::printFixedDates()
+{
+	Date::printFixedDates();
 }

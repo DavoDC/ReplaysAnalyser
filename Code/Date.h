@@ -5,6 +5,7 @@
 
 #include "Common.h"
 #include <chrono>
+#include <map>
 
 // Macro for long date type (YMD object type)
 #define DateM std::chrono::year_month_day
@@ -47,6 +48,16 @@ public:
 	 * @return The absolute time period as a string (Xy,Xm,Xd)
 	*/
 	std::string getAbsTimePeriod(Date dateIn);
+
+	/**
+	 * @brief List of fixed dates ('before and after' string pairs)
+	*/
+	static std::vector<StringPair> fixedDates;
+
+	/**
+	 * @brief Print out invalid dates and their fixed versions
+	*/
+	static void printFixedDates();
 
 private:
 

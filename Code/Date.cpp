@@ -5,6 +5,9 @@
 using namespace std;
 using namespace std::chrono;
 
+// Initialize static fixed date list
+vector<StringPair> Date::fixedDates;
+
 
 Date::Date()
 {
@@ -29,8 +32,18 @@ Date::Date(string dateS)
 	DateM newYMD;
 	chrono::from_stream(ss, "%F", newYMD);
 
-	// Save date after checking/fixing it
-	this->intYMD = fixDate(newYMD, dateS);
+	// Fix the date if needed
+	DateM validYMD = fixDate(newYMD, dateS);
+	
+	// If date was changed (fixed), add to list of fixed dates
+	if (newYMD != validYMD)
+	{
+		string validDateS = toOrigString(validYMD);
+		fixedDates.push_back(make_pair(dateS, validDateS));
+	}
+
+	// Save fixed date
+	this->intYMD = validYMD;
 }
 
 
@@ -145,4 +158,28 @@ string Date::getAbsTimePeriod(Date dateIn)
 
 	// Return result
 	return durationS;
+}
+
+
+void Date::printFixedDates()
+{
+	// Heading
+	print("\n# Invalid dates that were fixed (before and after)");
+
+	// Get list of unique date errors
+	std::map<string, int> dateFixMap;
+	for (StringPair fixedDate : fixedDates)
+	{
+		// Format string pair as string
+		string curFixS = format("{} -> {}", fixedDate.first, fixedDate.second);
+
+		// Increment the count of the variant (or add it to the map)
+		dateFixMap[curFixS]++;
+	}
+
+	// Print out map of unique "date fixes"
+	for (auto const& uniqueFix : dateFixMap)
+	{
+		print(format("{} (x{})", uniqueFix.first, uniqueFix.second));
+	}
 }

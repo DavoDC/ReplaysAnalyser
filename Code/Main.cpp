@@ -37,6 +37,8 @@ int main()
 	// Run analysis
 	ra.analyse();
 
+	//ra.printFixedDates();
+
 	// # Print time taken and finish
 	printTimeTaken(start);
 	print("\n");
