@@ -27,6 +27,11 @@ public:
 	void addIgnoredPlayer(std::string playerName);
 	void setOfflinePlayerAliases(std::string p1name, std::string p2name);
 	void toggleOnlineMatchesOnly();
+
+	/**
+	 * @brief See Date::printFixedDates()
+	*/
+	void printFixedDates();
 	
 	// Main function
 	void analyse();
