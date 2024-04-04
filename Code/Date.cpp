@@ -19,13 +19,12 @@ Date::Date()
 }
 
 
-Date::Date(DateM newYMD)
+Date::Date(const DateM& newYMD) : intYMD(newYMD)
 {
-	intYMD = newYMD;
 }
 
 
-Date::Date(string dateS)
+Date::Date(const string& dateS)
 {
 	// Convert date stream into a date object
 	stringstream ss(dateS);
@@ -47,7 +46,7 @@ Date::Date(string dateS)
 }
 
 
-DateM Date::fixDate(DateM dateIn, string dateS)
+const DateM Date::fixDate(const DateM& dateIn, const string& dateS)
 {
 	// If the date is valid, return it
 	if (isValid(dateIn))
@@ -79,31 +78,31 @@ DateM Date::fixDate(DateM dateIn, string dateS)
 }
 
 
-bool Date::isValid(DateM date)
+const bool Date::isValid(const DateM& date)
 {
 	return date.ok() && int(date.year()) > 0;
 }
 
 
-DateM Date::getYMD()
+const DateM Date::getYMD() const
 {
 	return intYMD;
 }
 
 
-string Date::toString()
+string Date::toString() const
 {
 	return format("{:%d/%b/%Y}", intYMD);
 }
 
 
-string Date::toOrigString(DateM date)
+const string Date::toOrigString(const DateM& date)
 {
 	return format("{:%Y-%m-%d}", date);
 }
 
 
-string Date::getAbsTimePeriod(Date dateIn)
+const string Date::getAbsTimePeriod(const Date& dateIn) const
 {
 	// # 0. Calculate absolute difference in days
 	days dayDiff = abs(sys_days(this->intYMD) - sys_days(dateIn.intYMD));
@@ -161,7 +160,7 @@ string Date::getAbsTimePeriod(Date dateIn)
 }
 
 
-void Date::printFixedDates()
+const void Date::printFixedDates()
 {
 	// Heading
 	print("\n# Invalid dates that were fixed (before and after)");

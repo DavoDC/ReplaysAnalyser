@@ -22,7 +22,7 @@
  * @param s The string to print
  * @param useEndl End line toggle (default: false)
 */
-void print(std::string s, bool useEndl = false);
+void print(const std::string& s, bool useEndl = false);
 
 
 /**
@@ -30,7 +30,7 @@ void print(std::string s, bool useEndl = false);
  * @param desc A description of the issue
  * @param details The details of the issue
 */
-void warn(std::string desc, std::string details);
+void warn(const std::string& desc, const std::string& details);
 
 
 /**
@@ -39,14 +39,14 @@ void warn(std::string desc, std::string details);
  * @param sep Substring that separates parts of the string 
  * @return The parts of the string as a vector
 */
-StringV split(std::string full, std::string sep);
+StringV split(const std::string& full, const std::string& sep);
 
 
 /**
  * @brief Same as split() but checks number of parts
  * @param exp The expected number of parts
 */
-StringV split(std::string full, std::string sep, int exp);
+StringV split(const std::string& full, const std::string& sep, const int& exp);
 
 
 /**
@@ -62,13 +62,13 @@ void replaceAll(std::string& source,
 /**
  * @return true if s1 contains s2
 */
-bool contains(std::string s1, std::string s2);
+bool contains(const std::string& s1, const std::string& s2);
 
 
 /**
  * @return true if the string vector contains the given string
 */
-bool vecContains(StringV list, std::string query);
+bool vecContains(const StringV& list, const std::string& query);
 
 
 /**

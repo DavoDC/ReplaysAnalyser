@@ -12,7 +12,7 @@ MatchList::MatchList()
 }
 
 
-MatchList::MatchList(string replayPath, bool onlineMatchesOnly)
+MatchList::MatchList(const string& replayPath, const bool& onlineMatchesOnly)
 {
 	// If path is not valid
 	if (!fs::exists(replayPath))
@@ -61,14 +61,14 @@ MatchList::MatchList(string replayPath, bool onlineMatchesOnly)
 
 	// Sort matches by date
 	sort(matches.begin(), matches.end(),
-		[](Match m1, Match m2) {
+		[](const Match& m1, const Match& m2) {
 
 			return m2.isMatchNewer(m1);
 		});
 }
 
 
-void MatchList::printInfo()
+const void MatchList::printInfo() const
 {
 	for (Match curM : matches)
 	{
@@ -78,37 +78,37 @@ void MatchList::printInfo()
 
 
 
-int MatchList::getSize()
+const int MatchList::getSize() const
 {
 	return int(matches.size());
 }
 
 
-string MatchList::getSizeS()
+const string MatchList::getSizeS() const
 {
 	return to_string(getSize());
 }
 
 
-vector<Match> MatchList::getMatches()
+const vector<Match> MatchList::getMatches() const
 {
 	return matches;
 }
 
 
-Date MatchList::getFirstMatchDate()
+const Date MatchList::getFirstMatchDate() const
 {
 	return matches.front().getDate();
 }
 
 
-Date MatchList::getLastMatchDate()
+const Date MatchList::getLastMatchDate() const
 {
 	return matches.back().getDate();
 }
 
 
-vector<Match> MatchList::getVersionMatches(string version)
+const vector<Match> MatchList::getVersionMatches(const string& version) const
 {
 	return getVariantMatches([&](Match lm)
 		{
@@ -117,7 +117,7 @@ vector<Match> MatchList::getVersionMatches(string version)
 }
 
 
-vector<Match> MatchList::getYearMatches(string year)
+const vector<Match> MatchList::getYearMatches(const string& year) const
 {
 	return getVariantMatches([&](Match lm)
 		{
@@ -126,7 +126,7 @@ vector<Match> MatchList::getYearMatches(string year)
 }
 
 
-vector<Match> MatchList::getPlayerMatches(string playerName)
+const vector<Match> MatchList::getPlayerMatches(const string& playerName) const
 {
 	return getVariantMatches([&](Match lm)
 		{
@@ -135,7 +135,7 @@ vector<Match> MatchList::getPlayerMatches(string playerName)
 }
 
 
-vector<Match> MatchList::getCharMatches(string charName)
+const vector<Match> MatchList::getCharMatches(const string& charName) const
 {
 	return getVariantMatches([&](Match lm)
 		{
@@ -144,7 +144,7 @@ vector<Match> MatchList::getCharMatches(string charName)
 }
 
 
-vector<Match> MatchList::getVariantMatches(VarMatchChecker hasVariant)
+const vector<Match> MatchList::getVariantMatches(const VarMatchChecker& hasVariant) const
 {
 	// Holder for the variant's matches
 	vector<Match> variantMatches;

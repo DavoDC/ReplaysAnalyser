@@ -10,7 +10,7 @@ StatPrinter::StatPrinter()
 }
 
 
-void StatPrinter::printDateStats(Date oldest, Date newest)
+void StatPrinter::printDateStats(const Date& oldest, const Date& newest)
 {
 	// Print headings
 	printHeading("Date");
@@ -28,7 +28,7 @@ void StatPrinter::printDateStats(Date oldest, Date newest)
 }
 
 
-void StatPrinter::printStatsList(string statName, vector<Stat> statList)
+void StatPrinter::printStatsList(const string& statName, const vector<Stat>& statList)
 {
 	// Print heading 
 	printHeading(statName);
@@ -44,19 +44,20 @@ void StatPrinter::printStatsList(string statName, vector<Stat> statList)
 }
 
 
-void StatPrinter::printHeading(string statName)
+void StatPrinter::printHeading(const string& statName)
 {
 	print(format("\n### {} Statistics ###", statName));
 }
 
 
-string StatPrinter::formatDateRange(string date1, string date2)
+string StatPrinter::formatDateRange(const string& date1, const string& date2)
 {
 	return format("{} - {}", date1, date2);
 }
 
 
-void StatPrinter::printDateColumns(string c1, string c2, string c3)
+void StatPrinter::printDateColumns(const string& c1, const string& c2, 
+	const string& c3)
 {
 	cout
 		<< left
@@ -67,7 +68,7 @@ void StatPrinter::printDateColumns(string c1, string c2, string c3)
 }
 
 
-void StatPrinter::printStat(Stat stat)
+void StatPrinter::printStat(const Stat& stat)
 {
 	printStatColumns(
 		stat.getPercentage(),
@@ -78,8 +79,8 @@ void StatPrinter::printStat(Stat stat)
 }
 
 
-void StatPrinter::printStatColumns(string c1, string c2, string c3, 
-	string c4, string c5)
+void StatPrinter::printStatColumns(const string& c1, const string& c2, 
+	const string& c3, const string& c4, const string& c5)
 {
 	cout
 		<< left

@@ -5,34 +5,36 @@
 using namespace std;
 
 
-Fighter::Fighter()
+Fighter::Fighter() : fPair(StringPair())
 {
-	fPair = StringPair();
 }
 
 
-Fighter::Fighter(string rawPairS)
+Fighter::Fighter(const string& rawPairS)
 {
+	// Make copy for modification
+	string pairCopyS = rawPairS;
+
 	// Add 'Random' character
-	replaceAll(rawPairS, " ()", " (Random)");
+	replaceAll(pairCopyS, " ()", " (Random)");
 	
 	// Replace middle part with separator
-	replaceAll(rawPairS, " (", pairSep);
+	replaceAll(pairCopyS, " (", pairSep);
 
 	// Remove extra bracket at end
-	replaceAll(rawPairS, ")", "");
+	replaceAll(pairCopyS, ")", "");
 
 	// Look for a second occurrence of the separator (shouldn't be there)
-	size_t pos = rawPairS.find(pairSep, rawPairS.find(pairSep) + pairSep.size());
+	size_t pos = pairCopyS.find(pairSep, pairCopyS.find(pairSep) + pairSep.size());
 
 	// If second occurence found, remove everything after it
 	if (pos != std::string::npos) {
-		rawPairS.erase(pos);
+		pairCopyS.erase(pos);
 	}
 
 	// Split into player and character (2 parts)
 	// e.g. 'davo1776' and 'Wario'
-	StringV curPairParts = split(rawPairS, pairSep, 2);
+	StringV curPairParts = split(pairCopyS, pairSep, 2);
 	
 	// Extract 1st string, the player name, and remove whitespace
 	string player = curPairParts[0];
@@ -50,13 +52,13 @@ Fighter::Fighter(string rawPairS)
 }
 
 
-string Fighter::getPlayer()
+const string Fighter::getPlayer() const
 {
 	return fPair.first;
 }
 
 
-string Fighter::getChar()
+const string Fighter::getChar() const
 {
 	return fPair.second;
 }

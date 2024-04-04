@@ -21,13 +21,14 @@ public:
 	 * @param The P1 player's standard name
 	 * @param The P2 player's standard name
 	*/
-	static void setOfflinePlayerNames(std::string p1Name, std::string p2Name);
+	const static void setOfflinePlayerNames(const std::string& p1Name, 
+		const std::string& p2Name);
 
 	/**
 	 * @param A raw/unstandardised/actual player name
 	 * @return The player's standard name
 	*/
-	static std::string getStandardName(std::string playerName);
+	const static std::string getStandardName(const std::string& playerName);
 
 private:
 
@@ -56,13 +57,13 @@ private:
 	 * @param The player's standard name
 	 * @param The player's aliases
 	*/
-	static void addAlias(std::string, StringV);
+	static void addAlias(const std::string&, const StringV&);
 
 	/**
 	 * @brief Helper for adding simple aliases
 	 * @param The player's standard name
 	 * @param The player's alias
 	*/
-	static void addSingleAlias(std::string, std::string);
+	static void addSingleAlias(const std::string&, const std::string&);
 };
 

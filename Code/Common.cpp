@@ -2,12 +2,13 @@
 #include "Common.h"
 #include <ranges>
 #include <string_view>
+#include <algorithm>
 
 // Namespace mods
 using namespace std;
 
 
-void print(string s, bool useEndl)
+void print(const string& s, bool useEndl)
 {
 	cout << "\n" << s;
 	if (useEndl) {
@@ -16,23 +17,26 @@ void print(string s, bool useEndl)
 }
 
 
-void warn(string desc, string details)
+void warn(const string& desc, const string& details)
 {
 	print(format("WARNING: {} ({})", desc, details));
 }
 
 
-StringV split(string fullS, string sep)
+StringV split(const string& fullS, const string& sep)
 {
 	StringV parts;
-	for (const auto curPart : views::split(fullS, sep)) {
-		parts.push_back(string(curPart.begin(), curPart.end()));
-	}
+	auto subranges = std::views::split(fullS, sep);
+	std::transform(subranges.begin(), subranges.end(),
+		std::back_inserter(parts),
+		[](const auto& curPart) {
+			return string(curPart.begin(), curPart.end());
+		});
 	return parts;
 }
 
 
-StringV split(string fullS, string sep, int exp)
+StringV split(const string& fullS, const string& sep, const int& exp)
 {
 	// Split and get length
 	StringV parts = split(fullS, sep);
@@ -71,13 +75,13 @@ void replaceAll(string& source, const string& from, const string& to)
 }
 
 
-bool contains(string s1, string s2)
+bool contains(const string& s1, const string& s2)
 {
 	return strstr(s1.c_str(), s2.c_str());
 }
 
 
-bool vecContains(StringV list, string value)
+bool vecContains(const StringV& list, const string& value)
 {
 	if (list.empty())
 	{

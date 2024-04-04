@@ -20,17 +20,17 @@ public:
 	 * @brief Constructs a Fighter from a given string
 	 * @param A fighter 'pair' string. e.g. 'davo1776 (Wario)'
 	*/
-	Fighter(std::string rawPairS);
+	explicit Fighter(const std::string& rawPairS);
 
 	/**
 	 * @return The player's name
 	*/
-	std::string getPlayer();
+	const std::string getPlayer() const;
 
 	/**
 	 * @return The character's name
 	*/
-	std::string getChar();
+	const std::string getChar() const;
 
 	/**
 	 * @return A string representation of this Fighter

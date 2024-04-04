@@ -21,7 +21,7 @@ public:
 	 * @brief Construct a match from a raw replay path
 	 * @param e.g. "../Sample_Data/1.3.1.1/2021-08-24 11.44 AM - ..."
 	*/
-	Match(std::string);
+	explicit Match(const std::string&);
 
 	/**
 	 * @return The year the match was played as an int
@@ -36,7 +36,7 @@ public:
 	/**
 	 * @return The date the match was played
 	*/
-	Date getDate();
+	const Date getDate() const;
 
 	/**
 	 * @return The date the match was played as a string
@@ -66,7 +66,7 @@ public:
 	/**
 	 * @return True if this match is newer than the one inputted
 	*/
-	bool isMatchNewer(Match mInput);
+	const bool isMatchNewer(const Match& mInput) const;
 
 
 private:

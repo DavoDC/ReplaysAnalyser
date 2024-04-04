@@ -21,49 +21,49 @@ void ReplaysAnalyser::useSampleData()
 }
 
 
-void ReplaysAnalyser::setCustomPath(string pathInput)
+void ReplaysAnalyser::setCustomPath(const string& pathInput)
 {
 	this->customPath = pathInput;
 }
 
 
-void ReplaysAnalyser::setCustomLocalPath(string path)
+void ReplaysAnalyser::setCustomLocalPath(const string& path)
 {
 	setCustomPath(format("C:/Users/David/{}", path));
 }
 
 
-void ReplaysAnalyser::setCustomLocalDwlFolder(string folderName)
+void ReplaysAnalyser::setCustomLocalDwlFolder(const string& folderName)
 {
 	setCustomLocalPath(format("Downloads/{}", folderName));
 }
 
 
-void ReplaysAnalyser::setCustomLocalRepoFolder(string folderName)
+void ReplaysAnalyser::setCustomLocalRepoFolder(const string& folderName)
 {
 	setCustomLocalPath(format("GitHubRepos/{}", folderName));
 }
 
 
-void ReplaysAnalyser::addIgnoredPlayer(string playerName)
+void ReplaysAnalyser::addIgnoredPlayer(const string& playerName)
 {
 	this->ignoredPlayers.push_back(playerName);
 }
 
 
-void ReplaysAnalyser::setPlayerCutoff(double newPlayerCutoff)
+void ReplaysAnalyser::setPlayerCutoff(const double& newPlayerCutoff)
 {
 	this->playerCutoff = newPlayerCutoff;
 }
 
 
-void ReplaysAnalyser::setCharCutoff(double newCharCutoff)
+void ReplaysAnalyser::setCharCutoff(const double& newCharCutoff)
 {
 	this->charCutoff = newCharCutoff;
 }
 
 
-void ReplaysAnalyser::setOfflinePlayerAliases(string p1Name, string p2Name)
+void ReplaysAnalyser::setOfflinePlayerAliases(const string& p1Name, const string& p2Name)
 {
 	AliasHandler::setOfflinePlayerNames(p1Name, p2Name);
 }
@@ -116,7 +116,7 @@ void ReplaysAnalyser::analyse()
 			return StringV{ lm.getVersion() };
 		},
 		StringV(), 0,
-		[](MatchList lml, string lvariant) -> vector<Match> {
+		[](const MatchList& lml, const string& lvariant) -> vector<Match> {
 			return lml.getVersionMatches(lvariant);
 		});
 	statP.printStatsList("Version", versionStats.getStatList());
@@ -128,7 +128,7 @@ void ReplaysAnalyser::analyse()
 			return StringV{ m.getYearS() };
 		},
 		StringV(), 0,
-		[](MatchList lml, string lvariant) -> vector<Match> {
+		[](const MatchList& lml, const string& lvariant) -> vector<Match> {
 			return lml.getYearMatches(lvariant);
 		});
 	statP.printStatsList("Year", yearStats.getStatList());
@@ -140,7 +140,7 @@ void ReplaysAnalyser::analyse()
 			return m.getFighters().getPlayers();
 		},
 		ignoredPlayers, playerCutoff,
-		[](MatchList lml, string lvariant) -> vector<Match> {
+		[](const MatchList& lml, const string& lvariant) -> vector<Match> {
 			return lml.getPlayerMatches(lvariant);
 		});
 	statP.printStatsList("Player", playerStats.getStatList());
@@ -152,7 +152,7 @@ void ReplaysAnalyser::analyse()
 			return m.getFighters().getChars();
 		},
 		StringV(), charCutoff,
-		[](MatchList lml, string lvariant) -> vector<Match> {
+		[](const MatchList& lml, const string& lvariant) -> vector<Match> {
 			return lml.getCharMatches(lvariant);
 		});
 	statP.printStatsList("Character", charStats.getStatList());

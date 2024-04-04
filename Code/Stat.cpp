@@ -10,7 +10,8 @@ Stat::Stat()
 }
 
 
-Stat::Stat(double percentage, VCPair vcPair, vector<Match> varMList)
+Stat::Stat(const double& percentage, const VCPair& vcPair,
+	const vector<Match>& varMList)
 {
 	// Notify and stop if matchlist empty
 	if (varMList.empty())
@@ -33,7 +34,7 @@ Stat::Stat(double percentage, VCPair vcPair, vector<Match> varMList)
 	// Calculate and save oldest and newest matches
 	auto dateRangePair = minmax_element(
 		varMList.begin(), varMList.end(),
-		[](Match m1, Match m2) {
+		[](const Match& m1, const Match& m2) {
 			return m2.isMatchNewer(m1);
 		});
 	Date oldestDate = dateRangePair.first._Ptr->getDate();

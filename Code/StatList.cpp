@@ -10,8 +10,9 @@ StatList::StatList()
 }
 
 
-StatList::StatList(MatchList matchList, PropExt propExt, StringV ignore,
-	double cutoff, MatchVExt matchVExt)
+StatList::StatList(const MatchList& matchList, const PropExt& propExt,
+	const StringV& ignore, const double& cutoff,
+	const MatchVExt& matchVExt)
 {
 	// Extract match list info
 	vector<Match> matches = matchList.getMatches();

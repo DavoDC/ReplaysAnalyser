@@ -22,44 +22,44 @@ public:
 	 * @param oldest The oldest match date
 	 * @param newest The newest match date
 	*/
-	void printDateStats(Date oldest, Date newest);
+	void printDateStats(const Date& oldest, const Date& newest);
 
 	/**
 	 * @brief Print out a statistics section
 	 * @param statName The name of the statistic
 	 * @param statList The list of statistics
 	*/
-	void printStatsList(std::string statName, std::vector<Stat> statList);
+	void printStatsList(const std::string& statName, const std::vector<Stat>& statList);
 	
 private:
 
 	/**
 	 * @brief Print a line representing a given statistic
 	*/
-	void printStat(Stat stat);
+	void printStat(const Stat& stat);
 
 	/**
 	 * @brief Print the heading for a statistics section
 	 * @param The statistic's name
 	*/
-	void printHeading(std::string statName);
+	void printHeading(const std::string& statName);
 
 	/**
 	 * @brief Print out strings in columns for date statistics
 	*/
-	void printDateColumns(std::string, std::string, std::string);
+	void printDateColumns(const std::string&, const std::string&, const std::string&);
 
 	/**
 	 * @brief Print out strings in columns for general statistics
 	*/
-	void printStatColumns(std::string, std::string, std::string, 
-		std::string, std::string);
+	void printStatColumns(const std::string&, const std::string&,
+		const std::string&, const std::string&, const std::string&);
 
 	/**
 	 * @param The first date as a string
 	 * @param The second date as a string
 	 * @return Two dates representing a range formatted together
 	*/
-	std::string formatDateRange(std::string, std::string);
+	std::string formatDateRange(const std::string&, const std::string&);
 };
 

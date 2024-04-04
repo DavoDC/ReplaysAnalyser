@@ -27,47 +27,47 @@ public:
 	 * @brief Set a custom replay path to be analysed
 	 * @param path - to a folder containing version folders and replays
 	*/
-	void setCustomPath(std::string path);
+	void setCustomPath(const std::string& path);
 
 	/**
 	 * @brief Set a custom replay path to be analysed within user folder
 	 * @param path - folder within 'C:/Users/David/'
 	*/
-	void setCustomLocalPath(std::string path);
+	void setCustomLocalPath(const std::string& path);
 
 	/**
 	 * @brief Set a custom replay path to be analysed within downloads folder
 	 * @param path - folder within 'C:/Users/David/Downloads'
 	*/
-	void setCustomLocalDwlFolder(std::string folderName);
+	void setCustomLocalDwlFolder(const std::string& folderName);
 
 	/**
 	 * @brief Set a custom replay path to be analysed within repo folder
 	 * @param path - folder within 'C:/Users/David/GitHubRepos'
 	*/
-	void setCustomLocalRepoFolder(std::string folderName);
+	void setCustomLocalRepoFolder(const std::string& folderName);
 
 	/**
 	 * @brief Set the percentage cutoff for character stats
 	*/
-	void setCharCutoff(double newCharCutoff);
+	void setCharCutoff(const double& newCharCutoff);
 
 	/**
 	 * @brief Set the percentage cutoff for player stats
 	*/
-	void setPlayerCutoff(double newPlayerCutoff);
+	void setPlayerCutoff(const double& newPlayerCutoff);
 
 	/**
 	 * @brief Add the given standard player name to list of players to ignore
 	*/
-	void addIgnoredPlayer(std::string playerName);
+	void addIgnoredPlayer(const std::string& playerName);
 
 	/**
 	 * @brief Link the offline players to standard names
 	 * @param p1name The standard name of the player usually playing P1 locally
 	 * @param p2name The standard name of the player usually playing P2 locally
 	*/
-	void setOfflinePlayerAliases(std::string p1name, std::string p2name);
+	void setOfflinePlayerAliases(const std::string& p1name, const std::string& p2name);
 
 	/**
 	 * @brief Toggle only showing online matches

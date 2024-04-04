@@ -26,7 +26,7 @@ public:
 	 * @param vcPair A variant-count pair
 	 * @param varMList The matches with the variant
 	*/
-	Stat(double percentage, VCPair vcPair, std::vector<Match> varMList);
+	Stat(const double& percent, const VCPair& vcPair, const std::vector<Match>& varMList);
 
 	/**
 	 * @return The percentage of matches with the variant as a string
