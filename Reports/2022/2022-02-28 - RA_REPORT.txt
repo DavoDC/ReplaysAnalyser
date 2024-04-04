@@ -1,0 +1,97 @@
+
+####### WELCOME TO REPLAYS ANALYSER #######
+
+Parsing matches in 'C:/Users/David/Downloads/SSF2Replays-Feb28,2022'...
+Parsed 3911 matches!
+WARNING: Invalid date(s) found! (127)
+
+### Date Statistics ###
+Current Date   Date Range                    Time Period
+04/Apr/2024    11/Jan/2021 - 01/Mar/2022     1y,1m,19d
+
+### Version Statistics ###
+%         Version        Matches   Date Range                    Time Period
+65.8%     1.3.0.1        2577      11/Jan/2021 - 13/Aug/2021     7m,1d
+29.7%     1.3.1.1        1162      20/Aug/2021 - 14/Feb/2022     5m,26d
+2.35%     1.3.1.2        92        17/Feb/2022 - 01/Mar/2022     12d
+2.04%     1.3.1.0        80        14/Aug/2021 - 19/Aug/2021     5d
+
+### Year Statistics ###
+%         Year           Matches   Date Range                    Time Period
+95.2%     2021           3725      11/Jan/2021 - 31/Dec/2021     11m,20d
+4.75%     2022           186       02/Jan/2022 - 01/Mar/2022     1m,28d
+
+### Player Statistics ###
+%         Player         Matches   Date Range                    Time Period
+13.9%     Starboy        546       24/May/2021 - 01/Mar/2022     9m,8d
+12.9%     Jazz           507       11/Jan/2021 - 10/Feb/2022     1y,0m,30d
+11.6%     Pat            457       05/Jun/2021 - 28/Feb/2022     8m,25d
+7.82%     Victor         306       11/Jan/2021 - 27/Dec/2021     11m,16d
+7.77%     Xrlylyl        304       11/Jan/2021 - 30/Oct/2021     9m,19d
+5.13%     Killergo       201       08/Apr/2021 - 14/Feb/2022     10m,8d
+4.19%     JSG            164       19/Jan/2021 - 28/Feb/2022     1y,1m,10d
+3.91%     Jake           153       08/Mar/2021 - 30/Aug/2021     5m,23d
+3.27%     Spi            128       14/Jun/2021 - 11/Feb/2022     7m,29d
+3.19%     Cody           125       21/Jan/2021 - 13/Feb/2021     23d
+3.06%     Lokimazin      120       14/Apr/2021 - 17/Aug/2021     4m,4d
+2.76%     Epi            108       18/Jan/2021 - 28/Aug/2021     7m,9d
+2.17%     Brubble        85        31/Jan/2021 - 02/Sep/2021     7m,1d
+1.91%     CPULvl9        75        22/Jan/2021 - 27/Feb/2022     1y,1m,6d
+1.84%     Pac-Main99     72        30/Mar/2021 - 05/Sep/2021     5m,7d
+1.81%     FakeNews       71        27/May/2021 - 28/Feb/2022     9m,4d
+1.15%     Xorop          45        25/Jan/2021 - 31/Dec/2021     11m,6d
+1.09%     Egg            43        13/Apr/2021 - 13/Dec/2021     8m,1d
+0.79%     Skidren        31        23/Jan/2021 - 09/Oct/2021     8m,16d
+0.79%     Azzie          31        29/Nov/2021 - 25/Dec/2021     26d
+0.61%     xOnlyOne1      24        24/May/2021 - 19/Dec/2021     6m,27d
+0.56%     Reichardt      22        15/Aug/2021 - 16/Dec/2021     4m,2d
+0.53%     PigginsThe     21        25/Jun/2021 - 16/Aug/2021     1m,22d
+0.48%     SuperMario     19        21/Mar/2021 - 01/May/2021     1m,11d
+0.48%     edwedu         19        20/Oct/2021 - 10/Jan/2022     2m,22d
+0.48%     Hexxa          19        06/May/2021 - 03/Sep/2021     3m,29d
+
+### Character Statistics ###
+%         Character      Matches   Date Range                    Time Period
+72.5%     Wario          2837      11/Jan/2021 - 01/Mar/2022     1y,1m,19d
+28.1%     MegaMan        1101      11/Jan/2021 - 01/Mar/2022     1y,1m,19d
+10.5%     Naruto         413       11/Jan/2021 - 01/Mar/2022     1y,1m,19d
+9.38%     Sonic          367       11/Jan/2021 - 26/Feb/2022     1y,1m,16d
+8.64%     Ganondorf      338       11/Jan/2021 - 14/Feb/2022     1y,1m,4d
+7.84%     Link           307       18/Jan/2021 - 28/Feb/2022     1y,1m,11d
+5.82%     Jigglypuff     228       11/Jan/2021 - 15/Dec/2021     11m,4d
+5.67%     CaptainFalcon  222       11/Jan/2021 - 17/Feb/2022     1y,1m,7d
+4.98%     Sora           195       11/Jan/2021 - 11/Feb/2022     1y,1m,1d
+4.44%     Marth          174       12/Jan/2021 - 28/Feb/2022     1y,1m,17d
+4.42%     Goku           173       11/Jan/2021 - 01/Mar/2022     1y,1m,19d
+3.86%     Ichigo         151       17/Jan/2021 - 28/Feb/2022     1y,1m,12d
+3.40%     Lloyd          133       19/Jan/2021 - 04/Jan/2022     11m,16d
+2.83%     Fox            111       11/Jan/2021 - 28/Feb/2022     1y,1m,18d
+2.81%     Waluigi        110       11/Jan/2021 - 04/Jan/2022     11m,24d
+2.27%     DonkeyKong     89        11/Jan/2021 - 11/Feb/2022     1y,1m,1d
+2.25%     Bowser         88        12/Jan/2021 - 11/Feb/2022     1y,0m,30d
+2.25%     Falco          88        11/Jan/2021 - 28/Feb/2022     1y,1m,18d
+2.17%     Ryu            85        11/Jan/2021 - 04/Jan/2022     11m,24d
+2.17%     PAC-MAN        85        11/Jan/2021 - 04/Jan/2022     11m,24d
+2.04%     ZeroSuitSamus  80        19/Jan/2021 - 15/Dec/2021     10m,26d
+1.94%     Pikachu        76        13/Jan/2021 - 25/Dec/2021     11m,12d
+1.84%     Chibi-Robo     72        18/Jan/2021 - 04/Jan/2022     11m,17d
+1.78%     Peach          70        19/Jan/2021 - 12/Dec/2021     10m,23d
+1.76%     Isaac          69        18/Jan/2021 - 23/Feb/2022     1y,1m,6d
+1.76%     Pit            69        11/Jan/2021 - 11/Feb/2022     1y,1m,1d
+1.66%     Lucario        65        21/Jan/2021 - 14/Feb/2022     1y,0m,24d
+1.61%     Tails          63        11/Jan/2021 - 05/Jan/2022     11m,25d
+1.55%     Sheik          61        12/Jan/2021 - 23/Feb/2022     1y,1m,12d
+1.48%     Mario          58        11/Jan/2021 - 11/Feb/2022     1y,1m,1d
+1.27%     Luigi          50        11/Jan/2021 - 08/Dec/2021     10m,27d
+1.17%     BandanaDee     46        19/Jan/2021 - 27/Dec/2021     11m,8d
+1.15%     MetaKnight     45        19/Jan/2021 - 10/Jan/2022     11m,22d
+1.12%     Kirby          44        11/Jan/2021 - 10/Jan/2022     11m,30d
+1.07%     Samus          42        21/Jan/2021 - 14/Feb/2022     1y,0m,24d
+1.04%     Sandbag        41        11/Jan/2021 - 09/Jan/2022     11m,29d
+1.04%     BlackMage      41        11/Jan/2021 - 08/Dec/2021     10m,27d
+
+Time taken: 0.343 seconds
+
+
+C:\Users\David\GitHubRepos\ReplaysAnalyser\Project\x64\Release\ReplaysAnalyser.exe (process 20848) exited with code 0.
+Press any key to close this window . . .
