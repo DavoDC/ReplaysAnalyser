@@ -25,39 +25,39 @@ public:
 	 * @brief Construct a date from a date string
 	 * @param dateS The date as a string (default 'yyyy-mm-dd' format)
 	*/
-	Date(std::string dateS);
+	explicit Date(const std::string& dateS);
 
 	/**
 	 * @brief Construct a date from a given YMD object
 	*/
-	Date(DateM);
+	explicit Date(const DateM&);
 
 	/**
 	 * @return The underlying YMD date object
 	*/
-	DateM getYMD();
+	const DateM getYMD() const;
 
 	/**
 	 * @return The date as a string (preferred 'dd/MON/yyyy' format)
 	*/
-	std::string toString();
+	std::string toString() const;
 
 	/**
 	 * @brief Get the time period between this date and the given one
 	 * @param dateIn The given date to be compared
 	 * @return The absolute time period as a string (Xy,Xm,Xd)
 	*/
-	std::string getAbsTimePeriod(Date dateIn);
+	const std::string getAbsTimePeriod(const Date& dateIn) const;
+
+	/**
+	 * @brief Print out invalid dates and their fixed versions
+	*/
+	const static void printFixedDates();
 
 	/**
 	 * @brief List of fixed dates ('before and after' string pairs)
 	*/
 	static std::vector<StringPair> fixedDates;
-
-	/**
-	 * @brief Print out invalid dates and their fixed versions
-	*/
-	static void printFixedDates();
 
 private:
 
@@ -69,18 +69,18 @@ private:
 	/**
 	 * @return true if the given date is valid 
 	*/
-	bool isValid(DateM);
+	const bool isValid(const DateM&);
 
 	/**
 	 * @return The given date as a string (default 'yyyy-mm-dd' format)
 	*/
-	std::string toOrigString(DateM);
+	const std::string toOrigString(const DateM&);
 
 	/**
 	 * @param date A date that may be invalid
 	 * @param dateS The date as a string (default 'yyyy-mm-dd' format)
 	 * @return A valid date
 	*/
-	DateM fixDate(DateM date, std::string dateS);
+	const DateM fixDate(const DateM& date, const std::string& dateS);
 };
 

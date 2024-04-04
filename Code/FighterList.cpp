@@ -1,24 +1,25 @@
 // FighterList.cpp
 #include "FighterList.h"
+#include <algorithm>
 
 // Namespace mods
 using namespace std;
 
 
-FighterList::FighterList()
+FighterList::FighterList() : fightersV(vector<Fighter>())
 {
-	fightersV = vector<Fighter>();
 }
 
 
-FighterList::FighterList(string rawPairS, string replayType)
+FighterList::FighterList(const string& rawPairS, const string& replayType)
 {
 	// Remove extension
-	replaceAll(rawPairS, ".ssfrec", "");
+	string pairCopyS = rawPairS;
+	replaceAll(pairCopyS, ".ssfrec", "");
 
 	// Split into individual pairs
 	// e.g."davo1776 (Wario)", "HexxaWyn (Naruto)" etc.
-	StringV pairs = split(rawPairS, " vs ");
+	StringV pairs = split(pairCopyS, " vs ");
 
 	// # Check number of fighters
 	int minFighters = 2;
@@ -37,31 +38,36 @@ FighterList::FighterList(string rawPairS, string replayType)
 	}
 
 	// Convert every pair string to a fighter and add to list
-	for (string curPairS : pairs) {
-		fightersV.push_back(Fighter(curPairS));
-	}
+	std::transform(pairs.begin(), pairs.end(), std::back_inserter(fightersV), 
+		[](const std::string& pair) {
+			return Fighter(pair);
+		});
 }
 
 
 StringV FighterList::getPlayers()
 {
 	StringV players;
-	for (Fighter curF : fightersV)
-	{
-		players.push_back(curF.getPlayer());
-	}
+
+	std::transform(fightersV.begin(), fightersV.end(), std::back_inserter(players),
+		[](const Fighter& fighter) {
+			return fighter.getPlayer();
+		});
+
 	return players;
 }
 
 
 StringV FighterList::getChars()
 {
-	StringV players;
-	for (Fighter curF : fightersV)
-	{
-		players.push_back(curF.getChar());
-	}
-	return players;
+	StringV characters;
+
+	std::transform(fightersV.begin(), fightersV.end(), std::back_inserter(characters),
+		[](const Fighter& fighter) {
+			return fighter.getChar();
+		});
+
+	return characters;
 }
 
 

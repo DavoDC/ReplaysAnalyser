@@ -20,7 +20,7 @@ public:
 	 * @param rawFighterList e.g. "davo (Wario) vs Spi (Falco).ssfrec"
 	 * @param replayType e.g. Versus, Versus Online, BTT etc.
 	*/
-	FighterList(std::string rawFighterList, std::string replayType);
+	FighterList(const std::string& rawFighterList, const std::string& replayType);
 
 	/**
 	 * @return A list of the players involved

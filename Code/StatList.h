@@ -37,8 +37,9 @@ public:
 	 * @param cutoff Percentage cutoff used to exclude variants
 	 * @param matchVExt Extract list of matches with variant from matchlist
 	*/
-	StatList(MatchList matchList, PropExt propExt, StringV ignore,
-		double cutoff, MatchVExt matchVExt);
+	StatList(const MatchList& matchList, const PropExt& propExt, 
+		const StringV& ignore, const double& cutoff,
+		const MatchVExt& matchVExt);
 
 
 	/**

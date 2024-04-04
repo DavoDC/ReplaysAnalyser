@@ -5,16 +5,12 @@
 using namespace std;
 
 
-Match::Match()
+Match::Match() : version(""), date(Date()), onlineMatch(false), fighters(FighterList())
 {
-	version = "";
-	date = Date();
-	onlineMatch = false;
-	fighters = FighterList();
 }
 
 
-Match::Match(string replayPath)
+Match::Match(const string& replayPath)
 {
 	// Split replay name into parts
 	// e.g "..", "Sample_Data", "1.3.1.1"
@@ -59,7 +55,7 @@ int Match::getYear()
 }
 
 
-Date Match::getDate()
+const Date Match::getDate() const
 {
 	return date;
 }
@@ -104,7 +100,7 @@ string Match::toString()
 }
 
 
-bool Match::isMatchNewer(Match mInput)
+const bool Match::isMatchNewer(const Match& mInput) const
 {
 	return this->getDate().getYMD() > mInput.getDate().getYMD();
 }

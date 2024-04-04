@@ -11,7 +11,8 @@ string AliasHandler::p2Name = "Jazz";
 vector<Alias> AliasHandler::aliases;
 
 
-void AliasHandler::setOfflinePlayerNames(string p1Name, string p2Name)
+const void AliasHandler::setOfflinePlayerNames(const string& p1Name, 
+	const string& p2Name)
 {
 	AliasHandler::p1Name = p1Name;
 	AliasHandler::p2Name = p2Name;
@@ -99,20 +100,20 @@ void AliasHandler::initAliases()
 }
 
 
-void AliasHandler::addSingleAlias(string standardName, string oldName)
+void AliasHandler::addSingleAlias(const string& standardName, const string& oldName)
 {
 	addAlias(standardName, { oldName });
 }
 
 
-void AliasHandler::addAlias(string standardName, StringV names)
+void AliasHandler::addAlias(const string& standardName, const StringV& names)
 {
 	// Create pair then add to vector
 	aliases.push_back(make_pair(standardName, names));
 }
 
 
-string AliasHandler::getStandardName(string pName)
+const string AliasHandler::getStandardName(const string& pName)
 {
 	// Initialise aliases, if needed
 	initAliases();

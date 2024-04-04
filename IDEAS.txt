@@ -1,10 +1,6 @@
 
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
-OPTIMISE
-- Fix cppcheck warnings (e.g. Pass matchlist by ref)
-- Run code analysis
-
 
 TESTING 
 - Do a test on earliest version of ur ssf2replays

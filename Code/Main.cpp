@@ -11,7 +11,7 @@ using namespace std;
 /**
  * @brief Print out the time passed (in seconds) since a given start time
 */
-void printTimeTaken(auto startTime);
+void printTimeTaken(const auto& startTime);
 
 
 // Main function
@@ -48,7 +48,7 @@ int main()
 }
 
 
-void printTimeTaken(auto startTime)
+void printTimeTaken(const auto& startTime)
 {
 	// Get ending timepoint
 	auto stopTime = chrono::high_resolution_clock::now();
