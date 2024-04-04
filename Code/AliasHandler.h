@@ -24,7 +24,7 @@ public:
 	static void setOfflinePlayerNames(std::string p1Name, std::string p2Name);
 
 	/**
-	 * @param A raw/unstandardized/actual player name
+	 * @param A raw/unstandardised/actual player name
 	 * @return The player's standard name
 	*/
 	static std::string getStandardName(std::string playerName);
@@ -47,7 +47,7 @@ private:
 	static std::vector<Alias> aliases;
 
 	/**
-	 * @brief Initialize the alias list
+	 * @brief Initialise the alias list
 	*/
 	static void initAliases();
 

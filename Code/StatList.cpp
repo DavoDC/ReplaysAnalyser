@@ -4,12 +4,12 @@
 // Namespace mods
 using namespace std;
 
-// Default Constructor
+
 StatList::StatList()
 {
 }
 
-// Construct a list of statistics objects
+
 StatList::StatList(MatchList matchList, PropExt propExt, StringV ignore,
 	double cutoff, MatchVExt matchVExt)
 {
@@ -65,7 +65,6 @@ StatList::StatList(MatchList matchList, PropExt propExt, StringV ignore,
 }
 
 
-// Extract underlying data structure
 vector<Stat> StatList::getStatList()
 {
 	return statList;

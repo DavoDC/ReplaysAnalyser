@@ -5,7 +5,6 @@
 using namespace std;
 
 
-// Default Constructor
 Match::Match()
 {
 	version = "";
@@ -15,8 +14,6 @@ Match::Match()
 }
 
 
-// Construct a match from a raw replay path
-// e.g. ../Sample_Data/1.3.1.1/2021-08-24 11.44 AM - 2021-08-24 11.44 AM......." 
 Match::Match(string replayPath)
 {
 	// Split replay name into parts
@@ -56,36 +53,41 @@ Match::Match(string replayPath)
 }
 
 
-// Getters
 int Match::getYear()
 {
 	return int(date.getYMD().year());
 }
+
 
 Date Match::getDate()
 {
 	return date;
 }
 
+
 bool Match::isOnlineMatch()
 {
 	return onlineMatch;
 }
+
 
 string Match::getYearS()
 {
 	return to_string(getYear());
 }
 
+
 string Match::getDateS()
 {
 	return date.toString();
 }
 
+
 string Match::getVersion()
 {
 	return version;
 }
+
 
 FighterList Match::getFighters()
 {
@@ -93,8 +95,6 @@ FighterList Match::getFighters()
 }
 
 
-
-// Get a string representation of the match (one line)
 string Match::toString()
 {
 	string result = date.toString();
@@ -104,9 +104,6 @@ string Match::toString()
 }
 
 
-/**
- * @return True if this match is newer than the one inputted
-*/
 bool Match::isMatchNewer(Match mInput)
 {
 	return this->getDate().getYMD() > mInput.getDate().getYMD();

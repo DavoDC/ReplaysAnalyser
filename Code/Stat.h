@@ -7,18 +7,17 @@
 #include "Match.h"
 #include <algorithm>
 
-// ### Macros
 // Variant-Count pair
 #define VCPair std::pair<std::string, int>
 
 
-// Declare Stat class
 class Stat
 {
 public:
 
-	// ### Public Methods
-	// Default Constructor (needed as declaration=instantiation for types)
+	/**
+	 * @brief Construct an empty stat object
+	*/
 	Stat();
 	
 	/**
@@ -29,22 +28,66 @@ public:
 	*/
 	Stat(double percentage, VCPair vcPair, std::vector<Match> varMList);
 
-	// ### Getters
+	/**
+	 * @return The percentage of matches with the variant as a string
+	*/
 	std::string getPercentage() const;
+
+	/**
+	 * @return The variant's value
+	*/
 	std::string getVariantValue() const;
+
+	/**
+	 * @return The number of times this variant occurs
+	*/
 	std::string getVariantCount() const;
+
+	/**
+	 * @return The oldest match date for this variant's matches
+	*/
 	std::string getOldestDate() const;
+
+	/**
+	 * @return The latest match date for this variant's matches
+	*/
 	std::string getNewestDate() const;
-	std::string getDuration() const;
+
+	/**
+	 * @return The time/date period for this variant's matches
+	*/
+	std::string getTimePeriod() const;
 
 private:
 
-	// ### Private Fields
+	/**
+	 * @brief The percentage of matches with the variant as a string
+	*/
 	std::string percentageS;
+
+	/**
+	 * @brief The variant's value
+	*/
 	std::string variantValue;
+
+	/**
+	 * @brief The number of times this variant occurs
+	*/
 	std::string variantCountS; 
+
+	/**
+	 * @brief The oldest match date for this variant's matches
+	*/
 	std::string oldestDateS;
+
+	/**
+	 * @brief The latest match date for this variant's matches
+	*/
 	std::string newestDateS;
-	std::string durationS;
+
+	/**
+	 * @brief The time/date period for this variant's matches
+	*/
+	std::string timePeriodS;
 };
 

@@ -4,7 +4,7 @@
 // Namespace modifier
 using namespace std;
 
-// Set default values
+// Initialise static variables
 const string AliasHandler::ANON = "ANON";
 string AliasHandler::p1Name = "davo";
 string AliasHandler::p2Name = "Jazz";
@@ -20,7 +20,7 @@ void AliasHandler::setOfflinePlayerNames(string p1Name, string p2Name)
 
 void AliasHandler::initAliases()
 {
-	// If aliases are already initialized, stop
+	// If aliases are already initialised, stop
 	if (!aliases.empty())
 	{
 		return;
@@ -123,13 +123,13 @@ string AliasHandler::getStandardName(string pName)
 		return ANON;
 	}
 
-	// Initialize new name to original in case no alias is found
+	// Initialise new name to original in case no alias is found
 	string newName = pName;
 
 	// For every alias
 	for (Alias curAlias : aliases)
 	{
-		// For every raw/unstandardized/actual name in the alias
+		// For every raw/unstandardised/actual name in the alias
 		for (string rawName : curAlias.second)
 		{
 			// If the player's name matches a raw name

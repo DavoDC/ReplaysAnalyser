@@ -8,24 +8,70 @@
 #include "StatPrinter.h"
 #include "StatList.h"
 
-// Declare ReplaysAnalyser class
+
 class ReplaysAnalyser {
 
 public:
 
-	// Constructor
+	/**
+	 * @brief Construct a default analyser
+	*/
 	ReplaysAnalyser();
 
-	// Setting functions
+	/**
+	 * @brief Sets the replay path to the sample data folder
+	*/
 	void useSampleData();
+
+	/**
+	 * @brief Set a custom replay path to be analysed
+	 * @param path - to a folder containing version folders and replays
+	*/
 	void setCustomPath(std::string path);
+
+	/**
+	 * @brief Set a custom replay path to be analysed within user folder
+	 * @param path - folder within 'C:/Users/David/'
+	*/
 	void setCustomLocalPath(std::string path);
+
+	/**
+	 * @brief Set a custom replay path to be analysed within downloads folder
+	 * @param path - folder within 'C:/Users/David/Downloads'
+	*/
 	void setCustomLocalDwlFolder(std::string folderName);
+
+	/**
+	 * @brief Set a custom replay path to be analysed within repo folder
+	 * @param path - folder within 'C:/Users/David/GitHubRepos'
+	*/
 	void setCustomLocalRepoFolder(std::string folderName);
+
+	/**
+	 * @brief Set the percentage cutoff for character stats
+	*/
 	void setCharCutoff(double newCharCutoff);
+
+	/**
+	 * @brief Set the percentage cutoff for player stats
+	*/
 	void setPlayerCutoff(double newPlayerCutoff);
+
+	/**
+	 * @brief Add the given standard player name to list of players to ignore
+	*/
 	void addIgnoredPlayer(std::string playerName);
+
+	/**
+	 * @brief Link the offline players to standard names
+	 * @param p1name The standard name of the player usually playing P1 locally
+	 * @param p2name The standard name of the player usually playing P2 locally
+	*/
 	void setOfflinePlayerAliases(std::string p1name, std::string p2name);
+
+	/**
+	 * @brief Toggle only showing online matches
+	*/
 	void toggleOnlineMatchesOnly();
 
 	/**
@@ -33,26 +79,44 @@ public:
 	*/
 	void printFixedDates();
 	
-	// Main function
+	/**
+	 * @brief Print out the statistical analysis results
+	*/
 	void analyse();
 
 private:
-	// ### Private fields
-	
-	// Custom replay path
+
+	/**
+	 * @brief A custom path to the folder containing the desired replays
+	 * If not set, it is ignored.
+	*/
 	std::string customPath;
 
-	// Ignored player list
+	/**
+	 * @brief A list of standard player names to ignore (remove from stats)
+	*/
 	StringV ignoredPlayers;
 
-	// Cutoffs
+	/**
+	 * @brief The percentage cutoff for player stats
+	 * Percentages below this cutoff will not be shown
+	*/
 	double playerCutoff; 
+
+	/**
+	 * @brief The percentage cutoff for character stats
+	 * Percentages below this cutoff will not be shown
+	*/
 	double charCutoff;
 
-	// Online matches only
+	/**
+	 * @brief Whether online matches only is enabled
+	*/
 	bool onlineMatchesOnly;
 
-	// ### Private methods
+	/**
+	 * @return The path to the folder containing the desired replays
+	*/
 	std::string getReplayPath();
 };
 

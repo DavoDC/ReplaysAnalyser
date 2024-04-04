@@ -4,12 +4,12 @@
 // Namespace mods
 using namespace std;
 
-// Default Constructor
+
 Stat::Stat()
 {
 }
 
-// Construct a statistics object
+
 Stat::Stat(double percentage, VCPair vcPair, vector<Match> varMList)
 {
 	// Notify and stop if matchlist empty
@@ -42,36 +42,41 @@ Stat::Stat(double percentage, VCPair vcPair, vector<Match> varMList)
 	newestDateS = newestDate.toString();
 
 	// Get and save duration
-	durationS = oldestDate.getAbsTimePeriod(newestDate);
+	timePeriodS = oldestDate.getAbsTimePeriod(newestDate);
 }
 
-// ### Getters
+
 std::string Stat::getPercentage() const
 {
 	return percentageS;
 }
+
 
 std::string Stat::getVariantValue() const
 {
 	return variantValue;
 }
 
+
 std::string Stat::getVariantCount() const
 {
 	return variantCountS;
 }
+
 
 std::string Stat::getOldestDate() const
 {
 	return oldestDateS;
 }
 
+
 std::string Stat::getNewestDate() const
 {
 	return newestDateS;
 }
 
-std::string Stat::getDuration() const
+
+std::string Stat::getTimePeriod() const
 {
-	return durationS;
+	return timePeriodS;
 }
