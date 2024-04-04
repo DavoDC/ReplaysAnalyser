@@ -1,12 +1,7 @@
 
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
-
-FIX DOCUMENTATION
-Headers only, /** style!!!
-
-
-OPTIMIZE
+OPTIMISE
 - Fix cppcheck warnings (e.g. Pass matchlist by ref)
 - Run code analysis
 

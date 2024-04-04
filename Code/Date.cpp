@@ -5,7 +5,7 @@
 using namespace std;
 using namespace std::chrono;
 
-// Initialize static fixed date list
+// Initialise static fixed date list
 vector<StringPair> Date::fixedDates;
 
 

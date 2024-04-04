@@ -7,8 +7,11 @@
 // Namespace mods
 using namespace std;
 
-// Function Declaration
-void printTimeTaken(auto);
+
+/**
+ * @brief Print out the time passed (in seconds) since a given start time
+*/
+void printTimeTaken(auto startTime);
 
 
 // Main function
@@ -45,7 +48,6 @@ int main()
 }
 
 
-// Helper: Print time taken base
 void printTimeTaken(auto startTime)
 {
 	// Get ending timepoint

@@ -5,7 +5,6 @@
 using namespace std;
 
 
-// Constructor
 ReplaysAnalyser::ReplaysAnalyser()
 {
 	this->customPath = "";
@@ -16,51 +15,59 @@ ReplaysAnalyser::ReplaysAnalyser()
 }
 
 
-// Setting functions
 void ReplaysAnalyser::useSampleData()
 {
 	setCustomPath("../Sample_Data");
 }
+
 
 void ReplaysAnalyser::setCustomPath(string pathInput)
 {
 	this->customPath = pathInput;
 }
 
+
 void ReplaysAnalyser::setCustomLocalPath(string path)
 {
 	setCustomPath(format("C:/Users/David/{}", path));
 }
+
 
 void ReplaysAnalyser::setCustomLocalDwlFolder(string folderName)
 {
 	setCustomLocalPath(format("Downloads/{}", folderName));
 }
 
+
 void ReplaysAnalyser::setCustomLocalRepoFolder(string folderName)
 {
 	setCustomLocalPath(format("GitHubRepos/{}", folderName));
 }
+
 
 void ReplaysAnalyser::addIgnoredPlayer(string playerName)
 {
 	this->ignoredPlayers.push_back(playerName);
 }
 
+
 void ReplaysAnalyser::setPlayerCutoff(double newPlayerCutoff)
 {
 	this->playerCutoff = newPlayerCutoff;
 }
+
 
 void ReplaysAnalyser::setCharCutoff(double newCharCutoff)
 {
 	this->charCutoff = newCharCutoff;
 }
 
+
 void ReplaysAnalyser::setOfflinePlayerAliases(string p1Name, string p2Name)
 {
 	AliasHandler::setOfflinePlayerNames(p1Name, p2Name);
 }
+
 
 void ReplaysAnalyser::toggleOnlineMatchesOnly()
 {
@@ -68,7 +75,6 @@ void ReplaysAnalyser::toggleOnlineMatchesOnly()
 }
 
 
-// ### Main Method: Do analysis
 void ReplaysAnalyser::analyse()
 {
 	// Welcome message
@@ -153,7 +159,6 @@ void ReplaysAnalyser::analyse()
 }
 
 
-// Helper: Get replay path
 string ReplaysAnalyser::getReplayPath()
 {
 	// # If custom path set, use it
@@ -183,6 +188,7 @@ string ReplaysAnalyser::getReplayPath()
 	// Return replay path
 	return replayPath;
 }
+
 
 void ReplaysAnalyser::printFixedDates()
 {

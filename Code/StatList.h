@@ -12,26 +12,23 @@
 #include <algorithm>
 
 
-// ### Macros
 // Match property extractor
 #define PropExt std::function<StringV(Match)>
 
 // Variant match list extractor (list of matches with a certain variant)
 #define MatchVExt std::function<std::vector<Match>(MatchList, std::string)>
 
-// Variant-Count pair
-#define VCPair std::pair<std::string, int>
 
-
-// Declare StatList class
 class StatList
 {
 public:
 
-	// ### Public Methods
-	// Default Constructor (needed as declaration=instantiation for types)
+	/**
+	 * @brief Construct an empty stats list
+	*/
 	StatList();
 	
+
 	/**
 	 * @brief Construct a list of statistics
 	 * @param matchList The full match list 
@@ -43,13 +40,17 @@ public:
 	StatList(MatchList matchList, PropExt propExt, StringV ignore,
 		double cutoff, MatchVExt matchVExt);
 
-	// ### Getter
+
+	/**
+	 * @return The underlying list
+	*/
 	std::vector<Stat> getStatList();
 
 private:
 
-	// ### Private Fields
-	// Underlying data structure
+	/**
+	 * @brief The underlying data structure
+	*/
 	std::vector<Stat> statList;
 };
 

@@ -7,27 +7,60 @@
 #include "Date.h"
 #include "FighterList.h"
 
-// Declare Match class
+
 class Match
 {
 public:
 
-
+	/**
+	 * @brief Construct an empty match
+	*/
 	Match();
 
-	// Constructor
+	/**
+	 * @brief Construct a match from a raw replay path
+	 * @param e.g. "../Sample_Data/1.3.1.1/2021-08-24 11.44 AM - ..."
+	*/
 	Match(std::string);
 
-	// Getters
+	/**
+	 * @return The year the match was played as an int
+	*/
 	int getYear();
-	Date getDate();
-	bool isOnlineMatch();
+
+	/**
+	 * @return The year the match was played as a string
+	*/
 	std::string getYearS();
+
+	/**
+	 * @return The date the match was played
+	*/
+	Date getDate();
+
+	/**
+	 * @return The date the match was played as a string
+	*/
 	std::string getDateS();
+
+	/**
+	 * @return True if this was an online match
+	*/
+	bool isOnlineMatch();
+	
+	/**
+	 * @return The game version this match was played on
+	*/
 	std::string getVersion();
+
+	/**
+	 * @return A list of the Fighter pairs involved in the match
+	*/
 	FighterList getFighters();
 
-	// Get string representation
+	/**
+	 * @return A string representation of this match
+	*/
 	std::string toString();
 
 	/**
@@ -38,19 +71,24 @@ public:
 
 private:
 
-	// ### Private Fields
-	// # From parent folder:
-	// SSF2 version e.g. 1.3.1.2
+	/**
+	 * @brief The SSF2 version the match was played on (e.g. 1.3.1.2)
+	*/
 	std::string version;
 
-	// # From file name:
-	// Date of match
+	/**
+	 * @brief The date the match was played
+	*/
 	Date date;
 
-	// Online match status
+	/**
+	 * @brief True if this match was played online
+	*/
 	bool onlineMatch;
 
-	// Fighters (2, 3 or 4)
+	/**
+	 * @brief A list of the Fighter pairs involved in the match
+	*/
 	FighterList fighters;
 };
 
