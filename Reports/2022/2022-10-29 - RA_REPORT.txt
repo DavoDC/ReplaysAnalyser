@@ -1,0 +1,97 @@
+
+####### WELCOME TO REPLAYS ANALYSER #######
+
+Parsing matches in 'C:/Users/David/Downloads/SSF2Replays-Oct29,2022'...
+Parsed 4781 matches!
+WARNING: Invalid date(s) found! (134)
+
+### Date Statistics ###
+Current Date   Date Range                    Time Period
+04/Apr/2024    11/Jan/2021 - 29/Oct/2022     1y,9m,18d
+
+### Version Statistics ###
+%         Version        Matches   Date Range                    Time Period
+53.9%     1.3.0.1        2577      11/Jan/2021 - 13/Aug/2021     7m,1d
+24.3%     1.3.1.1        1162      20/Aug/2021 - 14/Feb/2022     5m,26d
+20.1%     1.3.1.2        962       17/Feb/2022 - 29/Oct/2022     8m,11d
+1.67%     1.3.1.0        80        14/Aug/2021 - 19/Aug/2021     5d
+
+### Year Statistics ###
+%         Year           Matches   Date Range                    Time Period
+77.9%     2021           3725      11/Jan/2021 - 31/Dec/2021     11m,20d
+22.0%     2022           1056      02/Jan/2022 - 29/Oct/2022     9m,27d
+
+### Player Statistics ###
+%         Player         Matches   Date Range                    Time Period
+15.4%     Starboy        739       24/May/2021 - 08/Sep/2022     1y,3m,16d
+12.6%     Jazz           607       11/Jan/2021 - 24/Oct/2022     1y,9m,13d
+10.1%     Pat            483       05/Jun/2021 - 20/Sep/2022     1y,3m,16d
+7.55%     Xrlylyl        361       11/Jan/2021 - 26/Oct/2022     1y,9m,15d
+6.40%     Victor         306       11/Jan/2021 - 27/Dec/2021     11m,16d
+4.26%     Killergo       204       08/Apr/2021 - 24/Mar/2022     11m,16d
+3.80%     JSG            182       19/Jan/2021 - 31/Jul/2022     1y,6m,11d
+3.76%     Jake           180       08/Mar/2021 - 16/Jul/2022     1y,4m,9d
+3.49%     Spi            167       14/Jun/2021 - 27/Sep/2022     1y,3m,14d
+2.61%     Cody           125       21/Jan/2021 - 13/Feb/2021     23d
+2.50%     Lokimazin      120       14/Apr/2021 - 17/Aug/2021     4m,4d
+2.34%     Epi            112       18/Jan/2021 - 11/Aug/2022     1y,6m,23d
+2.09%     Nebula         100       27/Feb/2022 - 09/Aug/2022     5m,11d
+1.88%     Brubble        90        31/Jan/2021 - 09/May/2022     1y,3m,7d
+1.79%     Egg            86        13/Apr/2021 - 19/Sep/2022     1y,5m,7d
+1.65%     FakeNews       79        27/May/2021 - 17/Jul/2022     1y,1m,21d
+1.58%     CPULvl9        76        22/Jan/2021 - 02/Mar/2022     1y,1m,9d
+1.50%     Pac-Main99     72        30/Mar/2021 - 05/Sep/2021     5m,7d
+1.29%     Xorop          62        25/Jan/2021 - 23/Jul/2022     1y,5m,27d
+1.04%     Azzie          50        29/Nov/2021 - 25/Oct/2022     10m,26d
+1.02%     Hexxa          49        06/May/2021 - 19/Sep/2022     1y,4m,15d
+1.00%     Skidren        48        23/Jan/2021 - 05/Sep/2022     1y,7m,12d
+0.66%     Lost           32        15/Mar/2021 - 23/Oct/2022     1y,7m,9d
+0.62%     Vink           30        10/Dec/2021 - 30/Jul/2022     7m,19d
+0.62%     Reichardt      30        15/Aug/2021 - 15/Jul/2022     10m,30d
+0.50%     xOnlyOne1      24        24/May/2021 - 19/Dec/2021     6m,27d
+0.46%     Zac12345       22        06/Jun/2021 - 30/Jul/2022     1y,1m,24d
+
+### Character Statistics ###
+%         Character      Matches   Date Range                    Time Period
+68.3%     Wario          3267      11/Jan/2021 - 29/Oct/2022     1y,9m,18d
+32.0%     MegaMan        1531      11/Jan/2021 - 29/Oct/2022     1y,9m,18d
+9.64%     Naruto         461       11/Jan/2021 - 24/Oct/2022     1y,9m,13d
+9.32%     Sonic          446       11/Jan/2021 - 24/Oct/2022     1y,9m,13d
+7.27%     Ganondorf      348       11/Jan/2021 - 25/Oct/2022     1y,9m,14d
+6.92%     Link           331       18/Jan/2021 - 19/Sep/2022     1y,8m,1d
+6.04%     Goku           289       11/Jan/2021 - 23/Oct/2022     1y,9m,12d
+5.64%     Jigglypuff     270       11/Jan/2021 - 26/Oct/2022     1y,9m,15d
+5.10%     CaptainFalcon  244       11/Jan/2021 - 26/Oct/2022     1y,9m,15d
+5.04%     Marth          241       12/Jan/2021 - 26/Oct/2022     1y,9m,14d
+4.87%     Sora           233       11/Jan/2021 - 29/Oct/2022     1y,9m,18d
+4.22%     Ichigo         202       17/Jan/2021 - 29/Oct/2022     1y,9m,12d
+3.09%     Fox            148       11/Jan/2021 - 26/Oct/2022     1y,9m,15d
+2.99%     Lloyd          143       19/Jan/2021 - 25/Oct/2022     1y,9m,6d
+2.69%     Bowser         129       12/Jan/2021 - 22/Oct/2022     1y,9m,10d
+2.46%     Waluigi        118       11/Jan/2021 - 31/Aug/2022     1y,7m,19d
+2.21%     DonkeyKong     106       11/Jan/2021 - 27/Sep/2022     1y,8m,16d
+2.21%     Mario          106       11/Jan/2021 - 24/Oct/2022     1y,9m,13d
+2.17%     ZeroSuitSamus  104       19/Jan/2021 - 19/Oct/2022     1y,8m,30d
+2.17%     Falco          104       11/Jan/2021 - 25/Oct/2022     1y,9m,14d
+1.90%     Isaac          91        18/Jan/2021 - 08/Oct/2022     1y,8m,20d
+1.90%     Ryu            91        11/Jan/2021 - 09/Oct/2022     1y,8m,28d
+1.84%     Pikachu        88        13/Jan/2021 - 09/Oct/2022     1y,8m,26d
+1.84%     Sheik          88        12/Jan/2021 - 23/Oct/2022     1y,9m,11d
+1.81%     PAC-MAN        87        11/Jan/2021 - 08/Aug/2022     1y,6m,27d
+1.67%     Pit            80        11/Jan/2021 - 29/Oct/2022     1y,9m,18d
+1.61%     Peach          77        19/Jan/2021 - 13/Oct/2022     1y,8m,24d
+1.58%     Tails          76        11/Jan/2021 - 20/Sep/2022     1y,8m,9d
+1.56%     Chibi-Robo     75        18/Jan/2021 - 08/Aug/2022     1y,6m,20d
+1.56%     Lucario        75        21/Jan/2021 - 29/Oct/2022     1y,9m,8d
+1.17%     Luigi          56        11/Jan/2021 - 09/Oct/2022     1y,8m,28d
+1.15%     BlackMage      55        11/Jan/2021 - 19/Sep/2022     1y,8m,8d
+1.08%     BandanaDee     52        19/Jan/2021 - 25/Jul/2022     1y,6m,5d
+1.04%     MetaKnight     50        19/Jan/2021 - 01/Aug/2022     1y,6m,12d
+1.02%     Luffy          49        24/Jan/2021 - 09/Oct/2022     1y,8m,15d
+1.02%     Kirby          49        11/Jan/2021 - 19/Oct/2022     1y,9m,8d
+
+Time taken: 0.453 seconds
+
+
+C:\Users\David\GitHubRepos\ReplaysAnalyser\Project\x64\Release\ReplaysAnalyser.exe (process 13436) exited with code 0.
+Press any key to close this window . . .
