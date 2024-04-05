@@ -45,15 +45,10 @@ private:
 	void printHeading(const std::string& statName);
 
 	/**
-	 * @brief Print out strings in columns for date statistics
+	 * @brief Print out info strings in evenly spaced columns
 	*/
-	void printDateColumns(const std::string&, const std::string&, const std::string&);
-
-	/**
-	 * @brief Print out strings in columns for general statistics
-	*/
-	void printStatColumns(const std::string&, const std::string&,
-		const std::string&, const std::string&, const std::string&);
+	void printColumns(const std::string&, const std::string&,
+		const std::string&, const std::string&, const std::string&, const std::string&);
 
 	/**
 	 * @param The first date as a string

@@ -37,47 +37,45 @@ Stat::Stat(const double& percentage, const VCPair& vcPair,
 		[](const Match& m1, const Match& m2) {
 			return m2.isMatchNewer(m1);
 		});
-	Date oldestDate = dateRangePair.first._Ptr->getDate();
-	Date newestDate = dateRangePair.second._Ptr->getDate();
-	oldestDateS = oldestDate.toString();
-	newestDateS = newestDate.toString();
+	this->oldestDate = dateRangePair.first._Ptr->getDate();
+	this->newestDate = dateRangePair.second._Ptr->getDate();
 
 	// Get and save duration
 	timePeriodS = oldestDate.getAbsTimePeriod(newestDate);
 }
 
 
-std::string Stat::getPercentage() const
+string Stat::getPercentage() const
 {
 	return percentageS;
 }
 
 
-std::string Stat::getVariantValue() const
+string Stat::getVariantValue() const
 {
 	return variantValue;
 }
 
 
-std::string Stat::getVariantCount() const
+string Stat::getVariantCount() const
 {
 	return variantCountS;
 }
 
 
-std::string Stat::getOldestDate() const
+Date Stat::getOldestDate() const
 {
-	return oldestDateS;
+	return oldestDate;
 }
 
 
-std::string Stat::getNewestDate() const
+Date Stat::getNewestDate() const
 {
-	return newestDateS;
+	return newestDate;
 }
 
 
-std::string Stat::getTimePeriod() const
+string Stat::getTimePeriod() const
 {
 	return timePeriodS;
 }
