@@ -93,14 +93,14 @@ void ReplaysAnalyser::analyse()
 	}
 
 	// Notify if there were any fixed/invalid dates
-	int datesFixed = int(Date::fixedDates.size());
-	if (datesFixed == 0)
+	string datesFixed = Date::getFixedDateCountS();
+	if (stoi(datesFixed) == 0)
 	{
 		print("NOTE: All dates were valid!");
 	}
 	else
 	{
-		warn("Invalid date(s) found!", to_string(datesFixed));
+		warn("Invalid date(s) found!", datesFixed);
 	}
 
 	// Create statistics printer

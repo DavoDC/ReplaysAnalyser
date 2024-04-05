@@ -46,12 +46,12 @@ public:
 	/**
 	 * @return The oldest match date for this variant's matches
 	*/
-	std::string getOldestDate() const;
+	Date getOldestDate() const;
 
 	/**
 	 * @return The latest match date for this variant's matches
 	*/
-	std::string getNewestDate() const;
+	Date getNewestDate() const;
 
 	/**
 	 * @return The time/date period for this variant's matches
@@ -78,12 +78,12 @@ private:
 	/**
 	 * @brief The oldest match date for this variant's matches
 	*/
-	std::string oldestDateS;
+	Date oldestDate;
 
 	/**
 	 * @brief The latest match date for this variant's matches
 	*/
-	std::string newestDateS;
+	Date newestDate;
 
 	/**
 	 * @brief The time/date period for this variant's matches

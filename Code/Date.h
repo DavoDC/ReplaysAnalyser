@@ -50,14 +50,14 @@ public:
 	const std::string getAbsTimePeriod(const Date& dateIn) const;
 
 	/**
+	 * @return The number of dates fixed as a string
+	*/
+	const static std::string getFixedDateCountS();
+
+	/**
 	 * @brief Print out invalid dates and their fixed versions
 	*/
 	const static void printFixedDates();
-
-	/**
-	 * @brief List of fixed dates ('before and after' string pairs)
-	*/
-	static std::vector<StringPair> fixedDates;
 
 private:
 
@@ -65,6 +65,11 @@ private:
 	 * @brief The underlying YMD date object
 	*/
 	DateM intYMD;
+
+	/**
+	 * @brief List of fixed dates ('before and after' string pairs)
+	*/
+	static std::vector<StringPair> fixedDates;
 
 	/**
 	 * @return true if the given date is valid 

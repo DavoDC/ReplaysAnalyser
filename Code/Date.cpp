@@ -160,6 +160,12 @@ const string Date::getAbsTimePeriod(const Date& dateIn) const
 }
 
 
+const std::string Date::getFixedDateCountS()
+{
+	return to_string(int(fixedDates.size()));
+}
+
+
 const void Date::printFixedDates()
 {
 	// Heading
