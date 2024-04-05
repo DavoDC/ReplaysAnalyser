@@ -12,8 +12,8 @@ I use this program to analyse my autosaved replays, which can be found here: [SS
 
 #### Statistics Provided
 - Number of replays/matches.
-- Date range of matches, and duration between.
-- Percentage, count, date range and duration breakdowns of:
+- Date range of matches, time period in-between, and time passed since the last match.
+- Percentage, count, date range, time period and time passed breakdowns of:
     - Game versions used.
     - Years matches were played.
     - Players involved.
