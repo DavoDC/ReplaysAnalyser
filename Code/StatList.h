@@ -13,10 +13,10 @@
 
 
 // Match property extractor
-#define PropExt std::function<StringV(Match)>
+using PropExt = std::function<StringV(Match)>;
 
 // Variant match list extractor (list of matches with a certain variant)
-#define MatchVExt std::function<std::vector<Match>(MatchList, std::string)>
+using MatchVExt = std::function<std::vector<Match>(MatchList, std::string)>;
 
 
 class StatList
