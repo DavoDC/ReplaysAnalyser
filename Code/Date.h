@@ -8,7 +8,7 @@
 #include <map>
 
 // Macro for long date type (YMD object type)
-#define DateM std::chrono::year_month_day
+using DateM = std::chrono::year_month_day;
 
 
 class Date

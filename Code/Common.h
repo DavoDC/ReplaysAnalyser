@@ -11,11 +11,11 @@
 
 
 // String vector macro
-#define StringV std::vector<std::string>
+using StringV = std::vector<std::string>;
 
 
 // String pair macro
-#define StringPair std::pair<std::string, std::string>
+using StringPair = std::pair<std::string, std::string>;
 
 
 /**

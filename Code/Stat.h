@@ -8,7 +8,7 @@
 #include <algorithm>
 
 // Variant-Count pair
-#define VCPair std::pair<std::string, int>
+using VCPair = std::pair<std::string, int>;
 
 
 class Stat

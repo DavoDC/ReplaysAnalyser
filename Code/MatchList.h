@@ -11,10 +11,10 @@
 #include <set>
 
 // Returns true if the match contains a given variant
-#define VarMatchChecker std::function<bool(Match)>
+using VarMatchChecker = std::function<bool(Match)>;
 
 // Macro for long iterator type
-#define FSIterator fs::recursive_directory_iterator
+using FSIterator = std::filesystem::recursive_directory_iterator;
 
 
 class MatchList

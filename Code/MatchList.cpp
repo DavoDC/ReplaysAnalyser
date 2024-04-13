@@ -3,7 +3,6 @@
 
 // Namespace mods
 using namespace std;
-namespace fs = filesystem;
 
 
 MatchList::MatchList()
@@ -15,7 +14,7 @@ MatchList::MatchList()
 MatchList::MatchList(const string& replayPath, const bool& onlineMatchesOnly)
 {
 	// If path is not valid
-	if (!fs::exists(replayPath))
+	if (!filesystem::exists(replayPath))
 	{
 		// Notify and exit
 		print("\nMatchList(): Invalid Replay Path");

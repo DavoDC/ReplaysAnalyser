@@ -6,7 +6,7 @@
 #include "Common.h"
 
 // Represents a standard name paired with aliases
-#define Alias std::pair<std::string, StringV>
+using Alias = std::pair<std::string, StringV>;
 
 class AliasHandler
 {
