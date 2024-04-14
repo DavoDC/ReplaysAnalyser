@@ -2,6 +2,12 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
+Add first and last match time periods 
+e.g. 
+First Match (Time Since)    Last Match (Time Since)  
+15-Apr-24 (23d)             11-Apr-24 (3d)
+
+
 RELEASE IT FOR REGULAR USERS 
 - Make useable for regular users
 - Create installer
