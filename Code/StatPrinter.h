@@ -34,11 +34,6 @@ public:
 private:
 
 	/**
-	 * @brief Print a line representing a given statistic
-	*/
-	void printStat(const Stat& stat);
-
-	/**
 	 * @brief Print the heading for a statistics section
 	 * @param The statistic's name
 	*/
@@ -51,10 +46,10 @@ private:
 		const std::string&, const std::string&, const std::string&, const std::string&);
 
 	/**
-	 * @param The first date as a string
-	 * @param The second date as a string
-	 * @return Two dates representing a range formatted together
+	 * @param date A given date object
+	 * @param currentDate The current date object
+	 * @return A string of the date and the time passed since
 	*/
-	std::string formatDateRange(const std::string&, const std::string&);
+	std::string getDateAndTimePassed(const Date& date, const Date& currentDate);
 };
 

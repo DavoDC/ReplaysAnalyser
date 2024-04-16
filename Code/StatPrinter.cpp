@@ -14,19 +14,25 @@ void StatPrinter::printDateStats(const Date& oldest, const Date& newest)
 {
 	// Print headings
 	printHeading("Date");
-	printColumns("%", "Current Date", "Fixed", "Date Range", "Time Period", "Time Since Last");
+	printColumns("%", "Current Date", "Fixed", "First Date (Time Since)", "Last Date (Time Since)", "Time Period");
 
-	// Get info
+	// Current Date
 	Date currentDate = Date();
 	string curDateS = currentDate.toString();
+
+	// Fixed
 	string fixedDateCount = Date::getFixedDateCountS();
-	string dateRange = formatDateRange(oldest.toString(), newest.toString());
+
+	// First and last dates (and time passed)
+	string firstDate = getDateAndTimePassed(oldest, currentDate);
+	string lastDate = getDateAndTimePassed(newest, currentDate);
+
+	// Time Period
 	string timePeriod = oldest.getAbsTimePeriod(newest);
-	string timePassed = currentDate.getAbsTimePeriod(newest);
 
 	// Print info in columns
-	printColumns("N/A", curDateS, fixedDateCount, dateRange, timePeriod, timePassed);
-	
+	printColumns("N/A", curDateS, fixedDateCount, firstDate, lastDate, timePeriod);
+
 }
 
 
@@ -34,12 +40,20 @@ void StatPrinter::printStatsList(const string& statName, const vector<Stat>& sta
 {
 	// Print headings
 	printHeading(statName);
-	printColumns("%", statName, "Matches", "Date Range", "Time Period", "Time Since Last");
+	printColumns("%", statName, "Matches", "First Date (Time Since)", "Last Date (Time Since)", "Time Period");
 
 	// Print each stat
+	Date currentDate = Date();
 	for (Stat curStat : statList)
 	{
-		printStat(curStat);
+		printColumns(
+			curStat.getPercentage(), // %
+			curStat.getVariantValue(), // statName
+			curStat.getVariantCount(), // Matches
+			getDateAndTimePassed(curStat.getOldestDate(), currentDate), // First Date
+			getDateAndTimePassed(curStat.getNewestDate(), currentDate), // Last Date
+			curStat.getTimePeriod() // Time Period
+		);
 	}
 }
 
@@ -50,35 +64,22 @@ void StatPrinter::printHeading(const string& statName)
 }
 
 
+string StatPrinter::getDateAndTimePassed(const Date& date, const Date& currentDate)
+{
+	return format("{} ({})", date.toString(), date.getAbsTimePeriod(currentDate));
+}
+
+
 void StatPrinter::printColumns(const string& c1, const string& c2,
 	const string& c3, const string& c4, const string& c5, const string& c6)
 {
 	cout
 		<< left
 		<< "\n"
-		<< setw(10) << c1
-		<< setw(15) << c2
-		<< setw(10) << c3
-		<< setw(30) << c4
-		<< setw(15) << c5
+		<< setw(8) << c1
+		<< setw(16) << c2
+		<< setw(9) << c3
+		<< setw(26) << c4
+		<< setw(26) << c5
 		<< c6;
-}
-
-
-string StatPrinter::formatDateRange(const string& date1, const string& date2)
-{
-	return format("{} - {}", date1, date2);
-}
-
-
-void StatPrinter::printStat(const Stat& stat)
-{
-	Date newestDate = stat.getNewestDate();
-
-	printColumns(
-		stat.getPercentage(),
-		stat.getVariantValue(), stat.getVariantCount(),
-		formatDateRange(stat.getOldestDate().toString(), newestDate.toString()),
-		stat.getTimePeriod(), Date().getAbsTimePeriod(newestDate)
-	);
 }
