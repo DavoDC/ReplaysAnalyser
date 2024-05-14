@@ -11,10 +11,13 @@ I use this program to analyse my autosaved replays, which can be found here: [SS
 - Currently exclusive to C++ developers (runs through Visual Studio).
 
 #### Statistics Provided
-- Number of replays/matches.
-- Date range of matches, time period in-between, and time passed since the last match.
-- Percentage, count, date range, time period and time passed breakdowns of:
+- Total number of matches.
+- Percentage and count breakdowns of matches based on:
     - Game versions used.
     - Years matches were played.
     - Players involved.
     - Characters used in matches.
+- Date statistics for all matches and the four properties above:
+    - Date of first match (and timed passed since).
+    - Date of last match (and timed passed since).
+    - Time period in-between.
