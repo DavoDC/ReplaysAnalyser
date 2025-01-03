@@ -42,7 +42,7 @@ private:
 	/**
 	 * @brief Print out info strings in evenly spaced columns
 	*/
-	void printColumns(const std::string&, const std::string&,
+	void printColumns(const std::string&, const std::string&, const std::string&,
 		const std::string&, const std::string&, const std::string&, const std::string&);
 
 	/**

@@ -80,10 +80,10 @@ void ReplaysAnalyser::analyse()
 	// Welcome message
 	print("####### WELCOME TO REPLAYS ANALYSER #######");
 
-	// Parse replays and notify
+	// Parse replays and notify when done
 	string replayPath = getReplayPath();
-	MatchList ml = MatchList(replayPath, onlineMatchesOnly);
 	print(format("\nParsing matches in '{}'...", replayPath));
+	MatchList ml = MatchList(replayPath, onlineMatchesOnly);
 	print(format("Parsed {} matches!", ml.getSizeS()));
 
 	// If "online only" enabled, notify
