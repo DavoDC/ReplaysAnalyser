@@ -14,7 +14,7 @@ void StatPrinter::printDateStats(const Date& oldest, const Date& newest)
 {
 	// Print headings
 	printHeading("Date");
-	printColumns("%", "Current Date", "Fixed", "First Date (Time Since)", "Last Date (Time Since)", "Time Period");
+	printColumns("#", "%", "Current Date", "Fixed", "First Date (Time Since)", "Last Date (Time Since)", "Time Period");
 
 	// Current Date
 	Date currentDate = Date();
@@ -31,7 +31,7 @@ void StatPrinter::printDateStats(const Date& oldest, const Date& newest)
 	string timePeriod = oldest.getAbsTimePeriod(newest);
 
 	// Print info in columns
-	printColumns("N/A", curDateS, fixedDateCount, firstDate, lastDate, timePeriod);
+	printColumns("N/A", "N/A", curDateS, fixedDateCount, firstDate, lastDate, timePeriod);
 
 }
 
@@ -40,13 +40,15 @@ void StatPrinter::printStatsList(const string& statName, const vector<Stat>& sta
 {
 	// Print headings
 	printHeading(statName);
-	printColumns("%", statName, "Matches", "First Date (Time Since)", "Last Date (Time Since)", "Time Period");
+	printColumns("#", "%", statName, "Matches", "First Date (Time Since)", "Last Date (Time Since)", "Time Period");
 
 	// Print each stat
 	Date currentDate = Date();
-	for (Stat curStat : statList)
+	for (int i = 0; i < statList.size(); i++)
 	{
+		Stat curStat = statList.at(i);
 		printColumns(
+			to_string(i + 1), // Position
 			curStat.getPercentage(), // %
 			curStat.getVariantValue(), // statName
 			curStat.getVariantCount(), // Matches
@@ -70,16 +72,17 @@ string StatPrinter::getDateAndTimePassed(const Date& date, const Date& currentDa
 }
 
 
-void StatPrinter::printColumns(const string& c1, const string& c2,
-	const string& c3, const string& c4, const string& c5, const string& c6)
+void StatPrinter::printColumns(const string& c1, const string& c2, const string& c3,
+	const string& c4, const string& c5, const string& c6, const string& c7)
 {
 	cout
 		<< left
 		<< "\n"
-		<< setw(8) << c1
-		<< setw(16) << c2
-		<< setw(9) << c3
-		<< setw(26) << c4
+		<< setw(4) << c1
+		<< setw(8) << c2
+		<< setw(16) << c3
+		<< setw(9) << c4
 		<< setw(26) << c5
-		<< c6;
+		<< setw(26) << c6
+		<< c7;
 }
