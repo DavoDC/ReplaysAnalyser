@@ -118,5 +118,10 @@ private:
 	 * @return The path to the folder containing the desired replays
 	*/
 	std::string getReplayPath();
+
+	/**
+	 * @return The character stats for the top players
+	*/
+	StringStatListPairV getPlayerSpecificCharStats(const MatchList& fullMatchList);
 };
 

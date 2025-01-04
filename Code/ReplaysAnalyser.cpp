@@ -10,7 +10,7 @@ ReplaysAnalyser::ReplaysAnalyser()
 	this->customPath = "";
 	this->ignoredPlayers = StringV{ AliasHandler::ANON };
 	this->playerCutoff = 0.45;
-	this->charCutoff = 1.0;
+	this->charCutoff = 1.25;
 	this->onlineMatchesOnly = false;
 }
 
@@ -75,6 +75,12 @@ void ReplaysAnalyser::toggleOnlineMatchesOnly()
 }
 
 
+void ReplaysAnalyser::printFixedDates()
+{
+	Date::printFixedDates();
+}
+
+
 void ReplaysAnalyser::analyse()
 {
 	// Welcome message
@@ -109,6 +115,7 @@ void ReplaysAnalyser::analyse()
 	// ### Print statistics
 	// 1) Date stats
 	statP.printDateStats(ml.getFirstMatchDate(), ml.getLastMatchDate());
+
 
 	// 2) Version stats
 	StatList versionStats = StatList(ml,
@@ -157,26 +164,9 @@ void ReplaysAnalyser::analyse()
 		});
 	statP.printStatsList("Character", charStats.getStatList());
 
+
 	// 6) Player-specific character stats
-	// IN-PROGRESS
-	//print("\n===== Player-Specific Stats (TODO)\n");
-	//for (Stat playerStat : playerStats.getStatList())
-	//{
-	//	string playerName = playerStat.getVariantValue();
-
-	//	MatchList playerMatches = playerStat.getVariantMatchList();
-
-	//	StatList playerCharStats = StatList(playerMatches,
-	//		[](Match m) -> StringV {
-	//			return m.getFighters().getChars();
-	//		},
-	//		StringV(), charCutoff,
-	//		[](const MatchList& lml, const string& lvariant) -> vector<Match> {
-	//			return lml.getCharMatches(lvariant);
-	//		});
-
-	//	statP.printStatsList(playerName + "'s Chars", playerCharStats.getStatList());
-	//}
+	statP.printPlayerSpecCharStats(getPlayerSpecificCharStats(ml));
 }
 
 
@@ -211,7 +201,43 @@ string ReplaysAnalyser::getReplayPath()
 }
 
 
-void ReplaysAnalyser::printFixedDates()
+StringStatListPairV ReplaysAnalyser::getPlayerSpecificCharStats(const MatchList& fullMatchList)
 {
-	Date::printFixedDates();
+	// Get ALL player stats with no ignored players, except ANON
+	StatList allPlayerStats = StatList(fullMatchList,
+		[](Match m) -> StringV {
+			return m.getFighters().getPlayers();
+		},
+		StringV{ AliasHandler::ANON }, playerCutoff,
+		[](const MatchList& lml, const string& lvariant) -> vector<Match> {
+			return lml.getPlayerMatches(lvariant);
+		});
+
+	// To hold the list of players and their character stats
+	StringStatListPairV playerSpecCharStats;
+
+	// For every player stat
+	double playerSpecificCharStatCharCutoff = 0.0;
+	for (Stat playerStat : allPlayerStats.getStatList())
+	{
+		// Get this player's name
+		string playerName = playerStat.getVariantValue();
+
+		// Calculate this player's character stats from their matches
+		MatchList playerMatches = playerStat.getVariantMatchList();
+		StatList playerCharStats = StatList(playerMatches,
+			[&playerName](Match m) -> StringV {
+				return StringV{ m.getFighters().getChar(playerName) };
+			},
+			StringV(), playerSpecificCharStatCharCutoff,
+			[](const MatchList& lml, const string& lvariant) -> vector<Match> {
+				return lml.getCharMatches(lvariant);
+			});
+
+		// Add to list
+		playerSpecCharStats.push_back(make_pair(playerName, playerCharStats));
+	}
+
+	// Return result
+	return playerSpecCharStats;
 }

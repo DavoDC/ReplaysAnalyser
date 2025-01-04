@@ -13,9 +13,15 @@
 // String vector macro
 using StringV = std::vector<std::string>;
 
-
 // String pair macro
 using StringPair = std::pair<std::string, std::string>;
+
+// String+StatList pair macro
+class StatList; // Forward declaration (needed to avoid cyclic dependency)
+using StringStatListPair = std::pair<std::string, StatList>;
+
+// Vector of StringStatListPair macro
+using StringStatListPairV = std::vector<StringStatListPair>;
 
 
 /**
