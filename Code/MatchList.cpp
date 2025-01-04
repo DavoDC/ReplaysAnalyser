@@ -10,7 +10,7 @@ MatchList::MatchList()
 	this->matches = vector<Match>();
 }
 
-MatchList::MatchList(vector<Match> matchListIn)
+MatchList::MatchList(const vector<Match>& matchListIn)
 {
 	// Notify if input is empty
 	if (matchListIn.empty())

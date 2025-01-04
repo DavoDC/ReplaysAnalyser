@@ -30,7 +30,7 @@ public:
 	 * @brief Construct a MatchList from a vector of matches
 	 * @param matchListIn A vector of matches
 	*/
-	MatchList(std::vector<Match> matchListIn);
+	explicit MatchList(const std::vector<Match>& matchListIn);
 
 	/**
 	 * @brief Construct a MatchList from a directory path
