@@ -32,6 +32,7 @@ int main()
 	//ra.addIgnoredPlayer("Spi");
 
 	// Other settings
+	//ra.togglePrintingReviewMessages();
 	//ra.toggleOnlineMatchesOnly();
 	//ra.useSampleData();
 	//ra.setPlayerCutoff(0);

@@ -75,6 +75,11 @@ public:
 	void toggleOnlineMatchesOnly();
 
 	/**
+	 * @brief Toggle printing review messages
+	*/
+	void togglePrintingReviewMessages();
+
+	/**
 	 * @brief See Date::printFixedDates()
 	*/
 	void printFixedDates();
@@ -113,6 +118,11 @@ private:
 	 * @brief Whether online matches only is enabled
 	*/
 	bool onlineMatchesOnly;
+
+	/**
+	 * @brief Whether printing review messages is enabled
+	*/
+	bool printReviewMessages;
 
 	/**
 	 * @return The path to the folder containing the desired replays
