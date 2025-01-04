@@ -156,6 +156,27 @@ void ReplaysAnalyser::analyse()
 			return lml.getCharMatches(lvariant);
 		});
 	statP.printStatsList("Character", charStats.getStatList());
+
+	// 6) Player-specific character stats
+	// IN-PROGRESS
+	//print("\n===== Player-Specific Stats (TODO)\n");
+	//for (Stat playerStat : playerStats.getStatList())
+	//{
+	//	string playerName = playerStat.getVariantValue();
+
+	//	MatchList playerMatches = playerStat.getVariantMatchList();
+
+	//	StatList playerCharStats = StatList(playerMatches,
+	//		[](Match m) -> StringV {
+	//			return m.getFighters().getChars();
+	//		},
+	//		StringV(), charCutoff,
+	//		[](const MatchList& lml, const string& lvariant) -> vector<Match> {
+	//			return lml.getCharMatches(lvariant);
+	//		});
+
+	//	statP.printStatsList(playerName + "'s Chars", playerCharStats.getStatList());
+	//}
 }
 
 

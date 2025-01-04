@@ -13,13 +13,6 @@ Stat::Stat()
 Stat::Stat(const double& percentage, const VCPair& vcPair,
 	const vector<Match>& varMList)
 {
-	// Notify and stop if matchlist empty
-	if (varMList.empty())
-	{
-		print("Empty matchlist provided to Stat!");
-		return;
-	}
-
 	// Process and save percentage
 	this->percentageS = to_string(percentage).erase(4) + "%";
 	if (percentage >= 100)
@@ -30,6 +23,16 @@ Stat::Stat(const double& percentage, const VCPair& vcPair,
 	// Extract and save variant and count values
 	this->variantValue = vcPair.first;
 	this->variantCountS = to_string(vcPair.second);
+
+	// Notify and stop if matchlist empty
+	if (varMList.empty())
+	{
+		print("Empty variant matchlist provided to Stat!");
+		return;
+	}
+
+	// Convert and save variant matchlist
+	variantMatchList = MatchList(varMList);
 
 	// Calculate and save oldest and newest matches
 	auto dateRangePair = minmax_element(
@@ -60,6 +63,11 @@ string Stat::getVariantValue() const
 string Stat::getVariantCount() const
 {
 	return variantCountS;
+}
+
+MatchList Stat::getVariantMatchList() const
+{
+	return variantMatchList;
 }
 
 

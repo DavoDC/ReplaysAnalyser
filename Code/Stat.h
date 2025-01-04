@@ -5,6 +5,7 @@
 
 #include "Common.h"
 #include "Match.h"
+#include "MatchList.h"
 #include <algorithm>
 
 // Variant-Count pair
@@ -44,6 +45,11 @@ public:
 	std::string getVariantCount() const;
 
 	/**
+	 * @brief A list of matches with the variant
+	*/
+	MatchList getVariantMatchList() const;
+
+	/**
 	 * @return The oldest match date for this variant's matches
 	*/
 	Date getOldestDate() const;
@@ -74,6 +80,11 @@ private:
 	 * @brief The number of times this variant occurs
 	*/
 	std::string variantCountS; 
+
+	/**
+	 * @brief A list of matches with the variant
+	*/
+	MatchList variantMatchList;
 
 	/**
 	 * @brief The oldest match date for this variant's matches

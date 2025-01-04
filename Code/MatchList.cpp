@@ -10,6 +10,16 @@ MatchList::MatchList()
 	this->matches = vector<Match>();
 }
 
+MatchList::MatchList(vector<Match> matchListIn)
+{
+	// Notify if input is empty
+	if (matchListIn.empty())
+	{
+		print("Empty vector provided to MatchList constructor!");
+	}
+
+	this->matches = matchListIn;
+}
 
 MatchList::MatchList(const string& replayPath, const bool& onlineMatchesOnly)
 {

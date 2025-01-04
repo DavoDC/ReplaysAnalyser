@@ -48,6 +48,6 @@ private:
 	/**
 	 * @brief The pair separator string
 	*/
-	const std::string pairSep = "###$###";
+	static inline const std::string pairSep = "###$###";
 };
 
