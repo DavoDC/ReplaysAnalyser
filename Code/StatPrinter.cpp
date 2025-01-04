@@ -1,4 +1,4 @@
-// StatPrinter.cpp
+﻿// StatPrinter.cpp
 #include "StatPrinter.h"
 
 // Namespace mods
@@ -74,6 +74,9 @@ void StatPrinter::printPlayerSpecCharStats(const StringStatListPairV& playerSpec
 
 		// Extract character stat list
 		vector<Stat> charStatList = curStatPair.second.getStatList();
+
+		// NOTE: To show complete character stats for each player, uncomment the line below
+		//printStatsList(curStatPair.first + "'s", charStatList);
 			
 		// Print columns
 		printPlayerSpecCharStatCol(
@@ -87,15 +90,92 @@ void StatPrinter::printPlayerSpecCharStats(const StringStatListPairV& playerSpec
 }
 
 
+void StatPrinter::printPlayerReviewMessages(const vector<Stat>& playerStats, 
+	const StringStatListPairV& playerSpecCharStats)
+{
+	// Print heading
+	print("\n");
+	printHeading("Player Review Messages, incl. ");
+
+	// Get current date info
+	Date curDate = Date();
+	string curDateS = curDate.toString();
+
+	// For every top player
+	for (int i = 0; i < playerStats.size(); i++)
+	{
+		// Extract current player stat
+		Stat curPlayerStat = playerStats.at(i);
+
+		// Print line 1 - heading
+		string chartEmoji = ":bar_chart:";
+		string line1 = format("{} **SSF2 Replay Statistics Review** ({}) {}", chartEmoji, curDateS, chartEmoji);
+		print("\n" + line1);
+		
+		// Print line 2 - hello
+		string playerName = curPlayerStat.getVariantValue();
+		string line2 = format("Hey {}!", playerName);
+		print("\n" + line2);
+
+		// Print line 3 - basic player stats
+		int pos = i + 1;
+		string rank = (i == 0) ? "my" : ("my " + to_string(pos) + ordinal(pos));
+		string percentage = curPlayerStat.getPercentage();
+		string amount = curPlayerStat.getVariantCount();
+		string line3 = "Congratulations! :tada: ";
+		line3 += format("You're {} most played-with player, ", rank);
+		line3 += format("contributing to **{}** (**{}**) of my total replays!", percentage, amount);
+		print("\n" + line3);
+
+		// Print line 4,5,6 - date stat dot-points
+		print(format("- First Match: {}", getDateAndTimePassed(curPlayerStat.getOldestDate(), curDate, true)));
+		print(format("- Last Match: {}", getDateAndTimePassed(curPlayerStat.getNewestDate(), curDate, true)));
+		print(format("- Time Played Together: {}", curPlayerStat.getTimePeriod()));
+
+		// Print line 7,8,9,10 - character stat heading and dot-points
+		StringStatListPair curStatPair = playerSpecCharStats.at(i + 1); // Skip first player (myself)
+		if (!equalsIgnoreCase(curStatPair.first, playerName))
+		{
+			warn("Mismatch in player names provided to function", curStatPair.first + "!=" + playerName);
+			exit(0);
+		}
+		vector<Stat> charStatList = curStatPair.second.getStatList();
+		print("\nYour Top 3 Most Played Characters:");
+		print(format("- {}", getConcisePlayerSpecCharStat(charStatList, 0)));
+		print(format("- {}", getConcisePlayerSpecCharStat(charStatList, 1)));
+		print(format("- {}", getConcisePlayerSpecCharStat(charStatList, 2)));
+
+		// Print line 11 - full report link
+		string link = "https://github.com/DavoDC/ReplaysAnalyser/blob/";
+		link += "4eb8e0e6d5a530fd7077237228f348fce9a029d1/Reports/2025/2025-01-04%20-%20RA_REPORT.txt";
+		string line11 = "If you want to dive deeper into the stats, "; 
+		line11 += format("check out the full report here: <{}>", link);
+		print("\n" + line11);
+
+		// Print line 12 - ending
+		string line12 = "Thanks for the games, Davo :slight_smile:";
+		print("\n" + line12);
+
+		// Space
+		print("\n");
+	}
+
+	// Space
+	print("\n");
+}
+
+
 void StatPrinter::printHeading(const string& statName)
 {
 	print(format("\n### {} Statistics ###", statName));
 }
 
 
-string StatPrinter::getDateAndTimePassed(const Date& date, const Date& currentDate)
+string StatPrinter::getDateAndTimePassed(const Date& date, const Date& currentDate, bool addAgo)
 {
-	return format("{} ({})", date.toString(), date.getAbsTimePeriod(currentDate));
+	string curDateS = date.toString();
+	string timePeriodS = date.getAbsTimePeriod(currentDate);
+	return format("{} ({})", curDateS, addAgo ? timePeriodS + " ago": timePeriodS);
 }
 
 
@@ -138,4 +218,21 @@ string StatPrinter::getConcisePlayerSpecCharStat(const vector<Stat>& charStatLis
 
 	Stat characterStat = charStatList.at(pos);
 	return format("{} ({})", characterStat.getVariantValue(), characterStat.getPercentage());
+}
+
+
+string StatPrinter::ordinal(int n)
+{
+	if (n % 100 >= 11 && n % 100 <= 13) 
+	{
+		return "th";
+	}
+
+	switch (n % 10) 
+	{
+		case 1: return "st";
+		case 2: return "nd";
+		case 3: return "rd";
+		default: return "th";
+	}
 }

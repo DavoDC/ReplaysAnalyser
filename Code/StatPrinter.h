@@ -37,6 +37,14 @@ public:
 	 * @param playerSpecCharStats The player-specific character statistics
 	*/
 	void printPlayerSpecCharStats(const StringStatListPairV& playerSpecCharStats);
+
+	/**
+	 * @brief Print out review messages for players
+	 * @param playerStats The list of player statistics
+	 * @param playerSpecCharStats The player-specific character statistics
+	*/
+	void printPlayerReviewMessages(const std::vector<Stat>& playerStats,
+		const StringStatListPairV& playerSpecCharStats);
 	
 private:
 
@@ -49,9 +57,10 @@ private:
 	/**
 	 * @param date A given date object
 	 * @param currentDate The current date object
+	 * @param addAgo Whether to add "ago" to the time passed part (Default: false)
 	 * @return A string of the date and the time passed since
 	*/
-	std::string getDateAndTimePassed(const Date& date, const Date& currentDate);
+	std::string getDateAndTimePassed(const Date& date, const Date& currentDate, bool addAgo = false);
 
 	/**
 	 * @brief Print out info strings in evenly spaced columns
@@ -71,5 +80,13 @@ private:
 	 * @param pos The position/rank of the statistic
 	 */
 	std::string getConcisePlayerSpecCharStat(const std::vector<Stat>& charStatList, int pos);
+
+	/**
+	 * @brief Returns the ordinal suffix for a given integer (e.g., "st", "nd", "rd", "th").
+	 *
+	 * @param n The integer for which to determine the ordinal suffix.
+	 * @return std::string The appropriate ordinal suffix ("st", "nd", "rd", or "th").
+	 */
+	std::string ordinal(int n);
 };
 

@@ -12,6 +12,7 @@ ReplaysAnalyser::ReplaysAnalyser()
 	this->playerCutoff = 0.45;
 	this->charCutoff = 1.25;
 	this->onlineMatchesOnly = false;
+	this->printReviewMessages = false;
 }
 
 
@@ -72,6 +73,12 @@ void ReplaysAnalyser::setOfflinePlayerAliases(const string& p1Name, const string
 void ReplaysAnalyser::toggleOnlineMatchesOnly()
 {
 	onlineMatchesOnly = !onlineMatchesOnly;
+}
+
+
+void ReplaysAnalyser::togglePrintingReviewMessages()
+{
+	printReviewMessages = !printReviewMessages;
 }
 
 
@@ -166,7 +173,14 @@ void ReplaysAnalyser::analyse()
 
 
 	// 6) Player-specific character stats
-	statP.printPlayerSpecCharStats(getPlayerSpecificCharStats(ml));
+	StringStatListPairV playerSpecCharStats = getPlayerSpecificCharStats(ml);
+	statP.printPlayerSpecCharStats(playerSpecCharStats);
+
+	// 7) Review messages
+	if (printReviewMessages)
+	{
+		statP.printPlayerReviewMessages(playerStats.getStatList(), playerSpecCharStats);
+	}
 }
 
 
