@@ -72,17 +72,19 @@ StringV FighterList::getChars()
 
 std::string FighterList::getChar(const std::string& stdPlayerName)
 {
-	// For every fighter
-	for (Fighter curF : fightersV)
-	{
-		// If player name matches given player name
-		if (equalsIgnoreCase(curF.getPlayer(), stdPlayerName))
+	// Locate the fighter with the given player name
+	auto it = std::find_if(fightersV.begin(), fightersV.end(), [&](const Fighter& curF)
 		{
-			// Return that player's character
-			return curF.getChar();
-		}
+			return equalsIgnoreCase(curF.getPlayer(), stdPlayerName);
+		});
+
+	// If a fighter was found, return it's character
+	if (it != fightersV.end())
+	{
+		return it->getChar();
 	}
 
+	// Otherwise if no fighter was found, notify and return invalid value
 	warn("A getChar() search failed", "stdPlayerName: " + stdPlayerName);
 	return "INVALID";
 }
