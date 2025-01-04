@@ -27,6 +27,12 @@ public:
 	MatchList();
 
 	/**
+	 * @brief Construct a MatchList from a vector of matches
+	 * @param matchListIn A vector of matches
+	*/
+	MatchList(std::vector<Match> matchListIn);
+
+	/**
 	 * @brief Construct a MatchList from a directory path
 	 * @param path The folder path with version folders and replays
 	 * @param online Whether only online matches are wanted
