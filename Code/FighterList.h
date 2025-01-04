@@ -33,6 +33,12 @@ public:
 	StringV getChars();
 
 	/**
+	 * @return The character played by a given player
+	 * @param stdPlayerName The player's standardised name
+	*/
+	std::string getChar(const std::string& stdPlayerName);
+
+	/**
 	 * @return String representation of this Fighter List
 	*/
 	std::string toString();

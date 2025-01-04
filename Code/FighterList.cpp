@@ -70,6 +70,23 @@ StringV FighterList::getChars()
 	return characters;
 }
 
+std::string FighterList::getChar(const std::string& stdPlayerName)
+{
+	// For every fighter
+	for (Fighter curF : fightersV)
+	{
+		// If player name matches given player name
+		if (equalsIgnoreCase(curF.getPlayer(), stdPlayerName))
+		{
+			// Return that player's character
+			return curF.getChar();
+		}
+	}
+
+	warn("A getChar() search failed", "stdPlayerName: " + stdPlayerName);
+	return "INVALID";
+}
+
 
 string FighterList::toString()
 {

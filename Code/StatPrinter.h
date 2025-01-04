@@ -5,6 +5,7 @@
 
 #include "Common.h"
 #include "Stat.h"
+#include "StatList.h"
 #include "Date.h"
 
 
@@ -30,6 +31,12 @@ public:
 	 * @param statList The list of statistics
 	*/
 	void printStatsList(const std::string& statName, const std::vector<Stat>& statList);
+
+	/**
+	 * @brief Print out the player-specific character statistics section
+	 * @param playerSpecCharStats The player-specific character statistics
+	*/
+	void printPlayerSpecCharStats(const StringStatListPairV& playerSpecCharStats);
 	
 private:
 
@@ -40,16 +47,29 @@ private:
 	void printHeading(const std::string& statName);
 
 	/**
+	 * @param date A given date object
+	 * @param currentDate The current date object
+	 * @return A string of the date and the time passed since
+	*/
+	std::string getDateAndTimePassed(const Date& date, const Date& currentDate);
+
+	/**
 	 * @brief Print out info strings in evenly spaced columns
 	*/
 	void printColumns(const std::string&, const std::string&, const std::string&,
 		const std::string&, const std::string&, const std::string&, const std::string&);
 
 	/**
-	 * @param date A given date object
-	 * @param currentDate The current date object
-	 * @return A string of the date and the time passed since
+	 * @brief Print out info strings in evenly spaced columns, specifically for player-specific character stats
 	*/
-	std::string getDateAndTimePassed(const Date& date, const Date& currentDate);
+	void printPlayerSpecCharStatCol(const std::string&, const std::string&, const std::string&,
+		const std::string&, const std::string&);
+
+	/**
+	 * @return A string representing a player-specific character statistic
+	 * @param charStatList The character statistics list
+	 * @param pos The position/rank of the statistic
+	 */
+	std::string getConcisePlayerSpecCharStat(const std::vector<Stat>& charStatList, int pos);
 };
 
