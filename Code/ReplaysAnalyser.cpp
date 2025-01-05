@@ -173,7 +173,7 @@ void ReplaysAnalyser::analyse()
 
 
 	// 6) Player-specific character stats
-	StringStatListPairV playerSpecCharStats = getPlayerSpecificCharStats(ml);
+	vector<PlayerSpecStatList> playerSpecCharStats = getPlayerSpecificCharStats(ml);
 	statP.printPlayerSpecCharStats(playerSpecCharStats);
 
 	// 7) Review messages
@@ -215,7 +215,7 @@ string ReplaysAnalyser::getReplayPath()
 }
 
 
-StringStatListPairV ReplaysAnalyser::getPlayerSpecificCharStats(const MatchList& fullMatchList)
+vector<PlayerSpecStatList> ReplaysAnalyser::getPlayerSpecificCharStats(const MatchList& fullMatchList)
 {
 	// Get ALL player stats with no ignored players, except ANON
 	StatList allPlayerStats = StatList(fullMatchList,
@@ -227,29 +227,26 @@ StringStatListPairV ReplaysAnalyser::getPlayerSpecificCharStats(const MatchList&
 			return lml.getPlayerMatches(lvariant);
 		});
 
-	// To hold the list of players and their character stats
-	StringStatListPairV playerSpecCharStats;
+	// To hold the list of each player's character stats
+	vector<PlayerSpecStatList> playerSpecCharStats;
 
 	// For every player stat
 	double playerSpecificCharStatCharCutoff = 0.0;
 	for (Stat playerStat : allPlayerStats.getStatList())
 	{
-		// Get this player's name
+		// Get this player's name and matches
 		string playerName = playerStat.getVariantValue();
-
-		// Calculate this player's character stats from their matches
 		MatchList playerMatches = playerStat.getVariantMatchList();
-		StatList playerCharStats = StatList(playerMatches,
+
+		// Calculate this player's character stats from their matches and add to list
+		playerSpecCharStats.emplace_back(playerName, playerMatches,
 			[&playerName](Match m) -> StringV {
 				return StringV{ m.getFighters().getChar(playerName) };
 			},
 			StringV(), playerSpecificCharStatCharCutoff,
-			[](const MatchList& lml, const string& lvariant) -> vector<Match> {
+			[](const MatchList& lml, const std::string& lvariant) -> std::vector<Match> {
 				return lml.getCharMatches(lvariant);
 			});
-
-		// Add to list
-		playerSpecCharStats.push_back(make_pair(playerName, playerCharStats));
 	}
 
 	// Return result

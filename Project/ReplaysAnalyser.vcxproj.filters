@@ -72,6 +72,9 @@
     <ClInclude Include="..\Code\Stat.h">
       <Filter>Header Files\Modules\Statistics</Filter>
     </ClInclude>
+    <ClInclude Include="..\Code\PlayerSpecStatList.h">
+      <Filter>Header Files\Modules\Statistics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Code\Main.cpp">
@@ -108,6 +111,9 @@
       <Filter>Source Files\Modules\Statistics</Filter>
     </ClCompile>
     <ClCompile Include="..\Code\Stat.cpp">
+      <Filter>Source Files\Modules\Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Code\PlayerSpecStatList.cpp">
       <Filter>Source Files\Modules\Statistics</Filter>
     </ClCompile>
   </ItemGroup>

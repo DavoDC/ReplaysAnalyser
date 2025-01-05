@@ -3,9 +3,10 @@
 // StatPrinter.h
 
 #include "Common.h"
+#include "Date.h"
 #include "Stat.h"
 #include "StatList.h"
-#include "Date.h"
+#include "PlayerSpecStatList.h"
 
 /**
  * @brief Handles printing of statistical information
@@ -37,7 +38,7 @@ public:
 	 * @brief Print out the player-specific character statistics section
 	 * @param playerSpecCharStats The player-specific character statistics
 	*/
-	void printPlayerSpecCharStats(const StringStatListPairV& playerSpecCharStats);
+	void printPlayerSpecCharStats(const std::vector<PlayerSpecStatList>& playerSpecCharStats);
 
 	/**
 	 * @brief Print out review messages for players
@@ -45,7 +46,7 @@ public:
 	 * @param playerSpecCharStats The player-specific character statistics
 	*/
 	void printPlayerReviewMessages(const std::vector<Stat>& playerStats,
-		const StringStatListPairV& playerSpecCharStats);
+		const std::vector<PlayerSpecStatList>& playerSpecCharStats);
 	
 private:
 
@@ -74,13 +75,6 @@ private:
 	*/
 	void printPlayerSpecCharStatCol(const std::string&, const std::string&, const std::string&,
 		const std::string&, const std::string&);
-
-	/**
-	 * @return A string representing a player-specific character statistic
-	 * @param charStatList The character statistics list
-	 * @param pos The position/rank of the statistic
-	 */
-	std::string getConcisePlayerSpecCharStat(const std::vector<Stat>& charStatList, int pos);
 
 	/**
 	 * @brief Returns the ordinal suffix for a given integer (e.g., "st", "nd", "rd", "th").

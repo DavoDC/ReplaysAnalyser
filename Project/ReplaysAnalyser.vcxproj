@@ -26,6 +26,7 @@
     <ClInclude Include="..\Code\Match.h" />
     <ClInclude Include="..\Code\MatchList.h" />
     <ClInclude Include="..\Code\Date.h" />
+    <ClInclude Include="..\Code\PlayerSpecStatList.h" />
     <ClInclude Include="..\Code\Stat.h" />
     <ClInclude Include="..\Code\StatPrinter.h" />
     <ClInclude Include="..\Code\ReplaysAnalyser.h" />
@@ -40,6 +41,7 @@
     <ClCompile Include="..\Code\MatchList.cpp" />
     <ClCompile Include="..\Code\Date.cpp" />
     <ClCompile Include="..\Code\Main.cpp" />
+    <ClCompile Include="..\Code\PlayerSpecStatList.cpp" />
     <ClCompile Include="..\Code\Stat.cpp" />
     <ClCompile Include="..\Code\StatPrinter.cpp" />
     <ClCompile Include="..\Code\ReplaysAnalyser.cpp" />
