@@ -1,7 +1,6 @@
 #pragma once
 
 // StatList.h
-// Represents a statistics calculator
 
 #include "Common.h"
 #include "MatchList.h"
@@ -11,14 +10,15 @@
 #include <map>
 #include <algorithm>
 
-
 // Match property extractor
 using PropExt = std::function<StringV(Match)>;
 
 // Variant match list extractor (list of matches with a certain variant)
 using MatchVExt = std::function<std::vector<Match>(MatchList, std::string)>;
 
-
+/**
+ * @brief A list of Statistics objects
+ */
 class StatList
 {
 public:

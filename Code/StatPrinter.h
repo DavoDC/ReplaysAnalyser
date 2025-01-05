@@ -1,14 +1,15 @@
 #pragma once
 
 // StatPrinter.h
-// Handles printing of statistics information
 
 #include "Common.h"
 #include "Stat.h"
 #include "StatList.h"
 #include "Date.h"
 
-
+/**
+ * @brief Handles printing of statistical information
+ */
 class StatPrinter
 {
 public:

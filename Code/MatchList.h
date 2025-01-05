@@ -1,7 +1,6 @@
 #pragma once
 
 // MatchList.h
-// Models a list of SSF2 matches
 
 #include "Common.h"
 #include "Match.h"
@@ -16,7 +15,9 @@ using VarMatchChecker = std::function<bool(Match)>;
 // Macro for long iterator type
 using FSIterator = std::filesystem::recursive_directory_iterator;
 
-
+/**
+ * @brief Models a list of SSF2 Matches
+ */
 class MatchList
 {
 public:

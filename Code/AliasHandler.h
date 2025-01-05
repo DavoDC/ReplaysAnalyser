@@ -1,13 +1,15 @@
 #pragma once
 
 // AliasHandler.h
-// Handle player aliases
 
 #include "Common.h"
 
 // Represents a standard name paired with aliases
 using Alias = std::pair<std::string, StringV>;
 
+/**
+ * @brief Handle player aliases
+ */
 class AliasHandler
 {
 public:

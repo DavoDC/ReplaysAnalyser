@@ -1,11 +1,13 @@
 #pragma once
 
 // FighterList.h
-// Models a list of fighters
 
 #include "Common.h"
 #include "Fighter.h"
 
+/**
+ * @brief Models a list of Fighters
+ */
 class FighterList
 {
 public:

@@ -1,14 +1,15 @@
 #pragma once
 
 // ReplaysAnalyser.h
-// Analyses replays by calculating statistics
 
 #include "Common.h"
 #include "MatchList.h"
 #include "StatPrinter.h"
 #include "StatList.h"
 
-
+/**
+ * @brief Analyses replays by calculating statistics
+ */
 class ReplaysAnalyser {
 
 public:
