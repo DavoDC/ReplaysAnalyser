@@ -1,7 +1,7 @@
 #pragma once
 
 // Common.h
-// Global helper functions
+// Global libraries, macros and helper functions
 
 #include <iostream>
 #include <iomanip>

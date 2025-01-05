@@ -1,13 +1,14 @@
 #pragma once
 
 // Match.h
-// Models a SSF2 match
 
 #include "Common.h"
 #include "Date.h"
 #include "FighterList.h"
 
-
+/**
+ * @brief Models a SSF2 match
+ */
 class Match
 {
 public:

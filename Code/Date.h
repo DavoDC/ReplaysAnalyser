@@ -1,7 +1,6 @@
 #pragma once
 
 // Date.h
-// An extended version of std::chrono::year_month_day
 
 #include "Common.h"
 #include <chrono>
@@ -10,7 +9,9 @@
 // Macro for long date type (YMD object type)
 using DateM = std::chrono::year_month_day;
 
-
+/**
+ * @brief An extended version of std::chrono::year_month_day
+ */
 class Date
 {
 

@@ -1,12 +1,13 @@
 #pragma once
 
 // Fighter.h
-// Represents a player controlling a character
 
 #include "Common.h"
 #include "AliasHandler.h"
 
-
+/**
+ * @brief Represents a player controlling a character
+ */
 class Fighter
 {
 public:

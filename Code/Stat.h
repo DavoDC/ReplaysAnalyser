@@ -1,7 +1,6 @@
 #pragma once
 
 // Stat.h
-// Represents a statistic
 
 #include "Common.h"
 #include "Match.h"
@@ -11,7 +10,9 @@
 // Variant-Count pair
 using VCPair = std::pair<std::string, int>;
 
-
+/**
+ * @brief Represents a frequency statistic
+ */
 class Stat
 {
 public:
