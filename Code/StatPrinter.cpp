@@ -60,7 +60,7 @@ void StatPrinter::printStatsList(const string& statName, const vector<Stat>& sta
 }
 
 
-void StatPrinter::printPlayerSpecCharStats(const StringStatListPairV& playerSpecCharStats)
+void StatPrinter::printPlayerSpecCharStats(const vector<PlayerSpecStatList>& playerSpecCharStats)
 {
 	// Print headings
 	printHeading("Player-Specific Character");
@@ -69,29 +69,26 @@ void StatPrinter::printPlayerSpecCharStats(const StringStatListPairV& playerSpec
 	// Print each stat
 	for (int i = 0; i < playerSpecCharStats.size(); i++)
 	{
-		// Extract stat pair
-		StringStatListPair curStatPair = playerSpecCharStats.at(i);
+		// Extract stat list for this player
+		PlayerSpecStatList curPlayerStatList = playerSpecCharStats.at(i);
 
-		// Extract character stat list
-		vector<Stat> charStatList = curStatPair.second.getStatList();
-
-		// NOTE: To show complete character stats for each player, uncomment the line below
-		//printStatsList(curStatPair.first + "'s", charStatList);
+		// NOTE: To show complete character stats for each player:
+		//printStatsList(curPlayerStatList.getPlayerName() + "'s", curPlayerStatList.getStatList());
 			
 		// Print columns
 		printPlayerSpecCharStatCol(
 			to_string(i + 1), // Position
-			curStatPair.first, // Player name
-			getConcisePlayerSpecCharStat(charStatList, 0), // 1st Character name and percentage
-			getConcisePlayerSpecCharStat(charStatList, 1), // 2nd Character name and percentage
-			getConcisePlayerSpecCharStat(charStatList, 2)  // 3rd Character name and percentage
+			curPlayerStatList.getPlayerName(), // Player
+			curPlayerStatList.getConciseStatS(0), // 1st Character name and percentage
+			curPlayerStatList.getConciseStatS(1), // 2nd Character name and percentage
+			curPlayerStatList.getConciseStatS(2)  // 3rd Character name and percentage
 		);
 	}
 }
 
 
 void StatPrinter::printPlayerReviewMessages(const vector<Stat>& playerStats, 
-	const StringStatListPairV& playerSpecCharStats)
+	const vector<PlayerSpecStatList>& playerSpecCharStats)
 {
 	// Print heading
 	print("\n");
@@ -113,8 +110,8 @@ void StatPrinter::printPlayerReviewMessages(const vector<Stat>& playerStats,
 		print("\n" + line1);
 		
 		// Print line 2 - hello
-		string playerName = curPlayerStat.getVariantValue();
-		string line2 = format("Hey {}!", playerName);
+		string playerStatsName = curPlayerStat.getVariantValue();
+		string line2 = format("Hey {}!", playerStatsName);
 		print("\n" + line2);
 
 		// Print line 3 - basic player stats
@@ -133,17 +130,17 @@ void StatPrinter::printPlayerReviewMessages(const vector<Stat>& playerStats,
 		print(format("- Time Played Together: {}", curPlayerStat.getTimePeriod()));
 
 		// Print line 7,8,9,10 - character stat heading and dot-points
-		StringStatListPair curStatPair = playerSpecCharStats.at(i + 1); // Skip first player (myself)
-		if (!equalsIgnoreCase(curStatPair.first, playerName))
+		PlayerSpecStatList curPlayerCharStat = playerSpecCharStats.at(i + 1); // Skip first player (myself)
+		if (!curPlayerCharStat.isPlayer(playerStatsName))
 		{
-			warn("Mismatch in player names provided to function", curStatPair.first + "!=" + playerName);
+			string details = curPlayerCharStat.getPlayerName() + "!=" + playerStatsName;
+			warn("Mismatch in player names provided to function", details);
 			exit(0);
 		}
-		vector<Stat> charStatList = curStatPair.second.getStatList();
 		print("\nYour Top 3 Most Played Characters:");
-		print(format("- {}", getConcisePlayerSpecCharStat(charStatList, 0)));
-		print(format("- {}", getConcisePlayerSpecCharStat(charStatList, 1)));
-		print(format("- {}", getConcisePlayerSpecCharStat(charStatList, 2)));
+		print(format("- {}", curPlayerCharStat.getConciseStatS(0)));
+		print(format("- {}", curPlayerCharStat.getConciseStatS(1)));
+		print(format("- {}", curPlayerCharStat.getConciseStatS(2)));
 
 		// Print line 11 - full report link
 		string link = "https://github.com/DavoDC/ReplaysAnalyser/blob/";
@@ -207,19 +204,6 @@ void StatPrinter::printPlayerSpecCharStatCol(const string& c1, const string& c2,
 		<< setw(24) << c4
 		<< c5;
 }
-
-
-string StatPrinter::getConcisePlayerSpecCharStat(const vector<Stat>& charStatList, int pos)
-{
-	if (pos < 0 || pos >= charStatList.size())
-	{
-		return "N/A (N/A)";
-	}
-
-	Stat characterStat = charStatList.at(pos);
-	return format("{} ({})", characterStat.getVariantValue(), characterStat.getPercentage());
-}
-
 
 string StatPrinter::ordinal(int n)
 {

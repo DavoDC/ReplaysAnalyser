@@ -6,6 +6,7 @@
 #include "MatchList.h"
 #include "StatPrinter.h"
 #include "StatList.h"
+#include "PlayerSpecStatList.h"
 
 /**
  * @brief Analyses replays by calculating statistics
@@ -133,6 +134,6 @@ private:
 	/**
 	 * @return The character stats for the top players
 	*/
-	StringStatListPairV getPlayerSpecificCharStats(const MatchList& fullMatchList);
+	std::vector<PlayerSpecStatList> getPlayerSpecificCharStats(const MatchList& fullMatchList);
 };
 
