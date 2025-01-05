@@ -47,6 +47,13 @@ public:
 	*/
 	std::vector<Stat> getStatList();
 
+
+	/**
+	 * @return A concise string representation of a certain statistic.
+	 * @param pos The position of the statistic.
+	 */
+	std::string getConciseStatS(int pos);
+
 private:
 
 	/**

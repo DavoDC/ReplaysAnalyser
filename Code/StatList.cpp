@@ -70,3 +70,17 @@ vector<Stat> StatList::getStatList()
 {
 	return statList;
 }
+
+
+std::string StatList::getConciseStatS(int pos)
+{
+	// If position value is invalid, return dummy string
+	if (pos < 0 || pos >= statList.size())
+	{
+		return format("{} ({})", "N/A", "N/A");
+	}
+
+	// Otherwise retrieve stat and generate formatted string
+	Stat stat = statList.at(pos);
+	return format("{} ({})", stat.getVariantValue(), stat.getPercentage());
+}
