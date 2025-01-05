@@ -2,6 +2,62 @@
 $$$$$$ STATISTICAL ANALYSIS OF SSF2 REPLAY FILES - IDEAS $$$$$$ 
 
 
+Make PlayerSpecStat class - use it to replace big macro 
+Move functions and macros there
+Concise char stat one
+Checking player name one
+
+#pragma once
+
+// PlayerSpecStatList.h
+
+#include "StatList.h"
+
+/**
+ * @brief Extends StatList to include player-specific statistics
+ */
+class PlayerSpecStatList : public StatList
+{
+public:
+
+	/**
+	 * @brief Construct an empty player-specific stats list
+	 * @param playerName The name of the player
+	 */
+	PlayerSpecStat(const std::string& playerName);
+
+
+	/**
+	 * @brief Construct a player-specific list of statistics
+	 * @param playerName The name of the player
+	 * @param matchList The full match list 
+	 * @param propExt Extracts the property from a match
+	 * @param ignore A list of variants to ignore
+	 * @param cutoff Percentage cutoff used to exclude variants
+	 * @param matchVExt Extract list of matches with variant from matchlist
+	 */
+	PlayerSpecStat(const std::string& playerName, const MatchList& matchList, 
+		const PropExt& propExt, const StringV& ignore, const double& cutoff, 
+		const MatchVExt& matchVExt);
+
+
+	/**
+	 * @return The name of the player
+	 */
+	std::string getPlayerName() const;
+
+private:
+
+	/**
+	 * @brief The name of the player
+	 */
+	std::string playerName;
+};
+
+
+
+
+
 RELEASE IT FOR REGULAR USERS 
 - Make useable for regular users
 - Create installer
