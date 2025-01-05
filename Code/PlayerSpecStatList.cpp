@@ -29,20 +29,3 @@ bool PlayerSpecStatList::isPlayer(const std::string& playerNameIn) const
 {
 	return equalsIgnoreCase(this->playerName, playerNameIn);
 }
-
-
-std::string PlayerSpecStatList::getConciseStatS(int pos)
-{
-	// Retrieve underlying stat list 
-	vector<Stat> statList = this->getStatList();
-
-	// If position value is invalid, return dummy string
-	if (pos < 0 || pos >= statList.size())
-	{
-		return "N/A (N/A)";
-	}
-
-	// Otherwise retrieve stat and generate formatted string
-	Stat stat = statList.at(pos);
-	return format("{} ({})", stat.getVariantValue(), stat.getPercentage());
-}
