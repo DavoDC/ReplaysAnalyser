@@ -31,6 +31,8 @@ void AliasHandler::initAliases()
 	addSingleAlias(p1Name, "P1");
 	addSingleAlias(p2Name, "P2");
 
+	// Note: Aliases are not case sensitive!
+
 	// Jazz
 	StringV jazz{
 		"JAM","JAZ","RICE","JASS","JASZ","JAMm",
@@ -48,13 +50,13 @@ void AliasHandler::initAliases()
 	};
 	addAlias("Spi", spi);
 
-	// Nebula/Rain
-	StringV neb{
+	// May
+	StringV may {
 		"Neb","May","QOZ","rain","DENT","Morb",
 		"i3ssf2","joinsomco","NebulaAU","Cocomelon",
 		"StuartNeb","NebulaSSBM","rain93226",
 	};
-	addAlias("Nebula", neb);
+	addAlias("May", may);
 
 	// Starboy
 	addAlias("Starboy",
@@ -133,7 +135,7 @@ const string AliasHandler::getStandardName(const string& pName)
 		// For every raw/unstandardised/actual name in the alias
 		for (string rawName : curAlias.second)
 		{
-			// If the player's name matches a raw name
+			// If the player's name matches a raw name, ignoring case
 			if (equalsIgnoreCase(pName, rawName))
 			{
 				// Set player name to standard name
