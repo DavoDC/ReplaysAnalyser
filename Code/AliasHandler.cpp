@@ -59,10 +59,7 @@ void AliasHandler::initAliases()
 	addAlias("May", may);
 
 	// Starboy
-	addAlias("Starboy",
-		{
-			"x77starboy","MonteSauce","xDuncan", "MetroJr", "ttgmetro"
-		});
+	addAlias("Starboy", {"x77starboy","MonteSauce","xDuncan", "MetroJr", "ttgmetro"});
 
 	// Davo
 	addAlias("davo", { "DAVO", "davo1776","davo1776_","DavoDC","DISCORD" });
@@ -86,7 +83,7 @@ void AliasHandler::initAliases()
 	addAlias("Egg", { "TheLegend","T-LegOfEgg" });
 
 	// Ben
-	addAlias("Ben", { "BeetleOven","beetoeoven" });
+	addAlias("Ben", { "BeetleOven","beetoeoven", "MyDarling" });
 
 	// Simple aliases
 	addSingleAlias("Cody", "kalakly");
