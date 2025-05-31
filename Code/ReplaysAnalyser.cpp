@@ -136,6 +136,17 @@ void ReplaysAnalyser::analyse()
 	statP.printStatsList("Version", versionStats.getStatList());
 
 
+	StatList majorMinorVersionStats = StatList(ml,
+		[](Match lm) -> StringV {
+			return StringV{ lm.getMajorMinorV() };
+		},
+		StringV(), 0,
+		[](const MatchList& lml, const string& lvariant) -> vector<Match> {
+			return lml.getMajorMinorVersionMatches(lvariant);
+		});
+	statP.printStatsList("Major.Minor", majorMinorVersionStats.getStatList());
+
+
 	// 3) Year stats
 	StatList yearStats = StatList(ml,
 		[](Match m) -> StringV {

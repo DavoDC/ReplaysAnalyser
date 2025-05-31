@@ -85,6 +85,13 @@ const string& Match::getVersion() const
 }
 
 
+const string Match::getMajorMinorV() const
+{
+	StringV versionParts = split(version, ".", 4);
+	return format("{}.{}", versionParts[0], versionParts[1]);
+}
+
+
 const FighterList& Match::getFighters() const
 {
 	return fighters;

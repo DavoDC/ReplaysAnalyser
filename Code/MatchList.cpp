@@ -126,6 +126,15 @@ const vector<Match> MatchList::getVersionMatches(const string& version) const
 }
 
 
+const vector<Match> MatchList::getMajorMinorVersionMatches(const string& majorMinorVersion) const
+{
+	return getVariantMatches([&](Match lm)
+		{
+			return lm.getMajorMinorV() == majorMinorVersion;
+		});
+}
+
+
 const vector<Match> MatchList::getYearMatches(const string& year) const
 {
 	return getVariantMatches([&](Match lm)

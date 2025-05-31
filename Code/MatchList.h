@@ -94,6 +94,12 @@ public:
 	*/
 	const std::vector<Match> getVersionMatches(const std::string& version) const;
 
+	/**
+	 * @param The desired major minor version as a string
+	 * @return All matches played on a certain major minor version
+	*/
+	const std::vector<Match> getMajorMinorVersionMatches(const std::string& majorMinorVersion) const;
+
 private:
 
 	/**
