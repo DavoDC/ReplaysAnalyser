@@ -130,7 +130,7 @@ const string AliasHandler::getStandardName(const string& pName)
 	for (Alias curAlias : aliases)
 	{
 		// For every raw/unstandardised/actual name in the alias
-		for (string rawName : curAlias.second)
+		for (const string& rawName : curAlias.second)
 		{
 			// If the player's name matches a raw name, ignoring case
 			if (equalsIgnoreCase(pName, rawName))

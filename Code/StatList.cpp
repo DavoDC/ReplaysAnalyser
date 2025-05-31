@@ -26,7 +26,7 @@ StatList::StatList(const MatchList& matchList, const PropExt& propExt,
 		StringV curProps = propExt(curMatch);
 
 		// For each string property
-		for (string curS : curProps)
+		for (const string& curS : curProps)
 		{
 			// If current property not in ignore list
 			if (!vecContains(ignore, curS))
@@ -66,13 +66,13 @@ StatList::StatList(const MatchList& matchList, const PropExt& propExt,
 }
 
 
-vector<Stat> StatList::getStatList()
+const vector<Stat>& StatList::getStatList()
 {
 	return statList;
 }
 
 
-std::string StatList::getConciseStatS(int pos)
+string StatList::getConciseStatS(int pos)
 {
 	// If position value is invalid, return dummy string
 	if (pos < 0 || pos >= statList.size())

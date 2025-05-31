@@ -27,23 +27,23 @@ public:
 	/**
 	 * @return A list of the players involved
 	*/
-	StringV getPlayers();
+	StringV getPlayers() const;
 
 	/**
 	 * @return A list of the characters involved
 	*/
-	StringV getChars();
+	StringV getChars() const;
 
 	/**
 	 * @return The character played by a given player
 	 * @param stdPlayerName The player's standardised name
 	*/
-	std::string getChar(const std::string& stdPlayerName);
+	std::string getChar(const std::string& stdPlayerName) const;
 
 	/**
 	 * @return String representation of this Fighter List
 	*/
-	std::string toString();
+	std::string toString() const;
 
 private:
 

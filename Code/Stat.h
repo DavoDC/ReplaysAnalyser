@@ -33,22 +33,22 @@ public:
 	/**
 	 * @return The percentage of matches with the variant as a string
 	*/
-	std::string getPercentage() const;
+	const std::string& getPercentage() const;
 
 	/**
 	 * @return The variant's value
 	*/
-	std::string getVariantValue() const;
+	const std::string& getVariantValue() const;
 
 	/**
 	 * @return The number of times this variant occurs
 	*/
-	std::string getVariantCount() const;
+	const std::string& getVariantCount() const;
 
 	/**
 	 * @brief A list of matches with the variant
 	*/
-	MatchList getVariantMatchList() const;
+	const MatchList& getVariantMatchList() const;
 
 	/**
 	 * @return The oldest match date for this variant's matches
@@ -63,7 +63,7 @@ public:
 	/**
 	 * @return The time/date period for this variant's matches
 	*/
-	std::string getTimePeriod() const;
+	const std::string& getTimePeriod() const;
 
 private:
 

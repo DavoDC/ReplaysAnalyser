@@ -244,7 +244,7 @@ vector<PlayerSpecStatList> ReplaysAnalyser::getPlayerSpecificCharStats(const Mat
 				return StringV{ m.getFighters().getChar(playerName) };
 			},
 			StringV(), playerSpecificCharStatCharCutoff,
-			[](const MatchList& lml, const std::string& lvariant) -> std::vector<Match> {
+			[](const MatchList& lml, const string& lvariant) -> vector<Match> {
 				return lml.getCharMatches(lvariant);
 			});
 	}

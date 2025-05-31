@@ -36,7 +36,7 @@ public:
 	/**
 	 * @return A string representation of this Fighter
 	*/
-	std::string toString();
+	std::string toString() const;
 
 private:
 

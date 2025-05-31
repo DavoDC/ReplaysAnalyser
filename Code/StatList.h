@@ -45,7 +45,7 @@ public:
 	/**
 	 * @return The underlying list
 	*/
-	std::vector<Stat> getStatList();
+	const std::vector<Stat>& getStatList();
 
 
 	/**

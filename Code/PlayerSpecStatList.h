@@ -30,7 +30,7 @@ public:
 	/**
 	 * @return The name of the player to whom these statistics belong to.
 	 */
-	std::string getPlayerName() const;
+	const std::string& getPlayerName() const;
 
 
 	/**
