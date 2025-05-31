@@ -49,49 +49,49 @@ Match::Match(const string& replayPath)
 }
 
 
-int Match::getYear()
+int Match::getYear() const
 {
 	return int(date.getYMD().year());
 }
 
 
-const Date Match::getDate() const
+Date Match::getDate() const
 {
 	return date;
 }
 
 
-bool Match::isOnlineMatch()
+bool Match::isOnlineMatch() const
 {
 	return onlineMatch;
 }
 
 
-string Match::getYearS()
+string Match::getYearS() const
 {
 	return to_string(getYear());
 }
 
 
-string Match::getDateS()
+string Match::getDateS() const
 {
 	return date.toString();
 }
 
 
-string Match::getVersion()
+const string& Match::getVersion() const
 {
 	return version;
 }
 
 
-FighterList Match::getFighters()
+const FighterList& Match::getFighters() const
 {
 	return fighters;
 }
 
 
-string Match::toString()
+string Match::toString() const
 {
 	string result = date.toString();
 	result += ", V:" + version;

@@ -45,7 +45,7 @@ FighterList::FighterList(const string& rawPairS, const string& replayType)
 }
 
 
-StringV FighterList::getPlayers()
+StringV FighterList::getPlayers() const
 {
 	StringV players;
 
@@ -58,7 +58,7 @@ StringV FighterList::getPlayers()
 }
 
 
-StringV FighterList::getChars()
+StringV FighterList::getChars() const
 {
 	StringV characters;
 
@@ -70,7 +70,7 @@ StringV FighterList::getChars()
 	return characters;
 }
 
-std::string FighterList::getChar(const std::string& stdPlayerName)
+string FighterList::getChar(const string& stdPlayerName) const
 {
 	// Locate the fighter with the given player name
 	auto it = std::find_if(fightersV.begin(), fightersV.end(), [&](const Fighter& curF)
@@ -90,7 +90,7 @@ std::string FighterList::getChar(const std::string& stdPlayerName)
 }
 
 
-string FighterList::toString()
+string FighterList::toString() const
 {
 	// Holder
 	string result = "";

@@ -27,42 +27,42 @@ public:
 	/**
 	 * @return The year the match was played as an int
 	*/
-	int getYear();
+	int getYear() const;
 
 	/**
 	 * @return The year the match was played as a string
 	*/
-	std::string getYearS();
+	std::string getYearS() const;
 
 	/**
 	 * @return The date the match was played
 	*/
-	const Date getDate() const;
+	Date getDate() const;
 
 	/**
 	 * @return The date the match was played as a string
 	*/
-	std::string getDateS();
+	std::string getDateS() const;
 
 	/**
 	 * @return True if this was an online match
 	*/
-	bool isOnlineMatch();
+	bool isOnlineMatch() const;
 	
 	/**
 	 * @return The game version this match was played on
 	*/
-	std::string getVersion();
+	const std::string& getVersion() const;
 
 	/**
 	 * @return A list of the Fighter pairs involved in the match
 	*/
-	FighterList getFighters();
+	const FighterList& getFighters() const;
 
 	/**
 	 * @return A string representation of this match
 	*/
-	std::string toString();
+	std::string toString() const;
 
 	/**
 	 * @return True if this match is newer than the one inputted

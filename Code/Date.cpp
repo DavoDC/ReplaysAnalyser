@@ -160,7 +160,7 @@ const string Date::getAbsTimePeriod(const Date& dateIn) const
 }
 
 
-const std::string Date::getFixedDateCountS()
+const string Date::getFixedDateCountS()
 {
 	return to_string(int(fixedDates.size()));
 }
@@ -172,7 +172,7 @@ const void Date::printFixedDates()
 	print("\n# Invalid dates that were fixed (before and after)");
 
 	// Get list of unique date errors
-	std::map<string, int> dateFixMap;
+	map<string, int> dateFixMap;
 	for (StringPair fixedDate : fixedDates)
 	{
 		// Format string pair as string

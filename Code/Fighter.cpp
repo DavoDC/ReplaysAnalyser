@@ -64,7 +64,7 @@ const string Fighter::getChar() const
 }
 
 
-string Fighter::toString()
+string Fighter::toString() const
 {
 	return format("{}({})", getPlayer(), getChar());
 }

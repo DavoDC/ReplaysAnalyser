@@ -99,7 +99,7 @@ const string MatchList::getSizeS() const
 }
 
 
-const vector<Match> MatchList::getMatches() const
+const vector<Match>& MatchList::getMatches() const
 {
 	return matches;
 }

@@ -10,7 +10,7 @@ PlayerSpecStatList::PlayerSpecStatList(): StatList(), playerName(AliasHandler::A
 	// Constructor body (nothing needed here)
 }
 
-PlayerSpecStatList::PlayerSpecStatList(const std::string& playerName,
+PlayerSpecStatList::PlayerSpecStatList(const string& playerName,
 	const MatchList& matchList, const PropExt& propExt, const StringV& ignore, 
 	const double& cutoff, const MatchVExt& matchVExt)
 	: StatList(matchList, propExt, ignore, cutoff, matchVExt) // Delegate to parent
@@ -19,13 +19,13 @@ PlayerSpecStatList::PlayerSpecStatList(const std::string& playerName,
 }  
 
 
-std::string PlayerSpecStatList::getPlayerName() const
+const string& PlayerSpecStatList::getPlayerName() const
 {
 	return playerName;
 }
 
 
-bool PlayerSpecStatList::isPlayer(const std::string& playerNameIn) const
+bool PlayerSpecStatList::isPlayer(const string& playerNameIn) const
 {
 	return equalsIgnoreCase(this->playerName, playerNameIn);
 }

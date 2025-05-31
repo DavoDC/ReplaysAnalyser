@@ -48,24 +48,24 @@ Stat::Stat(const double& percentage, const VCPair& vcPair,
 }
 
 
-string Stat::getPercentage() const
+const string& Stat::getPercentage() const
 {
 	return percentageS;
 }
 
 
-string Stat::getVariantValue() const
+const string& Stat::getVariantValue() const
 {
 	return variantValue;
 }
 
 
-string Stat::getVariantCount() const
+const string& Stat::getVariantCount() const
 {
 	return variantCountS;
 }
 
-MatchList Stat::getVariantMatchList() const
+const MatchList& Stat::getVariantMatchList() const
 {
 	return variantMatchList;
 }
@@ -83,7 +83,7 @@ Date Stat::getNewestDate() const
 }
 
 
-string Stat::getTimePeriod() const
+const string& Stat::getTimePeriod() const
 {
 	return timePeriodS;
 }

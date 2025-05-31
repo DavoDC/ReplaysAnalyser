@@ -68,7 +68,7 @@ public:
 	/**
 	 * @return The underlying match list
 	*/
-	const std::vector<Match> getMatches() const;
+	const std::vector<Match>& getMatches() const;
 
 	/**
 	 * @param The desired year as a string
