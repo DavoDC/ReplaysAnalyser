@@ -50,9 +50,15 @@ public:
 	bool isOnlineMatch() const;
 	
 	/**
-	 * @return The game version this match was played on
+	 * @return The game version this match was played on.
+	 * SSF2 versions follow a four-part versioning format: MAJOR.MINOR.FEATURE.PATCH
 	*/
 	const std::string& getVersion() const;
+
+	/**
+	 * @return The "MAJOR.MINOR" part of the version this match was played on.
+	*/
+	const std::string getMajorMinorV() const;
 
 	/**
 	 * @return A list of the Fighter pairs involved in the match
