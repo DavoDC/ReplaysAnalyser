@@ -1,0 +1,128 @@
+
+####### WELCOME TO REPLAYS ANALYSER #######
+
+Parsing matches in 'C:/Users/David/SSF2Replays'...
+Parsed 5552 matches!
+NOTE: All dates were valid!
+
+### Date Statistics ###
+#   %       Current Date    Fixed    First Date (Time Since)   Last Date (Time Since)    Time Period
+N/A N/A     14/Jun/2025     0        11/Jan/2021 (4y,5m,3d)    14/Jun/2025 (0d)          4y,5m,3d
+
+### Version Statistics ###
+#   %       Version         Matches  First Date (Time Since)   Last Date (Time Since)    Time Period
+1   45.4%   1.3.0.1         2522     11/Jan/2021 (4y,5m,3d)    13/Aug/2021 (3y,10m,2d)   7m,1d
+2   30.5%   1.3.1.2         1697     17/Feb/2022 (3y,3m,27d)   26/Jan/2025 (4m,18d)      2y,11m,10d
+3   20.6%   1.3.1.1         1149     20/Aug/2021 (3y,9m,26d)   14/Feb/2022 (3y,3m,30d)   5m,26d
+4   1.58%   1.4.0.1         88       14/May/2025 (1m,1d)       14/Jun/2025 (0d)          1m,1d
+5   1.44%   1.3.1.0         80       14/Aug/2021 (3y,10m,1d)   19/Aug/2021 (3y,9m,27d)   5d
+6   0.28%   1.4.0.0         16       11/May/2025 (1m,4d)       11/May/2025 (1m,4d)       0d
+
+### Major.Minor Statistics ###
+#   %       Major.Minor     Matches  First Date (Time Since)   Last Date (Time Since)    Time Period
+1   98.1%   1.3             5448     11/Jan/2021 (4y,5m,3d)    26/Jan/2025 (4m,18d)      4y,0m,16d
+2   1.87%   1.4             104      11/May/2025 (1m,4d)       14/Jun/2025 (0d)          1m,4d
+
+### Year Statistics ###
+#   %       Year            Matches  First Date (Time Since)   Last Date (Time Since)    Time Period
+1   65.9%   2021            3659     11/Jan/2021 (4y,5m,3d)    31/Dec/2021 (3y,5m,14d)   11m,20d
+2   21.3%   2022            1186     02/Jan/2022 (3y,5m,12d)   29/Dec/2022 (2y,5m,16d)   11m,27d
+3   6.39%   2023            355      07/Jan/2023 (2y,5m,7d)    26/Dec/2023 (1y,5m,19d)   11m,19d
+4   4.16%   2024            231      01/Jan/2024 (1y,5m,13d)   30/Dec/2024 (5m,14d)      11m,30d
+5   2.17%   2025            121      03/Jan/2025 (5m,10d)      14/Jun/2025 (0d)          5m,10d
+
+### Player Statistics ###
+#   %       Player          Matches  First Date (Time Since)   Last Date (Time Since)    Time Period
+1   15.0%   Jazz            835      11/Jan/2021 (4y,5m,3d)    08/Jun/2025 (6d)          4y,4m,28d
+2   14.3%   Starboy         798      24/May/2021 (4y,0m,22d)   03/Jan/2025 (5m,10d)      3y,7m,12d
+3   9.16%   Pat             509      05/Jun/2021 (4y,0m,10d)   06/Jan/2024 (1y,5m,8d)    2y,7m,2d
+4   7.13%   Xrlylyl         396      11/Jan/2021 (4y,5m,3d)    11/May/2025 (1m,4d)       4y,3m,30d
+5   6.86%   Victor          381      11/Jan/2021 (4y,5m,3d)    08/Jun/2025 (6d)          4y,4m,28d
+6   4.14%   Spi             230      14/Jun/2021 (4y,0m,1d)    08/Jun/2025 (6d)          3y,11m,26d
+7   3.69%   JSG             205      19/Jan/2021 (4y,4m,26d)   08/Jun/2025 (6d)          4y,4m,20d
+8   3.67%   Killergo        204      08/Apr/2021 (4y,2m,8d)    24/Mar/2022 (3y,2m,23d)   11m,16d
+9   3.24%   Jake            180      08/Mar/2021 (4y,3m,8d)    16/Jul/2022 (2y,10m,30d)  1y,4m,9d
+10  2.82%   Cody            157      21/Jan/2021 (4y,4m,24d)   16/May/2025 (29d)         4y,3m,25d
+11  2.73%   May             152      27/Feb/2022 (3y,3m,17d)   10/Jan/2025 (5m,3d)       2y,10m,14d
+12  2.16%   Lokimazin       120      14/Apr/2021 (4y,2m,2d)    17/Aug/2021 (3y,9m,29d)   4m,4d
+13  2.08%   Epi             116      18/Jan/2021 (4y,4m,27d)   26/Nov/2022 (2y,6m,19d)   1y,10m,8d
+14  2.07%   Egg             115      13/Apr/2021 (4y,2m,3d)    16/Apr/2024 (1y,1m,29d)   3y,0m,4d
+15  1.81%   FakeNews        101      27/May/2021 (4y,0m,19d)   01/Apr/2024 (1y,2m,14d)   2y,10m,6d
+16  1.76%   Azzie           98       29/Nov/2021 (3y,6m,16d)   14/May/2025 (1m,1d)       3y,5m,15d
+17  1.62%   Brubble         90       31/Jan/2021 (4y,4m,14d)   09/May/2022 (3y,1m,7d)    1y,3m,7d
+18  1.33%   Xorop           74       25/Jan/2021 (4y,4m,20d)   19/May/2025 (26d)         4y,3m,24d
+19  1.29%   Pac-Main99      72       30/Mar/2021 (4y,2m,17d)   05/Sep/2021 (3y,9m,10d)   5m,7d
+20  1.20%   Skidren         67       23/Jan/2021 (4y,4m,22d)   14/May/2024 (1y,1m,1d)    3y,3m,21d
+21  1.02%   Lost            57       15/Mar/2021 (4y,3m,1d)    14/Jun/2025 (0d)          4y,3m,1d
+22  1.00%   Hexxa           56       06/May/2021 (4y,1m,10d)   24/Jun/2023 (1y,11m,22d)  2y,1m,19d
+23  0.61%   Flint           34       19/Aug/2023 (1y,9m,27d)   14/Oct/2024 (7m,30d)      1y,1m,27d
+24  0.57%   Vink            32       10/Dec/2021 (3y,6m,5d)    23/Jan/2024 (1y,4m,22d)   2y,1m,14d
+25  0.54%   Reichardt       30       15/Aug/2021 (3y,9m,31d)   15/Jul/2022 (2y,11m,1d)   10m,30d
+
+### Character Statistics ###
+#   %       Character       Matches  First Date (Time Since)   Last Date (Time Since)    Time Period
+1   66.7%   Wario           3706     11/Jan/2021 (4y,5m,3d)    14/Jun/2025 (0d)          4y,5m,3d
+2   33.8%   MegaMan         1877     11/Jan/2021 (4y,5m,3d)    14/Jun/2025 (0d)          4y,5m,3d
+3   10.8%   Sonic           601      11/Jan/2021 (4y,5m,3d)    08/Jun/2025 (6d)          4y,4m,28d
+4   8.93%   Naruto          496      11/Jan/2021 (4y,5m,3d)    08/Jun/2025 (6d)          4y,4m,28d
+5   7.18%   Link            399      18/Jan/2021 (4y,4m,27d)   19/May/2025 (26d)         4y,4m,1d
+6   6.68%   Ganondorf       371      11/Jan/2021 (4y,5m,3d)    19/May/2025 (26d)         4y,4m,8d
+7   6.19%   Goku            344      11/Jan/2021 (4y,5m,3d)    31/May/2025 (14d)         4y,4m,20d
+8   5.25%   CaptainFalcon   292      11/Jan/2021 (4y,5m,3d)    16/May/2025 (29d)         4y,4m,5d
+9   5.07%   Jigglypuff      282      11/Jan/2021 (4y,5m,3d)    30/May/2025 (15d)         4y,4m,19d
+10  4.62%   Marth           257      12/Jan/2021 (4y,5m,2d)    16/May/2025 (29d)         4y,4m,4d
+11  4.55%   Sora            253      11/Jan/2021 (4y,5m,3d)    14/Jun/2025 (0d)          4y,5m,3d
+12  4.44%   Ichigo          247      17/Jan/2021 (4y,4m,28d)   19/May/2025 (26d)         4y,4m,2d
+13  3.38%   Fox             188      11/Jan/2021 (4y,5m,3d)    08/Jun/2025 (6d)          4y,4m,28d
+14  3.36%   Bowser          187      12/Jan/2021 (4y,5m,2d)    08/Jun/2025 (6d)          4y,4m,27d
+15  3.00%   Mario           167      11/Jan/2021 (4y,5m,3d)    30/May/2025 (15d)         4y,4m,19d
+16  2.97%   Lloyd           165      19/Jan/2021 (4y,4m,26d)   16/May/2025 (29d)         4y,3m,27d
+17  2.28%   Waluigi         127      11/Jan/2021 (4y,5m,3d)    16/May/2025 (29d)         4y,4m,5d
+18  2.14%   ZeroSuitSamus   119      19/Jan/2021 (4y,4m,26d)   14/Jun/2025 (0d)          4y,4m,26d
+19  2.05%   DonkeyKong      114      11/Jan/2021 (4y,5m,3d)    16/May/2025 (29d)         4y,4m,5d
+20  1.99%   Falco           111      11/Jan/2021 (4y,5m,3d)    19/May/2025 (26d)         4y,4m,8d
+21  1.98%   Sheik           110      12/Jan/2021 (4y,5m,2d)    14/Jun/2025 (0d)          4y,5m,2d
+22  1.83%   Pikachu         102      13/Jan/2021 (4y,5m,1d)    14/Jun/2025 (0d)          4y,5m,1d
+23  1.78%   Ryu             99       11/Jan/2021 (4y,5m,3d)    08/Jun/2025 (6d)          4y,4m,28d
+24  1.58%   Chibi-Robo      88       18/Jan/2021 (4y,4m,27d)   15/May/2025 (30d)         4y,3m,27d
+25  1.58%   Pit             88       11/Jan/2021 (4y,5m,3d)    15/Jun/2024 (11m,30d)     3y,5m,4d
+26  1.58%   Lucario         88       21/Jan/2021 (4y,4m,24d)   28/May/2025 (17d)         4y,4m,7d
+27  1.56%   Isaac           87       18/Jan/2021 (4y,4m,27d)   16/May/2025 (29d)         4y,3m,28d
+28  1.51%   PAC-MAN         84       11/Jan/2021 (4y,5m,3d)    15/May/2025 (30d)         4y,4m,4d
+29  1.49%   Peach           83       19/Jan/2021 (4y,4m,26d)   24/Dec/2024 (5m,20d)      3y,11m,6d
+30  1.45%   Tails           81       11/Jan/2021 (4y,5m,3d)    19/May/2025 (26d)         4y,4m,8d
+
+### Player-Specific Character Statistics ###
+#   Player        Char1 (%)               Char2 (%)               Char3 (%)
+1   davo          Wario (64.6%)           MegaMan (32.6%)         Pit (1.02%)
+2   Jazz          Sonic (52.9%)           Naruto (6.97%)          Bowser (3.12%)
+3   Starboy       Naruto (37.9%)          Goku (31.3%)            Ichigo (4.38%)
+4   Pat           Link (42.4%)            Ganondorf (16.6%)       CaptainFalcon (6.87%)
+5   Xrlylyl       Jigglypuff (43.9%)      Fox (6.06%)             Ganondorf (5.55%)
+6   Victor        Link (19.1%)            Sheik (6.29%)           Isaac (3.93%)
+7   Spi           Sora (14.3%)            Fox (13.0%)             Marth (8.26%)
+8   JSG           Ichigo (17.0%)          Sora (15.1%)            Bowser (5.85%)
+9   Killergo      Ganondorf (17.6%)       CaptainFalcon (11.2%)   Waluigi (9.80%)
+10  Jake          BlackMage (12.7%)       Bowser (8.88%)          Lloyd (7.22%)
+11  Cody          Ganondorf (20.3%)       Sora (12.1%)            Link (7.64%)
+12  May           Marth (25.6%)           Ichigo (24.3%)          Jigglypuff (7.89%)
+13  Lokimazin     Lloyd (49.1%)           Sonic (12.5%)           Luigi (8.33%)
+14  Epi           Chibi-Robo (25.0%)      Bowser (9.48%)          Jigglypuff (7.75%)
+15  Egg           Mario (46.0%)           Lloyd (27.8%)           Ganondorf (6.08%)
+16  FakeNews      Marth (17.8%)           Peach (14.8%)           Falco (8.91%)
+17  Azzie         Bowser (23.4%)          Lloyd (16.3%)           Sonic (10.2%)
+18  Brubble       ZeroSuitSamus (43.3%)   Peach (41.1%)           CaptainFalcon (8.88%)
+19  Xorop         Chibi-Robo (16.2%)      Ichigo (14.8%)          Bowser (10.8%)
+20  Pac-Main99    Lucario (18.0%)         PAC-MAN (13.8%)         Pikachu (13.8%)
+21  Skidren       Isaac (73.1%)           Sheik (22.3%)           Lucario (4.47%)
+22  Lost          Marth (19.2%)           Ichigo (14.0%)          BandanaDee (12.2%)
+23  Hexxa         Sora (51.7%)            Naruto (16.0%)          BlackMage (8.92%)
+24  Flint         Naruto (29.4%)          Kirby (20.5%)           Link (8.82%)
+25  Vink          Link (87.5%)            Ryu (3.12%)             Sheik (3.12%)
+26  Reichardt     Lucario (36.6%)         Fox (20.0%)             Marth (13.3%)
+
+Time taken: 0.378 seconds
+
+
+C:\Users\David\GitHubRepos\ReplaysAnalyser\Project\x64\Release\ReplaysAnalyser.exe (process 1528) exited with code 0 (0x0).
+Press any key to close this window . . .

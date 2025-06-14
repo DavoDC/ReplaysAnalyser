@@ -21,3 +21,5 @@ I use this program to analyse my autosaved replays, which can be found here: [SS
     - Date of first match (and timed passed since).
     - Date of last match (and timed passed since).
     - Time period in-between.
+- Player-specific character statistics.
+    - Top three characters for top players.
