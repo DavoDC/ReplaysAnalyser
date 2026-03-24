@@ -37,4 +37,4 @@ I use this program to analyse my autosaved replays, which can be found here: [SS
 
 ## Development
 
-**Started:** March 2023 · **Last updated:** June 2025
+**Developed:** March 2023
