@@ -1,4 +1,5 @@
 # Replays Analyser
+
 A C++ console program to analyse [Super Smash Flash 2](https://mcleodgaming.fandom.com/wiki/Super_Smash_Flash_2) (SSF2) replays statistically.
 
 I use this program to analyse my autosaved replays, which can be found here: [SSF2 Replays](https://github.com/DavoDC/SSF2Replays).
@@ -23,3 +24,13 @@ I use this program to analyse my autosaved replays, which can be found here: [SS
     - Time period in-between.
 - Player-specific character statistics.
     - Top three characters for top players.
+
+## Tech
+
+- **Language:** C++
+- **IDE:** Visual Studio (Windows only)
+- Reads replay filenames only - no binary parsing required
+
+## Development
+
+**Started:** March 2023 · **Last updated:** June 2025
