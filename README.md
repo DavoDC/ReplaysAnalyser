@@ -8,12 +8,20 @@ A C++ console program to analyse [Super Smash Flash 2](https://mcleodgaming.fand
 
 I use this program to analyse my autosaved replays, which can be found here: [SSF2 Replays](https://github.com/DavoDC/SSF2Replays).
 
+## Build & Run
+
+> **Windows only.** Requires Visual Studio with C++ workload.
+
+1. Open `Project/ReplaysAnalyser.sln` in Visual Studio
+2. Build with **Ctrl+Shift+B**
+3. Run with **F5** - the program auto-detects your SSF2 replay folder
+
 ### Features
 
 #### General
 - Reads <ins>replay file names</ins> *only* (doesn't parse replay file content!).
 - Automatically determines default replay path.
-- Currently exclusive to C++ developers (runs through Visual Studio).
+- Windows only (runs through Visual Studio).
 
 #### Statistics Provided
 - Total number of matches.
